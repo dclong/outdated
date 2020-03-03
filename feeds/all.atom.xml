@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ben Chuanlong Du's Blog</title><link href="http://www.legendu.net/outdated/" rel="alternate"></link><link href="http://www.legendu.net/outdated/feeds/all.atom.xml" rel="self"></link><id>http://www.legendu.net/outdated/</id><updated>2013-10-20T00:00:00-07:00</updated><subtitle>Change is eternal.</subtitle><entry><title>Some Links for R</title><link href="http://www.legendu.net/outdated/blog/r-links/" rel="alternate"></link><published>2013-10-20T00:00:00-07:00</published><updated>2013-10-20T00:00:00-07:00</updated><author><name>Ben Chuanlong Du</name></author><id>tag:www.legendu.net,2013-10-20:/outdated/blog/r-links/</id><summary type="html">&lt;p&gt;&lt;strong&gt;
+Things on this page are fragmentary and immature notes/thoughts of the author. 
+It is not meant to readers but rather for convenient reference of the author and future improvement.
+&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://statisticsr.blogspot.com/"&gt;Experience with R&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://cran.r-project.org/web/views/"&gt;CRAN Task Views&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.statmethods.net/index.html"&gt;Quick R&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.rdatamining.com/"&gt;RDataMining&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.talkstats.com/forumdisplay.php/14-R"&gt;Talk Stats&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/rbresearch"&gt;rbresearch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://dirk.eddelbuettel.com/code/rcpp.html"&gt;Rcpp Homepage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://dirk.eddelbuettel.com/code/rcpp/html/index.html"&gt;Rcpp Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/hadley/devtools/wiki/Rcpp"&gt;Rcpp Hadley&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/rbresearch/LearningRcpp"&gt;LearningRcpp&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;
+Things on this page are fragmentary and immature notes/thoughts of the author. 
+It is not meant to readers but rather for convenient reference of the author and future improvement.
+&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://statisticsr.blogspot.com/"&gt;Experience with R&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://cran.r-project.org/web/views/"&gt;CRAN Task Views&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.statmethods.net/index.html"&gt;Quick R&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.rdatamining.com/"&gt;RDataMining&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.talkstats.com/forumdisplay.php/14-R"&gt;Talk Stats&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/rbresearch"&gt;rbresearch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://dirk.eddelbuettel.com/code/rcpp.html"&gt;Rcpp Homepage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://dirk.eddelbuettel.com/code/rcpp/html/index.html"&gt;Rcpp Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/hadley/devtools/wiki/Rcpp"&gt;Rcpp Hadley&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/rbresearch/LearningRcpp"&gt;LearningRcpp&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="links"></category><category term="programming"></category><category term="R"></category><category term="CRAN"></category></entry></feed>
