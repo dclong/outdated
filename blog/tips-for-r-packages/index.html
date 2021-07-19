@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="http://www.legendu.net/outdated/theme/css/elegant.prod.9e9d5ce754.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://www.legendu.net/outdated/theme/css/custom.css" media="screen">
+
+        <link rel="dns-prefetch" href="//fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+
+        <meta name="author" content="Ben Chuanlong Du" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="programming, repository, package, OmegaHat, CRAN, R, Bioconductor, biocLite, Programming, " />
+
+<meta property="og:title" content="Tips for R Packages "/>
+<meta property="og:url" content="http://www.legendu.net/outdated/blog/tips-for-r-packages/" />
+<meta property="og:description" content="Things on this page are fragmentary and immature notes/thoughts of the author. It is not meant to readers but rather for convenient reference of the author and future improvement. Popular Repositories for R Packages CRAN Task Views CRAN OmegaHat install.packages(&#34;SVGAnnotation&#34;, repos = &#34;http://www.omegahat.org/R&#34;) Bioconductor …" />
+<meta property="og:site_name" content="Ben Chuanlong Du&#39;s Blog" />
+<meta property="og:article:author" content="Ben Chuanlong Du" />
+<meta property="og:article:published_time" content="2012-11-23T22:30:01-08:00" />
+<meta property="og:article:modified_time" content="2016-10-23T22:30:01-07:00" />
+<meta name="twitter:title" content="Tips for R Packages ">
+<meta name="twitter:description" content="Things on this page are fragmentary and immature notes/thoughts of the author. It is not meant to readers but rather for convenient reference of the author and future improvement. Popular Repositories for R Packages CRAN Task Views CRAN OmegaHat install.packages(&#34;SVGAnnotation&#34;, repos = &#34;http://www.omegahat.org/R&#34;) Bioconductor …">
+
+        <title>Tips for R Packages  · Ben Chuanlong Du&#39;s Blog
+</title>
+        <link href="http://www.legendu.net/outdated/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Ben Chuanlong Du&#39;s Blog - Full Atom Feed" />
+        <link href="http://www.legendu.net/outdated/atom.xml" type="application/atom+xml" rel="alternate" title="Ben Chuanlong Du&#39;s Blog - Atom Feed" />
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-30259661-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+    </head>
+    <body>
+        <div id="content">
+            <div class="navbar navbar-static-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="http://www.legendu.net/"><span class=site-name>Ben Chuanlong Du's Blog</span></a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav pull-right top-menu">
+                                <li >
+                                    <a href=
+                                       http://www.legendu.net/outdated
+                                    >Home</a>
+                                </li>
+                                <li ><a href="http://www.legendu.net/outdated/categories.html">Categories</a></li>
+                                <li ><a href="http://www.legendu.net/outdated/tags.html">Tags</a></li>
+                                <li ><a href="http://www.legendu.net/outdated/archives.html">Archives</a></li>
+                                <li><form class="navbar-search" action="http://www.legendu.net/outdated/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span1"></div>
+                    <div class="span10">
+<article itemscope>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+        <h1>
+            <a href="http://www.legendu.net/outdated/blog/tips-for-r-packages/">
+                Tips for R Packages
+            </a>
+        </h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+            
+            <p><strong>
+Things on this page are fragmentary and immature notes/thoughts of the author. 
+It is not meant to readers but rather for convenient reference of the author and future improvement.
+</strong></p>
+<p><img src="http://dclong.github.io/media/r/r.png" height="200" width="240" align="right"/></p>
+<p>Popular Repositories for R Packages</p>
+<p><a href="http://cran.r-project.org/web/views/">CRAN Task Views</a></p>
+<ol>
+<li>
+<p>CRAN</p>
+</li>
+<li>
+<p>OmegaHat</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;SVGAnnotation&quot;</span><span class="p">,</span> <span class="n">repos</span> <span class="o">=</span> <span class="s">&quot;http://www.omegahat.org/R&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<ol>
+<li>Bioconductor </li>
+</ol>
+<p>If the R package <code>BiocInstaller</code> 
+(produced by Bioconductor to facilitate installing other packages on Bioconductor) 
+has been installed, 
+you can use the following code to install a package named <code>pkgname</code> on Bioconductor.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#load package BiocInstaller</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">BiocInstaller</span><span class="p">)</span>
+<span class="c1">#install package </span>
+<span class="nf">biocLite</span><span class="p">(</span><span class="s">&#39;pkgname&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>If the R package <code>BiocInstaller</code> has not been installed yet, 
+you can use the following command to install it.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">source</span><span class="p">(</span><span class="s">&quot;http://bioconductor.org/biocLite.R&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>It will be automatically loaded after installation. 
+Note that you do not have to install package <code>BiocInstaller</code> again next time when
+you want to install other packages on Bioconductor. 
+All you need is just to load it and use the <code>biocLite</code> to install packages (see code shown before).</p>
+<div class="highlight"><pre><span></span><code><span class="nf">biocLite</span><span class="p">(</span><span class="s">&quot;limma&quot;</span><span class="p">)</span>
+<span class="nf">biocLite</span><span class="p">(</span><span class="s">&quot;arrayQualityMetrics&quot;</span><span class="p">)</span>
+<span class="nf">biocLite</span><span class="p">(</span><span class="s">&quot;GO.db&quot;</span><span class="p">)</span>
+<span class="nf">install.packages</span><span class="p">(</span><span class="s">&#39;QuasiSeq&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<ol>
+<li>
+<p>functions for BioConductor objects, sometimes, it doesn't work, 
+because you haven't load the package yet. This is misleading ....</p>
+</li>
+<li>
+<p>Upgrade Bioconductor packages.</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="nf">biocLite</span><span class="p">(</span><span class="s">&quot;Upgradable&quot;</span><span class="p">)</span> 
+</code></pre></div>
+
+<ol>
+<li>If you use R on a Linux server which you do not have root access, 
+you have to create your own r library to install packages into. 
+You can use any directory which you have read and write access as your own R library. 
+For example, 
+you can create a directory named <code>.r-lib</code> in your own home directory 
+and to make R attach your library to the beginning of the search path automatically 
+(so that you do not have to specify library path or to use <code>.libPaths</code> to attach it manually), 
+you can put file named <code>.Renviron</code> in your home directory with the following content.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">R_LIBS</span><span class="o">=</span><span class="s">&quot;/home/username/r-lib-PATH&quot;</span>
+</code></pre></div>
+
+<p>where <code>username</code> is your user name and <code>r-lib-path</code> is your personal R library. 
+It is suggested that you create a personal R library even if you use R on your own Linux machine. 
+So the above tips also apply if you run R on your own machine with Linux operating system.</p>
+<ol>
+<li>
+<p><code>library</code> load a package into R workspace. 
+If the package to be load is not in the search path, 
+you can specify its path by the option <code>lib.loc</code>.</p>
+</li>
+<li>
+<p>The <code>.libPaths</code> function gets/sets the library trees within which packages are looked for. 
+For example, 
+to add a library path to into the library trees, 
+you can use <code>.libPaths(c(.libPaths(), yourNewPath))</code>. 
+The library paths in the library trees are searched in order.</p>
+</li>
+<li>
+<p>If you know the name of the R package that you want to install, 
+then you can use <code>install.packages</code> to install the package for you. 
+For example if you want to install R <code>xlsx</code>, 
+you can use <code>install.packages("xlsx")</code>. 
+You can also install a package from local disk use <code>install.packages</code> 
+by specifying the option <code>repos=FALSE</code> or <code>repos=NULL</code>. 
+For example, 
+if file <code>dclong.String_1.0-1.zip</code> is a package in the working directory of R, 
+you can install it using the following command.
+This is no longer required in the latest version of R.</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;dclong.String_1.0-1.zip&quot;</span><span class="p">,</span> <span class="n">repos</span><span class="o">=</span><span class="bp">F</span><span class="p">)</span>
+</code></pre></div>
+
+<ol>
+<li>
+<p>To get all objects whose name do not start with a dot 
+(Usually objects start with dots are not intended to be used by users.) 
+in a package you can use <code>ls(pos="package:pkgname")</code>. 
+If you want to see all objects in a package including these objects starting with a dot, 
+you can use <code>ls(pos="package:pkgname", all.names=T)</code>.</p>
+</li>
+<li>
+<p>To get the the home package of a package, 
+you can use <code>.find.package</code>. 
+For example, 
+to get the home folder of <code>dclong.EasySave</code>, 
+you can use <code>.find.package("dclong.EasySave")</code>.
+Another more powerful way is to use <code>system.file</code>, 
+which allows you both directories and files in a package. 
+For example, to find the home directory of <code>dclong.EasySave</code>, 
+you can use <code>system.file(package = 'animation')</code>. 
+Instead of finding the home directory, 
+you might want to know the path of folder <code>history</code> in <code>dclong.EasySave</code>. 
+This can be done simply by using
+<code>system.file('history',package='dclong.EasySave')</code>.</p>
+</li>
+<li>
+<p>There are huge number of different packages in R and some of them are design for the same purpose, 
+so it is inevitable that some functions in different packages have the same name. 
+You should very careful when you are using these function. 
+It is important to know what packages are load when R is started. 
+To avoid confusion, 
+we can always add package prefix to the functions that we want to use. 
+For example, 
+instead of using function <code>dir</code> in <code>base</code> package, 
+we can use <code>base::dir</code> if there is another loaded package having function <code>dir</code>.</p>
+</li>
+<li>
+<p>You can use functions in a package by its full name 
+(i.e. pkgname::funName) even if the package is not loaded. 
+For example, 
+you can <code>symbolToString</code> in <code>dclong.String</code> 
+by its full name <code>dclong.String::symbolToString</code> even if <code>dclong.String</code> is not loaded.</p>
+</li>
+<li>
+<p>When you write a package, 
+you might want to link some function in other packages. 
+To do so, you can use</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code>\<span class="n">code</span><span class="p">{</span>\<span class="n">link</span><span class="p">[</span><span class="n">PkgName</span><span class="p">]{</span><span class="n">FunName</span><span class="p">}}</span>
+</code></pre></div>
+
+<ol>
+<li>
+<p>To load a package, 
+you can use either <code>library</code> or <code>require</code>, 
+and you do not have to pass the name of the package as character 
+(i.e. you do not have to put the name of the package into two double/single quotation marks. 
+Surely it works if you pass the name of the package as character.).
+The difference between <code>library</code> and <code>require</code> is that <code>library</code> returns all loaded packages 
+while <code>require</code> return a boolean value indicate whether the loading succeed or not. 
+If you want to unload a package <code>pkgName</code> from the workspace, 
+you can use command <code>detach(package="pkgName")</code>.</p>
+</li>
+<li>
+<p>Package <code>MASS</code> has many useful functions such as <code>ginv</code> 
+and <code>mvrnorm</code> which can be used to generate multivariate normal random variables.</p>
+</li>
+<li>
+<p>Package <code>Mvtnorm</code> has functions which can generate multivariate t random variables 
+and multivariate normal random variables.</p>
+</li>
+<li>
+<p>Package <code>LearnBayes</code> and <code>coda</code> are very useful for Bayes. 
+And there are many statistics distributions defined in this package <code>LearnBayes</code>.</p>
+</li>
+<li>
+<p>Package <code>xtable</code> is useful for outputting objects in R in special format, 
+e.g. html or latex.</p>
+</li>
+<li>
+<p><code>tensor</code> in package <code>tensor</code> can calculate tensor product of arrays.</p>
+</li>
+<li>
+<p>Package <code>Rweka</code> supplies an R interface to Weka which is famous for machine learning.</p>
+</li>
+<li>
+<p>genalg R based genetic algorithm for binary and floating point chromosomes.</p>
+</li>
+<li>
+<p>Package <code>e1071</code> : support vector maching</p>
+</li>
+<li>
+<p>There are many useful functions in <code>utils</code>. 
+If you do not know whether there is a function in R which can do your job, 
+you can first check functions in <code>utils</code>. 
+To see all functions in <code>utils</code>, 
+you can use <code>ls(package:utils)</code>.</p>
+</li>
+<li>
+<p>For a package with a namespace, 
+these objected not exported cannot be accessed directly by users. 
+This is somehow similar to the concept of class in Java. 
+Private methods and instances variables of class cannot be accessed by users directly. 
+So you can use non-exported functions 
+(similar to private/helper methods in Java)
+and non-exported variables (similar to private instances in Java) to help make coding easy.</p>
+</li>
+</ol>
+<h2 id="bioconductor">Bioconductor</h2>
+<ol>
+<li>
+<p>Bioconductor is a free, open source and open development
+software project for the analysis and comprehension of genomic
+data generated by wet lab experiments in molecular biology.</p>
+</li>
+<li>
+<p><code>limma</code> is a famous package among these packages in Bioconductor
+project. It performs linear model analysis for microarray data.
+But be careful that currently (version 2.8 or earlier) doesn't
+support mixed linear model, i.e. the covariance structure of the
+linear model must be <span class="math">\(\sigma^2 I_n\)</span> if you want to use <code>limma</code>
+to do analysis on microarray data.</p>
+</li>
+<li>
+<p><code>q.jabes</code> of Nettleton's code is based on the method that
+Nettleton published in JABES (2006). It is optim... bh.. is
+relatively conservative. Benjamini H..</p>
+</li>
+<li>
+<p>Important Packages and Functions in R</p>
+</li>
+</ol>
+<p>(1) About Optimization<br>
+Since we often use maximum likelihood method to solve problems,
+we have to do optimization very often. There are some functions
+in R which can help us:</p>
+<p>(i) <code>optimize/optimise{stats}</code></p>
+<ul>
+<li>
+<p>used for 1-dimensional optimization only.</p>
+</li>
+<li>
+<p>a interval where the maximum/minimum is expected should
+    be specified.</p>
+</li>
+</ul>
+<p>(ii) <code>optim{stats}</code></p>
+<ul>
+<li>
+<p>can be applied to multiply dimensions.</p>
+</li>
+<li>
+<p>includes many advanced algorithms.</p>
+</li>
+<li>
+<p>initial values of the parameters are needed.</p>
+</li>
+<li>
+<p>a hessian matrix can be returned if needed.</p>
+</li>
+</ul>
+<p>(iii) <code>nlm{stats}</code></p>
+<ul>
+<li>
+<p>can be applied to multiply dimensions.</p>
+</li>
+<li>
+<p>uses Newton-type algorithm, which means that smoothness is required.</p>
+</li>
+<li>
+<p>initial values of the parameters are needed.</p>
+</li>
+</ul>
+<p>(iv) <code>constrOptim{stats}</code>
+This function is similar to the function <code>optim</code> except that it can handles linear constraints on parameters. 
+Actually this function add a logarithmic barrier and calls function <code>optim</code>. 
+So it has the following features:</p>
+<ul>
+<li>
+<p>can be applied to multiply dimensions.</p>
+</li>
+<li>
+<p>can do optimization with linear constraints.</p>
+</li>
+<li>
+<p>uses an adaptive barrier algorithm.</p>
+</li>
+<li>
+<p>similar output as function <code>optim</code>.</p>
+</li>
+</ul>
+<p>(v) <code>nlminb{stats}</code>
+This function can do both unconstrained and constrained optimizations using PORT routines.</p>
+<p>Comment: generally speaking, I think function <code>optim</code> in R is
+more useful for statisticians. However, for 1-dimensional
+optimization problem, function <code>optimize/optimise</code> is
+recommended because it is written specially for 1-dimensional
+problems and thus can give us more precise results. For
+constrained optimizations, function <code>constrOptim</code> and <code>nlminb</code>
+are recommended.</p>
+<p>(2) About Linear Models</p>
+<p>(i) <code>lm{stats}</code></p>
+<ul>
+<li>
+<p>fits linear models including linear regression and
+    analysis of variance.</p>
+</li>
+<li>
+<p>can also fits general linear models for given
+    transformations.</p>
+</li>
+<li>
+<p>returns an object of class <code>lm</code> or for multiple
+    responses of class c(<code>mlm</code>,<code>lm</code>).</p>
+</li>
+</ul>
+<p>(ii) <code>nls{stats}</code></p>
+<ul>
+<li>
+<p>fits non-linear models.</p>
+</li>
+<li>
+<p>returns an object of class <code>nls</code>.</p>
+</li>
+</ul>
+<p>(iii) <code>lme{nlme}</code></p>
+<ul>
+<li>
+<p>fits linear mix-effect models.</p>
+</li>
+<li>
+<p>returns an object of class <code>lme</code>.</p>
+</li>
+<li>
+<p>can fit unequal variance model, use option 
+    {weights=varIdent(...)`</p>
+</li>
+</ul>
+<p>(iv) <code>lmer{lme4}</code></p>
+<ul>
+<li>
+<p>fits linear mix-effect models.</p>
+</li>
+<li>
+<p>returns an object of class <code>mer</code>.</p>
+</li>
+</ul>
+<p>(v) <code>gls{nlme}</code></p>
+<ul>
+<li>
+<p>fits linear models using generalized least squares.</p>
+</li>
+<li>
+<p>returns an object of class <code>gls</code>.</p>
+</li>
+</ul>
+<p>(vi) <code>glm{stats}</code></p>
+<ul>
+<li>
+<p>fits generalized linear models.</p>
+</li>
+<li>
+<p>returns an object of class inheriting from <code>glm</code> which
+    inherits from class <code>lm</code>.</p>
+</li>
+</ul>
+<p>(vii) <code>aov{stats}</code></p>
+<p>(viii)  <code>anova{stats}</code></p>
+<p>(ixiv)  Other Miscellaneous Functions</p>
+<h2 id="unit-test">Unit Test</h2>
+<ol>
+<li>testthat</li>
+</ol>
+<h2 id="visualization">Visualization</h2>
+<ol>
+<li>
+<p>ggplot2</p>
+</li>
+<li>
+<p>tableplot</p>
+</li>
+<li>
+<p>rgl (3-D plot using OpenGL)</p>
+</li>
+<li>
+<p>When you install a package, 
+you might get a dependency error or error 
+which says that a package does not exists (for your version of R). 
+This typicially means that the R you installed is too old to use the package. 
+Upgrade your R to the new version can usually solve the problem. 
+Get clear about this problem ... </p>
+</li>
+<li>
+<p>options(repos = c(CRAN = "http://cran.rstudio.com"))</p>
+</li>
+</ol>
+<p><a href="https://github.com/metacran">Tools for Better Cran Experience</a></p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js','color.js','mhchem.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+
+
+             
+ 
+            
+            
+            
+
+
+
+
+
+
+
+<section>
+    <h6 style="display:none;">Comments</h6>
+    <p id="comment-message"> </p>
+
+    <div class="accordion" id="accordion2">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <a class="accordion-toggle disqus-comment-count comment-count collapsed"
+                   data-toggle="collapse"
+                   data-parent="#accordion2"
+                   data-disqus-identifier="http://www.legendu.net/outdated/blog/tips-for-r-packages/"
+                   href="http://www.legendu.net/outdated/blog/tips-for-r-packages/#comment_thread"
+                   id="comment-accordion-toggle">
+                    Comments
+                </a>
+            </div>
+            <div id="comment_thread" class="accordion-body collapse">
+                <div class="accordion-inner">
+                    <div class="comments">
+                        <div id="disqus_thread"></div>
+                        <script>
+    var disqus_shortname = 'dclong';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+
+    var disqus_identifier = 'http://www.legendu.net/outdated/blog/tips-for-r-packages/';
+    var disqus_url = 'http://www.legendu.net/outdated/blog/tips-for-r-packages/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+            <hr/>
+        </div>
+        <section id="article-sidebar" class="span2">
+            <h4>Published</h4>
+            <time itemprop="dateCreated" datetime="2012-11-23T22:30:01-08:00">Nov 23, 2012</time>
+<h4>Last Updated</h4>
+<time datetime="2016-10-23T22:30:01-07:00">Oct 23, 2016</time>
+
+            <h4>Category</h4>
+            <a class="category-link" href="http://www.legendu.net/outdated/categories.html#programming-ref">Programming</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="http://www.legendu.net/outdated/tags.html#bioclite-ref">biocLite
+                    <span class="superscript">1</span>
+</a></li>
+                <li><a href="http://www.legendu.net/outdated/tags.html#bioconductor-ref">Bioconductor
+                    <span class="superscript">2</span>
+</a></li>
+                <li><a href="http://www.legendu.net/outdated/tags.html#cran-ref">CRAN
+                    <span class="superscript">46</span>
+</a></li>
+                <li><a href="http://www.legendu.net/outdated/tags.html#omegahat-ref">OmegaHat
+                    <span class="superscript">1</span>
+</a></li>
+                <li><a href="http://www.legendu.net/outdated/tags.html#package-ref">package
+                    <span class="superscript">8</span>
+</a></li>
+                <li><a href="http://www.legendu.net/outdated/tags.html#programming-ref">programming
+                    <span class="superscript">132</span>
+</a></li>
+                <li><a href="http://www.legendu.net/outdated/tags.html#r-ref">R
+                    <span class="superscript">50</span>
+</a></li>
+                <li><a href="http://www.legendu.net/outdated/tags.html#repository-ref">repository
+                    <span class="superscript">1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+<div id="sidebar-social-link">
+    <a href="https://www.linkedin.com/in/ben-chuanlong-du-1239b221/" title="" target="_blank" rel="nofollow noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="LinkedIn" role="img" viewBox="0 0 512 512" fill="#fff"><rect width="512" height="512" rx="15%" fill="#0077b5"/><circle cx="142" cy="138" r="37"/><path stroke="#fff" stroke-width="66" d="M244 194v198M142 194v198"/><path d="M276 282c0-20 13-40 36-40 24 0 33 18 33 45v105h66V279c0-61-32-89-76-89-34 0-51 19-59 32"/></svg>
+    </a>
+    <a href="https://twitter.com/longendu" title="" target="_blank" rel="nofollow noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="Twitter" role="img" viewBox="0 0 512 512"><rect width="512" height="512" rx="15%" fill="#1da1f3"/><path fill="#fff" d="M437 152a72 72 0 0 1-40 12 72 72 0 0 0 32-40 72 72 0 0 1-45 17 72 72 0 0 0-122 65 200 200 0 0 1-145-74 72 72 0 0 0 22 94 72 72 0 0 1-32-7 72 72 0 0 0 56 69 72 72 0 0 1-32 1 72 72 0 0 0 67 50 200 200 0 0 1-105 29 200 200 0 0 0 309-179 200 200 0 0 0 35-37"/></svg>
+    </a>
+    <a href="https://www.facebook.com/chuanlong.du" title="" target="_blank" rel="nofollow noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="Facebook" role="img" viewBox="0 0 512 512"><rect width="512" height="512" rx="15%" fill="#1877f2"/><path d="M355.6 330l11.4-74h-71v-48c0-20.2 9.9-40 41.7-40H370v-63s-29.3-5-57.3-5c-58.5 0-96.7 35.4-96.7 99.6V256h-65v74h65v182h80V330h59.6z" fill="#fff"/></svg>
+    </a>
+</div>
+            
+
+
+
+
+
+            
+
+
+
+
+
+        </section>
+</div>
+</article>
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                    </div>
+                    <div class="span1"></div>
+                </div>
+            </div>
+        </div>
+<footer>
+
+    <div>
+        <span class="site-name">Ben Chuanlong Du's Blog</span> - Change is eternal.
+    </div>
+
+
+
+    <div id="fpowered">
+        Powered by: <a href="http://getpelican.com/" title="Pelican Home Page" target="_blank" rel="nofollow noopener noreferrer">Pelican</a>
+        Theme: <a href="https://elegant.oncrashreboot.com/" title="Theme Elegant Home Page" target="_blank" rel="nofollow noopener noreferrer">Elegant</a>
+    </div>
+</footer>            <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script src="http://www.legendu.net/outdated/theme/js/elegant.prod.9e9d5ce754.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    <script>
+    (function () {
+        if (window.location.hash.match(/^#comment-\d+$/)) {
+            $('#comment_thread').collapse('show');
+        }
+    })();
+    window.onhashchange=function(){
+        if (window.location.hash.match(/^#comment-\d+$/))
+            window.location.reload(true);
+    }
+    $('#comment_thread').on('shown', function () {
+        var link = document.getElementById('comment-accordion-toggle');
+        var old_innerHTML = link.innerHTML;
+        $(link).fadeOut(200, function() {
+            $(this).text('Click here to hide comments').fadeIn(200);
+        });
+        $('#comment_thread').on('hidden', function () {
+            $(link).fadeOut(200, function() {
+                $(this).text(old_innerHTML).fadeIn(200);
+            });
+        })
+    })
+</script>
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+        License : MIT -->
+</html>

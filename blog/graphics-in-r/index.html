@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="http://www.legendu.net/outdated/theme/css/elegant.prod.9e9d5ce754.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://www.legendu.net/outdated/theme/css/custom.css" media="screen">
+
+        <link rel="dns-prefetch" href="//fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+
+        <meta name="author" content="Ben Chuanlong Du" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="par, R, plot, graphics, programming, CRAN, visualization, Programming, " />
+
+<meta property="og:title" content="Graphics in R "/>
+<meta property="og:url" content="http://www.legendu.net/outdated/blog/graphics-in-r/" />
+<meta property="og:description" content="Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. par(&#34;din&#34;) gets the dimension (i.e. width and height) of the graphics device. If no graphics device has been open, it opens a new one. To …" />
+<meta property="og:site_name" content="Ben Chuanlong Du&#39;s Blog" />
+<meta property="og:article:author" content="Ben Chuanlong Du" />
+<meta property="og:article:published_time" content="2012-11-11T18:28:16-08:00" />
+<meta property="og:article:modified_time" content="2016-06-11T18:28:16-07:00" />
+<meta name="twitter:title" content="Graphics in R ">
+<meta name="twitter:description" content="Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. par(&#34;din&#34;) gets the dimension (i.e. width and height) of the graphics device. If no graphics device has been open, it opens a new one. To …">
+
+        <title>Graphics in R  · Ben Chuanlong Du&#39;s Blog
+</title>
+        <link href="http://www.legendu.net/outdated/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Ben Chuanlong Du&#39;s Blog - Full Atom Feed" />
+        <link href="http://www.legendu.net/outdated/atom.xml" type="application/atom+xml" rel="alternate" title="Ben Chuanlong Du&#39;s Blog - Atom Feed" />
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-30259661-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+    </head>
+    <body>
+        <div id="content">
+            <div class="navbar navbar-static-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="http://www.legendu.net/"><span class=site-name>Ben Chuanlong Du's Blog</span></a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav pull-right top-menu">
+                                <li >
+                                    <a href=
+                                       http://www.legendu.net/outdated
+                                    >Home</a>
+                                </li>
+                                <li ><a href="http://www.legendu.net/outdated/categories.html">Categories</a></li>
+                                <li ><a href="http://www.legendu.net/outdated/tags.html">Tags</a></li>
+                                <li ><a href="http://www.legendu.net/outdated/archives.html">Archives</a></li>
+                                <li><form class="navbar-search" action="http://www.legendu.net/outdated/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span1"></div>
+                    <div class="span10">
+<article itemscope>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+        <h1>
+            <a href="http://www.legendu.net/outdated/blog/graphics-in-r/">
+                Graphics in R
+            </a>
+        </h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+            
+            <p><strong>
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+</strong></p>
+<ol>
+<li>
+<p><code>par("din")</code> gets the dimension 
+(i.e. width and height) of the graphics device.
+If no graphics device has been open, 
+it opens a new one.</p>
+</li>
+<li>
+<p>To force a plot to have a fixed aspect ratio, 
+you can use option <code>asp=aspRatio</code> in plotting function. 
+For example, <code>plot(x, y, asp=1)</code> makes a scatter plot with aspect ratio 1. 
+This is helpful when you do not want a plot to get stretched.</p>
+</li>
+<li>
+<p>The function <code>title</code> adds titles and axes labels for an existing plot,
+so if you forget to specify a title 
+or axes labels when you use produce a plot, 
+you can use <code>title</code> to add them into the plot
+instead of producing a new plot 
+(sometimes it is very time-consuming to produce a plot, 
+e.g., when you analyze gene data.). 
+<code>legend</code> adds legends for an existing plot. 
+For example, see the code which produces the following image (need to add title).</p>
+</li>
+</ol>
+<p><img alt="image" src="./res/title-legend.pdf"></p>
+<ol>
+<li>
+<p>Functions <code>pdf</code> and <code>postscript</code> starts the graphics device driver 
+for producing <code>pdf</code> and <code>ps</code> graphics respectively, 
+which are vectorgraph. 
+Similarly, <code>jpeg</code>, <code>bmp</code>, <code>png</code> and <code>tiff</code> start graphics device driver 
+for producing <code>jpeg</code>, <code>bmp</code>, <code>png</code> and <code>tiff</code> graphics, 
+which are bitmaps.</p>
+</li>
+<li>
+<p>There are several ways 
+to divide a window device to sub window devices (to make plots on them). 
+First, you can use <code>par</code>,
+e.g. to divide a window device to <span class="math">\(2\times3\)</span> sub window devices, 
+you can use <code>par(mfrow=c(2,3))</code> or  <code>par(mfcol=c(2,3))</code>. 
+The difference between them is the first one display plots by rows 
+while the second one display plots by columns. 
+Second, 
+you can use <code>layout{graphics}</code>, 
+e.g. to divide a window device to two parts vertically 
+and then further divide the bottom part into two horizontal parts, 
+you can use <code>layout(matrix(c(1,2,1,3)))</code>. 
+Same values in the matrix stand for the same area, 
+and they also stand for the order they get used 
+among all the sub window devices. 
+Third,
+you can use <code>split.screen</code>, 
+e.g., 
+to achieve what we did using <code>layout</code>, 
+you can use the following command</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="nf">split.screen</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">))</span>
+<span class="nf">split.screen</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">),</span><span class="m">2</span><span class="p">)</span>
+</code></pre></div>
+
+<p>To make a plot on sub window device generated by <code>split.screen</code>, 
+you must first active it. 
+If you use functions in <code>lattice</code>, 
+you will find that these basically ignore all these 3 functions. 
+<code>lattice</code> has its own way to split window devices. 
+To do this, 
+you have first save plots made by functions in <code>lattice</code>, 
+and then print these plot at appropriate locations using the generic <code>print</code>. 
+For example, 
+the following code make two plots using functions in <code>lattice</code>, 
+and then using <code>print</code> to display them vertically.</p>
+<div class="highlight"><pre><span></span><code><span class="n">px1</span> <span class="o">=</span> <span class="nf">histogram</span><span class="p">(</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">))</span>
+<span class="n">px2</span> <span class="o">=</span> <span class="nf">bwplot</span><span class="p">(</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">))</span>
+<span class="c1"># arrange the 2 plots vertically</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">px1</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0.6</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> <span class="n">more</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">px2</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">0.4</span><span class="p">))</span>
+</code></pre></div>
+
+<p>The first 2 values and the last 2 (3rd and last) values of the option <code>position</code> 
+stand for x and y coordinates of the bottom-left and top-right corner, 
+respectively,
+of the panel to display the corresponding plot. 
+Generally speaking, 
+<code>par</code> is most easy one to use, 
+but it can only divide a window device into rectangular sub window devices, 
+and you must make plots in the right order for them to show up at the right places;<br>
+<code>layout</code> is also easy to use. 
+You can divide a window device into irregular shapes, 
+but still you have to make plots in the right order 
+to make them to show up at the right place;
+<code>split.screen</code> is not as convenient as <code>par</code> and <code>layout</code>, 
+but you can divide a window device into irregular sub window devices and
+make plot on any sub window device (by calling <code>screen</code> first) whenever you want; 
+perhaps it is most inconvenient to use <code>lattice</code> to achieve the same purpose. 
+You must use functions in <code>lattice</code>, 
+and you have to calculate positions for each sub window device 
+and pass it to <code>print</code>. 
+But <code>lattice</code> has some unique plotting functions 
+and it uses more advanced technologies, 
+you can reuse saved plots instead of replotting them every time. 
+This is similar to how Mathematica handles graphics. 
+My suggestion is that you never use <code>lattice</code> for this kind of job unless necessary.</p>
+<ol>
+<li>
+<p>Function <code>plot</code> is a generic function 
+(actually many functions in R are generic functions), 
+which be applied to many different types of objects in R.</p>
+</li>
+<li>
+<p>Function <code>boxplot</code> can make plot of different data sets without
+using function par().</p>
+</li>
+<li>
+<p>Into order to recover to the default graph setting, we can save the
+information of <code>par</code> first and reuse it whenever we want to go back
+to the default settings.</p>
+</li>
+<li>
+<p><code>points</code> add points to a graph; <code>segments</code> add segments to a graph.
+Though these job can be done by <code>plot</code>, these low level functions
+are still useful.</p>
+</li>
+<li>
+<p>Mathematica symbols can be used in title and labels of plots
+using the <code>expression</code> function. 
+For example,</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="nf">plot</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="nf">expression</span><span class="p">(</span><span class="n">alpha</span><span class="o">+</span><span class="n">beta</span><span class="p">))</span>
+</code></pre></div>
+
+<ol>
+<li>
+<p>We can use math expression when plot a graph. To do this, we just
+need specify the corresponding label as <code>expression(expr)</code>, where
+"expr" is an appropriate expression in R. For example, if we want to
+use Greek symbol <span class="math">\(\alpha\)</span>, we can specify "xlab=expression(alpha)".
+Whenver we forget how to write mathematica expressions, we can type
+in command "demo(plotmath)" which will display corresponding
+expression in R for all kinds of math expressions.</p>
+</li>
+<li>
+<p><code>sna::gplot.arrow</code> makes neat arrows.</p>
+</li>
+<li>
+<p><code>plot(..., type = "h")</code> gives us needle plot</p>
+</li>
+<li>
+<p><code>chull</code> computes convex hull of a given set.</p>
+</li>
+<li>
+<p><code>dev.copy2pdf</code> copies the graphics content on the current graphics
+device to a pdf file.</p>
+</li>
+<li>
+<p>You'd better use pdf with dev.off() to make plots, 
+this is a universal way ...<br>
+avoid problems when working on remote servers</p>
+</li>
+</ol>
+<p><a href="http://ggplot2.org/book/">ggplot2 Book</a></p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js','color.js','mhchem.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+
+
+             
+ 
+            
+            
+            
+
+
+
+
+
+
+
+<section>
+    <h6 style="display:none;">Comments</h6>
+    <p id="comment-message"> </p>
+
+    <div class="accordion" id="accordion2">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <a class="accordion-toggle disqus-comment-count comment-count collapsed"
+                   data-toggle="collapse"
+                   data-parent="#accordion2"
+                   data-disqus-identifier="http://www.legendu.net/outdated/blog/graphics-in-r/"
+                   href="http://www.legendu.net/outdated/blog/graphics-in-r/#comment_thread"
+                   id="comment-accordion-toggle">
+                    Comments
+                </a>
+            </div>
+            <div id="comment_thread" class="accordion-body collapse">
+                <div class="accordion-inner">
+                    <div class="comments">
+                        <div id="disqus_thread"></div>
+                        <script>
+    var disqus_shortname = 'dclong';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+
+    var disqus_identifier = 'http://www.legendu.net/outdated/blog/graphics-in-r/';
+    var disqus_url = 'http://www.legendu.net/outdated/blog/graphics-in-r/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+            <hr/>
+        </div>
+        <section id="article-sidebar" class="span2">
+            <h4>Published</h4>
+            <time itemprop="dateCreated" datetime="2012-11-11T18:28:16-08:00">Nov 11, 2012</time>
+<h4>Last Updated</h4>
+<time datetime="2016-06-11T18:28:16-07:00">Jun 11, 2016</time>
+
+            <h4>Category</h4>
+            <a class="category-link" href="http://www.legendu.net/outdated/categories.html#programming-ref">Programming</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="http://www.legendu.net/outdated/tags.html#cran-ref">CRAN
+                    <span class="superscript">46</span>
+</a></li>
+                <li><a href="http://www.legendu.net/outdated/tags.html#graphics-ref">graphics
+                    <span class="superscript">4</span>
+</a></li>
+                <li><a href="http://www.legendu.net/outdated/tags.html#par-ref">par
+                    <span class="superscript">1</span>
+</a></li>
+                <li><a href="http://www.legendu.net/outdated/tags.html#plot-ref">plot
+                    <span class="superscript">2</span>
+</a></li>
+                <li><a href="http://www.legendu.net/outdated/tags.html#programming-ref">programming
+                    <span class="superscript">132</span>
+</a></li>
+                <li><a href="http://www.legendu.net/outdated/tags.html#r-ref">R
+                    <span class="superscript">50</span>
+</a></li>
+                <li><a href="http://www.legendu.net/outdated/tags.html#visualization-ref">visualization
+                    <span class="superscript">4</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+<div id="sidebar-social-link">
+    <a href="https://www.linkedin.com/in/ben-chuanlong-du-1239b221/" title="" target="_blank" rel="nofollow noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="LinkedIn" role="img" viewBox="0 0 512 512" fill="#fff"><rect width="512" height="512" rx="15%" fill="#0077b5"/><circle cx="142" cy="138" r="37"/><path stroke="#fff" stroke-width="66" d="M244 194v198M142 194v198"/><path d="M276 282c0-20 13-40 36-40 24 0 33 18 33 45v105h66V279c0-61-32-89-76-89-34 0-51 19-59 32"/></svg>
+    </a>
+    <a href="https://twitter.com/longendu" title="" target="_blank" rel="nofollow noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="Twitter" role="img" viewBox="0 0 512 512"><rect width="512" height="512" rx="15%" fill="#1da1f3"/><path fill="#fff" d="M437 152a72 72 0 0 1-40 12 72 72 0 0 0 32-40 72 72 0 0 1-45 17 72 72 0 0 0-122 65 200 200 0 0 1-145-74 72 72 0 0 0 22 94 72 72 0 0 1-32-7 72 72 0 0 0 56 69 72 72 0 0 1-32 1 72 72 0 0 0 67 50 200 200 0 0 1-105 29 200 200 0 0 0 309-179 200 200 0 0 0 35-37"/></svg>
+    </a>
+    <a href="https://www.facebook.com/chuanlong.du" title="" target="_blank" rel="nofollow noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="Facebook" role="img" viewBox="0 0 512 512"><rect width="512" height="512" rx="15%" fill="#1877f2"/><path d="M355.6 330l11.4-74h-71v-48c0-20.2 9.9-40 41.7-40H370v-63s-29.3-5-57.3-5c-58.5 0-96.7 35.4-96.7 99.6V256h-65v74h65v182h80V330h59.6z" fill="#fff"/></svg>
+    </a>
+</div>
+            
+
+
+
+
+
+            
+
+
+
+
+
+        </section>
+</div>
+</article>
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                    </div>
+                    <div class="span1"></div>
+                </div>
+            </div>
+        </div>
+<footer>
+
+    <div>
+        <span class="site-name">Ben Chuanlong Du's Blog</span> - Change is eternal.
+    </div>
+
+
+
+    <div id="fpowered">
+        Powered by: <a href="http://getpelican.com/" title="Pelican Home Page" target="_blank" rel="nofollow noopener noreferrer">Pelican</a>
+        Theme: <a href="https://elegant.oncrashreboot.com/" title="Theme Elegant Home Page" target="_blank" rel="nofollow noopener noreferrer">Elegant</a>
+    </div>
+</footer>            <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script src="http://www.legendu.net/outdated/theme/js/elegant.prod.9e9d5ce754.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    <script>
+    (function () {
+        if (window.location.hash.match(/^#comment-\d+$/)) {
+            $('#comment_thread').collapse('show');
+        }
+    })();
+    window.onhashchange=function(){
+        if (window.location.hash.match(/^#comment-\d+$/))
+            window.location.reload(true);
+    }
+    $('#comment_thread').on('shown', function () {
+        var link = document.getElementById('comment-accordion-toggle');
+        var old_innerHTML = link.innerHTML;
+        $(link).fadeOut(200, function() {
+            $(this).text('Click here to hide comments').fadeIn(200);
+        });
+        $('#comment_thread').on('hidden', function () {
+            $(link).fadeOut(200, function() {
+                $(this).text(old_innerHTML).fadeIn(200);
+            });
+        })
+    })
+</script>
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+        License : MIT -->
+</html>

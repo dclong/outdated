@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"><channel><title>Ben Chuanlong Du's Blog - Benjamin Du</title><link>http://www.legendu.net/outdated/</link><description>Change is eternal.</description><lastBuildDate>Thu, 10 Jun 2021 09:32:40 -0700</lastBuildDate><item><title>Tips on Dockerswarm</title><link>http://www.legendu.net/outdated/blog/tips-on-dockerswarm/</link><description>&lt;p&gt;https://ender74.github.io/Sharing-Volumes-With-Docker-Swarm/&lt;/p&gt;
+&lt;h2 id="volume"&gt;Volume&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;docker service create &lt;span class="se"&gt;\&lt;/span&gt;
+    --name nginx &lt;span class="se"&gt;\&lt;/span&gt;
+    --mount &lt;span class="nv"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;bind,source&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="nb"&gt;pwd&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;/static-site,target&lt;span class="o"&gt;=&lt;/span&gt;/usr/share/nginx/html &lt;span class="se"&gt;\&lt;/span&gt;
+    -p &lt;span class="m"&gt;80&lt;/span&gt;:80 nginx
+    https://boxboat.com/2016/08/12/mounting-volumes-docker-swarm-1-12/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;https://stackoverflow.com/questions/42672171/volume-is-not-shared-between-nodes-of-docker-swarm&lt;/p&gt;
+&lt;p&gt;Volumes created in docker swarm via default driver are local to …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Benjamin Du</dc:creator><pubDate>Thu, 10 Oct 2019 09:32:40 -0700</pubDate><guid isPermaLink="false">tag:www.legendu.net,2019-10-10:/outdated/blog/tips-on-dockerswarm/</guid><category>Software</category><category>Software</category><category>Docker</category><category>Docker Swarm</category></item><item><title>Connect to Teradata from the BeakerX SQL Kernel in JupyterLab</title><link>http://www.legendu.net/outdated/blog/connect-to-teradata-from-the-beakerx-sql-kernel-in-jupyterlab/</link><description>&lt;p&gt;You can run the following magics in a cell to connect to Teradata from a BeakerX SQL kernel.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;%classpath add jar /workdir/jars/teradata/tdgssconfig.jar
+%classpath add jar /workdir/jars/teradata/terajdbc4.jar
+%defaultDatasource jdbc:teradata://your.teradata.com/USER&lt;span class="o"&gt;=&lt;/span&gt;your_username,PASSWORD&lt;span class="o"&gt;=&lt;/span&gt;your_password
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;After connecting to a Teradata server …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Benjamin Du</dc:creator><pubDate>Sat, 10 Apr 2021 23:47:18 -0700</pubDate><guid isPermaLink="false">tag:www.legendu.net,2021-04-10:/outdated/blog/connect-to-teradata-from-the-beakerx-sql-kernel-in-jupyterlab/</guid><category>Computer Science</category><category>programming</category><category>Jupyter</category><category>JupyterLab</category><category>SQL</category><category>BeakerX</category></item><item><title>Fastload in Teradata</title><link>http://www.legendu.net/outdated/blog/Improve%20Performance%20of%20Inserting%20in%20Teradata%20SQL/</link><description>&lt;p&gt;&lt;strong&gt;
+Things on this page are fragmentary and immature notes/thoughts of the author.
+Please read with your own judgement!
+&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id="insert-multiple-rows"&gt;Insert Multiple Rows&lt;/h2&gt;
+&lt;p&gt;Teradata SQL does not support &lt;code&gt;VALUES&lt;/code&gt; with multiple rows in a &lt;code&gt;INSERT&lt;/code&gt; statement.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Multi Statement Request (MSR) + &lt;a href="https://www.tutorialspoint.com/teradata/teradata_bteq.htm"&gt;Teradata BTEQ&lt;/a&gt;
+    You can run a MSR (with multiple insert statements …&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Benjamin Du</dc:creator><pubDate>Fri, 22 May 2020 09:06:28 -0700</pubDate><guid isPermaLink="false">tag:www.legendu.net,2020-05-22:/outdated/blog/Improve Performance of Inserting in Teradata SQL/</guid><category>Computer Science</category><category>Computer Science</category><category>SQL</category><category>Teradata</category><category>fastload</category><category>BTEQ</category><category>prepared statement</category></item><item><title>Understand and Avoid the No More Spool Space Issue in Teradata</title><link>http://www.legendu.net/outdated/blog/understand-and-avoid-the-no-more-spool-space-issue-in-teradata/</link><description>&lt;p&gt;&lt;strong&gt;
+Things on this page are fragmentary and immature notes/thoughts of the author.
+Please read with your own judgement!
+&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id="knowledge-about-spool-space-in-teradata"&gt;Knowledge About Spool Space in Teradata&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Volatile Tables and subqueries are both built in Spool&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="causes-of-no-more-spool-issue"&gt;Causes of No More Spool Issue&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;The main cause of "no more spool space" errors 
+    is …&lt;/li&gt;&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Benjamin Du</dc:creator><pubDate>Mon, 22 Jun 2020 08:53:57 -0700</pubDate><guid isPermaLink="false">tag:www.legendu.net,2020-06-22:/outdated/blog/understand-and-avoid-the-no-more-spool-space-issue-in-teradata/</guid><category>Computer Science</category><category>Computer Science</category><category>Teradata</category><category>spool space</category><category>no more spool space</category><category>database</category><category>SQL</category></item><item><title>Use Spark With the BeakerX Scala Kernel</title><link>http://www.legendu.net/outdated/blog/use-spark-with-the-beakerx-scala-kernel/</link><description>&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Open a JupyterLab notebook with the BeakerX Scala kernel from the launcher.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download Spark (say, 2.3.1) dependencies. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="n"&gt;classpath&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt; &lt;span class="n"&gt;mvn&lt;/span&gt;
+&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apache&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;spark&lt;/span&gt; &lt;span class="n"&gt;spark&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;core_2&lt;/span&gt;&lt;span class="mf"&gt;.11&lt;/span&gt; &lt;span class="mf"&gt;2.3.1&lt;/span&gt;
+&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apache&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;spark&lt;/span&gt; &lt;span class="n"&gt;spark&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sql_2&lt;/span&gt;&lt;span class="mf"&gt;.11&lt;/span&gt; &lt;span class="mf"&gt;2.3.1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create a SparkSession object.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;org&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nn"&gt;apache&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nn"&gt;spark&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nn"&gt;sql&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;SparkSession …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Benjamin Du</dc:creator><pubDate>Fri, 23 Apr 2021 17:23:46 -0700</pubDate><guid isPermaLink="false">tag:www.legendu.net,2021-04-23:/outdated/blog/use-spark-with-the-beakerx-scala-kernel/</guid><category>Computer Science</category><category>Computer Science</category><category>Spark</category><category>Scala</category><category>BeakerX</category><category>JupyterLab</category></item><item><title>Install Python Pip in Cygwin</title><link>http://www.legendu.net/outdated/blog/install-python-pip-in-cygwin/</link><description>&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;python3 -m ensurepip
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;p&gt;https://stackoverflow.com/questions/30863501/installing-new-versions-of-python-on-cygwin-does-not-install-pip&lt;Paste&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Benjamin Du</dc:creator><pubDate>Mon, 04 Mar 2019 23:56:02 -0800</pubDate><guid isPermaLink="false">tag:www.legendu.net,2019-03-04:/outdated/blog/install-python-pip-in-cygwin/</guid><category>Software</category><category>software</category><category>Python</category><category>Cygwin</category><category>pip</category></item></channel></rss>

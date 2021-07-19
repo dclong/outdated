@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="http://www.legendu.net/outdated/theme/css/elegant.prod.9e9d5ce754.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://www.legendu.net/outdated/theme/css/custom.css" media="screen">
+
+        <link rel="dns-prefetch" href="//fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+
+        <meta name="author" content="Ben Chuanlong Du" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="programming, list, data structure, container, matrix, vector, R, CRAN, Programming, " />
+
+<meta property="og:title" content="Data Structure in R "/>
+<meta property="og:url" content="http://www.legendu.net/outdated/blog/data-structure-in-r/" />
+<meta property="og:description" content="Things on this page are fragmentary and immature notes/thoughts of the author. It is not meant to readers but rather for convenient reference of the author and future improvement. Vector, Matrix and Array A matrix in R is actually a vector with a dim attribute. This means that the …" />
+<meta property="og:site_name" content="Ben Chuanlong Du&#39;s Blog" />
+<meta property="og:article:author" content="Ben Chuanlong Du" />
+<meta property="og:article:published_time" content="2010-11-09T18:57:36-08:00" />
+<meta property="og:article:modified_time" content="2016-07-09T18:57:36-07:00" />
+<meta name="twitter:title" content="Data Structure in R ">
+<meta name="twitter:description" content="Things on this page are fragmentary and immature notes/thoughts of the author. It is not meant to readers but rather for convenient reference of the author and future improvement. Vector, Matrix and Array A matrix in R is actually a vector with a dim attribute. This means that the …">
+
+        <title>Data Structure in R  · Ben Chuanlong Du&#39;s Blog
+</title>
+        <link href="http://www.legendu.net/outdated/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Ben Chuanlong Du&#39;s Blog - Full Atom Feed" />
+        <link href="http://www.legendu.net/outdated/atom.xml" type="application/atom+xml" rel="alternate" title="Ben Chuanlong Du&#39;s Blog - Atom Feed" />
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-30259661-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+    </head>
+    <body>
+        <div id="content">
+            <div class="navbar navbar-static-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="http://www.legendu.net/"><span class=site-name>Ben Chuanlong Du's Blog</span></a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav pull-right top-menu">
+                                <li >
+                                    <a href=
+                                       http://www.legendu.net/outdated
+                                    >Home</a>
+                                </li>
+                                <li ><a href="http://www.legendu.net/outdated/categories.html">Categories</a></li>
+                                <li ><a href="http://www.legendu.net/outdated/tags.html">Tags</a></li>
+                                <li ><a href="http://www.legendu.net/outdated/archives.html">Archives</a></li>
+                                <li><form class="navbar-search" action="http://www.legendu.net/outdated/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span1"></div>
+                    <div class="span10">
+<article itemscope>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+        <h1>
+            <a href="http://www.legendu.net/outdated/blog/data-structure-in-r/">
+                Data Structure in R
+            </a>
+        </h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+            
+            <p><strong>
+Things on this page are fragmentary and immature notes/thoughts of the author. 
+It is not meant to readers but rather for convenient reference of the author and future improvement.
+</strong></p>
+<h2 id="vector-matrix-and-array">Vector, Matrix and Array</h2>
+<ol>
+<li>A matrix in R is actually a vector with a <code>dim</code> attribute. 
+This means that the fastest way to switch between a vector and matrix 
+is to modify the <code>dim</code> attribute. 
+Also since a matrix in R is essentially a vector, 
+you have to treat it as a 1-dimensional array 
+when you pass it as an argument into C/C++ code .</li>
+</ol>
+<h2 id="data-frame">Data Frame</h2>
+<ol>
+<li>A data frame is essentially a list with columns being elements.</li>
+</ol>
+<h2 id="list">List</h2>
+<ol>
+<li>[] slicing vs [[]] </li>
+</ol>
+<h2 id="other">Other</h2>
+<ol>
+<li>To convert a matrix <code>x</code> to a list with columns being elements of the list, 
+you can use <code>as.list(data.frame(x))</code> 
+(Notice that <code>as.list(x)</code> does not work in this way. 
+This is another example demonstrate the difference between data frame and matrix.). 
+Though it is neat way, 
+it is not the fastest. 
+A faster way is to use <code>lapply</code>, 
+e.g., you can use <code>lapply(seq_len(ncol(x)), function(i) x[,i])</code> to achieve the same purpose.
+On the contrary, 
+you can use <code>do.call</code> to convert a list (of vectors/matrices) to a matrix. 
+The following is such an example.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="nf">do.call</span><span class="p">(</span><span class="n">cbind</span><span class="p">,</span> <span class="nf">list</span><span class="p">(</span><span class="nf">matrix</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">),</span><span class="nf">matrix</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">)))</span>
+<span class="p">[,</span><span class="m">1</span><span class="p">]</span> <span class="p">[,</span><span class="m">2</span><span class="p">]</span> <span class="p">[,</span><span class="m">3</span><span class="p">]</span> <span class="p">[,</span><span class="m">4</span><span class="p">]</span>
+<span class="p">[</span><span class="m">1</span><span class="p">,]</span>    <span class="m">0</span>    <span class="m">0</span>    <span class="m">1</span>    <span class="m">1</span>
+<span class="p">[</span><span class="m">2</span><span class="p">,]</span>    <span class="m">0</span>    <span class="m">0</span>    <span class="m">1</span>    <span class="m">1</span>
+</code></pre></div>
+
+<ol>
+<li>
+<p>We can put functions into a list and then call functions 
+using their index, 
+which can be very convenient sometimes. 
+To put functions into a list, 
+we can use either function <code>list</code> or <code>c</code>. 
+However, 
+there're some differences between functions <code>list</code>, <code>as.list</code> and <code>c</code>.
+Function <code>as.list</code> coerce an object to a list object. 
+If the argument passed to function <code>as.list</code> is already a list object, 
+then it does nothing. 
+Function <code>list</code> puts objects into a list. 
+If an argument passed to function <code>list</code> is already list object, 
+it will still put this list object into a list. 
+Basically, function <code>c</code> combine objects passed to it. 
+However, if a list and a vector are passed to it, 
+each element of the vector becomes an element of the list object (argument). 
+If you want the entire vector to be an element of the list, 
+you must first use function <code>list</code> to put it 
+into a list and then use function <code>c</code> to combine these two lists.</p>
+</li>
+<li>
+<p>Most built-in functions in R work differently on data frames 
+from vectors (matrix and array are similar to vectors), 
+because many of them are written in S3 method. 
+You have to be very carefully about the object that you are working with. 
+For example, 
+you can use <code>apply</code> on both a matrix and a data frame. 
+But if you apply a function on the each row of a data frame, 
+elements on each row will first be coerced to the same type and then be operated on. 
+Since the data in a data frame is usually not the same type, 
+this can lead to mistake easily.</p>
+</li>
+<li>
+<p>Sometimes you must be very careful about vectors. 
+You need to know how the operations work. 
+That's very important!! 
+For example <code>|</code> and <code>||</code> work different on vectors.</p>
+</li>
+<li>
+<p>Function <code>rep</code> is useful to get a vector that has a clear structure.
+Be careful that the option <code>each</code> can not be a vector. 
+The role of option <code>each</code> is played by <code>times</code> in vector case.</p>
+</li>
+<li>
+<p>Function <code>aperm</code> is very useful to transpose an array.</p>
+</li>
+<li>
+<p>Though a matrix and a data frame are both rectangular in R, 
+they are fundamentally different. 
+All elements in a matrix have the same type, 
+while elements in a data frame do not have share the same type.
+It is only required that elements in the same column of a data frame have the same type. 
+A column in a data frame usually represent a variable. 
+For this reason, 
+data frames are frequently used for data environment for fitting models. 
+However, sometimes we want to work on rows instead of columns 
+(e.g. when fitting model for gene for microarray data), 
+then it is not convenient to use data frame. 
+You can convert a data frame to a matrix (if possible) by <code>as.matrix</code>.</p>
+</li>
+<li>
+<p>The difference among <code>apply</code>. <code>tapply</code>, <code>lapply</code> and <code>sapply</code>.
+<code>apply</code> can be used in many cases and the marginal dimension need to be specified. 
+The specified function is applied over the specified margins, 
+i.e. for each combination of the specified margin/dimension combination, 
+the specified function is applied on the left dimensions. 
+For example, <code>apply(aMatrix,MARGIN=1,FUN=aFun)</code>, 
+where <code>aMatrix</code> is a matrix of dimension <span class="math">\(n_1\times n_2\)</span> 
+and <code>aFun</code> is a function, 
+means applying <code>aFun</code> over the first dimension (which is row) of <code>aMatrix</code>, 
+i.e., for each <span class="math">\(i=1,\ldots,n_1\)</span> applying <code>aFun</code> to <code>aMatrix[i,]</code>;
+<code>apply(threeDArray,MARGIN=3,FUN=aFun)</code>, 
+where <code>threeDArray</code> is an array of dimension <span class="math">\(n_1\times n_2\times n_3\)</span> 
+and <code>aFun</code> is as before, 
+means applying <code>aFun</code> over the third dimension, 
+i.e. for each <span class="math">\(i=1, \ldots,n_3\)</span> applying <code>aFun</code> to <code>threeDArray[,,i]</code>;
+<code>apply(threeDArray, MARGIN=C(1,2),FUN=aFun)</code>, 
+where <code>threeDArray</code> and <code>aFun</code> are as before, 
+means applying <code>aFun</code> over the first and second dimension, 
+i.e., for each <span class="math">\(i=1,\ldots,n_1\)</span> and <span class="math">\(j=1,\ldots,n_2\)</span>, 
+applying <code>aFun</code> to <code>threeDArray[i,j,]</code>.<br>
+<code>tapply</code> can be used according to factor levels 
+which requires a specific factor 
+(the INDEX argument can also be a vector and it will be coerced to a factor automatically) index of course. 
+<code>lapply</code> and <code>sapply</code> are very similar to each other and <code>sapply</code> is more friendly. 
+They can be used to vectors, data frames and lists.</p>
+</li>
+<li>
+<p>If you just want to calculate the row/column means/sums, 
+then there is no necessary to use <code>apply</code>, 
+instead, 
+you can use <code>rowMeans</code>, <code>colMeans</code>, <code>rowSums</code> and <code>colSums</code>. 
+<code>rowMeans</code> and <code>rowSums</code> calculate the mean and sum of each row respectively.</p>
+</li>
+<li>
+<p>A matrix in R has both row names and column names. 
+A vector in R also have names but not row names nor column names. 
+There's no problem to treat a matrix as a vector but error will occur 
+if you treat a vector as a matrix. 
+To avoid error, 
+you must use function <code>as.matrix</code> to change the vector into a matrix 
+and then do operations on the matrix.</p>
+</li>
+<li>
+<p>In R, by default a matrix will be filled by columns. 
+If you have to deal with matrices and vectors at the same time, 
+e.g. you want to add a vector onto a matrix or so, 
+you'd better define the matrix with number of rows equals the length of the vector.</p>
+</li>
+<li>
+<p>Function <code>drop</code> can delete dimensions of an array with only one level, 
+which can be convenient when displaying results.</p>
+</li>
+<li>
+<p>Vectors in R can be interpolated both as row vectors and column vectors according to different cases, 
+which is for convenience
+because whether row or column vectors will be used depend on
+conventions. 
+However, 
+this might cause very serious problems, some times. 
+For example, 
+if we want to calculate the trace of <span class="math">\(\boldU\boldV\)' 
+where $\boldU\)</span> and <span class="math">\(\boldV\)</span> are both column vectors here, 
+we can calculate <span class="math">\(\boldU'\boldV\)</span> instead for convenience. 
+So we might write code <span class="math">\(u\%*\%v\)</span> to do this. 
+A potential serous problem is that <span class="math">\(v\)</span> might be a <span class="math">\($1\times n\)</span> matrix
+(which is essentially a row vector) in R, 
+and will result a <span class="math">\(n\times n\)</span> matrix instead of a number. 
+So you write code
+(especially for important projects and so on), 
+you'd better avoid using these code which can introduce ambiguity. 
+For example, 
+instead of using <span class="math">\(\boldU\'\boldV\)</span>, 
+we can use <code>sum(u*v)</code>, 
+then no matter what kind of vectors, 
+either row vector (a matrix with one row in R) or column vector, 
+<code>u</code> and <code>v</code> are, 
+we will always get the right answer.</p>
+</li>
+<li>
+<p>There are many ways to construct a vectors 
+(double, character and so on) with a given length in R. 
+To construct a list with a given length, 
+there are two ways. 
+The first way is to first construct a vector of the given length 
+and coerce it to a list using <code>as.list</code>.
+For example, 
+you can use <code>as.list(rep(0,3))</code> to construct a list with length 3 in R. 
+The other way is to using <code>vector</code>. 
+For example <code>vector("list",3)</code> constructs a list of length 3 
+with all elements being <code>NULL</code> for you.</p>
+</li>
+<li>
+<p>If you have a list called <code>myList</code> 
+and you use <code>is.vector(myList)</code> to check whether it is a vector of not, 
+you will get a result <code>TRUE</code>.
+This is not surprising, 
+because a list in R is actually a vector with mode <code>list</code>. 
+The default value of option <code>mode</code> in <code>is.vector</code> is <code>any</code>, 
+that is why you get the answer <code>TRUE</code> for the code <code>is.vector(myList)</code>. 
+The usual vectors we talk about are vectors of <code>numeric</code>, <code>character</code> and so on. 
+So to check whether an R object is a usual sense vector (i.e. not a list), 
+you can code like <code>is.vector(myList,"numeric")</code>.</p>
+</li>
+<li>
+<p>In many situations a vector is equivalent to a matrix with 1 row/column. 
+However, there's difference between them. 
+The fundamental difference is that they are of different data types. 
+So for many functions, 
+if you pass a vector to it you get vector, 
+and if you pass a matrix with (1 row/column) to it you get a matrix (with 1 row/column).</p>
+</li>
+<li>
+<p>A null data frame for column combination operation 
+is a data frame/matrix 
+(Strictly speaking, 
+the null data frame is data frame, 
+but an empty matrix can be coerced to an empty data frame.
+) with 0 column 
+(use <code>matrix(nrow=n,ncol=0)</code> 
+to generate a matrix with 0 column) 
+and the same number of rows with data frames involved in the operation. 
+Similarly, 
+a null data frame for row combination operation is a data frame 
+with 0 row and the same number of columns 
+with data frames involved in the operation.</p>
+</li>
+<li>
+<p>A convenient and efficient way to repeat rows of a matrix/data frame is to extract rows repeatedly.</p>
+</li>
+<li>
+<p><code>nlevels</code> returns the number of levels of a factor, 
+which is equivalent to <code>length(levels(aFactor))</code>. 
+However, 
+the former way is faster and more convenient than the later one.</p>
+</li>
+<li>
+<p>good idea to pass column names if data format is not consistent
+also applies to other programming languages</p>
+</li>
+<li>
+<p>A very tricky problem: R silently coerce data between different types if needed, 
+this is again proved to be a very bad idea. 
+For example integers and boolean value, in your problem, that's very bad ...
+actually this might not because of the silent coerce problem, 
+[] as a function might takes different arguments, the problem is that R never checks type of argument,
+this is error-prone,
+in future, you should pay extra attension to [], never mix different types ... 
+a safe is to alway check the type in the function which is tedious ...</p>
+</li>
+<li>
+<p>mixing integers and row names is a bad idea ...
+if you pass integers as rownames ...</p>
+</li>
+<li>
+<p>In R, max/min, etc. does not keep matrix structure.
+If you want to keep matrix structure, use <code>ifelse</code> instead.</p>
+</li>
+<li>
+<p>cbind, specify colnames
+cbind(x, Scenario=T)
+cbind(x, "name with space"=T)
+similarly for rbind</p>
+</li>
+</ol>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js','color.js','mhchem.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+
+
+             
+ 
+            
+            
+            
+
+
+
+
+
+
+
+<section>
+    <h6 style="display:none;">Comments</h6>
+    <p id="comment-message"> </p>
+
+    <div class="accordion" id="accordion2">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <a class="accordion-toggle disqus-comment-count comment-count collapsed"
+                   data-toggle="collapse"
+                   data-parent="#accordion2"
+                   data-disqus-identifier="http://www.legendu.net/outdated/blog/data-structure-in-r/"
+                   href="http://www.legendu.net/outdated/blog/data-structure-in-r/#comment_thread"
+                   id="comment-accordion-toggle">
+                    Comments
+                </a>
+            </div>
+            <div id="comment_thread" class="accordion-body collapse">
+                <div class="accordion-inner">
+                    <div class="comments">
+                        <div id="disqus_thread"></div>
+                        <script>
+    var disqus_shortname = 'dclong';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+
+    var disqus_identifier = 'http://www.legendu.net/outdated/blog/data-structure-in-r/';
+    var disqus_url = 'http://www.legendu.net/outdated/blog/data-structure-in-r/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+            <hr/>
+        </div>
+        <section id="article-sidebar" class="span2">
+            <h4>Published</h4>
+            <time itemprop="dateCreated" datetime="2010-11-09T18:57:36-08:00">Nov 09, 2010</time>
+<h4>Last Updated</h4>
+<time datetime="2016-07-09T18:57:36-07:00">Jul 09, 2016</time>
+
+            <h4>Category</h4>
+            <a class="category-link" href="http://www.legendu.net/outdated/categories.html#programming-ref">Programming</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="http://www.legendu.net/outdated/tags.html#container-ref">container
+                    <span class="superscript">1</span>
+</a></li>
+                <li><a href="http://www.legendu.net/outdated/tags.html#cran-ref">CRAN
+                    <span class="superscript">46</span>
+</a></li>
+                <li><a href="http://www.legendu.net/outdated/tags.html#data-structure-ref">data structure
+                    <span class="superscript">3</span>
+</a></li>
+                <li><a href="http://www.legendu.net/outdated/tags.html#list-ref">list
+                    <span class="superscript">2</span>
+</a></li>
+                <li><a href="http://www.legendu.net/outdated/tags.html#matrix-ref">matrix
+                    <span class="superscript">4</span>
+</a></li>
+                <li><a href="http://www.legendu.net/outdated/tags.html#programming-ref">programming
+                    <span class="superscript">132</span>
+</a></li>
+                <li><a href="http://www.legendu.net/outdated/tags.html#r-ref">R
+                    <span class="superscript">50</span>
+</a></li>
+                <li><a href="http://www.legendu.net/outdated/tags.html#vector-ref">vector
+                    <span class="superscript">5</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+<div id="sidebar-social-link">
+    <a href="https://www.linkedin.com/in/ben-chuanlong-du-1239b221/" title="" target="_blank" rel="nofollow noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="LinkedIn" role="img" viewBox="0 0 512 512" fill="#fff"><rect width="512" height="512" rx="15%" fill="#0077b5"/><circle cx="142" cy="138" r="37"/><path stroke="#fff" stroke-width="66" d="M244 194v198M142 194v198"/><path d="M276 282c0-20 13-40 36-40 24 0 33 18 33 45v105h66V279c0-61-32-89-76-89-34 0-51 19-59 32"/></svg>
+    </a>
+    <a href="https://twitter.com/longendu" title="" target="_blank" rel="nofollow noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="Twitter" role="img" viewBox="0 0 512 512"><rect width="512" height="512" rx="15%" fill="#1da1f3"/><path fill="#fff" d="M437 152a72 72 0 0 1-40 12 72 72 0 0 0 32-40 72 72 0 0 1-45 17 72 72 0 0 0-122 65 200 200 0 0 1-145-74 72 72 0 0 0 22 94 72 72 0 0 1-32-7 72 72 0 0 0 56 69 72 72 0 0 1-32 1 72 72 0 0 0 67 50 200 200 0 0 1-105 29 200 200 0 0 0 309-179 200 200 0 0 0 35-37"/></svg>
+    </a>
+    <a href="https://www.facebook.com/chuanlong.du" title="" target="_blank" rel="nofollow noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="Facebook" role="img" viewBox="0 0 512 512"><rect width="512" height="512" rx="15%" fill="#1877f2"/><path d="M355.6 330l11.4-74h-71v-48c0-20.2 9.9-40 41.7-40H370v-63s-29.3-5-57.3-5c-58.5 0-96.7 35.4-96.7 99.6V256h-65v74h65v182h80V330h59.6z" fill="#fff"/></svg>
+    </a>
+</div>
+            
+
+
+
+
+
+            
+
+
+
+
+
+        </section>
+</div>
+</article>
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                    </div>
+                    <div class="span1"></div>
+                </div>
+            </div>
+        </div>
+<footer>
+
+    <div>
+        <span class="site-name">Ben Chuanlong Du's Blog</span> - Change is eternal.
+    </div>
+
+
+
+    <div id="fpowered">
+        Powered by: <a href="http://getpelican.com/" title="Pelican Home Page" target="_blank" rel="nofollow noopener noreferrer">Pelican</a>
+        Theme: <a href="https://elegant.oncrashreboot.com/" title="Theme Elegant Home Page" target="_blank" rel="nofollow noopener noreferrer">Elegant</a>
+    </div>
+</footer>            <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script src="http://www.legendu.net/outdated/theme/js/elegant.prod.9e9d5ce754.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    <script>
+    (function () {
+        if (window.location.hash.match(/^#comment-\d+$/)) {
+            $('#comment_thread').collapse('show');
+        }
+    })();
+    window.onhashchange=function(){
+        if (window.location.hash.match(/^#comment-\d+$/))
+            window.location.reload(true);
+    }
+    $('#comment_thread').on('shown', function () {
+        var link = document.getElementById('comment-accordion-toggle');
+        var old_innerHTML = link.innerHTML;
+        $(link).fadeOut(200, function() {
+            $(this).text('Click here to hide comments').fadeIn(200);
+        });
+        $('#comment_thread').on('hidden', function () {
+            $(link).fadeOut(200, function() {
+                $(this).text(old_innerHTML).fadeIn(200);
+            });
+        })
+    })
+</script>
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+        License : MIT -->
+</html>

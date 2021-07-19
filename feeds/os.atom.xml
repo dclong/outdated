@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ben Chuanlong Du's Blog - OS</title><link href="http://www.legendu.net/outdated/" rel="alternate"></link><link href="http://www.legendu.net/outdated/feeds/os.atom.xml" rel="self"></link><id>http://www.legendu.net/outdated/</id><updated>2020-07-12T11:04:38-07:00</updated><subtitle>Change is eternal.</subtitle><entry><title>Batch File Renaming Using "rename"</title><link href="http://www.legendu.net/outdated/blog/rename-tips/" rel="alternate"></link><published>2016-05-12T11:04:38-07:00</published><updated>2020-07-12T11:04:38-07:00</updated><author><name>Ben Chuanlong Du</name></author><id>tag:www.legendu.net,2016-05-12:/outdated/blog/rename-tips/</id><summary type="html">&lt;p&gt;&lt;strong&gt;
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;It is suggested that you use Python script to rename files in batch.&lt;/p&gt;
+&lt;p&gt;Change names of &lt;code&gt;.txt&lt;/code&gt; files to lowercase.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;rename &lt;span class="s1"&gt;&amp;#39;y/A-Z/a-z/&amp;#39;&lt;/span&gt; *.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Get rid …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;It is suggested that you use Python script to rename files in batch.&lt;/p&gt;
+&lt;p&gt;Change names of &lt;code&gt;.txt&lt;/code&gt; files to lowercase.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;rename &lt;span class="s1"&gt;&amp;#39;y/A-Z/a-z/&amp;#39;&lt;/span&gt; *.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Get rid of &lt;code&gt;(1)&lt;/code&gt; in file names.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;rename &lt;span class="s1"&gt;&amp;#39;s/\(1\)//&amp;#39;&lt;/span&gt; * 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="OS"></category><category term="Linux"></category><category term="rename"></category><category term="shell"></category><category term="tip"></category></entry><entry><title>IBM AIX Questions</title><link href="http://www.legendu.net/outdated/blog/ibm-aix-questions/" rel="alternate"></link><published>2015-05-06T23:55:58-07:00</published><updated>2015-05-06T23:55:58-07:00</updated><author><name>Ben Chuanlong Du</name></author><id>tag:www.legendu.net,2015-05-06:/outdated/blog/ibm-aix-questions/</id><content type="html">&lt;p&gt;&lt;strong&gt;
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;lsp works well only in current directory, if you specify another directory it doesn't work very well ...&lt;/li&gt;
+&lt;/ol&gt;</content><category term="OS"></category><category term="Unix"></category><category term="IBM"></category><category term="AIX"></category><category term="questions"></category></entry><entry><title>IBM AIX Tips</title><link href="http://www.legendu.net/outdated/blog/ibm-aix-tips/" rel="alternate"></link><published>2015-05-06T23:55:20-07:00</published><updated>2015-05-06T23:55:20-07:00</updated><author><name>Ben Chuanlong Du</name></author><id>tag:www.legendu.net,2015-05-06:/outdated/blog/ibm-aix-tips/</id><summary type="html">&lt;p&gt;&lt;strong&gt;
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Display the total disk usage of the current directory.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;du -lsm 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Display the disk usage of sas data set files.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;du -lsm *.sas7bdat
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Calculate the md5sum of …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Display the total disk usage of the current directory.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;du -lsm 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Display the disk usage of sas data set files.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;du -lsm *.sas7bdat
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Calculate the md5sum of a file.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;csum -h MD5 fileName
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="OS"></category><category term="Unix"></category><category term="IBM"></category><category term="AIX"></category><category term="tips"></category></entry><entry><title>Download Debian Using Jigdo</title><link href="http://www.legendu.net/outdated/blog/download-debian-using-jigdo/" rel="alternate"></link><published>2012-09-03T19:59:19-07:00</published><updated>2015-02-03T19:59:19-08:00</updated><author><name>Ben Chuanlong Du</name></author><id>tag:www.legendu.net,2012-09-03:/outdated/blog/download-debian-using-jigdo/</id><summary type="html">&lt;p&gt;&lt;img src="http://dclong.github.io/media/linux/debian.png" height="200" width="240" align="right"/&gt;&lt;/p&gt;
+&lt;p&gt;You can save a lot of time using Jigdo to download Debian image 
+especially when you have an old version of the image. &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Mount the the old version of the image to a folder that you 
+have access to, e.g.,&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo mount debian-testing.iso /mnt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Go to &lt;a href="http://cdimage.debian.org/cdimage/weekly-builds/amd64/jigdo-dvd/"&gt;Weekly Builds …&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;&lt;img src="http://dclong.github.io/media/linux/debian.png" height="200" width="240" align="right"/&gt;&lt;/p&gt;
+&lt;p&gt;You can save a lot of time using Jigdo to download Debian image 
+especially when you have an old version of the image. &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Mount the the old version of the image to a folder that you 
+have access to, e.g.,&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo mount debian-testing.iso /mnt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Go to &lt;a href="http://cdimage.debian.org/cdimage/weekly-builds/amd64/jigdo-dvd/"&gt;Weekly Builds of Debian Testing Image&lt;/a&gt; to copy the link
+address of the jigdo file that you want to use. 
+The first one is usually what you need. &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the following command in terminal. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;jigdo-lite link_to_jigdo_file
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You will be asked about old vesions of images that you want to use
+to accelerate downloading.
+You can type in the path where you mounted the image. 
+This process will be repeated until you don't have any more old version 
+of CD/DVD images to use. Just press enter to continue and files not 
+found in the old versions of images will be fetched throught internet. &lt;/p&gt;</content><category term="OS"></category><category term="jigdo-lite"></category><category term="wget"></category><category term="debian image"></category><category term="jigdo"></category><category term="Linux"></category></entry></feed>

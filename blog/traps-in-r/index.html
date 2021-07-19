@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="http://www.legendu.net/outdated/theme/css/elegant.prod.9e9d5ce754.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://www.legendu.net/outdated/theme/css/custom.css" media="screen">
+
+        <link rel="dns-prefetch" href="//fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+
+        <meta name="author" content="Ben Chuanlong Du" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="R, global variable, programming, traps, CRAN, Programming, " />
+
+<meta property="og:title" content="Traps in R "/>
+<meta property="og:url" content="http://www.legendu.net/outdated/blog/traps-in-r/" />
+<meta property="og:description" content="Zero-Length Vector Issue in R A really tricky problem about is global and local variables. You can use any global variable in a user-defined function, which is true at least in R with version 2.13 or older. For example if you have defined a global variable a, you can …" />
+<meta property="og:site_name" content="Ben Chuanlong Du&#39;s Blog" />
+<meta property="og:article:author" content="Ben Chuanlong Du" />
+<meta property="og:article:published_time" content="2012-11-09T23:47:21-08:00" />
+<meta property="og:article:modified_time" content="2017-04-09T23:47:21-07:00" />
+<meta name="twitter:title" content="Traps in R ">
+<meta name="twitter:description" content="Zero-Length Vector Issue in R A really tricky problem about is global and local variables. You can use any global variable in a user-defined function, which is true at least in R with version 2.13 or older. For example if you have defined a global variable a, you can …">
+
+        <title>Traps in R  · Ben Chuanlong Du&#39;s Blog
+</title>
+        <link href="http://www.legendu.net/outdated/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Ben Chuanlong Du&#39;s Blog - Full Atom Feed" />
+        <link href="http://www.legendu.net/outdated/atom.xml" type="application/atom+xml" rel="alternate" title="Ben Chuanlong Du&#39;s Blog - Atom Feed" />
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-30259661-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+    </head>
+    <body>
+        <div id="content">
+            <div class="navbar navbar-static-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="http://www.legendu.net/"><span class=site-name>Ben Chuanlong Du's Blog</span></a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav pull-right top-menu">
+                                <li >
+                                    <a href=
+                                       http://www.legendu.net/outdated
+                                    >Home</a>
+                                </li>
+                                <li ><a href="http://www.legendu.net/outdated/categories.html">Categories</a></li>
+                                <li ><a href="http://www.legendu.net/outdated/tags.html">Tags</a></li>
+                                <li ><a href="http://www.legendu.net/outdated/archives.html">Archives</a></li>
+                                <li><form class="navbar-search" action="http://www.legendu.net/outdated/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span1"></div>
+                    <div class="span10">
+<article itemscope>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+        <h1>
+            <a href="http://www.legendu.net/outdated/blog/traps-in-r/">
+                Traps in R
+            </a>
+        </h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+            
+            <ol>
+<li>
+<p><a href="http://www.legendu.net/en/blog/zero-length-vector-issue-in-R/">Zero-Length Vector Issue in R</a></p>
+</li>
+<li>
+<p>A really tricky problem about is global and local variables. 
+You can use any global variable in a user-defined function, 
+which is true at least in R with version 2.13 or older. 
+For example if you have defined a global variable <code>a</code>, 
+you can use variable <code>a</code> directly in user-defined functions. 
+However, 
+you cannot use <code>=</code>, <code>&lt;-</code> or <code>-&gt;</code> to mutate global variables. 
+Whenever you use these three operators, 
+R thinks that you're either creating a new variable 
+(if the variable is not defined before), 
+or you're updating the value of an existing variable 
+(if the variable already exists). 
+For example, 
+suppose there's still a global variable <code>a</code> in the R workspace. 
+You can use variable <code>a</code> directly in user-defined functions, 
+but if you use <code>a=2</code> (or <code>a&lt;-2</code> or <code>2-&gt;a</code>) in the user-defined function, 
+R won't think that you're updating the value of the global variable, 
+instead it things that you're creating a new local variable <code>a</code>. 
+For this reason, 
+if a global variable <code>a</code> exists 
+while there's no local variable <code>a</code> in a user-defined function, 
+error message will be shown if you use <code>a[1]=1</code> (or other equivalent ways)
+and try to run the function, 
+because by doing this you're telling R 
+that you want to update the value of the first element of local variable <code>a</code> 
+but local variable <code>a</code> doesn't exist. 
+If you really want to update the value of (or create) a global variable 
+in a user-defined function, 
+you should use operator <code>-&gt;&gt;</code> or <code>&lt;&lt;-</code>. 
+For example, 
+if you want to update the value of global variable <code>a</code>, 
+you can use <code>a&lt;&lt;-2</code> (or <code>2-&gt;&gt;a</code>). 
+Now you have seen that global variables can screw the execution result 
+of your own defined function easily. 
+The situation can become even trickier and thus harder to debug, 
+if you define a local variable in a branch 
+(e.g. a branch of <code>if()...else...</code> statement) of the code 
+while forget to define the same local variable in other branches 
+and at the same time a global variable with the same name exists. 
+My suggestion is that you first remove all global variables 
+in the R workspace if there is any, 
+and then run your program. 
+In this way,
+you can avoid confusion resulting from global variables.</p>
+</li>
+<li>
+<p>Always be careful when there is an operation based on two vectors.</p>
+</li>
+<li>
+<p>Sequence operator (<code>:</code>) has a higher priority over arithmetic operators (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>), 
+but a lower priority than the power operator (<code>^</code>) and element operator (<code>[]</code>).</p>
+</li>
+<li>
+<p>Expression <code>2^1^2</code> is calculated from right to left in R.</p>
+</li>
+<li>
+<p>Avoid use function <code>median</code> if you can, 
+because it returns two numbers when the vector has an even number of elements, 
+which is usually not what statisticians want 
+and might result in serious problems in many cases. 
+Actually we can always use <code>quantile(x,prob=0.5)</code> to get the median of vector <code>x</code>.</p>
+</li>
+<li>
+<p>For functions which takes <code>...</code> as one of its parameters, 
+we have to be very careful.
+Because this kind of functions accept any number and any kind of parameters. 
+So sometime you think that you are passing values to some argument of a function, 
+but actually not. 
+For example if you use <code>seq(0,100,step=2)</code> you might be in trouble. 
+The right command that works in this situations can be <code>seq(0,100,by=2)</code>.
+Nowadays, 
+there are many different programming languages, 
+and all of them have their own advantages and disadvantages. 
+So we might have learned several different programming languages. 
+And we are probably told not to remember all functions by heart, 
+instead, we can check the syntax of functions when we have to use them. 
+This is an efficient way which is also my way to learn programming languages.
+However, 
+this might can lead to problems sometimes. 
+Because we're lazy, 
+we might just guess syntax of functions that we're going to use. 
+This is not a big problem in complied languages, 
+because anyway the syntax will be checked later 
+and what is more usually we have good editors to help us (e.g. eclipse for Java). 
+R is a interpreted language, 
+so even if there're syntax errors you might can still run it. 
+And because of high flexibility of R, 
+it is very hard to editor for R to find these tricky mistakes. 
+So if we can, 
+we should always at least check the arguments of the functions 
+we are going to use in R. 
+A simple way is just to use function <code>args</code>. 
+If we have used <code>args</code> to check the arguments of function <code>seq</code>, 
+then the chance for us to make the mistakes mentioned above is very small. 
+Also it is recommended to always pass arguments to functions 
+using argument names, 
+i.e., 
+using the form <code>argname1=argvalue1</code> to pass arguments to functions.</p>
+</li>
+<li>
+<p>To get the length of a vector, 
+you can use <code>length</code>. 
+However, 
+to get the length of a string, 
+you should use <code>nchar</code>.</p>
+</li>
+<li>
+<p><code>round</code> in use the close even number strategy which might not what you expect, 
+so be careful when you use it.</p>
+</li>
+<li>
+<p>In a <code>for</code> loop, 
+the loop vector is immutable while the loop is running. 
+This means that R calculates the loop vector only once, 
+an for this reason, feel free to ...</p>
+</li>
+<li>
+<p>It is often that one want to build a larger array based on small arrays. 
+For example, 
+one build a 3-D array by repeating a 2-D matrix. 
+You should be careful if the "matrix" you used is obtained by reading data from a file, 
+because it's really a data frame often times. 
+All elements in an array have the same type, 
+while elements in a data frame do not have to share the same type. 
+For this reason, 
+it is really inefficient to build an array based on a data frame 
+(if even all columns of the data frame share the same type). 
+If you do this for a large data frame, 
+R can choke. 
+A good way is to first convert the data frame to a matrix using <code>as.matrix</code>, 
+and then build the array you want based on the matrix.</p>
+</li>
+<li>
+<p>R runs commands in <code>Rprofile.site</code>, 
+then loads the save image (if any), 
+and then runs <code>.First</code> (if exists). 
+This means that if you want to run something which depends the R image, 
+you must put it into the <code>.First</code> instead of <code>Rprofile.site</code>. 
+However, 
+it seems that there is a bug with Rstudio (at least before version 0.94), 
+who does not follow the above order when it starts R.</p>
+</li>
+<li>
+<p>Usually the number of levels of a factor equals the number of distinct elements in the factor, 
+however, 
+it doesn't have to be.
+Except factitious ones, 
+the situation that the two quantities are not the same usually happens 
+after subsetting a data frame or factor. 
+If the number of levels of a factor is not the same 
+with the number of its distinct elements, 
+you can apply <code>factor</code> on itself to get a factor with the two quantities identical.</p>
+</li>
+<li>
+<p>Never use a factor for the index of subsetting, 
+because if used it will be coerced to an integer vector 
+which is usually not what people expect.</p>
+</li>
+<li>
+<p>R allows lazy evaluation to some extent, 
+e.g., 
+as almost all other languages do, 
+boolean expression in R are evaluated using lazy evaluation. 
+What is more important is that missing arguments are allowed for R functions 
+(i.e. you do not have to pass values to some arguments, 
+and everything runs OK as long as missing arguments are not involved in computing), 
+and missing arguments can even be further passed to sub-functions 
+(Everything runs OK as long as missing arguments are never used in computing). 
+Here is an illustration.</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">var</span> <span class="o">=</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span> <span class="n">exact</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">use</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="n">exact</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">return</span><span class="p">(</span><span class="nf">mean</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="nf">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">^</span><span class="m">2</span><span class="p">))</span>
+    <span class="p">}</span>
+    <span class="n">stats</span><span class="o">::</span><span class="nf">var</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="n">na.rm</span><span class="p">,</span> <span class="n">use</span> <span class="o">=</span> <span class="n">use</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nf">var</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">))</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>[1] 1.667
+</code></pre></div>
+
+<p>However, 
+R does not fully support lazy evaluation, 
+and you shall not expect code involve advanced lazy evaluation 
+(need an example there ...) to work well. 
+Part of the reason for not supporting advanced lazy evaluation in R 
+is that it invites many problems and can probably result in fetal mistakes.</p>
+<ol>
+<li>Because of the way that computers stores double values, 
+there are always tiny storing errors associated with double values. 
+So if you want to compare whether a double value belongs to a range 
+(a point is a closed interval with equal limts), 
+you can change the limits (depends on what your want to do) 
+of the range slightly to avoid storing errors.</li>
+</ol>
+
+
+             
+ 
+            
+            
+            
+
+
+
+
+
+
+
+<section>
+    <h6 style="display:none;">Comments</h6>
+    <p id="comment-message"> </p>
+
+    <div class="accordion" id="accordion2">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <a class="accordion-toggle disqus-comment-count comment-count collapsed"
+                   data-toggle="collapse"
+                   data-parent="#accordion2"
+                   data-disqus-identifier="http://www.legendu.net/outdated/blog/traps-in-r/"
+                   href="http://www.legendu.net/outdated/blog/traps-in-r/#comment_thread"
+                   id="comment-accordion-toggle">
+                    Comments
+                </a>
+            </div>
+            <div id="comment_thread" class="accordion-body collapse">
+                <div class="accordion-inner">
+                    <div class="comments">
+                        <div id="disqus_thread"></div>
+                        <script>
+    var disqus_shortname = 'dclong';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+
+    var disqus_identifier = 'http://www.legendu.net/outdated/blog/traps-in-r/';
+    var disqus_url = 'http://www.legendu.net/outdated/blog/traps-in-r/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+            <hr/>
+        </div>
+        <section id="article-sidebar" class="span2">
+            <h4>Published</h4>
+            <time itemprop="dateCreated" datetime="2012-11-09T23:47:21-08:00">Nov 09, 2012</time>
+<h4>Last Updated</h4>
+<time datetime="2017-04-09T23:47:21-07:00">Apr 09, 2017</time>
+
+            <h4>Category</h4>
+            <a class="category-link" href="http://www.legendu.net/outdated/categories.html#programming-ref">Programming</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="http://www.legendu.net/outdated/tags.html#cran-ref">CRAN
+                    <span class="superscript">46</span>
+</a></li>
+                <li><a href="http://www.legendu.net/outdated/tags.html#global-variable-ref">global variable
+                    <span class="superscript">1</span>
+</a></li>
+                <li><a href="http://www.legendu.net/outdated/tags.html#programming-ref">programming
+                    <span class="superscript">132</span>
+</a></li>
+                <li><a href="http://www.legendu.net/outdated/tags.html#r-ref">R
+                    <span class="superscript">50</span>
+</a></li>
+                <li><a href="http://www.legendu.net/outdated/tags.html#traps-ref">traps
+                    <span class="superscript">1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+<div id="sidebar-social-link">
+    <a href="https://www.linkedin.com/in/ben-chuanlong-du-1239b221/" title="" target="_blank" rel="nofollow noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="LinkedIn" role="img" viewBox="0 0 512 512" fill="#fff"><rect width="512" height="512" rx="15%" fill="#0077b5"/><circle cx="142" cy="138" r="37"/><path stroke="#fff" stroke-width="66" d="M244 194v198M142 194v198"/><path d="M276 282c0-20 13-40 36-40 24 0 33 18 33 45v105h66V279c0-61-32-89-76-89-34 0-51 19-59 32"/></svg>
+    </a>
+    <a href="https://twitter.com/longendu" title="" target="_blank" rel="nofollow noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="Twitter" role="img" viewBox="0 0 512 512"><rect width="512" height="512" rx="15%" fill="#1da1f3"/><path fill="#fff" d="M437 152a72 72 0 0 1-40 12 72 72 0 0 0 32-40 72 72 0 0 1-45 17 72 72 0 0 0-122 65 200 200 0 0 1-145-74 72 72 0 0 0 22 94 72 72 0 0 1-32-7 72 72 0 0 0 56 69 72 72 0 0 1-32 1 72 72 0 0 0 67 50 200 200 0 0 1-105 29 200 200 0 0 0 309-179 200 200 0 0 0 35-37"/></svg>
+    </a>
+    <a href="https://www.facebook.com/chuanlong.du" title="" target="_blank" rel="nofollow noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="Facebook" role="img" viewBox="0 0 512 512"><rect width="512" height="512" rx="15%" fill="#1877f2"/><path d="M355.6 330l11.4-74h-71v-48c0-20.2 9.9-40 41.7-40H370v-63s-29.3-5-57.3-5c-58.5 0-96.7 35.4-96.7 99.6V256h-65v74h65v182h80V330h59.6z" fill="#fff"/></svg>
+    </a>
+</div>
+            
+
+
+
+
+
+            
+
+
+
+
+
+        </section>
+</div>
+</article>
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                    </div>
+                    <div class="span1"></div>
+                </div>
+            </div>
+        </div>
+<footer>
+
+    <div>
+        <span class="site-name">Ben Chuanlong Du's Blog</span> - Change is eternal.
+    </div>
+
+
+
+    <div id="fpowered">
+        Powered by: <a href="http://getpelican.com/" title="Pelican Home Page" target="_blank" rel="nofollow noopener noreferrer">Pelican</a>
+        Theme: <a href="https://elegant.oncrashreboot.com/" title="Theme Elegant Home Page" target="_blank" rel="nofollow noopener noreferrer">Elegant</a>
+    </div>
+</footer>            <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script src="http://www.legendu.net/outdated/theme/js/elegant.prod.9e9d5ce754.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    <script>
+    (function () {
+        if (window.location.hash.match(/^#comment-\d+$/)) {
+            $('#comment_thread').collapse('show');
+        }
+    })();
+    window.onhashchange=function(){
+        if (window.location.hash.match(/^#comment-\d+$/))
+            window.location.reload(true);
+    }
+    $('#comment_thread').on('shown', function () {
+        var link = document.getElementById('comment-accordion-toggle');
+        var old_innerHTML = link.innerHTML;
+        $(link).fadeOut(200, function() {
+            $(this).text('Click here to hide comments').fadeIn(200);
+        });
+        $('#comment_thread').on('hidden', function () {
+            $(link).fadeOut(200, function() {
+                $(this).text(old_innerHTML).fadeIn(200);
+            });
+        })
+    })
+</script>
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+        License : MIT -->
+</html>

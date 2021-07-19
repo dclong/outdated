@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ben Chuanlong Du's Blog - Benjamin Du</title><link href="http://www.legendu.net/outdated/" rel="alternate"></link><link href="http://www.legendu.net/outdated/feeds/benjamin-du.atom.xml" rel="self"></link><id>http://www.legendu.net/outdated/</id><updated>2021-06-10T09:32:40-07:00</updated><subtitle>Change is eternal.</subtitle><entry><title>Tips on Dockerswarm</title><link href="http://www.legendu.net/outdated/blog/tips-on-dockerswarm/" rel="alternate"></link><published>2019-10-10T09:32:40-07:00</published><updated>2021-06-10T09:32:40-07:00</updated><author><name>Benjamin Du</name></author><id>tag:www.legendu.net,2019-10-10:/outdated/blog/tips-on-dockerswarm/</id><summary type="html">&lt;p&gt;https://ender74.github.io/Sharing-Volumes-With-Docker-Swarm/&lt;/p&gt;
+&lt;h2 id="volume"&gt;Volume&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;docker service create &lt;span class="se"&gt;\&lt;/span&gt;
+    --name nginx &lt;span class="se"&gt;\&lt;/span&gt;
+    --mount &lt;span class="nv"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;bind,source&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="nb"&gt;pwd&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;/static-site,target&lt;span class="o"&gt;=&lt;/span&gt;/usr/share/nginx/html &lt;span class="se"&gt;\&lt;/span&gt;
+    -p &lt;span class="m"&gt;80&lt;/span&gt;:80 nginx
+    https://boxboat.com/2016/08/12/mounting-volumes-docker-swarm-1-12/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;https://stackoverflow.com/questions/42672171/volume-is-not-shared-between-nodes-of-docker-swarm&lt;/p&gt;
+&lt;p&gt;Volumes created in docker swarm via default driver are local to …&lt;/p&gt;</summary><content type="html">&lt;p&gt;https://ender74.github.io/Sharing-Volumes-With-Docker-Swarm/&lt;/p&gt;
+&lt;h2 id="volume"&gt;Volume&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;docker service create &lt;span class="se"&gt;\&lt;/span&gt;
+    --name nginx &lt;span class="se"&gt;\&lt;/span&gt;
+    --mount &lt;span class="nv"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;bind,source&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="nb"&gt;pwd&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;/static-site,target&lt;span class="o"&gt;=&lt;/span&gt;/usr/share/nginx/html &lt;span class="se"&gt;\&lt;/span&gt;
+    -p &lt;span class="m"&gt;80&lt;/span&gt;:80 nginx
+    https://boxboat.com/2016/08/12/mounting-volumes-docker-swarm-1-12/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;https://stackoverflow.com/questions/42672171/volume-is-not-shared-between-nodes-of-docker-swarm&lt;/p&gt;
+&lt;p&gt;Volumes created in docker swarm via default driver are local to the node. So if you put both containers on the same host they will have a shared volume. But when you put your containers on different nodes, there will be a separate volume created on each node.&lt;/p&gt;
+&lt;p&gt;Now in order to achieve bind mounts/volumes across multiple nodes you have these options:&lt;/p&gt;
+&lt;p&gt;Use a cluster filesystem like glusterfs, ceph and ... across swarm nodes, then use bind mounts in your service defenition pointing to shared fs.&lt;/p&gt;
+&lt;p&gt;Switch to Kubernetes and take advantage of automated volume provisioning using multiple backends via Storage classes and claims.
+http://storidge.com/blog/persistence-for-docker-swarm/&lt;/p&gt;
+&lt;p&gt;https://blog.octo.com/en/kubernetes-vs-swarm-volumes/&lt;/p&gt;
+&lt;h2 id="glusterfs"&gt;GlusterFS&lt;/h2&gt;
+&lt;p&gt;http://embaby.com/blog/using-glusterfs-docker-swarm-cluster/&lt;/p&gt;</content><category term="Software"></category><category term="Software"></category><category term="Docker"></category><category term="Docker Swarm"></category></entry><entry><title>Connect to Teradata from the BeakerX SQL Kernel in JupyterLab</title><link href="http://www.legendu.net/outdated/blog/connect-to-teradata-from-the-beakerx-sql-kernel-in-jupyterlab/" rel="alternate"></link><published>2021-04-10T23:47:18-07:00</published><updated>2021-02-10T23:47:18-08:00</updated><author><name>Benjamin Du</name></author><id>tag:www.legendu.net,2021-04-10:/outdated/blog/connect-to-teradata-from-the-beakerx-sql-kernel-in-jupyterlab/</id><summary type="html">&lt;p&gt;You can run the following magics in a cell to connect to Teradata from a BeakerX SQL kernel.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;%classpath add jar /workdir/jars/teradata/tdgssconfig.jar
+%classpath add jar /workdir/jars/teradata/terajdbc4.jar
+%defaultDatasource jdbc:teradata://your.teradata.com/USER&lt;span class="o"&gt;=&lt;/span&gt;your_username,PASSWORD&lt;span class="o"&gt;=&lt;/span&gt;your_password
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;After connecting to a Teradata server …&lt;/p&gt;</summary><content type="html">&lt;p&gt;You can run the following magics in a cell to connect to Teradata from a BeakerX SQL kernel.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;%classpath add jar /workdir/jars/teradata/tdgssconfig.jar
+%classpath add jar /workdir/jars/teradata/terajdbc4.jar
+%defaultDatasource jdbc:teradata://your.teradata.com/USER&lt;span class="o"&gt;=&lt;/span&gt;your_username,PASSWORD&lt;span class="o"&gt;=&lt;/span&gt;your_password
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;After connecting to a Teradata server,
+you can write SQL code in a cell just like in any other SQL IDE.&lt;/p&gt;</content><category term="Computer Science"></category><category term="programming"></category><category term="Jupyter"></category><category term="JupyterLab"></category><category term="SQL"></category><category term="BeakerX"></category></entry><entry><title>Fastload in Teradata</title><link href="http://www.legendu.net/outdated/blog/Improve%20Performance%20of%20Inserting%20in%20Teradata%20SQL/" rel="alternate"></link><published>2020-05-22T09:06:28-07:00</published><updated>2020-06-22T09:06:28-07:00</updated><author><name>Benjamin Du</name></author><id>tag:www.legendu.net,2020-05-22:/outdated/blog/Improve Performance of Inserting in Teradata SQL/</id><summary type="html">&lt;p&gt;&lt;strong&gt;
+Things on this page are fragmentary and immature notes/thoughts of the author.
+Please read with your own judgement!
+&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id="insert-multiple-rows"&gt;Insert Multiple Rows&lt;/h2&gt;
+&lt;p&gt;Teradata SQL does not support &lt;code&gt;VALUES&lt;/code&gt; with multiple rows in a &lt;code&gt;INSERT&lt;/code&gt; statement.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Multi Statement Request (MSR) + &lt;a href="https://www.tutorialspoint.com/teradata/teradata_bteq.htm"&gt;Teradata BTEQ&lt;/a&gt;
+    You can run a MSR (with multiple insert statements …&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;
+Things on this page are fragmentary and immature notes/thoughts of the author.
+Please read with your own judgement!
+&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id="insert-multiple-rows"&gt;Insert Multiple Rows&lt;/h2&gt;
+&lt;p&gt;Teradata SQL does not support &lt;code&gt;VALUES&lt;/code&gt; with multiple rows in a &lt;code&gt;INSERT&lt;/code&gt; statement.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Multi Statement Request (MSR) + &lt;a href="https://www.tutorialspoint.com/teradata/teradata_bteq.htm"&gt;Teradata BTEQ&lt;/a&gt;
+    You can run a MSR (with multiple insert statements) BTEQ,
+    which submit all insert statements as one block after the final semicolon.
+    Note: when thereis a new command starting on the same line,
+    it is part of the MSR.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;INSERT&lt;/span&gt; &lt;span class="k"&gt;INTO&lt;/span&gt; &lt;span class="n"&gt;Example&lt;/span&gt; &lt;span class="k"&gt;Values&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Steve&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="k"&gt;INSERT&lt;/span&gt; &lt;span class="k"&gt;INTO&lt;/span&gt; &lt;span class="n"&gt;Example&lt;/span&gt; &lt;span class="k"&gt;Values&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;James&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In Teradata SQL Assistant or Teradata SQL Studio,
+they shortcut is &lt;code&gt;F9&lt;/code&gt; (instead of &lt;code&gt;F5&lt;/code&gt;).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="performance"&gt;Performance&lt;/h2&gt;
+&lt;p&gt;@TODO: convert the Java example to Kotlin code in JupyterLab notebook.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Prepared_statement"&gt;Prepared/Parameterized Statement&lt;/a&gt;
+    is recommended to improve performance of query/update/insert. 
+    Below is an example of using JDBC in Java.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;// These are done once &lt;/span&gt;
+&lt;span class="n"&gt;Connection&lt;/span&gt; &lt;span class="n"&gt;conn&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;DriverManager&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getConnection&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;username&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;sql&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;INSERT INTO transactions (cust_id, transaction_date, amount, desc) values (?, ?, ?, ?)&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="n"&gt;PreparedStatement&lt;/span&gt; &lt;span class="n"&gt;ps&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;conn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;prepareStatement&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sql&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="c1"&gt;// the below can be repeated many times with different values&lt;/span&gt;
+&lt;span class="n"&gt;ps&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setInt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;custID&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;ps&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setDate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tran_date&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;ps&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setBigDecimal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;amount&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;ps&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setString&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;desc&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;ps&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;executeUpdate&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In a &lt;a href="https://www.python.org/dev/peps/pep-0249/"&gt;DB-API&lt;/a&gt; compatible Python module,
+you call use the method &lt;a href="https://www.python.org/dev/peps/pep-0249/#id15"&gt;execute&lt;/a&gt;
+on a parameterized query with a list/tuple of parameters.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sql&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;INSERT INTO transactions (cust_id, transaction_date, amount, desc) values (?, ?, ?, ?)&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;cursor&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sql&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;cust_id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tran_dt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;amount&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;desc&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Prepared Statement Batches take your performance to the next level. 
+In addition to the benefits of reusing the Prepared Statement, 
+batching your input values also reduces the number of round trips to the database. 
+A batch size of roughly 5,000 to 10,000 works well for most applications. 
+Using batches can be 10 to 40 times faster than the previous approach.
+Below is an example of using JDBC in Java.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;Connection&lt;/span&gt; &lt;span class="n"&gt;conn&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;DriverManager&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getConnection&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;username&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;sql&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;INSERT INTO transactions(cust_id, transaction_date, amount, desc) values (?, ?, ?, ?)&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;PreparedStatement&lt;/span&gt; &lt;span class="n"&gt;ps&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;conn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;prepareStatement&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sql&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="cm"&gt;/* Loop through input values */&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="cm"&gt;/* Loop through a subset of the input values - the desired batch size */&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;ps&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setInt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;custID&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;ps&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setDate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tran_date&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;ps&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setBigDecimal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;amount&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;ps&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setString&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;desc&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;ps&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;addBatch&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt; &lt;span class="c1"&gt;// adds the row of input values to the batch&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="c1"&gt;// This is done once per the desired batch size.&lt;/span&gt;
+    &lt;span class="n"&gt;ps&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;executeBatch&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt; &lt;span class="c1"&gt;// sends all the batched rows to the database&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In a &lt;a href="https://www.python.org/dev/peps/pep-0249/"&gt;DB-API&lt;/a&gt; compatible Python module,
+you call use the method &lt;a href="https://www.python.org/dev/peps/pep-0249/#executemany"&gt;executemany&lt;/a&gt;
+on a parameterized query with a list/tuple of list/tuple of parameters.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sql&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;INSERT INTO transactions (cust_id, transaction_date, amount, desc) values (?, ?, ?, ?)&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;cursor&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sql&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;cust_id_1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tran_dt_1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;amount_1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;desc_1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;cust_id_2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tran_dt_2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;amount_2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;desc_2&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;cust_id_3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tran_dt_3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;amount_3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;desc_3&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;For loading truly huge amounts of data, 
+JDBC FastLoad can provide even better performance. 
+There are a couple of caveats, however. 
+&lt;strong&gt;JDBC FastLoad can only insert data into an empty table&lt;/strong&gt;,
+and JDBC FastLoad is only recommended for loading large amounts of data -- at least 100,000 rows total.
+The nice thing is that your Java code doesn't need to change in order to use JDBC FastLoad. 
+Your application uses the exact same Prepared Statement batches as in the previous example. 
+Just add &lt;code&gt;TYPE=FASTLOAD&lt;/code&gt; to your connection parameters, 
+and the Teradata JDBC Driver will use JDBC FastLoad for particular SQL requests, if it can.
+Note that the recommended batch size for JDBC FastLoad is much higher 
+than for a regular SQL Prepared Statement batch, which means you may need to increase your JVM heap size. 
+To get top-notch performance, 
+you need to use a batch size of roughly 50,000 to 100,000. 
+Using JDBC FastLoad can be 3 to 10 times faster than the previous approach.
+Please refer to 
+&lt;a href="https://teradata-docs.s3.amazonaws.com/doc/connectivity/jdbc/reference/current/jdbcug_chapter_2.html#BABFGFAF"&gt;JDBC FastLoad&lt;/a&gt;
+for more discussions on JDBC FastLoad.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="fastload"&gt;FastLoad&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;If you have the Teradata ODBC driver installed,
+    you can access the &lt;code&gt;fastload&lt;/code&gt; commaand by installing Teradata Tools &amp;amp; Utils.
+    If you use JDBC, 
+    it seems that you must write code yourself.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Use temporary tables when you use &lt;code&gt;fastload&lt;/code&gt; to load data&lt;/strong&gt;,
+    as the tables involved might get blocked if issues happen in the middle.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Make sure to set a large enough CHECKPOINT for good performance.
+    Frequent checkpointing option reduces the speed of your FastLoad job.
+    But it substantially enhances FastLoad restart operations.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Each checkpoint temporarily halts the multiple session data transfer feature of FastLoad,
+    thereby decreasing the speed of the FastLoad job.&lt;/li&gt;
+&lt;li&gt;The record size and the size of the Teradata Database influence how often you should
+    specify checkpoints.On a smaller Teradata Database, specify checkpoints:&lt;/li&gt;
+&lt;li&gt;Every 50,000 records if each record is more then 4 KB&lt;/li&gt;
+&lt;li&gt;Every 100,000 records if each record is less than 4 KB
+    On a larger Teradata Database, specify higher (less frequent) checkpoint values.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;http://teradatatrainingbysatish.blogspot.com/2016/01/teradata-sample-scripts-bteq-fastload.html&lt;/p&gt;
+&lt;p&gt;https://www.tutorialspoint.com/teradata/teradata_fastload.htm&lt;/p&gt;
+&lt;p&gt;https://docs.teradata.com/reader/r_6Z4JwVMhANtZFCIKEx7Q/NygMHUT8ewJO_7cXjYx8Ug&lt;/p&gt;
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=eeHaRzoYLL4"&gt;FASTLOAD Utility in Teradata ---Step by Step Explanation&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://teradata-docs.s3.amazonaws.com/doc/connectivity/jdbc/reference/current/jdbcug_chapter_2.html#BABFGFAF"&gt;JDBC FastLoad&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://www.tutorialspoint.com/teradata/teradata_bteq.htm"&gt;Teradata - BTEQ&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/39668309/insert-multiple-rows-sql-teradata"&gt;Insert Multiple Rows SQL Teradata&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="http://www.ebyhr.org/2018/10/bulk-insert-to-teradata-using-python.html"&gt;Bulk Insert to Teradata using Python&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://downloads.teradata.com/connectivity/articles/speed-up-your-jdbcodbc-applications"&gt;Speed up your JDBC/ODBC applications&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/26684648/teradata-jdbc-whats-the-point-of-using-fastload-if-java-has-memory-limitations"&gt;Teradata-jdbc: What's the point of using Fastload if java has memory limitations?&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://teradata-docs.s3.amazonaws.com/doc/connectivity/jdbc/reference/current/samplePrograms.html"&gt;Teradata JDBC Driver Sample Programs&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=sq5x__EkCJc"&gt;Teradata FASTLOAD - Overview , Syntax and Execution&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://docs.teradata.com/reader/r_6Z4JwVMhANtZFCIKEx7Q/cE9QwHgBRSq8CvD61SaycQ"&gt;Teradata FastLoad Example&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Computer Science"></category><category term="Computer Science"></category><category term="SQL"></category><category term="Teradata"></category><category term="fastload"></category><category term="BTEQ"></category><category term="prepared statement"></category></entry><entry><title>Understand and Avoid the No More Spool Space Issue in Teradata</title><link href="http://www.legendu.net/outdated/blog/understand-and-avoid-the-no-more-spool-space-issue-in-teradata/" rel="alternate"></link><published>2020-06-22T08:53:57-07:00</published><updated>2020-06-22T08:53:57-07:00</updated><author><name>Benjamin Du</name></author><id>tag:www.legendu.net,2020-06-22:/outdated/blog/understand-and-avoid-the-no-more-spool-space-issue-in-teradata/</id><summary type="html">&lt;p&gt;&lt;strong&gt;
+Things on this page are fragmentary and immature notes/thoughts of the author.
+Please read with your own judgement!
+&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id="knowledge-about-spool-space-in-teradata"&gt;Knowledge About Spool Space in Teradata&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Volatile Tables and subqueries are both built in Spool&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="causes-of-no-more-spool-issue"&gt;Causes of No More Spool Issue&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;The main cause of "no more spool space" errors 
+    is …&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;
+Things on this page are fragmentary and immature notes/thoughts of the author.
+Please read with your own judgement!
+&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id="knowledge-about-spool-space-in-teradata"&gt;Knowledge About Spool Space in Teradata&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Volatile Tables and subqueries are both built in Spool&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="causes-of-no-more-spool-issue"&gt;Causes of No More Spool Issue&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;The main cause of "no more spool space" errors 
+    is usually data skew. &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="some-potential-solutions"&gt;Some Potential Solutions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Choose a &lt;strong&gt;good primary index&lt;/strong&gt; when creating a data tabel.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Reduce the number of rows and columns you’re working with&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Break down a big query into smaller ones.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use Subqueries to Reduce Joined Rows and Columns&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;reduce spool with COMPRESS&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;p&gt;https://robertlambert.net/2018/02/escaping-teradata-purgatory-select-failed-2646-no-more-spool-space/&lt;/p&gt;</content><category term="Computer Science"></category><category term="Computer Science"></category><category term="Teradata"></category><category term="spool space"></category><category term="no more spool space"></category><category term="database"></category><category term="SQL"></category></entry><entry><title>Use Spark With the BeakerX Scala Kernel</title><link href="http://www.legendu.net/outdated/blog/use-spark-with-the-beakerx-scala-kernel/" rel="alternate"></link><published>2021-04-23T17:23:46-07:00</published><updated>2020-03-23T17:23:46-07:00</updated><author><name>Benjamin Du</name></author><id>tag:www.legendu.net,2021-04-23:/outdated/blog/use-spark-with-the-beakerx-scala-kernel/</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Open a JupyterLab notebook with the BeakerX Scala kernel from the launcher.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download Spark (say, 2.3.1) dependencies. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="n"&gt;classpath&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt; &lt;span class="n"&gt;mvn&lt;/span&gt;
+&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apache&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;spark&lt;/span&gt; &lt;span class="n"&gt;spark&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;core_2&lt;/span&gt;&lt;span class="mf"&gt;.11&lt;/span&gt; &lt;span class="mf"&gt;2.3.1&lt;/span&gt;
+&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apache&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;spark&lt;/span&gt; &lt;span class="n"&gt;spark&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sql_2&lt;/span&gt;&lt;span class="mf"&gt;.11&lt;/span&gt; &lt;span class="mf"&gt;2.3.1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create a SparkSession object.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;org&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nn"&gt;apache&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nn"&gt;spark&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nn"&gt;sql&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;SparkSession …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Open a JupyterLab notebook with the BeakerX Scala kernel from the launcher.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download Spark (say, 2.3.1) dependencies. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="n"&gt;classpath&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt; &lt;span class="n"&gt;mvn&lt;/span&gt;
+&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apache&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;spark&lt;/span&gt; &lt;span class="n"&gt;spark&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;core_2&lt;/span&gt;&lt;span class="mf"&gt;.11&lt;/span&gt; &lt;span class="mf"&gt;2.3.1&lt;/span&gt;
+&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apache&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;spark&lt;/span&gt; &lt;span class="n"&gt;spark&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sql_2&lt;/span&gt;&lt;span class="mf"&gt;.11&lt;/span&gt; &lt;span class="mf"&gt;2.3.1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create a SparkSession object.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;org&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nn"&gt;apache&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nn"&gt;spark&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nn"&gt;sql&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;SparkSession&lt;/span&gt;
+&lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;org&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nn"&gt;apache&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nn"&gt;spark&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nn"&gt;sql&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nn"&gt;functions&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_&lt;/span&gt;
+
+&lt;span class="kd"&gt;val&lt;/span&gt; &lt;span class="n"&gt;spark&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nc"&gt;SparkSession&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;builder&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;master&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;local[2]&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;appName&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Spark Example&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;spark.some.config.option&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;some-value&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getOrCreate&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;spark&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nn"&gt;implicits&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use Spark as usual. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;val&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nc"&gt;Range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;toDF&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;/ol&gt;</content><category term="Computer Science"></category><category term="Computer Science"></category><category term="Spark"></category><category term="Scala"></category><category term="BeakerX"></category><category term="JupyterLab"></category></entry><entry><title>Install Python Pip in Cygwin</title><link href="http://www.legendu.net/outdated/blog/install-python-pip-in-cygwin/" rel="alternate"></link><published>2019-03-04T23:56:02-08:00</published><updated>2019-03-04T23:56:02-08:00</updated><author><name>Benjamin Du</name></author><id>tag:www.legendu.net,2019-03-04:/outdated/blog/install-python-pip-in-cygwin/</id><content type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;python3 -m ensurepip
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;p&gt;https://stackoverflow.com/questions/30863501/installing-new-versions-of-python-on-cygwin-does-not-install-pip&lt;Paste&gt;&lt;/p&gt;</content><category term="Software"></category><category term="software"></category><category term="Python"></category><category term="Cygwin"></category><category term="pip"></category></entry></feed>
