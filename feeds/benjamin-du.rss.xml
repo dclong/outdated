@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"><channel><title>Ben Chuanlong Du's Blog - Benjamin Du</title><link>https://outdated.legendu.net/</link><description>Change is eternal.</description><lastBuildDate>Mon, 09 Jan 2023 16:46:08 -0800</lastBuildDate><item><title>Tips on yapf</title><link>https://outdated.legendu.net/blog/tips-on-yapf/</link><description>&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Black is preferred to yapf!&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://yapf.now.sh/"&gt;yapf Online Demo&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;There are 4 predefined styles: google, facebook, chromium, and pep8.
+    You can specify a style to use using the …&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Benjamin Du</dc:creator><pubDate>Mon, 08 Jul 2019 19:37:50 -0700</pubDate><guid isPermaLink="false">tag:outdated.legendu.net,2019-07-08:/blog/tips-on-yapf/</guid><category>Computer Science</category><category>programming</category><category>Python</category><category>yapf</category><category>code formatting</category></item><item><title>Tips on Kmymoney</title><link>https://outdated.legendu.net/blog/tips-on-KMyMoney/</link><description>&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Mint.com is much better alternative. 
+It is suggest that you use mint.com instead.&lt;/p&gt;
+&lt;h2 id="kmymoney-and-woob"&gt;KMyMoney and Woob&lt;/h2&gt;
+&lt;p&gt;Notice that the development of Weboob is inactive. &lt;/p&gt;
+&lt;p&gt;https …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Benjamin Du</dc:creator><pubDate>Sun, 09 Oct 2022 18:46:15 -0700</pubDate><guid isPermaLink="false">tag:outdated.legendu.net,2022-10-09:/blog/tips-on-KMyMoney/</guid><category>Computer Science</category><category>Computer Science</category><category>programming</category></item><item><title>Configure Terminal for PyCharm on Windows</title><link>https://outdated.legendu.net/blog/configure-terminal-for-pycharm/</link><description>&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things on this page are fragmentary and immature notes/thoughts of the author.
+Please read with your own judgement!
+**&lt;/p&gt;
+&lt;p&gt;I personally think it is better to develop …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Benjamin Du</dc:creator><pubDate>Tue, 05 Mar 2019 01:48:55 -0800</pubDate><guid isPermaLink="false">tag:outdated.legendu.net,2019-03-05:/blog/configure-terminal-for-pycharm/</guid><category>Computer Science</category><category>programming</category></item><item><title>Alternative to the rm Command in Linux</title><link>https://outdated.legendu.net/blog/alternative-to-the-rm-command-in-linux/</link><description>&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things on this page are fragmentary and immature notes/thoughts of the author.
+Please read with your own judgement!
+**&lt;/p&gt;
+&lt;p&gt;As is know to all,
+it can be …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Benjamin Du</dc:creator><pubDate>Thu, 02 May 2019 02:41:04 -0700</pubDate><guid isPermaLink="false">tag:outdated.legendu.net,2019-05-02:/blog/alternative-to-the-rm-command-in-linux/</guid><category>OS</category><category>Linux</category><category>Shell</category><category>rm</category><category>Trash</category><category>mv</category></item><item><title>Tips on Dockerswarm</title><link>https://outdated.legendu.net/blog/tips-on-dockerswarm/</link><description>&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;https://ender74.github.io/Sharing-Volumes-With-Docker-Swarm/&lt;/p&gt;
+&lt;h2 id="volume"&gt;Volume&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;docker&lt;span class="w"&gt; &lt;/span&gt;service&lt;span class="w"&gt; &lt;/span&gt;create&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;--name&lt;span class="w"&gt; &lt;/span&gt;nginx&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;--mount&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;bind,source&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="nb"&gt;pwd&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;/static-site,target&lt;span class="o"&gt;=&lt;/span&gt;/usr/share/nginx/html&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;-p&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;80&lt;/span&gt;:80&lt;span class="w"&gt; &lt;/span&gt;nginx
+&lt;span class="w"&gt;    &lt;/span&gt;https …&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Benjamin Du</dc:creator><pubDate>Thu, 10 Oct 2019 09:32:40 -0700</pubDate><guid isPermaLink="false">tag:outdated.legendu.net,2019-10-10:/blog/tips-on-dockerswarm/</guid><category>Software</category><category>Software</category><category>Docker</category><category>Docker Swarm</category></item><item><title>Connect to Teradata from the BeakerX SQL Kernel in JupyterLab</title><link>https://outdated.legendu.net/blog/connect-to-teradata-from-the-beakerx-sql-kernel-in-jupyterlab/</link><description>&lt;p&gt;You can run the following magics in a cell to connect to Teradata from a BeakerX SQL kernel.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;%classpath&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;jar&lt;span class="w"&gt; &lt;/span&gt;/workdir/jars/teradata/tdgssconfig.jar
+%classpath …&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Benjamin Du</dc:creator><pubDate>Sat, 10 Apr 2021 23:47:18 -0700</pubDate><guid isPermaLink="false">tag:outdated.legendu.net,2021-04-10:/blog/connect-to-teradata-from-the-beakerx-sql-kernel-in-jupyterlab/</guid><category>Computer Science</category><category>programming</category><category>Jupyter</category><category>JupyterLab</category><category>SQL</category><category>BeakerX</category></item><item><title>Fastload in Teradata</title><link>https://outdated.legendu.net/blog/Improve%20Performance%20of%20Inserting%20in%20Teradata%20SQL/</link><description>&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things on this page are fragmentary and immature notes/thoughts of the author.
+Please read with your own judgement!
+**&lt;/p&gt;
+&lt;h2 id="insert-multiple-rows"&gt;Insert Multiple Rows&lt;/h2&gt;
+&lt;p&gt;Teradata SQL does not support …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Benjamin Du</dc:creator><pubDate>Fri, 22 May 2020 09:06:28 -0700</pubDate><guid isPermaLink="false">tag:outdated.legendu.net,2020-05-22:/blog/Improve Performance of Inserting in Teradata SQL/</guid><category>Computer Science</category><category>Computer Science</category><category>SQL</category><category>Teradata</category><category>fastload</category><category>BTEQ</category><category>prepared statement</category></item><item><title>Understand and Avoid the No More Spool Space Issue in Teradata</title><link>https://outdated.legendu.net/blog/understand-and-avoid-the-no-more-spool-space-issue-in-teradata/</link><description>&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things on this page are fragmentary and immature notes/thoughts of the author.
+Please read with your own judgement!
+**&lt;/p&gt;
+&lt;h2 id="knowledge-about-spool-space-in-teradata"&gt;Knowledge About Spool Space in Teradata&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Volatile Tables …&lt;/li&gt;&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Benjamin Du</dc:creator><pubDate>Mon, 22 Jun 2020 08:53:57 -0700</pubDate><guid isPermaLink="false">tag:outdated.legendu.net,2020-06-22:/blog/understand-and-avoid-the-no-more-spool-space-issue-in-teradata/</guid><category>Computer Science</category><category>Computer Science</category><category>Teradata</category><category>spool space</category><category>no more spool space</category><category>database</category><category>SQL</category></item><item><title>Configuration Scripts for the Blog Project on notebooks.ai</title><link>https://outdated.legendu.net/blog/configuration-scripts-for-the-blog-project-on-notebooks.ai/</link><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;Below is the script that I use to configure the &lt;code&gt;blog&lt;/code&gt; project on &lt;a href="https://notebooks.ai"&gt;notebooks.ai&lt;/a&gt;.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Benjamin Du</dc:creator><pubDate>Tue, 07 Apr 2020 15:29:39 -0700</pubDate><guid isPermaLink="false">tag:outdated.legendu.net,2020-04-07:/blog/configuration-scripts-for-the-blog-project-on-notebooks.ai/</guid><category>Computer Science</category><category>programming</category><category>notebooks.ai</category><category>blog</category><category>configuration script</category></item><item><title>Use Spark With the BeakerX Scala Kernel</title><link>https://outdated.legendu.net/blog/use-spark-with-the-beakerx-scala-kernel/</link><description>&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Open a JupyterLab notebook with the BeakerX Scala kernel from the launcher.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download Spark (say, 2.3.1) dependencies. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="n"&gt;classpath&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;mvn&lt;/span&gt;
+&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apache&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;spark&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;spark&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;core_2 …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Benjamin Du</dc:creator><pubDate>Fri, 23 Apr 2021 17:23:46 -0700</pubDate><guid isPermaLink="false">tag:outdated.legendu.net,2021-04-23:/blog/use-spark-with-the-beakerx-scala-kernel/</guid><category>Computer Science</category><category>Computer Science</category><category>Spark</category><category>Scala</category><category>BeakerX</category><category>JupyterLab</category></item><item><title>Git Shell on Windows</title><link>https://outdated.legendu.net/blog/git-shell-on-windows/</link><description>&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things on this page are fragmentary and immature notes/thoughts of the author.
+Please read with your own judgement!
+**&lt;/p&gt;
+&lt;p&gt;It is suggested that you use Git in …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Benjamin Du</dc:creator><pubDate>Mon, 14 Oct 2019 01:01:31 -0700</pubDate><guid isPermaLink="false">tag:outdated.legendu.net,2019-10-14:/blog/git-shell-on-windows/</guid><category>Software</category><category>Software</category><category>Git</category><category>shell</category><category>Windows</category><category>WSL</category><category>Windows Subsystem Linux</category></item><item><title>Install Python Pip in Cygwin</title><link>https://outdated.legendu.net/blog/install-python-pip-in-cygwin/</link><description>&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;python3&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;ensurepip
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;p&gt;https://stackoverflow.com/questions/30863501/installing-new-versions-of-python-on-cygwin-does-not-install-pip&lt;Paste&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Benjamin Du</dc:creator><pubDate>Mon, 04 Mar 2019 23:56:02 -0800</pubDate><guid isPermaLink="false">tag:outdated.legendu.net,2019-03-04:/blog/install-python-pip-in-cygwin/</guid><category>Software</category><category>software</category><category>Python</category><category>Cygwin</category><category>pip</category></item></channel></rss>

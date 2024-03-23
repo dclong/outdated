@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ben Chuanlong Du's Blog - OS</title><link href="https://outdated.legendu.net/" rel="alternate"></link><link href="https://outdated.legendu.net/feeds/os.atom.xml" rel="self"></link><id>https://outdated.legendu.net/</id><updated>2021-09-26T11:05:01-07:00</updated><subtitle>Change is eternal.</subtitle><entry><title>Use Autojump to Help Quick Navigation in Terminal in Linux</title><link href="https://outdated.legendu.net/blog/use-autojump-to-help-quick-navigation-in-terminal-in-linux/" rel="alternate"></link><published>2018-10-29T08:28:14-07:00</published><updated>2021-09-26T11:05:01-07:00</updated><author><name>Ben Chuanlong Du</name></author><id>tag:outdated.legendu.net,2018-10-29:/blog/use-autojump-to-help-quick-navigation-in-terminal-in-linux/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+**&lt;/p&gt;
+&lt;p&gt;I personally is not …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+**&lt;/p&gt;
+&lt;p&gt;I personally is not a big fun of 
+&lt;a href="https://github.com/wting/autojump"&gt;autojump&lt;/a&gt; 
+and similar tools.
+I think it makes things more complicated.&lt;/p&gt;
+&lt;h2 id="installation"&gt;Installation&lt;/h2&gt;
+&lt;p&gt;Use the following command to install autojump on Ubuntu.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;wajig&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;autojump
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Place the following code in your &lt;code&gt;.bashrc&lt;/code&gt; file and you are good to go.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;/usr/share/autojump/autojump.bash&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;.&lt;span class="w"&gt; &lt;/span&gt;/usr/share/autojump/autojump.bash
+&lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/wting/autojump"&gt;autojump&lt;/a&gt; &lt;/li&gt;
+&lt;/ul&gt;</content><category term="OS"></category><category term="Linux"></category><category term="autojump"></category><category term="cd"></category><category term="terminal"></category><category term="shell"></category><category term="navigation"></category></entry><entry><title>Install and Configure Iterm2 on Mac</title><link href="https://outdated.legendu.net/blog/install-and-configure-iterm2-on-mac/" rel="alternate"></link><published>2016-06-05T07:51:37-07:00</published><updated>2021-09-25T13:58:06-07:00</updated><author><name>Ben Chuanlong Du</name></author><id>tag:outdated.legendu.net,2016-06-05:/blog/install-and-configure-iterm2-on-mac/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+**&lt;/p&gt;
+&lt;p&gt;Hyper.js is a …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+**&lt;/p&gt;
+&lt;p&gt;Hyper.js is a much better cross-platform alternative!
+It is suggests that you use Hyper instead.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="http://iterm2.com/downloads.html"&gt;Download&lt;/a&gt; 
+    the latest stable version of &lt;a href="http://iterm2.com"&gt;iTerm2&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install iTerm2.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download &lt;a href="http://iterm2colorschemes.com/"&gt;iTerm2 Color Schemes&lt;/a&gt;.
+    You can also download it from &lt;a href="https://github.com/mbadolato/iTerm2-Color-Schemes"&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Select the schemes you like. &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</content><category term="OS"></category><category term="macOS"></category><category term="Apple"></category><category term="iTerm2"></category><category term="color schemes"></category></entry><entry><title>Alternative to the rm Command in Linux</title><link href="https://outdated.legendu.net/blog/alternative-to-the-rm-command-in-linux/" rel="alternate"></link><published>2019-05-02T02:41:04-07:00</published><updated>2021-08-22T00:12:26-07:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2019-05-02:/blog/alternative-to-the-rm-command-in-linux/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things on this page are fragmentary and immature notes/thoughts of the author.
+Please read with your own judgement!
+**&lt;/p&gt;
+&lt;p&gt;As is know to all,
+it can be …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things on this page are fragmentary and immature notes/thoughts of the author.
+Please read with your own judgement!
+**&lt;/p&gt;
+&lt;p&gt;As is know to all,
+it can be dangerous to use the &lt;code&gt;rm&lt;/code&gt; command directly in Linux/Unix. 
+A simple idea is to define other commands/alias/script to replace it.
+For example, 
+I have a shell script named &lt;code&gt;trash&lt;/code&gt; which moves files (as input arguments) to the system's Trash directory.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;trash files_to_remove
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Another even simplier way is to directly move files to the directory &lt;code&gt;/tmp&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;mv files_to_remove /tmp
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="OS"></category><category term="Linux"></category><category term="Shell"></category><category term="rm"></category><category term="Trash"></category><category term="mv"></category></entry><entry><title>Batch File Renaming Using "rename"</title><link href="https://outdated.legendu.net/blog/rename-tips/" rel="alternate"></link><published>2016-05-12T11:04:38-07:00</published><updated>2020-07-12T11:04:38-07:00</updated><author><name>Ben Chuanlong Du</name></author><id>tag:outdated.legendu.net,2016-05-12:/blog/rename-tips/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+**&lt;/p&gt;
+&lt;p&gt;It is suggested that …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+**&lt;/p&gt;
+&lt;p&gt;It is suggested that you use Python script to rename files in batch.&lt;/p&gt;
+&lt;p&gt;Change names of &lt;code&gt;.txt&lt;/code&gt; files to lowercase.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;rename&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;y/A-Z/a-z/&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;*.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Get rid of &lt;code&gt;(1)&lt;/code&gt; in file names.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;rename&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;s/\(1\)//&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="OS"></category><category term="Linux"></category><category term="rename"></category><category term="shell"></category><category term="tip"></category></entry><entry><title>IBM AIX Questions</title><link href="https://outdated.legendu.net/blog/ibm-aix-questions/" rel="alternate"></link><published>2015-05-06T23:55:58-07:00</published><updated>2015-05-06T23:55:58-07:00</updated><author><name>Ben Chuanlong Du</name></author><id>tag:outdated.legendu.net,2015-05-06:/blog/ibm-aix-questions/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+**&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;lsp works well only …&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+**&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;lsp works well only in current directory, if you specify another directory it doesn't work very well ...&lt;/li&gt;
+&lt;/ol&gt;</content><category term="OS"></category><category term="Unix"></category><category term="IBM"></category><category term="AIX"></category><category term="questions"></category></entry><entry><title>IBM AIX Tips</title><link href="https://outdated.legendu.net/blog/ibm-aix-tips/" rel="alternate"></link><published>2015-05-06T23:55:20-07:00</published><updated>2015-05-06T23:55:20-07:00</updated><author><name>Ben Chuanlong Du</name></author><id>tag:outdated.legendu.net,2015-05-06:/blog/ibm-aix-tips/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+**&lt;/p&gt;
+&lt;p&gt;Display the total disk …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+**&lt;/p&gt;
+&lt;p&gt;Display the total disk usage of the current directory.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;du&lt;span class="w"&gt; &lt;/span&gt;-lsm&lt;span class="w"&gt; &lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Display the disk usage of sas data set files.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;du&lt;span class="w"&gt; &lt;/span&gt;-lsm&lt;span class="w"&gt; &lt;/span&gt;*.sas7bdat
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Calculate the md5sum of a file.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;csum&lt;span class="w"&gt; &lt;/span&gt;-h&lt;span class="w"&gt; &lt;/span&gt;MD5&lt;span class="w"&gt; &lt;/span&gt;fileName
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="OS"></category><category term="Unix"></category><category term="IBM"></category><category term="AIX"></category><category term="tips"></category></entry><entry><title>Download Debian Using Jigdo</title><link href="https://outdated.legendu.net/blog/download-debian-using-jigdo/" rel="alternate"></link><published>2012-09-03T19:59:19-07:00</published><updated>2015-02-03T19:59:19-08:00</updated><author><name>Ben Chuanlong Du</name></author><id>tag:outdated.legendu.net,2012-09-03:/blog/download-debian-using-jigdo/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://dclong.github.io/media/linux/debian.png" height="200" width="240" align="right"/&gt;&lt;/p&gt;
+&lt;p&gt;You can save a lot of time using Jigdo to download Debian image 
+especially when you have an old version of the image. &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Mount the the old …&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://dclong.github.io/media/linux/debian.png" height="200" width="240" align="right"/&gt;&lt;/p&gt;
+&lt;p&gt;You can save a lot of time using Jigdo to download Debian image 
+especially when you have an old version of the image. &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Mount the the old version of the image to a folder that you 
+have access to, e.g.,&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo mount debian-testing.iso /mnt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Go to &lt;a href="http://cdimage.debian.org/cdimage/weekly-builds/amd64/jigdo-dvd/"&gt;Weekly Builds of Debian Testing Image&lt;/a&gt; to copy the link
+address of the jigdo file that you want to use. 
+The first one is usually what you need. &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the following command in terminal. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;jigdo-lite link_to_jigdo_file
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You will be asked about old vesions of images that you want to use
+to accelerate downloading.
+You can type in the path where you mounted the image. 
+This process will be repeated until you don't have any more old version 
+of CD/DVD images to use. Just press enter to continue and files not 
+found in the old versions of images will be fetched throught internet. &lt;/p&gt;</content><category term="OS"></category><category term="jigdo-lite"></category><category term="wget"></category><category term="debian image"></category><category term="jigdo"></category><category term="Linux"></category></entry></feed>
