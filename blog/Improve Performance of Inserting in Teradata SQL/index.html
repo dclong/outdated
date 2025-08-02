@@ -1,0 +1,400 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+        disabled="disabled"
+    href="https://outdated.legendu.net/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+            disabled="disabled"
+          href="https://outdated.legendu.net/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="https://outdated.legendu.net/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet"
+        type="text/css"
+        href="https://outdated.legendu.net/theme/stork/stork.css" />
+
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/solid.css">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="Benjamin Du" />
+<meta name="description" content="Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. ** Things on this page are fragmentary and immature notes/thoughts of the author. Please read with your own judgement! ** Insert Multiple Rows Teradata SQL does not support …" />
+<meta name="keywords" content="Computer Science, SQL, Teradata, fastload, BTEQ, prepared statement">
+
+
+  <meta property="og:site_name" content="Ben Chuanlong Du's Blog"/>
+  <meta property="og:title" content="Fastload in Teradata"/>
+  <meta property="og:description" content="Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. ** Things on this page are fragmentary and immature notes/thoughts of the author. Please read with your own judgement! ** Insert Multiple Rows Teradata SQL does not support …"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="https://outdated.legendu.net/blog/Improve Performance of Inserting in Teradata SQL/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2020-05-22 09:06:28-07:00"/>
+  <meta property="article:modified_time" content="2020-06-22 09:06:28-07:00"/>
+  <meta property="article:author" content="https://outdated.legendu.net/author/benjamin-du.html">
+  <meta property="article:section" content="Computer Science"/>
+  <meta property="article:tag" content="Computer Science"/>
+  <meta property="article:tag" content="SQL"/>
+  <meta property="article:tag" content="Teradata"/>
+  <meta property="article:tag" content="fastload"/>
+  <meta property="article:tag" content="BTEQ"/>
+  <meta property="article:tag" content="prepared statement"/>
+  <meta property="og:image" content="">
+
+  <title>Ben Chuanlong Du's Blog &ndash; Fastload in Teradata</title>
+
+
+</head>
+<body class="light-theme">
+
+<aside>
+  <div>
+    <a href="https://outdated.legendu.net/">
+      <img src="https://outdated.legendu.net/theme/img/profile.png" alt="" title="">
+    </a>
+
+    <h1>
+      <a href="https://outdated.legendu.net/"></a>
+    </h1>
+
+    <p>Change is eternal.</p>
+
+    <div class="stork">
+      <input class="stork-input" type="text" autocomplete="off" name="q" data-stork="sitesearch" placeholder="Search..."/>
+      <div class="stork-output" data-stork="sitesearch-output"></div>
+    </div>
+
+
+    <ul class="social">
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/ben-chuanlong-du-1239b221/"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-github"
+           href="https://github.com/legendu-net/"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-stack-overflow"
+           href="https://stackoverflow.com/users/7808204/benjamin-du?tab=profile"
+           target="_blank">
+          <i class="fa-brands fa-stack-overflow"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-docker"
+           href="https://hub.docker.com/u/dclong"
+           target="_blank">
+          <i class="fa-brands fa-docker"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-twitter"
+           href="https://twitter.com/longendu"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://www.legendu.net">Home</a>
+  <a href="https://outdated.legendu.net">Blog</a>
+  <a href="https://outdated.legendu.net/archives.html">Archives</a>
+  <a href="https://outdated.legendu.net/categories.html">Categories</a>
+  <a href="https://outdated.legendu.net/tags.html">Tags</a>
+  <a href="https://www.legendu.net/pages/about">About</a>
+
+
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="Improve Performance of Inserting in Teradata SQL">Fastload in Teradata</h1>
+    <p>
+      Posted on May 22, 2020 in <a href="https://outdated.legendu.net/category/computer-science.html">Computer Science</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p><strong>Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.</strong></p>
+<p>**
+Things on this page are fragmentary and immature notes/thoughts of the author.
+Please read with your own judgement!
+**</p>
+<h2 id="insert-multiple-rows">Insert Multiple Rows</h2>
+<p>Teradata SQL does not support <code>VALUES</code> with multiple rows in a <code>INSERT</code> statement.</p>
+<ol>
+<li>
+<p>Multi Statement Request (MSR) + <a href="https://www.tutorialspoint.com/teradata/teradata_bteq.htm">Teradata BTEQ</a>
+    You can run a MSR (with multiple insert statements) BTEQ,
+    which submit all insert statements as one block after the final semicolon.
+    Note: when thereis a new command starting on the same line,
+    it is part of the MSR.</p>
+<div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">Example</span><span class="w"> </span><span class="k">Values</span><span class="p">(</span><span class="s1">&#39;Steve&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="p">;</span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">Example</span><span class="w"> </span><span class="k">Values</span><span class="p">(</span><span class="s1">&#39;James&#39;</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+<span class="p">;</span>
+</code></pre></div>
+
+<p>In Teradata SQL Assistant or Teradata SQL Studio,
+they shortcut is <code>F9</code> (instead of <code>F5</code>).</p>
+</li>
+</ol>
+<h2 id="performance">Performance</h2>
+<p>@TODO: convert the Java example to Kotlin code in JupyterLab notebook.</p>
+<ol>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Prepared_statement">Prepared/Parameterized Statement</a>
+    is recommended to improve performance of query/update/insert. 
+    Below is an example of using JDBC in Java.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// These are done once </span>
+<span class="n">Connection</span><span class="w"> </span><span class="n">conn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DriverManager</span><span class="p">.</span><span class="na">getConnection</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="w"> </span><span class="n">username</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">);</span>
+<span class="n">String</span><span class="w"> </span><span class="n">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;INSERT INTO transactions (cust_id, transaction_date, amount, desc) values (?, ?, ?, ?)&quot;</span><span class="p">;</span>
+
+<span class="n">PreparedStatement</span><span class="w"> </span><span class="n">ps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">prepareStatement</span><span class="p">(</span><span class="n">sql</span><span class="p">);</span>
+
+<span class="c1">// the below can be repeated many times with different values</span>
+<span class="n">ps</span><span class="p">.</span><span class="na">setInt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">custID</span><span class="p">);</span>
+<span class="n">ps</span><span class="p">.</span><span class="na">setDate</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">tran_date</span><span class="p">);</span>
+<span class="n">ps</span><span class="p">.</span><span class="na">setBigDecimal</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="p">);</span>
+<span class="n">ps</span><span class="p">.</span><span class="na">setString</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">desc</span><span class="p">);</span>
+<span class="n">ps</span><span class="p">.</span><span class="na">executeUpdate</span><span class="p">();</span>
+</code></pre></div>
+
+<p>In a <a href="https://www.python.org/dev/peps/pep-0249/">DB-API</a> compatible Python module,
+you call use the method <a href="https://www.python.org/dev/peps/pep-0249/#id15">execute</a>
+on a parameterized query with a list/tuple of parameters.</p>
+<div class="highlight"><pre><span></span><code><span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;INSERT INTO transactions (cust_id, transaction_date, amount, desc) values (?, ?, ?, ?)&quot;</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="p">[</span><span class="n">cust_id</span><span class="p">,</span> <span class="n">tran_dt</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">desc</span><span class="p">])</span>
+</code></pre></div>
+
+<p>Prepared Statement Batches take your performance to the next level. 
+In addition to the benefits of reusing the Prepared Statement, 
+batching your input values also reduces the number of round trips to the database. 
+A batch size of roughly 5,000 to 10,000 works well for most applications. 
+Using batches can be 10 to 40 times faster than the previous approach.
+Below is an example of using JDBC in Java.</p>
+<div class="highlight"><pre><span></span><code><span class="n">Connection</span><span class="w"> </span><span class="n">conn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DriverManager</span><span class="p">.</span><span class="na">getConnection</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="w"> </span><span class="n">username</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">);</span>
+<span class="n">String</span><span class="w"> </span><span class="n">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;INSERT INTO transactions(cust_id, transaction_date, amount, desc) values (?, ?, ?, ?)&quot;</span><span class="p">;</span>
+<span class="n">PreparedStatement</span><span class="w"> </span><span class="n">ps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">prepareStatement</span><span class="p">(</span><span class="n">sql</span><span class="p">);</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="cm">/* Loop through input values */</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="cm">/* Loop through a subset of the input values - the desired batch size */</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ps</span><span class="p">.</span><span class="na">setInt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">custID</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ps</span><span class="p">.</span><span class="na">setDate</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">tran_date</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ps</span><span class="p">.</span><span class="na">setBigDecimal</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ps</span><span class="p">.</span><span class="na">setString</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">desc</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ps</span><span class="p">.</span><span class="na">addBatch</span><span class="p">();</span><span class="w"> </span><span class="c1">// adds the row of input values to the batch</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// This is done once per the desired batch size.</span>
+<span class="w">    </span><span class="n">ps</span><span class="p">.</span><span class="na">executeBatch</span><span class="p">();</span><span class="w"> </span><span class="c1">// sends all the batched rows to the database</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>In a <a href="https://www.python.org/dev/peps/pep-0249/">DB-API</a> compatible Python module,
+you call use the method <a href="https://www.python.org/dev/peps/pep-0249/#executemany">executemany</a>
+on a parameterized query with a list/tuple of list/tuple of parameters.</p>
+<div class="highlight"><pre><span></span><code><span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;INSERT INTO transactions (cust_id, transaction_date, amount, desc) values (?, ?, ?, ?)&quot;</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="p">[</span>
+    <span class="p">[</span><span class="n">cust_id_1</span><span class="p">,</span> <span class="n">tran_dt_1</span><span class="p">,</span> <span class="n">amount_1</span><span class="p">,</span> <span class="n">desc_1</span><span class="p">],</span>
+    <span class="p">[</span><span class="n">cust_id_2</span><span class="p">,</span> <span class="n">tran_dt_2</span><span class="p">,</span> <span class="n">amount_2</span><span class="p">,</span> <span class="n">desc_2</span><span class="p">],</span>
+    <span class="p">[</span><span class="n">cust_id_3</span><span class="p">,</span> <span class="n">tran_dt_3</span><span class="p">,</span> <span class="n">amount_3</span><span class="p">,</span> <span class="n">desc_3</span><span class="p">],</span>
+<span class="p">])</span>
+</code></pre></div>
+
+<p>For loading truly huge amounts of data, 
+JDBC FastLoad can provide even better performance. 
+There are a couple of caveats, however. 
+<strong>JDBC FastLoad can only insert data into an empty table</strong>,
+and JDBC FastLoad is only recommended for loading large amounts of data -- at least 100,000 rows total.
+The nice thing is that your Java code doesn't need to change in order to use JDBC FastLoad. 
+Your application uses the exact same Prepared Statement batches as in the previous example. 
+Just add <code>TYPE=FASTLOAD</code> to your connection parameters, 
+and the Teradata JDBC Driver will use JDBC FastLoad for particular SQL requests, if it can.
+Note that the recommended batch size for JDBC FastLoad is much higher 
+than for a regular SQL Prepared Statement batch, which means you may need to increase your JVM heap size. 
+To get top-notch performance, 
+you need to use a batch size of roughly 50,000 to 100,000. 
+Using JDBC FastLoad can be 3 to 10 times faster than the previous approach.
+Please refer to 
+<a href="https://teradata-docs.s3.amazonaws.com/doc/connectivity/jdbc/reference/current/jdbcug_chapter_2.html#BABFGFAF">JDBC FastLoad</a>
+for more discussions on JDBC FastLoad.</p>
+</li>
+</ol>
+<h2 id="fastload">FastLoad</h2>
+<ol>
+<li>
+<p>If you have the Teradata ODBC driver installed,
+    you can access the <code>fastload</code> commaand by installing Teradata Tools &amp; Utils.
+    If you use JDBC, 
+    it seems that you must write code yourself.</p>
+</li>
+<li>
+<p><strong>Use temporary tables when you use <code>fastload</code> to load data</strong>,
+    as the tables involved might get blocked if issues happen in the middle.</p>
+</li>
+<li>
+<p>Make sure to set a large enough CHECKPOINT for good performance.
+    Frequent checkpointing option reduces the speed of your FastLoad job.
+    But it substantially enhances FastLoad restart operations.</p>
+<ul>
+<li>Each checkpoint temporarily halts the multiple session data transfer feature of FastLoad,
+    thereby decreasing the speed of the FastLoad job.</li>
+<li>The record size and the size of the Teradata Database influence how often you should
+    specify checkpoints.On a smaller Teradata Database, specify checkpoints:</li>
+<li>Every 50,000 records if each record is more then 4 KB</li>
+<li>Every 100,000 records if each record is less than 4 KB
+    On a larger Teradata Database, specify higher (less frequent) checkpoint values.</li>
+</ul>
+</li>
+</ol>
+<p>http://teradatatrainingbysatish.blogspot.com/2016/01/teradata-sample-scripts-bteq-fastload.html</p>
+<p>https://www.tutorialspoint.com/teradata/teradata_fastload.htm</p>
+<p>https://docs.teradata.com/reader/r_6Z4JwVMhANtZFCIKEx7Q/NygMHUT8ewJO_7cXjYx8Ug</p>
+<h2 id="references">References</h2>
+<ul>
+<li>
+<p><a href="https://www.youtube.com/watch?v=eeHaRzoYLL4">FASTLOAD Utility in Teradata ---Step by Step Explanation</a></p>
+</li>
+<li>
+<p><a href="https://teradata-docs.s3.amazonaws.com/doc/connectivity/jdbc/reference/current/jdbcug_chapter_2.html#BABFGFAF">JDBC FastLoad</a></p>
+</li>
+<li>
+<p><a href="https://www.tutorialspoint.com/teradata/teradata_bteq.htm">Teradata - BTEQ</a></p>
+</li>
+<li>
+<p><a href="https://stackoverflow.com/questions/39668309/insert-multiple-rows-sql-teradata">Insert Multiple Rows SQL Teradata</a></p>
+</li>
+<li>
+<p><a href="http://www.ebyhr.org/2018/10/bulk-insert-to-teradata-using-python.html">Bulk Insert to Teradata using Python</a></p>
+</li>
+<li>
+<p><a href="https://downloads.teradata.com/connectivity/articles/speed-up-your-jdbcodbc-applications">Speed up your JDBC/ODBC applications</a></p>
+</li>
+<li>
+<p><a href="https://stackoverflow.com/questions/26684648/teradata-jdbc-whats-the-point-of-using-fastload-if-java-has-memory-limitations">Teradata-jdbc: What's the point of using Fastload if java has memory limitations?</a></p>
+</li>
+<li>
+<p><a href="https://teradata-docs.s3.amazonaws.com/doc/connectivity/jdbc/reference/current/samplePrograms.html">Teradata JDBC Driver Sample Programs</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=sq5x__EkCJc">Teradata FASTLOAD - Overview , Syntax and Execution</a></p>
+</li>
+<li>
+<p><a href="https://docs.teradata.com/reader/r_6Z4JwVMhANtZFCIKEx7Q/cE9QwHgBRSq8CvD61SaycQ">Teradata FastLoad Example</a></p>
+</li>
+</ul>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://outdated.legendu.net/tag/computer-science.html">Computer Science</a>
+      <a href="https://outdated.legendu.net/tag/sql.html">SQL</a>
+      <a href="https://outdated.legendu.net/tag/teradata.html">Teradata</a>
+      <a href="https://outdated.legendu.net/tag/fastload.html">fastload</a>
+      <a href="https://outdated.legendu.net/tag/bteq.html">BTEQ</a>
+      <a href="https://outdated.legendu.net/tag/prepared-statement.html">prepared statement</a>
+    </p>
+  </div>
+
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'dclong';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+<footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+  <span class="footer-separator">|</span>
+  Switch to the <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> theme
+  <script id="dark-theme-script"
+          src="https://outdated.legendu.net/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="False"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Ben Chuanlong Du's Blog ",
+  "url" : "https://outdated.legendu.net",
+  "image": "",
+  "description": ""
+}
+</script><a href="https://github.com/dclong/outdated" target="_blank" class="github-corner" aria-label="View source on Github">
+    <svg width="80"
+         height="80"
+         viewBox="0 0 250 250"
+         style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;"
+         aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor"
+              style="transform-origin: 130px 106px;"
+              class="octo-arm">
+        </path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor"
+              class="octo-body">
+        </path>
+    </svg>
+</a>
+  <script src="https://outdated.legendu.net/theme/stork/stork.js"></script>
+  <script>
+    stork.register("sitesearch", "https://outdated.legendu.net/search-index.st", {showProgress: false});
+  </script>
+
+</body>
+</html>
