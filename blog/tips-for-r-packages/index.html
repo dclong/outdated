@@ -1,0 +1,701 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+        disabled="disabled"
+    href="https://outdated.legendu.net/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+            disabled="disabled"
+          href="https://outdated.legendu.net/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="https://outdated.legendu.net/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet"
+        type="text/css"
+        href="https://outdated.legendu.net/theme/stork/stork.css" />
+
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/solid.css">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="Ben Chuanlong Du" />
+<meta name="description" content="Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. ** Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. ** Popular Repositories for R …" />
+<meta name="keywords" content="programming, repository, package, OmegaHat, CRAN, R, Bioconductor, biocLite">
+
+
+  <meta property="og:site_name" content="Ben Chuanlong Du's Blog"/>
+  <meta property="og:title" content="Tips for R Packages"/>
+  <meta property="og:description" content="Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. ** Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. ** Popular Repositories for R …"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="https://outdated.legendu.net/blog/tips-for-r-packages/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2012-11-23 22:30:01-08:00"/>
+  <meta property="article:modified_time" content="2016-10-23 22:30:01-07:00"/>
+  <meta property="article:author" content="https://outdated.legendu.net/author/ben-chuanlong-du.html">
+  <meta property="article:section" content="Programming"/>
+  <meta property="article:tag" content="programming"/>
+  <meta property="article:tag" content="repository"/>
+  <meta property="article:tag" content="package"/>
+  <meta property="article:tag" content="OmegaHat"/>
+  <meta property="article:tag" content="CRAN"/>
+  <meta property="article:tag" content="R"/>
+  <meta property="article:tag" content="Bioconductor"/>
+  <meta property="article:tag" content="biocLite"/>
+  <meta property="og:image" content="">
+
+  <title>Ben Chuanlong Du's Blog &ndash; Tips for R Packages</title>
+
+
+</head>
+<body class="light-theme">
+
+<aside>
+  <div>
+    <a href="https://outdated.legendu.net/">
+      <img src="https://outdated.legendu.net/theme/img/profile.png" alt="" title="">
+    </a>
+
+    <h1>
+      <a href="https://outdated.legendu.net/"></a>
+    </h1>
+
+    <p>Change is eternal.</p>
+
+    <div class="stork">
+      <input class="stork-input" type="text" autocomplete="off" name="q" data-stork="sitesearch" placeholder="Search..."/>
+      <div class="stork-output" data-stork="sitesearch-output"></div>
+    </div>
+
+
+    <ul class="social">
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/ben-chuanlong-du-1239b221/"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-github"
+           href="https://github.com/legendu-net/"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-stack-overflow"
+           href="https://stackoverflow.com/users/7808204/benjamin-du?tab=profile"
+           target="_blank">
+          <i class="fa-brands fa-stack-overflow"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-docker"
+           href="https://hub.docker.com/u/dclong"
+           target="_blank">
+          <i class="fa-brands fa-docker"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-twitter"
+           href="https://twitter.com/longendu"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://www.legendu.net">Home</a>
+  <a href="https://outdated.legendu.net">Blog</a>
+  <a href="https://outdated.legendu.net/archives.html">Archives</a>
+  <a href="https://outdated.legendu.net/categories.html">Categories</a>
+  <a href="https://outdated.legendu.net/tags.html">Tags</a>
+  <a href="https://www.legendu.net/pages/about">About</a>
+
+
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="tips-for-r-packages">Tips for R Packages</h1>
+    <p>
+      Posted on Nov 23, 2012 in <a href="https://outdated.legendu.net/category/programming.html">Programming</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p><strong>Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.</strong></p>
+<p>**
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+**</p>
+<p><img src="http://dclong.github.io/media/r/r.png" height="200" width="240" align="right"/></p>
+<p>Popular Repositories for R Packages</p>
+<p><a href="http://cran.r-project.org/web/views/">CRAN Task Views</a></p>
+<ol>
+<li>
+<p>CRAN</p>
+</li>
+<li>
+<p>OmegaHat</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;SVGAnnotation&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">repos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;http://www.omegahat.org/R&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<ol>
+<li>Bioconductor </li>
+</ol>
+<p>If the R package <code>BiocInstaller</code> 
+(produced by Bioconductor to facilitate installing other packages on Bioconductor) 
+has been installed, 
+you can use the following code to install a package named <code>pkgname</code> on Bioconductor.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#load package BiocInstaller</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">BiocInstaller</span><span class="p">)</span>
+<span class="c1">#install package </span>
+<span class="nf">biocLite</span><span class="p">(</span><span class="s">&#39;pkgname&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>If the R package <code>BiocInstaller</code> has not been installed yet, 
+you can use the following command to install it.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">source</span><span class="p">(</span><span class="s">&quot;http://bioconductor.org/biocLite.R&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>It will be automatically loaded after installation. 
+Note that you do not have to install package <code>BiocInstaller</code> again next time when
+you want to install other packages on Bioconductor. 
+All you need is just to load it and use the <code>biocLite</code> to install packages (see code shown before).</p>
+<div class="highlight"><pre><span></span><code><span class="nf">biocLite</span><span class="p">(</span><span class="s">&quot;limma&quot;</span><span class="p">)</span>
+<span class="nf">biocLite</span><span class="p">(</span><span class="s">&quot;arrayQualityMetrics&quot;</span><span class="p">)</span>
+<span class="nf">biocLite</span><span class="p">(</span><span class="s">&quot;GO.db&quot;</span><span class="p">)</span>
+<span class="nf">install.packages</span><span class="p">(</span><span class="s">&#39;QuasiSeq&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<ol>
+<li>
+<p>functions for BioConductor objects, sometimes, it doesn't work, 
+because you haven't load the package yet. This is misleading ....</p>
+</li>
+<li>
+<p>Upgrade Bioconductor packages.</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="nf">biocLite</span><span class="p">(</span><span class="s">&quot;Upgradable&quot;</span><span class="p">)</span><span class="w"> </span>
+</code></pre></div>
+
+<ol>
+<li>If you use R on a Linux server which you do not have root access, 
+you have to create your own r library to install packages into. 
+You can use any directory which you have read and write access as your own R library. 
+For example, 
+you can create a directory named <code>.r-lib</code> in your own home directory 
+and to make R attach your library to the beginning of the search path automatically 
+(so that you do not have to specify library path or to use <code>.libPaths</code> to attach it manually), 
+you can put file named <code>.Renviron</code> in your home directory with the following content.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">R_LIBS</span><span class="o">=</span><span class="s">&quot;/home/username/r-lib-PATH&quot;</span>
+</code></pre></div>
+
+<p>where <code>username</code> is your user name and <code>r-lib-path</code> is your personal R library. 
+It is suggested that you create a personal R library even if you use R on your own Linux machine. 
+So the above tips also apply if you run R on your own machine with Linux operating system.</p>
+<ol>
+<li>
+<p><code>library</code> load a package into R workspace. 
+If the package to be load is not in the search path, 
+you can specify its path by the option <code>lib.loc</code>.</p>
+</li>
+<li>
+<p>The <code>.libPaths</code> function gets/sets the library trees within which packages are looked for. 
+For example, 
+to add a library path to into the library trees, 
+you can use <code>.libPaths(c(.libPaths(), yourNewPath))</code>. 
+The library paths in the library trees are searched in order.</p>
+</li>
+<li>
+<p>If you know the name of the R package that you want to install, 
+then you can use <code>install.packages</code> to install the package for you. 
+For example if you want to install R <code>xlsx</code>, 
+you can use <code>install.packages("xlsx")</code>. 
+You can also install a package from local disk use <code>install.packages</code> 
+by specifying the option <code>repos=FALSE</code> or <code>repos=NULL</code>. 
+For example, 
+if file <code>dclong.String_1.0-1.zip</code> is a package in the working directory of R, 
+you can install it using the following command.
+This is no longer required in the latest version of R.</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;dclong.String_1.0-1.zip&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">repos</span><span class="o">=</span><span class="bp">F</span><span class="p">)</span>
+</code></pre></div>
+
+<ol>
+<li>
+<p>To get all objects whose name do not start with a dot 
+(Usually objects start with dots are not intended to be used by users.) 
+in a package you can use <code>ls(pos="package:pkgname")</code>. 
+If you want to see all objects in a package including these objects starting with a dot, 
+you can use <code>ls(pos="package:pkgname", all.names=T)</code>.</p>
+</li>
+<li>
+<p>To get the the home package of a package, 
+you can use <code>.find.package</code>. 
+For example, 
+to get the home folder of <code>dclong.EasySave</code>, 
+you can use <code>.find.package("dclong.EasySave")</code>.
+Another more powerful way is to use <code>system.file</code>, 
+which allows you both directories and files in a package. 
+For example, to find the home directory of <code>dclong.EasySave</code>, 
+you can use <code>system.file(package = 'animation')</code>. 
+Instead of finding the home directory, 
+you might want to know the path of folder <code>history</code> in <code>dclong.EasySave</code>. 
+This can be done simply by using
+<code>system.file('history',package='dclong.EasySave')</code>.</p>
+</li>
+<li>
+<p>There are huge number of different packages in R and some of them are design for the same purpose, 
+so it is inevitable that some functions in different packages have the same name. 
+You should very careful when you are using these function. 
+It is important to know what packages are load when R is started. 
+To avoid confusion, 
+we can always add package prefix to the functions that we want to use. 
+For example, 
+instead of using function <code>dir</code> in <code>base</code> package, 
+we can use <code>base::dir</code> if there is another loaded package having function <code>dir</code>.</p>
+</li>
+<li>
+<p>You can use functions in a package by its full name 
+(i.e. pkgname::funName) even if the package is not loaded. 
+For example, 
+you can <code>symbolToString</code> in <code>dclong.String</code> 
+by its full name <code>dclong.String::symbolToString</code> even if <code>dclong.String</code> is not loaded.</p>
+</li>
+<li>
+<p>When you write a package, 
+you might want to link some function in other packages. 
+To do so, you can use</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code>\<span class="n">code</span><span class="p">{</span>\<span class="n">link</span><span class="p">[</span><span class="n">PkgName</span><span class="p">]{</span><span class="n">FunName</span><span class="p">}}</span>
+</code></pre></div>
+
+<ol>
+<li>
+<p>To load a package, 
+you can use either <code>library</code> or <code>require</code>, 
+and you do not have to pass the name of the package as character 
+(i.e. you do not have to put the name of the package into two double/single quotation marks. 
+Surely it works if you pass the name of the package as character.).
+The difference between <code>library</code> and <code>require</code> is that <code>library</code> returns all loaded packages 
+while <code>require</code> return a boolean value indicate whether the loading succeed or not. 
+If you want to unload a package <code>pkgName</code> from the workspace, 
+you can use command <code>detach(package="pkgName")</code>.</p>
+</li>
+<li>
+<p>Package <code>MASS</code> has many useful functions such as <code>ginv</code> 
+and <code>mvrnorm</code> which can be used to generate multivariate normal random variables.</p>
+</li>
+<li>
+<p>Package <code>Mvtnorm</code> has functions which can generate multivariate t random variables 
+and multivariate normal random variables.</p>
+</li>
+<li>
+<p>Package <code>LearnBayes</code> and <code>coda</code> are very useful for Bayes. 
+And there are many statistics distributions defined in this package <code>LearnBayes</code>.</p>
+</li>
+<li>
+<p>Package <code>xtable</code> is useful for outputting objects in R in special format, 
+e.g. html or latex.</p>
+</li>
+<li>
+<p><code>tensor</code> in package <code>tensor</code> can calculate tensor product of arrays.</p>
+</li>
+<li>
+<p>Package <code>Rweka</code> supplies an R interface to Weka which is famous for machine learning.</p>
+</li>
+<li>
+<p>genalg R based genetic algorithm for binary and floating point chromosomes.</p>
+</li>
+<li>
+<p>Package <code>e1071</code> : support vector maching</p>
+</li>
+<li>
+<p>There are many useful functions in <code>utils</code>. 
+If you do not know whether there is a function in R which can do your job, 
+you can first check functions in <code>utils</code>. 
+To see all functions in <code>utils</code>, 
+you can use <code>ls(package:utils)</code>.</p>
+</li>
+<li>
+<p>For a package with a namespace, 
+these objected not exported cannot be accessed directly by users. 
+This is somehow similar to the concept of class in Java. 
+Private methods and instances variables of class cannot be accessed by users directly. 
+So you can use non-exported functions 
+(similar to private/helper methods in Java)
+and non-exported variables (similar to private instances in Java) to help make coding easy.</p>
+</li>
+</ol>
+<h2 id="bioconductor">Bioconductor</h2>
+<ol>
+<li>
+<p>Bioconductor is a free, open source and open development
+software project for the analysis and comprehension of genomic
+data generated by wet lab experiments in molecular biology.</p>
+</li>
+<li>
+<p><code>limma</code> is a famous package among these packages in Bioconductor
+project. It performs linear model analysis for microarray data.
+But be careful that currently (version 2.8 or earlier) doesn't
+support mixed linear model, i.e. the covariance structure of the
+linear model must be <span class="math">\(\sigma^2 I_n\)</span> if you want to use <code>limma</code>
+to do analysis on microarray data.</p>
+</li>
+<li>
+<p><code>q.jabes</code> of Nettleton's code is based on the method that
+Nettleton published in JABES (2006). It is optim... bh.. is
+relatively conservative. Benjamini H..</p>
+</li>
+<li>
+<p>Important Packages and Functions in R</p>
+</li>
+</ol>
+<p>(1) About Optimization<br>
+Since we often use maximum likelihood method to solve problems,
+we have to do optimization very often. There are some functions
+in R which can help us:</p>
+<p>(i) <code>optimize/optimise{stats}</code></p>
+<ul>
+<li>
+<p>used for 1-dimensional optimization only.</p>
+</li>
+<li>
+<p>a interval where the maximum/minimum is expected should
+    be specified.</p>
+</li>
+</ul>
+<p>(ii) <code>optim{stats}</code></p>
+<ul>
+<li>
+<p>can be applied to multiply dimensions.</p>
+</li>
+<li>
+<p>includes many advanced algorithms.</p>
+</li>
+<li>
+<p>initial values of the parameters are needed.</p>
+</li>
+<li>
+<p>a hessian matrix can be returned if needed.</p>
+</li>
+</ul>
+<p>(iii) <code>nlm{stats}</code></p>
+<ul>
+<li>
+<p>can be applied to multiply dimensions.</p>
+</li>
+<li>
+<p>uses Newton-type algorithm, which means that smoothness is required.</p>
+</li>
+<li>
+<p>initial values of the parameters are needed.</p>
+</li>
+</ul>
+<p>(iv) <code>constrOptim{stats}</code>
+This function is similar to the function <code>optim</code> except that it can handles linear constraints on parameters. 
+Actually this function add a logarithmic barrier and calls function <code>optim</code>. 
+So it has the following features:</p>
+<ul>
+<li>
+<p>can be applied to multiply dimensions.</p>
+</li>
+<li>
+<p>can do optimization with linear constraints.</p>
+</li>
+<li>
+<p>uses an adaptive barrier algorithm.</p>
+</li>
+<li>
+<p>similar output as function <code>optim</code>.</p>
+</li>
+</ul>
+<p>(v) <code>nlminb{stats}</code>
+This function can do both unconstrained and constrained optimizations using PORT routines.</p>
+<p>Comment: generally speaking, I think function <code>optim</code> in R is
+more useful for statisticians. However, for 1-dimensional
+optimization problem, function <code>optimize/optimise</code> is
+recommended because it is written specially for 1-dimensional
+problems and thus can give us more precise results. For
+constrained optimizations, function <code>constrOptim</code> and <code>nlminb</code>
+are recommended.</p>
+<p>(2) About Linear Models</p>
+<p>(i) <code>lm{stats}</code></p>
+<ul>
+<li>
+<p>fits linear models including linear regression and
+    analysis of variance.</p>
+</li>
+<li>
+<p>can also fits general linear models for given
+    transformations.</p>
+</li>
+<li>
+<p>returns an object of class <code>lm</code> or for multiple
+    responses of class c(<code>mlm</code>,<code>lm</code>).</p>
+</li>
+</ul>
+<p>(ii) <code>nls{stats}</code></p>
+<ul>
+<li>
+<p>fits non-linear models.</p>
+</li>
+<li>
+<p>returns an object of class <code>nls</code>.</p>
+</li>
+</ul>
+<p>(iii) <code>lme{nlme}</code></p>
+<ul>
+<li>
+<p>fits linear mix-effect models.</p>
+</li>
+<li>
+<p>returns an object of class <code>lme</code>.</p>
+</li>
+<li>
+<p>can fit unequal variance model, use option 
+    {weights=varIdent(...)`</p>
+</li>
+</ul>
+<p>(iv) <code>lmer{lme4}</code></p>
+<ul>
+<li>
+<p>fits linear mix-effect models.</p>
+</li>
+<li>
+<p>returns an object of class <code>mer</code>.</p>
+</li>
+</ul>
+<p>(v) <code>gls{nlme}</code></p>
+<ul>
+<li>
+<p>fits linear models using generalized least squares.</p>
+</li>
+<li>
+<p>returns an object of class <code>gls</code>.</p>
+</li>
+</ul>
+<p>(vi) <code>glm{stats}</code></p>
+<ul>
+<li>
+<p>fits generalized linear models.</p>
+</li>
+<li>
+<p>returns an object of class inheriting from <code>glm</code> which
+    inherits from class <code>lm</code>.</p>
+</li>
+</ul>
+<p>(vii) <code>aov{stats}</code></p>
+<p>(viii)  <code>anova{stats}</code></p>
+<p>(ixiv)  Other Miscellaneous Functions</p>
+<h2 id="unit-test">Unit Test</h2>
+<ol>
+<li>testthat</li>
+</ol>
+<h2 id="visualization">Visualization</h2>
+<ol>
+<li>
+<p>ggplot2</p>
+</li>
+<li>
+<p>tableplot</p>
+</li>
+<li>
+<p>rgl (3-D plot using OpenGL)</p>
+</li>
+<li>
+<p>When you install a package, 
+you might get a dependency error or error 
+which says that a package does not exists (for your version of R). 
+This typicially means that the R you installed is too old to use the package. 
+Upgrade your R to the new version can usually solve the problem. 
+Get clear about this problem ... </p>
+</li>
+<li>
+<p>options(repos = c(CRAN = "http://cran.rstudio.com"))</p>
+</li>
+</ol>
+<p><a href="https://github.com/metacran">Tools for Better Cran Experience</a></p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js','color.js','mhchem.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://outdated.legendu.net/tag/programming.html">programming</a>
+      <a href="https://outdated.legendu.net/tag/repository.html">repository</a>
+      <a href="https://outdated.legendu.net/tag/package.html">package</a>
+      <a href="https://outdated.legendu.net/tag/omegahat.html">OmegaHat</a>
+      <a href="https://outdated.legendu.net/tag/cran.html">CRAN</a>
+      <a href="https://outdated.legendu.net/tag/r.html">R</a>
+      <a href="https://outdated.legendu.net/tag/bioconductor.html">Bioconductor</a>
+      <a href="https://outdated.legendu.net/tag/bioclite.html">biocLite</a>
+    </p>
+  </div>
+
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'dclong';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+<footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+  <span class="footer-separator">|</span>
+  Switch to the <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> theme
+  <script id="dark-theme-script"
+          src="https://outdated.legendu.net/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="False"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Ben Chuanlong Du's Blog ",
+  "url" : "https://outdated.legendu.net",
+  "image": "",
+  "description": ""
+}
+</script><a href="https://github.com/dclong/outdated" target="_blank" class="github-corner" aria-label="View source on Github">
+    <svg width="80"
+         height="80"
+         viewBox="0 0 250 250"
+         style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;"
+         aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor"
+              style="transform-origin: 130px 106px;"
+              class="octo-arm">
+        </path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor"
+              class="octo-body">
+        </path>
+    </svg>
+</a>
+  <script src="https://outdated.legendu.net/theme/stork/stork.js"></script>
+  <script>
+    stork.register("sitesearch", "https://outdated.legendu.net/search-index.st", {showProgress: false});
+  </script>
+
+</body>
+</html>
