@@ -1,0 +1,436 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+        disabled="disabled"
+    href="https://outdated.legendu.net/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+            disabled="disabled"
+          href="https://outdated.legendu.net/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="https://outdated.legendu.net/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet"
+        type="text/css"
+        href="https://outdated.legendu.net/theme/stork/stork.css" />
+
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/solid.css">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="Ben Chuanlong Du" />
+<meta name="description" content="Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. Zero-Length Vector Issue in R A really tricky problem about is global and local variables. You can use any global variable in a user-defined function, which is …" />
+<meta name="keywords" content="R, global variable, programming, traps, CRAN">
+
+
+  <meta property="og:site_name" content="Ben Chuanlong Du's Blog"/>
+  <meta property="og:title" content="Traps in R"/>
+  <meta property="og:description" content="Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. Zero-Length Vector Issue in R A really tricky problem about is global and local variables. You can use any global variable in a user-defined function, which is …"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="https://outdated.legendu.net/blog/traps-in-r/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2012-11-09 23:47:21-08:00"/>
+  <meta property="article:modified_time" content="2017-04-09 23:47:21-07:00"/>
+  <meta property="article:author" content="https://outdated.legendu.net/author/ben-chuanlong-du.html">
+  <meta property="article:section" content="Programming"/>
+  <meta property="article:tag" content="R"/>
+  <meta property="article:tag" content="global variable"/>
+  <meta property="article:tag" content="programming"/>
+  <meta property="article:tag" content="traps"/>
+  <meta property="article:tag" content="CRAN"/>
+  <meta property="og:image" content="">
+
+  <title>Ben Chuanlong Du's Blog &ndash; Traps in R</title>
+
+
+</head>
+<body class="light-theme">
+
+<aside>
+  <div>
+    <a href="https://outdated.legendu.net/">
+      <img src="https://outdated.legendu.net/theme/img/profile.png" alt="" title="">
+    </a>
+
+    <h1>
+      <a href="https://outdated.legendu.net/"></a>
+    </h1>
+
+    <p>Change is eternal.</p>
+
+    <div class="stork">
+      <input class="stork-input" type="text" autocomplete="off" name="q" data-stork="sitesearch" placeholder="Search..."/>
+      <div class="stork-output" data-stork="sitesearch-output"></div>
+    </div>
+
+
+    <ul class="social">
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/ben-chuanlong-du-1239b221/"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-github"
+           href="https://github.com/legendu-net/"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-stack-overflow"
+           href="https://stackoverflow.com/users/7808204/benjamin-du?tab=profile"
+           target="_blank">
+          <i class="fa-brands fa-stack-overflow"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-docker"
+           href="https://hub.docker.com/u/dclong"
+           target="_blank">
+          <i class="fa-brands fa-docker"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-twitter"
+           href="https://twitter.com/longendu"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://www.legendu.net">Home</a>
+  <a href="https://outdated.legendu.net">Blog</a>
+  <a href="https://outdated.legendu.net/archives.html">Archives</a>
+  <a href="https://outdated.legendu.net/categories.html">Categories</a>
+  <a href="https://outdated.legendu.net/tags.html">Tags</a>
+  <a href="https://www.legendu.net/pages/about">About</a>
+
+
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="traps-in-r">Traps in R</h1>
+    <p>
+      Posted on Nov 09, 2012 in <a href="https://outdated.legendu.net/category/programming.html">Programming</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p><strong>Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.</strong></p>
+<ol>
+<li>
+<p><a href="http://www.legendu.net/en/blog/zero-length-vector-issue-in-R/">Zero-Length Vector Issue in R</a></p>
+</li>
+<li>
+<p>A really tricky problem about is global and local variables. 
+You can use any global variable in a user-defined function, 
+which is true at least in R with version 2.13 or older. 
+For example if you have defined a global variable <code>a</code>, 
+you can use variable <code>a</code> directly in user-defined functions. 
+However, 
+you cannot use <code>=</code>, <code>&lt;-</code> or <code>-&gt;</code> to mutate global variables. 
+Whenever you use these three operators, 
+R thinks that you're either creating a new variable 
+(if the variable is not defined before), 
+or you're updating the value of an existing variable 
+(if the variable already exists). 
+For example, 
+suppose there's still a global variable <code>a</code> in the R workspace. 
+You can use variable <code>a</code> directly in user-defined functions, 
+but if you use <code>a=2</code> (or <code>a&lt;-2</code> or <code>2-&gt;a</code>) in the user-defined function, 
+R won't think that you're updating the value of the global variable, 
+instead it things that you're creating a new local variable <code>a</code>. 
+For this reason, 
+if a global variable <code>a</code> exists 
+while there's no local variable <code>a</code> in a user-defined function, 
+error message will be shown if you use <code>a[1]=1</code> (or other equivalent ways)
+and try to run the function, 
+because by doing this you're telling R 
+that you want to update the value of the first element of local variable <code>a</code> 
+but local variable <code>a</code> doesn't exist. 
+If you really want to update the value of (or create) a global variable 
+in a user-defined function, 
+you should use operator <code>-&gt;&gt;</code> or <code>&lt;&lt;-</code>. 
+For example, 
+if you want to update the value of global variable <code>a</code>, 
+you can use <code>a&lt;&lt;-2</code> (or <code>2-&gt;&gt;a</code>). 
+Now you have seen that global variables can screw the execution result 
+of your own defined function easily. 
+The situation can become even trickier and thus harder to debug, 
+if you define a local variable in a branch 
+(e.g. a branch of <code>if()...else...</code> statement) of the code 
+while forget to define the same local variable in other branches 
+and at the same time a global variable with the same name exists. 
+My suggestion is that you first remove all global variables 
+in the R workspace if there is any, 
+and then run your program. 
+In this way,
+you can avoid confusion resulting from global variables.</p>
+</li>
+<li>
+<p>Always be careful when there is an operation based on two vectors.</p>
+</li>
+<li>
+<p>Sequence operator (<code>:</code>) has a higher priority over arithmetic operators (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>), 
+but a lower priority than the power operator (<code>^</code>) and element operator (<code>[]</code>).</p>
+</li>
+<li>
+<p>Expression <code>2^1^2</code> is calculated from right to left in R.</p>
+</li>
+<li>
+<p>Avoid use function <code>median</code> if you can, 
+because it returns two numbers when the vector has an even number of elements, 
+which is usually not what statisticians want 
+and might result in serious problems in many cases. 
+Actually we can always use <code>quantile(x,prob=0.5)</code> to get the median of vector <code>x</code>.</p>
+</li>
+<li>
+<p>For functions which takes <code>...</code> as one of its parameters, 
+we have to be very careful.
+Because this kind of functions accept any number and any kind of parameters. 
+So sometime you think that you are passing values to some argument of a function, 
+but actually not. 
+For example if you use <code>seq(0,100,step=2)</code> you might be in trouble. 
+The right command that works in this situations can be <code>seq(0,100,by=2)</code>.
+Nowadays, 
+there are many different programming languages, 
+and all of them have their own advantages and disadvantages. 
+So we might have learned several different programming languages. 
+And we are probably told not to remember all functions by heart, 
+instead, we can check the syntax of functions when we have to use them. 
+This is an efficient way which is also my way to learn programming languages.
+However, 
+this might can lead to problems sometimes. 
+Because we're lazy, 
+we might just guess syntax of functions that we're going to use. 
+This is not a big problem in complied languages, 
+because anyway the syntax will be checked later 
+and what is more usually we have good editors to help us (e.g. eclipse for Java). 
+R is a interpreted language, 
+so even if there're syntax errors you might can still run it. 
+And because of high flexibility of R, 
+it is very hard to editor for R to find these tricky mistakes. 
+So if we can, 
+we should always at least check the arguments of the functions 
+we are going to use in R. 
+A simple way is just to use function <code>args</code>. 
+If we have used <code>args</code> to check the arguments of function <code>seq</code>, 
+then the chance for us to make the mistakes mentioned above is very small. 
+Also it is recommended to always pass arguments to functions 
+using argument names, 
+i.e., 
+using the form <code>argname1=argvalue1</code> to pass arguments to functions.</p>
+</li>
+<li>
+<p>To get the length of a vector, 
+you can use <code>length</code>. 
+However, 
+to get the length of a string, 
+you should use <code>nchar</code>.</p>
+</li>
+<li>
+<p><code>round</code> in use the close even number strategy which might not what you expect, 
+so be careful when you use it.</p>
+</li>
+<li>
+<p>In a <code>for</code> loop, 
+the loop vector is immutable while the loop is running. 
+This means that R calculates the loop vector only once, 
+an for this reason, feel free to ...</p>
+</li>
+<li>
+<p>It is often that one want to build a larger array based on small arrays. 
+For example, 
+one build a 3-D array by repeating a 2-D matrix. 
+You should be careful if the "matrix" you used is obtained by reading data from a file, 
+because it's really a data frame often times. 
+All elements in an array have the same type, 
+while elements in a data frame do not have to share the same type. 
+For this reason, 
+it is really inefficient to build an array based on a data frame 
+(if even all columns of the data frame share the same type). 
+If you do this for a large data frame, 
+R can choke. 
+A good way is to first convert the data frame to a matrix using <code>as.matrix</code>, 
+and then build the array you want based on the matrix.</p>
+</li>
+<li>
+<p>R runs commands in <code>Rprofile.site</code>, 
+then loads the save image (if any), 
+and then runs <code>.First</code> (if exists). 
+This means that if you want to run something which depends the R image, 
+you must put it into the <code>.First</code> instead of <code>Rprofile.site</code>. 
+However, 
+it seems that there is a bug with Rstudio (at least before version 0.94), 
+who does not follow the above order when it starts R.</p>
+</li>
+<li>
+<p>Usually the number of levels of a factor equals the number of distinct elements in the factor, 
+however, 
+it doesn't have to be.
+Except factitious ones, 
+the situation that the two quantities are not the same usually happens 
+after subsetting a data frame or factor. 
+If the number of levels of a factor is not the same 
+with the number of its distinct elements, 
+you can apply <code>factor</code> on itself to get a factor with the two quantities identical.</p>
+</li>
+<li>
+<p>Never use a factor for the index of subsetting, 
+because if used it will be coerced to an integer vector 
+which is usually not what people expect.</p>
+</li>
+<li>
+<p>R allows lazy evaluation to some extent, 
+e.g., 
+as almost all other languages do, 
+boolean expression in R are evaluated using lazy evaluation. 
+What is more important is that missing arguments are allowed for R functions 
+(i.e. you do not have to pass values to some arguments, 
+and everything runs OK as long as missing arguments are not involved in computing), 
+and missing arguments can even be further passed to sub-functions 
+(Everything runs OK as long as missing arguments are never used in computing). 
+Here is an illustration.</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">exact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">use</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">if </span><span class="p">(</span><span class="n">exact</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nf">return</span><span class="p">(</span><span class="nf">mean</span><span class="p">((</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">^</span><span class="m">2</span><span class="p">))</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">stats</span><span class="o">::</span><span class="nf">var</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">na.rm</span><span class="p">,</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">use</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nf">var</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">))</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>[1] 1.667
+</code></pre></div>
+
+<p>However, 
+R does not fully support lazy evaluation, 
+and you shall not expect code involve advanced lazy evaluation 
+(need an example there ...) to work well. 
+Part of the reason for not supporting advanced lazy evaluation in R 
+is that it invites many problems and can probably result in fetal mistakes.</p>
+<ol>
+<li>Because of the way that computers stores double values, 
+there are always tiny storing errors associated with double values. 
+So if you want to compare whether a double value belongs to a range 
+(a point is a closed interval with equal limts), 
+you can change the limits (depends on what your want to do) 
+of the range slightly to avoid storing errors.</li>
+</ol>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://outdated.legendu.net/tag/r.html">R</a>
+      <a href="https://outdated.legendu.net/tag/global-variable.html">global variable</a>
+      <a href="https://outdated.legendu.net/tag/programming.html">programming</a>
+      <a href="https://outdated.legendu.net/tag/traps.html">traps</a>
+      <a href="https://outdated.legendu.net/tag/cran.html">CRAN</a>
+    </p>
+  </div>
+
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'dclong';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+<footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+  <span class="footer-separator">|</span>
+  Switch to the <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> theme
+  <script id="dark-theme-script"
+          src="https://outdated.legendu.net/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="False"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Ben Chuanlong Du's Blog ",
+  "url" : "https://outdated.legendu.net",
+  "image": "",
+  "description": ""
+}
+</script><a href="https://github.com/dclong/outdated" target="_blank" class="github-corner" aria-label="View source on Github">
+    <svg width="80"
+         height="80"
+         viewBox="0 0 250 250"
+         style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;"
+         aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor"
+              style="transform-origin: 130px 106px;"
+              class="octo-arm">
+        </path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor"
+              class="octo-body">
+        </path>
+    </svg>
+</a>
+  <script src="https://outdated.legendu.net/theme/stork/stork.js"></script>
+  <script>
+    stork.register("sitesearch", "https://outdated.legendu.net/search-index.st", {showProgress: false});
+  </script>
+
+</body>
+</html>
