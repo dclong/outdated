@@ -1,0 +1,410 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+        disabled="disabled"
+    href="https://outdated.legendu.net/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+            disabled="disabled"
+          href="https://outdated.legendu.net/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="https://outdated.legendu.net/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet"
+        type="text/css"
+        href="https://outdated.legendu.net/theme/stork/stork.css" />
+
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/solid.css">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="Ben Chuanlong Du" />
+<meta name="description" content="Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. Skills MATLAB support profiling running time of code, so that you what to work on to optimize your code.s It is expensive to allocate a new …" />
+<meta name="keywords" content="tips, skills, programming, MATLAB">
+
+
+  <meta property="og:site_name" content="Ben Chuanlong Du's Blog"/>
+  <meta property="og:title" content="General Tips for MATLAB"/>
+  <meta property="og:description" content="Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. Skills MATLAB support profiling running time of code, so that you what to work on to optimize your code.s It is expensive to allocate a new …"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="https://outdated.legendu.net/blog/general-tips-for-MATLAB/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2012-12-08 10:35:47-08:00"/>
+  <meta property="article:modified_time" content="2014-09-08 10:35:47-07:00"/>
+  <meta property="article:author" content="https://outdated.legendu.net/author/ben-chuanlong-du.html">
+  <meta property="article:section" content="Computer Science"/>
+  <meta property="article:tag" content="tips"/>
+  <meta property="article:tag" content="skills"/>
+  <meta property="article:tag" content="programming"/>
+  <meta property="article:tag" content="MATLAB"/>
+  <meta property="og:image" content="">
+
+  <title>Ben Chuanlong Du's Blog &ndash; General Tips for MATLAB</title>
+
+
+</head>
+<body class="light-theme">
+
+<aside>
+  <div>
+    <a href="https://outdated.legendu.net/">
+      <img src="https://outdated.legendu.net/theme/img/profile.png" alt="" title="">
+    </a>
+
+    <h1>
+      <a href="https://outdated.legendu.net/"></a>
+    </h1>
+
+    <p>Change is eternal.</p>
+
+    <div class="stork">
+      <input class="stork-input" type="text" autocomplete="off" name="q" data-stork="sitesearch" placeholder="Search..."/>
+      <div class="stork-output" data-stork="sitesearch-output"></div>
+    </div>
+
+
+    <ul class="social">
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/ben-chuanlong-du-1239b221/"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-github"
+           href="https://github.com/legendu-net/"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-stack-overflow"
+           href="https://stackoverflow.com/users/7808204/benjamin-du?tab=profile"
+           target="_blank">
+          <i class="fa-brands fa-stack-overflow"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-docker"
+           href="https://hub.docker.com/u/dclong"
+           target="_blank">
+          <i class="fa-brands fa-docker"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-twitter"
+           href="https://twitter.com/longendu"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://www.legendu.net">Home</a>
+  <a href="https://outdated.legendu.net">Blog</a>
+  <a href="https://outdated.legendu.net/archives.html">Archives</a>
+  <a href="https://outdated.legendu.net/categories.html">Categories</a>
+  <a href="https://outdated.legendu.net/tags.html">Tags</a>
+  <a href="https://www.legendu.net/pages/about">About</a>
+
+
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="general-tips-for-MATLAB">General Tips for MATLAB</h1>
+    <p>
+      Posted on Dec 08, 2012 in <a href="https://outdated.legendu.net/category/computer-science.html">Computer Science</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p><strong>Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.</strong></p>
+<h2 id="skills">Skills</h2>
+<ol>
+<li>
+<p>MATLAB support profiling running time of code, 
+so that you what to work on to optimize your code.s</p>
+</li>
+<li>
+<p>It is expensive to allocate a new block of memory (not only in MATLAB
+but also in other programming laguages), 
+so you should avoid allocating new blocks of memory all the time. 
+It is better to allocate a big block of memory once and forever 
+if you know the actually size of memory that you have to use 
+(e.g. usually you know the size of arrays and matrices that you are going to use) 
+than to allocate small blocks of memory many times. 
+If it is impossible to avoid allocating new blocks of memory, 
+it is better to allocate a bigger memory than needed each time. 
+In this way, you waste space but might save much time.</p>
+</li>
+<li>
+<p>You can use block <code>try ... catch ... end</code> to handle code that might throw exception in MATLAB. 
+You should be aware of the importance of handling exception. 
+In many cases you just cannot afford to stop running code, 
+for example the program written for a rocket should not stop running when exception happens. 
+Even for statistician, 
+it is very important to handle exceptions. 
+For example, if you run a code which might takes 2 month, 
+but your code throws out an exception after running a month. 
+Do you want the program to the stop running after half the the long task has been done? 
+So a better ways is always handle any exceptions that throws out. 
+Some exceptions might result from hardware (e.g. no enough disk space). 
+In this case, 
+you can let your code notify you (e.g. via email or text message) 
+and then wait for you fix the problem and then continue running.</p>
+</li>
+<li>
+<p>Sometimes you might want to write a user-defined function 
+with variable (even unknown) number of arguments. 
+There are some functions helpful for this in MATLAB. 
+<code>nargin</code> and <code>nargout</code> returns the number of input variables and output variables; 
+<code>nargcheck</code> and <code>nargoutchk</code> validate number of input and output arguments respectively; 
+<code>varargin</code> and <code>varargout</code> stand for input and output argument lists respectively.</p>
+</li>
+<li>
+<p>break, return goto and error</p>
+</li>
+<li>
+<p>By default, MATLAB use "short" format to display out, 
+which uses only four decimal digits for numbers. 
+To change the display format, you can use <code>format</code>. 
+For example, you can use <code>format('longG')</code> to make MATLAB give more readable outputs.</p>
+</li>
+<li>
+<p>You can execute system command by invoke <code>system</code>, 
+which is similar to R. 
+For example, 
+to shutdown computer 1 hour after computing in MATLAB is done in Windows operating system, 
+you can add <code>shutdown('shutdown/s /t 3600')</code> at the end of your code 
+or just type it into the console while the code is running. 
+Similarly, 
+you can invoke <code>dos</code> to run dos command and <code>perl</code> to execute perl script.</p>
+</li>
+<li>
+<p>You can use <code>computer</code> to get information about the computer on which MATLAB is running.</p>
+</li>
+</ol>
+<h2 id="programming">Programming</h2>
+<ol>
+<li>
+<p>MATLAB supports boolean variables. 
+(I somehow have an impression that MATLAB does not support variables 
+and one must use 1 or 0 instead. 
+I am not sure whether boolean variables are introduced in newer versions of MATLAB or not.)
+A boolean variable has 3 possible values: <code>true</code>, <code>false</code> and <code>unknown</code> 
+(more programming languages are supporting ternary boolean variables).
+You have to be very careful about the <code>unknown</code> value.
+It can be error-prone sometimes.
+Logical comparisons can be assigned to (boolean) variables directly. 
+Numerical values are casted to boolean values when needed.</p>
+</li>
+<li>
+<p>The syntax of MATLAB is kind of a mix of <code>Visual Basic</code> and <code>C</code>. </p>
+</li>
+<li>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">[y1, y2, y3] = f</span><span class="p">(</span>arg1, arg2, arg3, arg4<span class="p">)</span>
+<span class="w">        </span><span class="n">statements</span>
+</code></pre></div>
+
+<p>defines a function named <code>f</code> in MATLAB. 
+To get all 3 return values of <code>f</code>, 
+you must call it in the form of <code>[rv1, rv2, rv3] = f(arg1, arg2, arg3, arg4);</code>;
+to get the first 2 return values of <code>f</code>, 
+you call it in the form of <code>[rv1, rv2] = f(arg1, arg2, arg3, arg4);</code>, so on and so forth.
+Notice that you cannot use a vector with length <code>k</code> to extract the first <code>k</code> return values of <code>f</code>. 
+The reason is that the types of return values are unkown and can be of any types. 
+The tricky part is that when you extract the return values of <code>f</code> using a vector of length <code>k</code>,
+it is possible that no error or warning message is displayed. 
+The first return value of <code>f</code> is assigned to the vector or all elements of the vector
+(if it is an slicing of an array).</p>
+</li>
+<li>
+<p>The first function defined in a m-file is the main function 
+and will be called when the m-file is called.
+All subsequent functions in the m-file can only be called by the main function.
+It is recommended that you named a m-file after the main function.</p>
+</li>
+<li>
+<p>There are two types of objects in MATLAB: value object and handle object. 
+A value object behaves like being passed by value 
+while a handle object is passed by reference. 
+By default objects (matrix, array and so on) in MATLAB are value objects. 
+However, even if a value object behaves like being passed by value, 
+if it is not modify inside a function when passed to the function, 
+no copy will be made into the workspace of the function. 
+This system is so called copy-on-write, 
+which might save much memory if the matrices or arrays passed are huge. 
+The famous statistical software R will always make a copy of a argument 
+if it is passed by value.</p>
+</li>
+<li>
+<p>MATLAB does not check the passing of parameters to functions. 
+Whether the parameters passed to a function are illegal can only be decide at run time, 
+which is the way that most interpret language use.
+If your code takes lots of time to be run (e.g. a big simulation),
+you'd better first downgrade the complexity of the problem and run a test code, 
+otherwise you might find that there is in your code after you have run your code for a long time.</p>
+</li>
+<li>
+<p>By default, 
+variables appear in a user-defined function 
+and variables in the workspace are local variable, 
+which means that you cannot use variables from the workspace in a user-defined function
+nor can you use variables from a user-defined function in the workspace. 
+To make a variable global, 
+you can use command <code>global</code>, e.g. to make variable <code>x</code> global you can use <code>global x;</code>. 
+If a variable is global, 
+you can use it everywhere if you have made the necessary declaration 
+(e.g. you have to declare that a variable is global in a user-defined function, 
+if you want to use it as global.), 
+and its value will be the same everywhere 
+(This is because no matter where you use it, 
+it points to the same place in the memory).</p>
+</li>
+<li>
+<p>To run a bunch of code, you can put the code into a M file or you can define a function. 
+Sometimes, 
+there are a few of small pieces of code that you use a lot 
+but they are too short and will be used only in a single work 
+that you hesitate to write them into M files or to write them as functions. 
+What you can do is to define them as inline functions or function handles. 
+Inline functions work only for very simple functions. 
+Every symbol appear in a inline function string is treated as a variable, 
+so you cannot pass data into a inline function except for constants. 
+Function handle is more flexible way to deal with this situation. 
+You can use any object in the workspace in a function handle. 
+What's more, a function handle cannot be changed after it is defined. 
+For example, if a function handle uses an object in the workspace, 
+it remains the same even if you change the object or remove it from the workspace, 
+which is usually what we expect. 
+So generally speaking function handles are more flexible 
+and useful than inline functions, 
+but surely it is slower than inline functions. 
+Function handles are usually used to wrap existing functions for convenient use. 
+For example, 
+in statistics data is usually passed to a likelihood function as a parameter 
+because global variable is generally not a good idea. 
+When you optimize a likelihood function, 
+you do not want to optimize over the data parameter. 
+To handle this situation, please refer to section <code>optimization</code>.</p>
+</li>
+<li>
+<p><code>eval</code> evaluate string containing MATLAB expressions.</p>
+</li>
+<li>
+<p>The passing of a function as an argument of another function 
+is achieved through function handle in MATLAB. 
+To get the function handle of an existing function (not a function handle), 
+you can simply add a prefix <code>@</code> to it.</p>
+</li>
+</ol>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://outdated.legendu.net/tag/tips.html">tips</a>
+      <a href="https://outdated.legendu.net/tag/skills.html">skills</a>
+      <a href="https://outdated.legendu.net/tag/programming.html">programming</a>
+      <a href="https://outdated.legendu.net/tag/matlab.html">MATLAB</a>
+    </p>
+  </div>
+
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'dclong';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+<footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+  <span class="footer-separator">|</span>
+  Switch to the <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> theme
+  <script id="dark-theme-script"
+          src="https://outdated.legendu.net/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="False"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Ben Chuanlong Du's Blog ",
+  "url" : "https://outdated.legendu.net",
+  "image": "",
+  "description": ""
+}
+</script><a href="https://github.com/dclong/outdated" target="_blank" class="github-corner" aria-label="View source on Github">
+    <svg width="80"
+         height="80"
+         viewBox="0 0 250 250"
+         style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;"
+         aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor"
+              style="transform-origin: 130px 106px;"
+              class="octo-arm">
+        </path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor"
+              class="octo-body">
+        </path>
+    </svg>
+</a>
+  <script src="https://outdated.legendu.net/theme/stork/stork.js"></script>
+  <script>
+    stork.register("sitesearch", "https://outdated.legendu.net/search-index.st", {showProgress: false});
+  </script>
+
+</body>
+</html>
