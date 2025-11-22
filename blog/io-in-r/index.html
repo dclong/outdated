@@ -1,0 +1,439 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+        disabled="disabled"
+    href="https://outdated.legendu.net/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+            disabled="disabled"
+          href="https://outdated.legendu.net/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="https://outdated.legendu.net/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet"
+        type="text/css"
+        href="https://outdated.legendu.net/theme/stork/stork.css" />
+
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/solid.css">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="Ben Chuanlong Du" />
+<meta name="description" content="Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. read.table, read.csv, read.delim, etc. It is suggested that you use read.csv/read.delim and avoid using read.table. This is because that the …" />
+<meta name="keywords" content="R, IO, programming, CRAN">
+
+
+  <meta property="og:site_name" content="Ben Chuanlong Du's Blog"/>
+  <meta property="og:title" content="Input and Output in R"/>
+  <meta property="og:description" content="Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. read.table, read.csv, read.delim, etc. It is suggested that you use read.csv/read.delim and avoid using read.table. This is because that the …"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="https://outdated.legendu.net/blog/io-in-r/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2012-11-09 18:20:45-08:00"/>
+  <meta property="article:modified_time" content="2016-07-09 18:20:45-07:00"/>
+  <meta property="article:author" content="https://outdated.legendu.net/author/ben-chuanlong-du.html">
+  <meta property="article:section" content="Programming"/>
+  <meta property="article:tag" content="R"/>
+  <meta property="article:tag" content="IO"/>
+  <meta property="article:tag" content="programming"/>
+  <meta property="article:tag" content="CRAN"/>
+  <meta property="og:image" content="">
+
+  <title>Ben Chuanlong Du's Blog &ndash; Input and Output in R</title>
+
+
+</head>
+<body class="light-theme">
+
+<aside>
+  <div>
+    <a href="https://outdated.legendu.net/">
+      <img src="https://outdated.legendu.net/theme/img/profile.png" alt="" title="">
+    </a>
+
+    <h1>
+      <a href="https://outdated.legendu.net/"></a>
+    </h1>
+
+    <p>Change is eternal.</p>
+
+    <div class="stork">
+      <input class="stork-input" type="text" autocomplete="off" name="q" data-stork="sitesearch" placeholder="Search..."/>
+      <div class="stork-output" data-stork="sitesearch-output"></div>
+    </div>
+
+
+    <ul class="social">
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/ben-chuanlong-du-1239b221/"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-github"
+           href="https://github.com/legendu-net/"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-stack-overflow"
+           href="https://stackoverflow.com/users/7808204/benjamin-du?tab=profile"
+           target="_blank">
+          <i class="fa-brands fa-stack-overflow"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-docker"
+           href="https://hub.docker.com/u/dclong"
+           target="_blank">
+          <i class="fa-brands fa-docker"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-twitter"
+           href="https://twitter.com/longendu"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://www.legendu.net">Home</a>
+  <a href="https://outdated.legendu.net">Blog</a>
+  <a href="https://outdated.legendu.net/archives.html">Archives</a>
+  <a href="https://outdated.legendu.net/categories.html">Categories</a>
+  <a href="https://outdated.legendu.net/tags.html">Tags</a>
+  <a href="https://www.legendu.net/pages/about">About</a>
+
+
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="io-in-r">Input and Output in R</h1>
+    <p>
+      Posted on Nov 09, 2012 in <a href="https://outdated.legendu.net/category/programming.html">Programming</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p><strong>Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.</strong></p>
+<h2 id="readtable-readcsv-readdelim-etc">read.table, read.csv, read.delim, etc.</h2>
+<ol>
+<li>
+<p>It is suggested that you use <code>read.csv</code>/<code>read.delim</code> and avoid using <code>read.table</code>.
+This is because that the <code>comment.char</code> is off for <code>read.csv</code>/<code>read.delim</code> and on for <code>read.table</code> by default. 
+My experience is that data seldom has comments in them 
+and people are usually not aware that <code>comment.char</code> is on for <code>read.table</code> by default. 
+When there are "comment chararacters" in data which are not intended to be comment characters,
+you screw up if you read data using <code>read.table</code> and forget to turn off comment using <code>comment.char = ''</code>. </p>
+</li>
+<li>
+<p>By default, 
+lines starting with <code>#</code> are treated as comment lines 
+and thus are ignored when reading data using <code>read.table</code>, etc.
+If a line is not a comment line, 
+avoid starting it with <code>#</code>. 
+Or you can specify a different comment character 
+(e.g., <code>$</code> using option <code>comment.char = "$"</code>).</p>
+</li>
+<li>
+<p>It is suggested that you always use <code>stringsAsFactors = FALSE</code> 
+when constructing a data frame (data.frame, as.data.frame, read.table, read.csv, etc.).
+Factors causes more troubles than conveniences. 
+If you do need factors (for building models),
+just manual convert columns to factors.</p>
+</li>
+<li>
+<p>If a data row have an extra column/field (e.g., due to missing quotes in CSV format),
+R will not throw error but instead treats the data to have a row names column. 
+This results in shifted columns in some (shorter) rows. 
+You can examining the format of a data file 
+using the function <code>count.fields</code> 
+which counts the number of fields in each line.</p>
+</li>
+<li>
+<p><code>read.csv</code> for standard CSV files while <code>read.csv2</code> is for European CSV format. </p>
+</li>
+</ol>
+<h2 id="writetable-writecsv-writedelim-etc">write.table, write.csv, write.delim, etc.</h2>
+<ol>
+<li>
+<p>It is suggested that you write data frames into CSV format.
+CSV format has a clear definition. 
+If you tell people that a file is in CSV format,
+they know how to read it. 
+But if you tell people that a file is in a general delimited format,
+people have to ask about what the delimiter is 
+and whether fields are quoted, etc.</p>
+</li>
+<li>
+<p>The function<code>write.table</code> writes a data frame or a matrix into a file. 
+Note that it can also append data into a file. </p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">24</span><span class="p">,</span><span class="w"> </span><span class="n">nrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">6</span><span class="p">)</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">paste0</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">)</span>
+<span class="nf">write.table</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;out.txt&#39;</span><span class="p">)</span>
+<span class="n">x</span><span class="p">[,</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+<span class="nf">write.table</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;out.txt&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">append</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">T</span><span class="p">,</span><span class="w"> </span><span class="n">col.names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">F</span><span class="p">)</span>
+</code></pre></div>
+
+<ol>
+<li>
+<p>By default <code>write.table</code> output missing values as character NA (<code>na = "NA"</code>). 
+It is suggested that you output missing values as empty strings (na = "") as it is more portable. 
+Other programming languages do not recognize character <code>NA's</code> as missing values. </p>
+</li>
+<li>
+<p>Always quote fields when you write data into CSV format.</p>
+</li>
+<li>
+<p><code>row.names</code> have different means in <code>read.table</code> and <code>write.table</code>.
+<code>row.names</code> is a logical variable indicating 
+whether you want to output row names or not in <code>write.table</code>,
+however, it is not a logical variable indicating whether there is a row names in the data.
+It is much more complicated. 
+Please refer to the R help doc for detailed explanation.</p>
+</li>
+<li>
+<p>It is suggested that you never write row names into files. 
+If row names contains useful informtion, 
+write row names into file as a column/field.
+The reason is that row names causes troubles in IO. 
+On one hand,
+it is not convenient to read in a file 
+with row names into other programming language. 
+On another hand,
+row names causes side effect in R too.</p>
+</li>
+</ol>
+<h2 id="ms-excel">MS Excel</h2>
+<p><a href="http://www.thertrader.com/2014/02/11/a-million-ways-to-connect-r-and-excel/">http://www.thertrader.com/2014/02/11/a-million-ways-to-connect-r-and-excel/</a>
+It is suggested that you avoid using Excel as input/ouput data format. 
+CSV is a better alternative.
+However, 
+if you do have to use Excel as input/output data format,
+read the following tips.</p>
+<ol>
+<li>
+<p>There are lots of ways to read data from and write data into Excel documents. 
+For example, 
+packages <code>xlsReadWrite</code>, <code>xlsx</code>, <code>RODBC</code> 
+(and many more) all offers ways to import data from and export data to Excel documents. 
+<code>xlsx</code> (which offers <code>read.xlsx</code> and <code>write.xlsx</code>) is good package for dealing with Excel spreadsheet.
+<code>RODBC</code> is a universal way to deal with all kinds of databases 
+(not just Excel spreadsheet). </p>
+</li>
+<li>
+<p>It is usually very slow to read in (or write to) a large Excel spreadsheet.
+It is suggested that you convert large Excel spreadsheets to CSV files first 
+and then read in them.
+Also, write data into CSV files instead of Excel spreadsheet.
+However, 
+be careful that the stupid Excel might loss information when converting to CSV format.
+Generally speaking, 
+this happens when there are very long numbers.</p>
+</li>
+<li>
+<p>Excel might scilently format opened CSV (or imported text) files. 
+Generally speaking,
+this happens when there are very long numbers in the text file.
+Be careful not to introduce undesired changed. 
+If you just open a CSV file to view it and do not want change its content, 
+then just discard any changes Excel has made. 
+If you indeed want to change CSV file in Excel, 
+keep your fingers cross. </p>
+</li>
+</ol>
+<h2 id="binary-data">Binary Data</h2>
+<ol>
+<li>The function <code>readBin</code> reads in binary data 
+and the function <code>writeBin</code> writes binary data into files. 
+Both of the two functions have limits on the size of data that they can deal at a time. 
+For large binary data, 
+you have to use <code>readBin/writeBin</code> multiple times to read/write them from/to files.
+<code>readBin</code> and <code>writeBin</code> are compatible with <code>fwrite</code> and <code>fread</code> in MATLAB. 
+<code>fread</code> and <code>fwrite</code> are C style functions, ... (to be checked for compatible with c/c++). 
+However, <code>readBin</code> and <code>writeBin</code> is not compatible with 
+Java classes <code>DataOutputStream</code> and <code>DataInputStream</code>. 
+To read binary data written using <code>DataOutputStream</code> from Java, 
+you can call Java code for reading binary data using <code>rJava</code> in R; 
+to write binary data that is recognized by <code>DataInputStream</code> in Java, 
+you can call Java code for writing binary data using <code>rJava</code> in R.</li>
+</ol>
+<h2 id="misc">Misc</h2>
+<ol>
+<li>All most all input/output functions in R support reading data 
+from all kinds of source including files, console, clipboard and website.
+For example, 
+if you have copied a block of data from an Excel document, 
+you can read it into R using the following command.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">read.table</span><span class="p">(</span><span class="s">&#39;clipboard&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;\t&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>This is good and quick way to import part of the data from a Excel document into in R. 
+You do not have to worry about formula in cells. 
+When you read data from Excel, values (instead formulas) are read in.
+If the data is on a website, 
+you can just pass the URL to <code>read.table</code> (or <code>read.delim</code>, <code>read.csv</code>, etc.) to read it.</p>
+<ol>
+<li>
+<p><code>print</code> prints an R object to the R console 
+and <code>cat</code> can print multiple objects to the R console, clipboard or files. 
+There is some difference between the outputs generated by these two functions.
+Generally speaking, 
+if you want to see the content of an object in R scenario 
+(keep special characters as they are), 
+you want to use <code>print</code>; 
+if you want to see the content in human readable format
+(special characters are translated), 
+you want to use function <code>cat</code>.
+I have to mention that <code>cat</code> doesn't work for all types of R objects 
+(e.g. objects of <code>xtable</code>).</p>
+</li>
+<li>
+<p>The function <code>scan</code> is extremely powerful and flexible. 
+You can skip first <code>k</code> lines using the option <code>skip = k</code>.
+For example, 
+the following command skips the first 5 lines.</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="nf">scan</span><span class="p">(</span><span class="n">what</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">double</span><span class="p">(),</span><span class="w"> </span><span class="n">skip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
+</code></pre></div>
+
+<p>You can skip lines starting with special characters using the option <code>comment.char</code>.
+For example, 
+the following command skips lines starting with "#".</p>
+<div class="highlight"><pre><span></span><code><span class="nf">scan</span><span class="p">(</span><span class="n">what</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">double</span><span class="p">(),</span><span class="w"> </span><span class="n">comment.char</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;#&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>You can decide which special strings are treated as missing values using the option <code>na.string</code>.
+For example,
+the following command treats "NA" as missing values.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">scan</span><span class="p">(</span><span class="n">what</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">double</span><span class="p">(),</span><span class="w"> </span><span class="n">na.string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;NA&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>You can limit the number of data values/lines to be read in, etc.
+Many input functions in R are based on the function <code>scan</code>, 
+for example, <code>read.table</code>.
+These functions inherits the powerfulness and flexibility of <code>scan</code>. 
+<code>scan</code> is also helpful for interactive programming. 
+For example, you can read a string into the variable <code>input</code> using the following commmand.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">scan</span><span class="p">(</span><span class="n">what</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">character</span><span class="p">(),</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">input</span><span class="w">  </span>
+</code></pre></div>
+
+<p>However, <code>scan</code> is used to read in a vector, 
+so the data to be read in <em>at the same time</em> must be of the same type. </p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://outdated.legendu.net/tag/r.html">R</a>
+      <a href="https://outdated.legendu.net/tag/io.html">IO</a>
+      <a href="https://outdated.legendu.net/tag/programming.html">programming</a>
+      <a href="https://outdated.legendu.net/tag/cran.html">CRAN</a>
+    </p>
+  </div>
+
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'dclong';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+<footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+  <span class="footer-separator">|</span>
+  Switch to the <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> theme
+  <script id="dark-theme-script"
+          src="https://outdated.legendu.net/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="False"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Ben Chuanlong Du's Blog ",
+  "url" : "https://outdated.legendu.net",
+  "image": "",
+  "description": ""
+}
+</script><a href="https://github.com/dclong/outdated" target="_blank" class="github-corner" aria-label="View source on Github">
+    <svg width="80"
+         height="80"
+         viewBox="0 0 250 250"
+         style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;"
+         aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor"
+              style="transform-origin: 130px 106px;"
+              class="octo-arm">
+        </path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor"
+              class="octo-body">
+        </path>
+    </svg>
+</a>
+  <script src="https://outdated.legendu.net/theme/stork/stork.js"></script>
+  <script>
+    stork.register("sitesearch", "https://outdated.legendu.net/search-index.st", {showProgress: false});
+  </script>
+
+</body>
+</html>
