@@ -1,0 +1,553 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+        disabled="disabled"
+    href="https://outdated.legendu.net/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+            disabled="disabled"
+          href="https://outdated.legendu.net/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="https://outdated.legendu.net/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet"
+        type="text/css"
+        href="https://outdated.legendu.net/theme/stork/stork.css" />
+
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/solid.css">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="Ben Chuanlong Du" />
+<meta name="description" content="Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. ** Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. ** Here are some examples …" />
+<meta name="keywords" content="dot, SAS, macro, branch, programming">
+
+
+  <meta property="og:site_name" content="Ben Chuanlong Du's Blog"/>
+  <meta property="og:title" content="Macro in SAS"/>
+  <meta property="og:description" content="Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. ** Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. ** Here are some examples …"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="https://outdated.legendu.net/blog/macro-in-sas/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2009-11-28 16:43:05-08:00"/>
+  <meta property="article:modified_time" content="2015-08-28 16:43:05-07:00"/>
+  <meta property="article:author" content="https://outdated.legendu.net/author/ben-chuanlong-du.html">
+  <meta property="article:section" content="Computer Science"/>
+  <meta property="article:tag" content="dot"/>
+  <meta property="article:tag" content="SAS"/>
+  <meta property="article:tag" content="macro"/>
+  <meta property="article:tag" content="branch"/>
+  <meta property="article:tag" content="programming"/>
+  <meta property="og:image" content="">
+
+  <title>Ben Chuanlong Du's Blog &ndash; Macro in SAS</title>
+
+
+</head>
+<body class="light-theme">
+
+<aside>
+  <div>
+    <a href="https://outdated.legendu.net/">
+      <img src="https://outdated.legendu.net/theme/img/profile.png" alt="" title="">
+    </a>
+
+    <h1>
+      <a href="https://outdated.legendu.net/"></a>
+    </h1>
+
+    <p>Change is eternal.</p>
+
+    <div class="stork">
+      <input class="stork-input" type="text" autocomplete="off" name="q" data-stork="sitesearch" placeholder="Search..."/>
+      <div class="stork-output" data-stork="sitesearch-output"></div>
+    </div>
+
+
+    <ul class="social">
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/ben-chuanlong-du-1239b221/"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-github"
+           href="https://github.com/legendu-net/"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-stack-overflow"
+           href="https://stackoverflow.com/users/7808204/benjamin-du?tab=profile"
+           target="_blank">
+          <i class="fa-brands fa-stack-overflow"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-docker"
+           href="https://hub.docker.com/u/dclong"
+           target="_blank">
+          <i class="fa-brands fa-docker"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-twitter"
+           href="https://twitter.com/longendu"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://www.legendu.net">Home</a>
+  <a href="https://outdated.legendu.net">Blog</a>
+  <a href="https://outdated.legendu.net/archives.html">Archives</a>
+  <a href="https://outdated.legendu.net/categories.html">Categories</a>
+  <a href="https://outdated.legendu.net/tags.html">Tags</a>
+  <a href="https://www.legendu.net/pages/about">About</a>
+
+
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="macro-in-sas">Macro in SAS</h1>
+    <p>
+      Posted on Nov 28, 2009 in <a href="https://outdated.legendu.net/category/computer-science.html">Computer Science</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p><strong>Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.</strong></p>
+<p>**
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+**</p>
+<p><a href="https://bitbucket.org/dclong/sas_learn/src/">Here</a> are some examples for SAS macro.</p>
+<p>http://www.devenezia.com/downloads/sas/macros/?m=array</p>
+<ol>
+<li>
+<p>for macros, passing in a data set and operate on the data set sounds like a better way to do 
+rather than passing plain text especially when there are lots of things to pass to a macro function 
+and better to write outputs into datasets or macro variables rather than doing text substitute.</p>
+</li>
+<li>
+<p>When you select values into macro variables using a sql procedure in a macro function, 
+the macro varibles created are local to the macro function.</p>
+</li>
+<li>
+<p>avoid return a value from macro, this gives you more trouble than convenience, 
+just assign the value to macro or write results into a data set ...</p>
+</li>
+<li>
+<p>Macros are substituted with their definition before SAS code is run,
+which is similar to macros in other programming languages such as C/C++.
+The essence of macro is text substitution.
+Macro (text substitution) in SAS is tricky and error prone. 
+It is suggested that you do not overuse user-defined macros in SAS.</p>
+</li>
+<li>
+<p>Macro variable values have a maximum length of 65,534 characters. </p>
+</li>
+<li>
+<p>Arguments of a macro are local to the macro.
+However, passing macro variable name can sort give you a taste of passing by reference.</p>
+</li>
+<li>
+<p>It is recommended that 
+you define macro variables as local in user-defined macro functions using <code>%local</code>,
+especially if you use simple short macro variable names such as <code>i</code>, <code>n</code>, etc. 
+Otherwise, you will end up using GLOBAL macro variables which is error-prone.</p>
+</li>
+<li>
+<p>Do not define macro variables starting with "sys", 
+otherwise, 
+you confuse yours with system's macro variables.</p>
+</li>
+<li>
+<p>Macro variable in the smallest scope is used if not defined.</p>
+</li>
+</ol>
+<h2 id="important-and-useful-macro-variables">Important and Useful Macro Variables</h2>
+<ol>
+<li>
+<p>&amp;sysuserid</p>
+</li>
+<li>
+<p>sysver: SAS version</p>
+</li>
+<li>
+<p>%symexists</p>
+</li>
+<li>
+<p>You can use command <code>%put _ALL_;</code> to show all macro variables in SAS log.
+In addition to <code>_ALL_</code> you could use any of the following.</p>
+<div class="highlight"><pre><span></span><code><span class="o">-</span><span class="w"> </span><span class="n n-Quoted">`_USER_`</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">list</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="n">defined</span><span class="w"> </span><span class="n">macro</span><span class="w"> </span><span class="k">variables</span><span class="p">;</span>
+
+<span class="o">-</span><span class="w"> </span><span class="n n-Quoted">`_AUTOMATIC_`</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">list</span><span class="w"> </span><span class="n">those</span><span class="w"> </span><span class="n">defined</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">SAS</span><span class="w"> </span><span class="k">system</span><span class="p">;</span>
+
+<span class="o">-</span><span class="w"> </span><span class="n n-Quoted">`_GLOBAL_`</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">list</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="k">session</span><span class="w"> </span><span class="n">wide</span><span class="w"> </span><span class="n">macro</span><span class="w"> </span><span class="k">variables</span><span class="w"> </span><span class="p">(</span><span class="k">global</span><span class="w"> </span><span class="n">symbol</span><span class="w"> </span><span class="k">table</span><span class="p">);</span>
+
+<span class="o">-</span><span class="w"> </span><span class="n n-Quoted">`_LOCAL_`</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">list</span><span class="w"> </span><span class="n">those</span><span class="w"> </span><span class="n">macro</span><span class="w"> </span><span class="k">variables</span><span class="w"> </span><span class="k">local</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">executing</span><span class="w"> </span><span class="n">macro</span><span class="p">.</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>Macros in double quotation marks are expanded 
+while macros in single quotation marks are not expnaded.
+For example,</p>
+<div class="highlight"><pre><span></span><code><span class="nf">%let</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello, &quot;</span><span class="p">;</span>
+<span class="n">title</span><span class="w"> </span><span class="s">&quot;&amp;mWorld!&quot;</span><span class="p">;</span>
+</code></pre></div>
+
+<p>generates <code>Hello, World!</code> while</p>
+<div class="highlight"><pre><span></span><code><span class="nf">%let</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello, &quot;</span><span class="p">;</span>
+<span class="n">title</span><span class="w"> </span><span class="err">&#39;</span><span class="o">&amp;</span><span class="n">mWorld</span><span class="o">!</span><span class="err">&#39;</span><span class="p">;</span>
+</code></pre></div>
+
+<p>generates <code>&amp;mWorld!</code>.
+This is similar to the behavior of Bash variables in strings.</p>
+</li>
+<li>
+<p>Be careful when you use macro in SAS especially when you deal with <code>%if</code>. 
+My suggestion is that avoid using <code>%if</code> if you can. 
+You can use <code>%select</code> instead. 
+If you have to use <code>%if</code>, 
+you must be aware that the macro is expanded before it is run,
+i.e. there is no branching going on when running the code. 
+(Confused, I think %select will have same problem here,
+put the probelamtic example here ...)</p>
+</li>
+<li>
+<p>You can use dot (".") to connect a macro variable and usual characters. 
+For example,</p>
+<div class="highlight"><pre><span></span><code><span class="nf">%let</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="n">data</span><span class="w"> </span><span class="n">set</span><span class="p">.</span><span class="o">&amp;</span><span class="n">i</span><span class="p">;</span>
+<span class="p">...</span>
+</code></pre></div>
+
+<p>is expanded to </p>
+<div class="highlight"><pre><span></span><code>data set1;
+...
+</code></pre></div>
+
+<p>before running.</p>
+</li>
+</ol>
+<p>&amp;&amp;ms&amp;i. cannot use &amp;&amp;ms.&amp;i. the reason is that ms is not a macro.
+there's good reason to end macros with ., becuase database.table ... actually, wait, try only one dot instead ...</p>
+<ol>
+<li>
+<p><code>%sysfunc</code> execute SAS or user-defined functions. 
+You must embed every expression 
+envolving SAS or user-defined functions (not pure macros) in a %sysfunc statement.
+For example,</p>
+</li>
+<li>
+<p><code>%eval</code> is similar to <code>%sysfunc</code> for only for simple arithmatic calculations in macro environment.</p>
+</li>
+<li>
+<p>You can show SAS version information by running <code>%put _automatic_;</code></p>
+</li>
+<li>
+<p><code>%sysuserid</code> represent the user id of the current SAS process. 
+It is similar to the <code>whoami</code> command in Linux 
+(of course <code>whoami</code> is a command not a environment variable, macro equivalent).</p>
+</li>
+<li>
+<p>It is suggested that you always use dot after macro variables.</p>
+</li>
+<li>
+<p><code>%array</code> is a useful (non-built-in) macro for creating macro arrays quickly.
+And <code>%do_over</code> (non-built-in) can be used to iterate through macro arrays.</p>
+</li>
+<li>
+<p>It is not very convenient to use %do_over to apply a macro 
+with multiple arguments to an array.
+It is recommended that you use the <code>%do</code> loop manually 
+inside a temorary macro. </p>
+</li>
+<li>
+<p><code>%if</code>, <code>%do ... %end</code>, etc. can only be used in a SAS macro.</p>
+</li>
+<li>
+<p>There is no concept of annonymous macro functions in SAS.</p>
+</li>
+<li>
+<p>The option <code>phrase</code> in the <code>%do_over</code> macro cannot contain commas.</p>
+</li>
+<li>
+<p>You can use the macro <code>%SYMDEL macro-variables(s);</code> to delete macro variables.
+To delete all, e.g.,  global macro variables, 
+you can use the the following code.</p>
+<div class="highlight"><pre><span></span><code>data gmv ( keep = name ) ;
+    set sashelp.vmacro ;
+    where scope = &#39;GLOBAL&#39; ;
+run ;
+
+data _null_ ;
+    set gmv ;
+    call symdel(name) ;
+run ;
+</code></pre></div>
+
+</li>
+<li>
+<p>The function <code>symget</code> gets the value of a macro variable 
+into a variable in a data step.
+It is similar to the function <code>getenv</code> in R 
+and <code>os.getenv</code> in Python.</p>
+</li>
+<li>
+<p><code>symput</code> puts the value of a variable in a data step 
+into a macro variable.
+<code>symput</code> can also export a variable (inside a data step) to a local macro variable
+inside a user-defined macro function.
+It is ugly and error-prone to manipulate macro variables directly,
+thus it is suggested that you define and manipulate (regular) variables 
+in a <code>_null_</code> data step,
+and exported (regular) variables to macro variables using <code>symput</code> when needed.</p>
+</li>
+<li>
+<p>The macro <code>%sysget</code> function gets the value 
+of the specified operating environment variable.
+It is similar to the function <code>getenv</code> in R and <code>os.getenv</code> in Python.</p>
+</li>
+<li>
+<p>You can nest definitions of macros,
+however, 
+it is suggested that you never do this
+as it is very inefficient to do so.</p>
+</li>
+<li>
+<p>When a macro functions takes no argument,
+you can omit the parentheses in the definition 
+and when you call it.</p>
+</li>
+<li>
+<p>Be careful about the restriction of length of macro variables.
+This can cause problems when you concatenate a input macro variable and a string
+to create a new macro variable name.</p>
+</li>
+<li>
+<p>Generally speaking, 
+you do not want to overwrite a macro variable with a value that has a different meaning.
+This is the same in many other programming languages (unless for serious performance concerning).
+A rule of thumb in scripting language programming is not to change type of variables.</p>
+</li>
+<li>
+<p>Macro variables and data sets (essentially files) are 2 ways 
+for procedures in SAS to communicate with each other.</p>
+</li>
+<li>
+<p>There is no limit on the maximum number of macro variables
+that can be used in a SAS program besides memory limit.
+However, the SAS symbol table exhibits a quadratic behavior,
+which means that there is a performance issue 
+when too many SAS macro variables are created.</p>
+</li>
+<li>
+<p>SAS macro functions support 2 types of arguments,
+positional arguments and keyword arguments.
+A keyword argument has a default value,
+which makes it similar to a default argument in other programming languages.
+The difference is that a keyword argument in a SAS macro function 
+can only be resolved relying on keyword not by its positions.
+That is when you want to use a different value 
+rather than the default value for a keyword argument, 
+you must pass the keyword argument with the <code>keyword_argument = value</code> style.
+When you define or call a macro function,
+all positional arguments must preceede keyword arguments.</p>
+</li>
+<li>
+<p>Pay attention to (implicitly created) macro variables.
+Generally speaking,
+you don't want to create global macro variables in your macro 
+(especially, i, j, n, etc.).
+And generally speaking, 
+you don't want to use a use-defined macro function
+which creates global macro variables.</p>
+</li>
+<li>
+<p>The <code>%eval</code> function evaluates expressions using integer arithmetic 
+while the <code>%sysevalf</code> function evaluates expressions using floating point arithmetic.</p>
+</li>
+<li>
+<p>Whenever you use a non-macro function 
+in an open macro statement 
+(i.e., macro statement outside a data step or procedure),
+you have to embed it in a <code>%sysfunc</code> call. 
+For example, 
+you cannot use</p>
+<div class="highlight"><pre><span></span><code><span class="nf">%let</span><span class="w"> </span><span class="n">run_date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">intnx</span><span class="p">(</span><span class="n">month</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">init_date</span><span class="p">.,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="p">);</span>
+</code></pre></div>
+
+</li>
+</ol>
+<p>but instead you should use</p>
+<div class="highlight"><pre><span></span><code><span class="nf">%let</span><span class="w"> </span><span class="n">RUN_DATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">%sysfunc</span><span class="p">(</span><span class="n">intnx</span><span class="p">(</span><span class="n">month</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">INITL_DATE</span><span class="p">.,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="p">));</span>
+</code></pre></div>
+
+<p>If there are multi-levels of nested non-macro functions in an open macro statement,
+you have to embed each level of non-macro functions in a <code>%sysfun</code> call.
+An illustrative example is given below.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">%let</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">%sysfunc</span><span class="p">(</span><span class="n">putn</span><span class="p">(</span><span class="nf">%sysfunc</span><span class="p">(</span><span class="n">intnx</span><span class="p">(</span><span class="n">month</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">run_date</span><span class="p">.,</span><span class="w"> </span><span class="mf">-1.</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="p">)),</span><span class="w"> </span><span class="n">date9</span><span class="p">.));</span>
+</code></pre></div>
+
+<ol>
+<li>
+<p>Macro variables and data sets (essentially files) are 2 ways 
+for procedures in SAS to communicate with each other.</p>
+</li>
+<li>
+<p><code>mlogic</code> specifies that the macro processor should traces its execution,
+which is helpful for debugging.
+<code>nomlogic</code> disables tracing of macro processor. </p>
+</li>
+<li>
+<p>Non-macro functions and call routines can only be used 
+in a data step or procedure.
+If you want to use it in a macro,
+you have to embed it in the macro function <code>%sysfunc</code>.</p>
+</li>
+<li>
+<p>When you develop a macro,
+you should do a clean-up by default.
+And give user the option to keep temporary files for debugging purposes.</p>
+</li>
+<li>
+<p>Be a little bit flexible on these commonly used macro function argument values 
+(e.g., Yes/No).
+Generally speaking,
+it is good to allow case-insensitive inputs. 
+You should think about how to make your code more robust (tolerrent to user input).
+And terminate program when user type in invalid argument values.</p>
+</li>
+<li>
+<p>In my mind, 
+macro variables (outside the definition of a macro) 
+should be only for sharing and passing values among procedures.
+We should do things as much as possible in a <code>_null_</code> data step 
+and then expose necessary macro variables to other procedures.</p>
+</li>
+<li>
+<p>it is suggested that you always end a macro variable with ".",
+i.e., use <code>&amp;x.</code> instead of <code>&amp;x</code></p>
+</li>
+<li>
+<p>I think keyword arguments for macro functions are cleaer ...</p>
+</li>
+</ol>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://outdated.legendu.net/tag/dot.html">dot</a>
+      <a href="https://outdated.legendu.net/tag/sas.html">SAS</a>
+      <a href="https://outdated.legendu.net/tag/macro.html">macro</a>
+      <a href="https://outdated.legendu.net/tag/branch.html">branch</a>
+      <a href="https://outdated.legendu.net/tag/programming.html">programming</a>
+    </p>
+  </div>
+
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'dclong';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+<footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+  <span class="footer-separator">|</span>
+  Switch to the <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> theme
+  <script id="dark-theme-script"
+          src="https://outdated.legendu.net/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="False"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Ben Chuanlong Du's Blog ",
+  "url" : "https://outdated.legendu.net",
+  "image": "",
+  "description": ""
+}
+</script><a href="https://github.com/dclong/outdated" target="_blank" class="github-corner" aria-label="View source on Github">
+    <svg width="80"
+         height="80"
+         viewBox="0 0 250 250"
+         style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;"
+         aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor"
+              style="transform-origin: 130px 106px;"
+              class="octo-arm">
+        </path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor"
+              class="octo-body">
+        </path>
+    </svg>
+</a>
+  <script src="https://outdated.legendu.net/theme/stork/stork.js"></script>
+  <script>
+    stork.register("sitesearch", "https://outdated.legendu.net/search-index.st", {showProgress: false});
+  </script>
+
+</body>
+</html>
