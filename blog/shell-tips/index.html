@@ -1,0 +1,621 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+        disabled="disabled"
+    href="https://outdated.legendu.net/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+            disabled="disabled"
+          href="https://outdated.legendu.net/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="https://outdated.legendu.net/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet"
+        type="text/css"
+        href="https://outdated.legendu.net/theme/stork/stork.css" />
+
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/solid.css">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="Ben Chuanlong Du" />
+<meta name="description" content="Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. Fish Shell is preferred to Bash/Zsh. The following content is for Bash/Zsh only. explainshell.com command-not-found - Suggest installation of packages in interactive bash sessions nohup …" />
+<meta name="keywords" content="tips, Linux, shell, terminal">
+
+
+  <meta property="og:site_name" content="Ben Chuanlong Du's Blog"/>
+  <meta property="og:title" content="Tips on Shell Commands"/>
+  <meta property="og:description" content="Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. Fish Shell is preferred to Bash/Zsh. The following content is for Bash/Zsh only. explainshell.com command-not-found - Suggest installation of packages in interactive bash sessions nohup …"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="https://outdated.legendu.net/blog/shell-tips/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2013-10-23 12:19:10-07:00"/>
+  <meta property="article:modified_time" content="2024-07-28 23:09:04-07:00"/>
+  <meta property="article:author" content="https://outdated.legendu.net/author/ben-chuanlong-du.html">
+  <meta property="article:section" content="OS"/>
+  <meta property="article:tag" content="tips"/>
+  <meta property="article:tag" content="Linux"/>
+  <meta property="article:tag" content="shell"/>
+  <meta property="article:tag" content="terminal"/>
+  <meta property="og:image" content="">
+
+  <title>Ben Chuanlong Du's Blog &ndash; Tips on Shell Commands</title>
+
+
+</head>
+<body class="light-theme">
+
+<aside>
+  <div>
+    <a href="https://outdated.legendu.net/">
+      <img src="https://outdated.legendu.net/theme/img/profile.png" alt="" title="">
+    </a>
+
+    <h1>
+      <a href="https://outdated.legendu.net/"></a>
+    </h1>
+
+    <p>Change is eternal.</p>
+
+    <div class="stork">
+      <input class="stork-input" type="text" autocomplete="off" name="q" data-stork="sitesearch" placeholder="Search..."/>
+      <div class="stork-output" data-stork="sitesearch-output"></div>
+    </div>
+
+
+    <ul class="social">
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/ben-chuanlong-du-1239b221/"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-github"
+           href="https://github.com/legendu-net/"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-stack-overflow"
+           href="https://stackoverflow.com/users/7808204/benjamin-du?tab=profile"
+           target="_blank">
+          <i class="fa-brands fa-stack-overflow"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-docker"
+           href="https://hub.docker.com/u/dclong"
+           target="_blank">
+          <i class="fa-brands fa-docker"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-twitter"
+           href="https://twitter.com/longendu"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://www.legendu.net">Home</a>
+  <a href="https://outdated.legendu.net">Blog</a>
+  <a href="https://outdated.legendu.net/archives.html">Archives</a>
+  <a href="https://outdated.legendu.net/categories.html">Categories</a>
+  <a href="https://outdated.legendu.net/tags.html">Tags</a>
+  <a href="https://www.legendu.net/pages/about">About</a>
+
+
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="shell-tips">Tips on Shell Commands</h1>
+    <p>
+      Posted on Oct 23, 2013 in <a href="https://outdated.legendu.net/category/os.html">OS</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p><strong>Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.</strong></p>
+<p><a href="https://www.legendu.net/misc/blog/tips-on-the-fish-shell">Fish Shell</a> 
+is preferred to Bash/Zsh.
+The following content is for Bash/Zsh only.</p>
+<p><a href="http://www.explainshell.com/">explainshell.com</a></p>
+<ol>
+<li>
+<p>command-not-found - Suggest installation of packages in interactive bash sessions</p>
+</li>
+<li>
+<p>nohup, disown</p>
+</li>
+<li>
+<p>nautilus-open-terminal</p>
+</li>
+</ol>
+<h2 id="configuration">Configuration</h2>
+<p>https://github.com/thoughtbot/til/blob/master/bash/bash_profile_vs_bashrc.md#:~:text=bashrc%20is%20sourced%20on%20every,with%20the%20%2D%2Dlogin%20option.&amp;text=bash_profile%20is%20great%20for%20commands%20that%20should%20run%20only%20once%20and%20</p>
+<ol>
+<li>
+<p>Debian does not read in the <code>.profile</code> file on start-up of X windows.
+    To solve this problem,
+    you can source in <code>.profile</code> in in the <code>.xsessionrc</code> file.
+    Ubuntu and Mint does read in the <code>.profile</code> file on start-up of  X windows.</p>
+</li>
+<li>
+<p>You'd better use robust configuration files.
+    If an error is encountered in the <code>.xsessionrc</code> file,
+    the desktop environment might fail to start.</p>
+</li>
+</ol>
+<h3 id="media">Media</h3>
+<ol>
+<li>Empty CD tray, cannot eject by pressing the bussion,
+    an interesting trick to eject CD: try to amount the CD eject the tray</li>
+</ol>
+<h2 id="cool-command">Cool Command</h2>
+<ol>
+<li>
+<p><code>~</code> is recognized as the home directory of the current user in shell only.
+    You'd better not use it in other places.
+    Whenever the home directory of the current user is needed,
+    you can always use <code>$HOME</code> instead.</p>
+</li>
+<li>
+<p>Check whether a system is 32 bit or 64 bit</p>
+<div class="highlight"><pre><span></span><code>getconf<span class="w"> </span>LONG_BIT
+</code></pre></div>
+
+</li>
+<li>
+<p>all parameters: <code>$@</code> (what about <code>$*</code>?)</p>
+</li>
+<li>
+<p>Be careful about <code>.</code> when using regular expressions (e.g., sed),
+    this is really a general problem</p>
+</li>
+<li>
+<p>the trick of "--" end of command after which only positional arguments are accepted</p>
+</li>
+<li>
+<p>variable substituation makes things very interesting in shell,
+    for example awk and so on ..., always be careful if you use "$" and so on....</p>
+</li>
+<li>
+<p>process of substitution &lt;() &gt;(), pipe ...</p>
+</li>
+<li>
+<p>variables defined in bash function won't polute the global environment
+    and local make the variables visible only to the scope of the function</p>
+</li>
+<li>
+<p>prefer dot rather than source for sourcing script,
+    because source is only for bash</p>
+</li>
+<li>
+<p>executable files:
+    if in $HOME/bin, prefer symbolic links,
+    if for general uer, prefer to make a global copy,
+    don't use symbolic link in /usr/bin pointing to your own files,
+    you might change your file permissions and mess up the program</p>
+</li>
+<li>
+<p>If an environment path contains spaces,
+    you have to quote it with double/single quotations marks
+    in order to make shell commands work correctly.</p>
+</li>
+</ol>
+<h3 id="top">top</h3>
+<ol>
+<li>top command
+    Unit of the Time+ column: minutes:seconds.hundredths</li>
+</ol>
+<h3 id="ls">ls</h3>
+<ol>
+<li>
+<p><code>ls -d */</code> displays all directories in the current folder</p>
+</li>
+<li>
+<p><code>ls /home/*</code> in bash, don't use it, instead use <code>(/home/*)</code> directly</p>
+<div class="highlight"><pre><span></span><code>ls -d &quot;/home/dclong/btsync/backup/tbp_&quot;*
+</code></pre></div>
+
+<p>instead of</p>
+<div class="highlight"><pre><span></span><code>ls -d &quot;/home/dclong/btsync/backup/tbp_*&quot;
+</code></pre></div>
+
+<p>it seems to me that if you wildcard,
+then full names are returned, otherwise, short names are returned.</p>
+</li>
+<li>
+<p>By default,
+    the year for files older than 6 month are not displayed.
+    You can force <code>ls</code> to show full time information by <code>ls -lh --full-time</code>.</p>
+</li>
+</ol>
+<h3 id="rsync">rsync</h3>
+<ol>
+<li><code>rsync</code>, <code>/</code> at the end is important,
+    this decides whether the folder is copy or its content is copied, unison is similar ...
+    This is the same for some other commands like Amazon S3, etc.
+    Also if you want to exclude an folder from <code>rsync</code>,
+    you have to include the trailing slash.</li>
+</ol>
+<h3 id="alias">alias</h3>
+<ol>
+<li>
+<p>it seems alias has lots of limitations ... only use single quotation mark,
+    causes lots of problem
+    YOU ACTUALLY CAN USE DOUBLE QUTOES</p>
+</li>
+<li>
+<p>If you define an alias of a path (especially a Windows path in Cygwin, MobaXterm, etc.),
+    you have to quote the path in commands, generally speaking.
+    For example, if the alias of path you define is <code>p</code> (which contains spaces),
+    you can use <code>cd "$p"</code> to change working directory to it.
+    Note that you cannot omit the quotes.</p>
+</li>
+</ol>
+<h2 id="filesystem">Filesystem</h2>
+<h3 id="cp">cp</h3>
+<ol>
+<li>
+<p>always use <code>cp</code> with <code>-i</code> option!</p>
+</li>
+<li>
+<p><code>cp -a</code> might not be a good idea sometimes,
+    e.g., when in Cygwin/MobaXterm, because you might lose file permissions due to unmatch of users</p>
+</li>
+<li>
+<p>Both cp and mv overwrite the destination file
+    if is is already exists.
+    cp does not overwrite existing destination directory
+    but instead acts as merging contents of directories.
+    mv refuses to rename a directory to a destination directory
+    if the destination directory is not empty.</p>
+</li>
+</ol>
+<p>It is suggested that you use rsync as much as possible
+as an alternative to cp.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># copy sub files/folders excluding hidden files/folders</span>
+cp<span class="w"> </span>a/*<span class="w"> </span>b
+<span class="c1"># copy sub files/folders including hidden files/folders</span>
+cp<span class="w"> </span>a/.<span class="w"> </span>b
+</code></pre></div>
+
+<h3 id="mv">mv</h3>
+<ol>
+<li>always use interactive version of <code>mv</code> and <code>cp</code> ...
+    and always use <code>trash</code> instead of <code>rm</code></li>
+</ol>
+<h3 id="du-dust">du &amp; dust</h3>
+<h3 id="grep-ripgrep">grep &amp; <a href="https://www.legendu.net/misc/blog/ripgrep-is-a-better-alternative-to-find">ripgrep</a></h3>
+<h3 id="ps-procs">ps &amp; procs</h3>
+<h3 id="cat-bat">cat &amp; <a href="https://github.com/sharkdp/bat">bat</a></h3>
+<p><code>bat</code> is a much better alternative to <code>cat</code>.</p>
+<h3 id="rm-rip">rm &amp; <a href="https://github.com/nivekuil/rip">rip</a></h3>
+<p><code>rm</code> is dangerous. 
+It is suggested that you use the <code>rip</code> command (implemented in Rust)
+as much as possible.</p>
+<ol>
+<li>
+<p>Remove a file whose name starts with <code>--</code> and has special characters.</p>
+<div class="highlight"><pre><span></span><code>rm ./&#39;--exclude.!sync&#39;
+</code></pre></div>
+
+</li>
+<li>
+<p>Get file name without extension.</p>
+<div class="highlight"><pre><span></span><code><span class="k">basename</span><span class="w"> </span><span class="o">-</span><span class="nv">s</span><span class="w"> </span>.<span class="nv">txt</span><span class="w"> </span><span class="nv">f</span>.<span class="nv">txt</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>Create a temp file.</p>
+<div class="highlight"><pre><span></span><code>mktemp -tu file.XXXXX
+</code></pre></div>
+
+<p><code>mktemp</code> is preferred over <code>tempfile</code>.</p>
+</li>
+</ol>
+<h3 id="gpasswd">gpasswd</h3>
+<ol>
+<li>
+<p><code>gpasswd</code> is great for adding and removing user to/from groups</p>
+<p>gpasswd -d user group</p>
+</li>
+</ol>
+<h3 id="type">type</h3>
+<ol>
+<li><code>type fun_name</code> shows source code of bash functions or use <code>declare -f</code>
+    <code>type command</code> path of command</li>
+</ol>
+<h3 id="mount">mount</h3>
+<ol>
+<li>
+<p>check if a path is a mount point</p>
+<div class="highlight"><pre><span></span><code><span class="nt">if</span><span class="w"> </span><span class="cp">[</span><span class="w"> </span><span class="err">$</span><span class="p">(</span><span class="nx">stat</span><span class="w"> </span><span class="na">-fc</span><span class="o">%</span><span class="nx">t</span><span class="p">:</span><span class="o">%</span><span class="nx">T</span><span class="w"> </span><span class="s2">&quot;mnt/wd&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="err">$</span><span class="p">(</span><span class="nx">stat</span><span class="w"> </span><span class="na">-fc</span><span class="o">%</span><span class="nx">t</span><span class="p">:</span><span class="o">%</span><span class="nx">T</span><span class="w"> </span><span class="s2">&quot;mnt/wd/..&quot;</span><span class="p">)</span><span class="w"> </span><span class="cp">]</span><span class="o">;</span><span class="w"> </span><span class="nt">then</span>
+<span class="w">    </span><span class="nt">echo</span><span class="w"> </span><span class="s2">&quot;mounted&quot;</span><span class="o">;</span><span class="w"> </span><span class="nt">else</span><span class="w"> </span><span class="nt">echo</span><span class="w"> </span><span class="s2">&quot;not mounted&quot;</span><span class="o">;</span>
+<span class="nt">fi</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>mount as normal user instead of root</p>
+<div class="highlight"><pre><span></span><code>mount -o uid=dclong ...
+</code></pre></div>
+
+</li>
+</ol>
+<h3 id="sudo">sudo</h3>
+<ol>
+<li>
+<p>I think it's better to use sudo inside bash script
+    instead of prefix sudo to script names to invoke them.
+    The reason is that you use sudo only when needed.</p>
+</li>
+<li>
+<p>sudo alias</p>
+<div class="highlight"><pre><span></span><code>alias sudo=&#39;sudo &#39;
+</code></pre></div>
+
+</li>
+</ol>
+<p>the space is necessary</p>
+<h3 id="real-absolute-path">real absolute path</h3>
+<ol>
+<li>
+<p>realpath: absolute path</p>
+</li>
+<li>
+<p>absolute path</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code>readlink<span class="w"> </span>path
+</code></pre></div>
+
+<h3 id="random">random</h3>
+<ol>
+<li>
+<p>Generate a random number.</p>
+<p>random 0 - 32767 uniform</p>
+</li>
+</ol>
+<h3 id="power-management">Power Management</h3>
+<ol>
+<li>Show battery/power information<div class="highlight"><pre><span></span><code>acpi -bi
+</code></pre></div>
+
+</li>
+</ol>
+<h2 id="administration">Administration</h2>
+<ol>
+<li>
+<p>shutdown, poweroff, halt
+    It seems these commands have different meanings on different Linux distributions.
+    The actually case is really complicated.
+    It depends on different Linux distributions and also the services running on laptops.
+    If a service fails to stop,
+    the shutdown process might freeze at the logo page.</p>
+<div class="highlight"><pre><span></span><code>halt -p
+</code></pre></div>
+
+<p>It is suggested that you always use the <code>poweroff</code> command to shutdown (and poweroff) your computer.
+You should close all programs before you logout or shutdown your computer.</p>
+</li>
+<li>
+<p>to change time zone using command sudo dpkg-reconfigure tzdata</p>
+</li>
+<li>
+<p><code>ssh -X</code> X11 forwarding, make it possible for you to use GUI applications on server</p>
+</li>
+</ol>
+<h2 id="task">Task</h2>
+<ol>
+<li><code>at</code> command run in backgroud,
+    so do not use it to do things that have to communicate with stdin stdout ...</li>
+</ol>
+<h2 id="archive">Archive</h2>
+<ol>
+<li>
+<p>DO NOT USE the 7-zip format for backup purpose on Linux/Unix
+    because 7-zip does not store the owner/group of the file.</p>
+</li>
+<li>
+<p>difference between 7za and 7z?</p>
+</li>
+</ol>
+<h2 id="ui">UI</h2>
+<ol>
+<li>
+<p>use syndaemon -dti 0.5 to disable touchpad while typing.
+    You have to have <code>Option SHMConfig "on"</code> or <code>Option SHMConfig "true"</code> in the synaptics configuration file.</p>
+</li>
+<li>
+<p>Sometimes when you login into a server,
+    it freezes after printing the welcome message.
+    You can press <code>CTRL + C</code> to kill running process and it might help you bring the terminal back.</p>
+</li>
+<li>
+<p>Linux release specific information</p>
+<div class="highlight"><pre><span></span><code>lsb_release -a
+</code></pre></div>
+
+<p>the lsb-release package</p>
+</li>
+</ol>
+<h2 id="process">Process</h2>
+<ol>
+<li>
+<p>Use <code>Ctrl + Z</code> to pause a process and use <code>bg</code> to send it to background to run.
+    Use <code>fg</code> to bring a background process to foreground.</p>
+</li>
+<li>
+<p><code>ldd --version</code> check glibc version</p>
+</li>
+<li>
+<p>You can use <code>ps aux | grep -i user_id</code> to list your jobs
+    and <code>kill -9 process_id</code> to kill a process.
+    On platform Load Sharing Facility (LSF),
+    you probably don't have access to <code>kill</code> unless are a privileged user.
+    Instead of using <code>ps</code> and <code>kill</code>,
+    you can use <code>bjobs</code> to show your jobs and <code>bkill process_id</code> to kill your process.</p>
+</li>
+<li>
+<p>when defining alias,
+    do not use tailing <code>/</code> in paths unless you have a good reason for that ...</p>
+</li>
+<li>
+<p>file to check link cannot use trailing <code>/</code></p>
+</li>
+<li>
+<p>what have caused the blog difference issue?, line terminators</p>
+</li>
+<li>
+<p>comm: make sure you don't screw up by invisible white spaces!!!,
+    intersection/inner join, left join, right join (add keywords to your blog)</p>
+</li>
+<li>
+<p>type of disk</p>
+<div class="highlight"><pre><span></span><code>df -T
+</code></pre></div>
+
+</li>
+</ol>
+<p>CPU Stats</p>
+<h2 id="uuid-in-bash">UUID in Bash</h2>
+<div class="highlight"><pre><span></span><code>uuidgen
+</code></pre></div>
+
+<p>need the libuuid library which is part of <code>util-linux</code></p>
+<ol>
+<li><code>id -un</code> is a better alternative than <code>whoami</code>.</li>
+</ol>
+<h2 id="timezone">Timezone</h2>
+<p>Linux</p>
+<div class="highlight"><pre><span></span><code>cat /etc/timezone
+</code></pre></div>
+
+<p>Mac
+<a href="https://slaptijack.com/system-administration/set-mac-os-x-time-zone-from-the-command-line/">https://slaptijack.com/system-administration/set-mac-os-x-time-zone-from-the-command-line/</a></p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="http://www.legendu.net/misc/blog/good-terminal-apps">Good Terminal Apps</a></li>
+<li><a href="http://www.legendu.net/misc/blog/terminal-multiplexers">Terminal Multiplexers</a></li>
+<li>http://www.legendu.net/misc/blog/programming-in-shell</li>
+<li>http://www.legendu.net/misc/blog/terminator-tips/</li>
+<li>http://www.legendu.net/misc/blog/terminology-tips/</li>
+<li><a href="http://rolo.sourceforge.net/">Rolo</a></li>
+<li><a href="http://lifehacker.com/5568817/five-really-handy-google-command-line-tricks">Five Really Handy Google Command Line Tricks</a></li>
+</ul>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://outdated.legendu.net/tag/tips.html">tips</a>
+      <a href="https://outdated.legendu.net/tag/linux.html">Linux</a>
+      <a href="https://outdated.legendu.net/tag/shell.html">shell</a>
+      <a href="https://outdated.legendu.net/tag/terminal.html">terminal</a>
+    </p>
+  </div>
+
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'dclong';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+<footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+  <span class="footer-separator">|</span>
+  Switch to the <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> theme
+  <script id="dark-theme-script"
+          src="https://outdated.legendu.net/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="False"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Ben Chuanlong Du's Blog ",
+  "url" : "https://outdated.legendu.net",
+  "image": "",
+  "description": ""
+}
+</script><a href="https://github.com/dclong/outdated" target="_blank" class="github-corner" aria-label="View source on Github">
+    <svg width="80"
+         height="80"
+         viewBox="0 0 250 250"
+         style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;"
+         aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor"
+              style="transform-origin: 130px 106px;"
+              class="octo-arm">
+        </path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor"
+              class="octo-body">
+        </path>
+    </svg>
+</a>
+  <script src="https://outdated.legendu.net/theme/stork/stork.js"></script>
+  <script>
+    stork.register("sitesearch", "https://outdated.legendu.net/search-index.st", {showProgress: false});
+  </script>
+
+</body>
+</html>
