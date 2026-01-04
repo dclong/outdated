@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"><channel><title>Ben Chuanlong Du's Blog - Ben Du</title><link>https://outdated.legendu.net/</link><description>Change is eternal.</description><lastBuildDate>Sun, 07 Dec 2025 13:01:18 -0800</lastBuildDate><item><title>File Name of Bash Script</title><link>https://outdated.legendu.net/blog/bash-file-name/</link><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/tips-on-the-fish-shell"&gt;Fish Shell&lt;/a&gt; 
+is preferred to Bash/Zsh.
+The following content is for Bash/Zsh only.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Do NOT get into this messy shit if you can avoid it! 
+ Use Python script instead if you can.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ben Du</dc:creator><pubDate>Tue, 03 Dec 2019 00:00:00 -0800</pubDate><guid isPermaLink="false">tag:outdated.legendu.net,2019-12-03:/blog/bash-file-name/</guid><category>Computer Science</category><category>programming</category><category>Bash</category><category>file name</category></item><item><title>Use fselect to Find Files</title><link>https://outdated.legendu.net/blog/use-fselect-to-find-files/</link><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;It is suggested that you use Python (the &lt;code&gt;pathlib&lt;/code&gt; module) instead of the &lt;code&gt;fselect&lt;/code&gt; command to find files.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Tips-and-Traps"&gt;Tips and Traps&lt;a class="anchor-link" href="#Tips-and-Traps"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;is_*&lt;/code&gt; columns supporting comparing with &lt;code&gt;1&lt;/code&gt;, &lt;code&gt;true&lt;/code&gt; and &lt;code&gt;yes&lt;/code&gt;, etc.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;where name like '%.markdown'&lt;/code&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ben Du</dc:creator><pubDate>Mon, 05 Apr 2021 23:50:10 -0700</pubDate><guid isPermaLink="false">tag:outdated.legendu.net,2021-04-05:/blog/use-fselect-to-find-files/</guid><category>Computer Science</category><category>Computer Science</category><category>programming</category><category>fselect</category><category>Rust</category><category>find</category><category>locate</category></item><item><title>Programming in Shell</title><link>https://outdated.legendu.net/blog/programming-in-shell/</link><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ben Du</dc:creator><pubDate>Thu, 22 Oct 2020 17:11:05 -0700</pubDate><guid isPermaLink="false">tag:outdated.legendu.net,2020-10-22:/blog/programming-in-shell/</guid><category>Computer Science</category><category>Computer Science</category><category>Shell</category><category>Bash</category><category>programming</category><category>script</category></item><item><title>Environment Variables in Shell</title><link>https://outdated.legendu.net/blog/environment-variables-in-shell/</link><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/tips-on-the-fish-shell"&gt;Fish Shell&lt;/a&gt; 
+is preferred to Bash/Zsh.
+The following content is for Bash/Zsh only.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="export"&gt;export&lt;a class="anchor-link" href="#export"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;A new child process forked from a parent process does not inherit parent's variables by default.
+The export command marks an environment variable to be exported with any newly forked child processes 
+and thus it allows a child process to inherit all marked variables.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ben Du</dc:creator><pubDate>Wed, 24 Jun 2020 13:31:52 -0700</pubDate><guid isPermaLink="false">tag:outdated.legendu.net,2020-06-24:/blog/environment-variables-in-shell/</guid><category>Computer Science</category><category>Computer Science</category><category>shell</category><category>bash</category><category>environment variable</category><category>export</category><category>unset</category></item><item><title>Bash Programming</title><link>https://outdated.legendu.net/blog/bash-programming/</link><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/tips-on-the-fish-shell"&gt;Fish Shell&lt;/a&gt; 
+is preferred to Bash/Zsh.
+The following content is for Bash/Zsh only.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Parse-Arguments-in-Bash"&gt;&lt;a href="http://www.legendu.net/misc/blog/parse-arguments-in-bash/"&gt;Parse Arguments in Bash&lt;/a&gt;&lt;a class="anchor-link" href="#Parse-Arguments-in-Bash"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Environment-Variables"&gt;Environment Variables&lt;a class="anchor-link" href="#Environment-Variables"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;export&lt;/p&gt;
+&lt;p&gt;unset&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Tips-and-Traps"&gt;Tips and Traps&lt;a class="anchor-link" href="#Tips-and-Traps"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="http://www.explainshell.com/"&gt;explainshell.com&lt;/a&gt; 
+ is a great place for learning shell.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href="https://github.com/Bash-it/bash-it"&gt;Bash-it/bash-it&lt;/a&gt;
+ is a great community driven Bash framework.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ben Du</dc:creator><pubDate>Tue, 23 Jun 2020 00:21:31 -0700</pubDate><guid isPermaLink="false">tag:outdated.legendu.net,2020-06-23:/blog/bash-programming/</guid><category>Computer Science</category><category>Computer Science</category><category>bash</category><category>programming</category><category>shell</category></item><item><title>Parse Arguments in Bash</title><link>https://outdated.legendu.net/blog/parse-arguments-in-bash/</link><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/tips-on-the-fish-shell"&gt;Fish Shell&lt;/a&gt; 
+is preferred to Bash/Zsh.
+The following content is for Bash/Zsh only.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ben Du</dc:creator><pubDate>Tue, 16 Jun 2020 15:24:04 -0700</pubDate><guid isPermaLink="false">tag:outdated.legendu.net,2020-06-16:/blog/parse-arguments-in-bash/</guid><category>Computer Science</category><category>Computer Science</category><category>shell</category><category>bash</category><category>parse</category><category>argument</category><category>parameter</category></item><item><title>Functions in Bash</title><link>https://outdated.legendu.net/blog/bash-functions/</link><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/tips-on-the-fish-shell"&gt;Fish Shell&lt;/a&gt; 
+is preferred to Bash/Zsh.
+The following content is for Bash/Zsh only.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;By default, 
+variables defined in a function are global,
+i.e., 
+they are visible outside the function too.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ben Du</dc:creator><pubDate>Wed, 04 Dec 2019 00:00:00 -0800</pubDate><guid isPermaLink="false">tag:outdated.legendu.net,2019-12-04:/blog/bash-functions/</guid><category>Computer Science</category><category>programming</category><category>Bash</category><category>functions</category></item><item><title>Loops in Bash</title><link>https://outdated.legendu.net/blog/bash-loops/</link><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/tips-on-the-fish-shell"&gt;Fish Shell&lt;/a&gt; 
+is preferred to Bash/Zsh.
+The following content is for Bash/Zsh only.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Tips-and-Traps"&gt;Tips and Traps&lt;a class="anchor-link" href="#Tips-and-Traps"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;Forggeting &lt;code&gt;$&lt;/code&gt; is a common mistake when using a shell variable.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Ben Du</dc:creator><pubDate>Tue, 03 Dec 2019 00:00:00 -0800</pubDate><guid isPermaLink="false">tag:outdated.legendu.net,2019-12-03:/blog/bash-loops/</guid><category>Computer Science</category><category>programming</category><category>Bash</category><category>loop</category></item></channel></rss>

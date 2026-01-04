@@ -1,0 +1,427 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+        disabled="disabled"
+    href="https://outdated.legendu.net/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+            disabled="disabled"
+          href="https://outdated.legendu.net/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="https://outdated.legendu.net/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet"
+        type="text/css"
+        href="https://outdated.legendu.net/theme/stork/stork.css" />
+
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/solid.css">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="Ben Chuanlong Du" />
+<meta name="description" content="Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. ** Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. ** the min function also …" />
+<meta name="keywords" content="programming, SAS, String, data type">
+
+
+  <meta property="og:site_name" content="Ben Chuanlong Du's Blog"/>
+  <meta property="og:title" content="The Confusing String in SAS"/>
+  <meta property="og:description" content="Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. ** Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. ** the min function also …"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="https://outdated.legendu.net/blog/the confusing string in sas/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2014-09-28 16:55:06-07:00"/>
+  <meta property="article:modified_time" content="2015-08-28 16:55:06-07:00"/>
+  <meta property="article:author" content="https://outdated.legendu.net/author/ben-chuanlong-du.html">
+  <meta property="article:section" content="Computer Science"/>
+  <meta property="article:tag" content="programming"/>
+  <meta property="article:tag" content="SAS"/>
+  <meta property="article:tag" content="String"/>
+  <meta property="article:tag" content="data type"/>
+  <meta property="og:image" content="">
+
+  <title>Ben Chuanlong Du's Blog &ndash; The Confusing String in SAS</title>
+
+
+</head>
+<body class="light-theme">
+
+<aside>
+  <div>
+    <a href="https://outdated.legendu.net/">
+      <img src="https://outdated.legendu.net/theme/img/profile.png" alt="" title="">
+    </a>
+
+    <h1>
+      <a href="https://outdated.legendu.net/"></a>
+    </h1>
+
+    <p>Change is eternal.</p>
+
+    <div class="stork">
+      <input class="stork-input" type="text" autocomplete="off" name="q" data-stork="sitesearch" placeholder="Search..."/>
+      <div class="stork-output" data-stork="sitesearch-output"></div>
+    </div>
+
+
+    <ul class="social">
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/ben-chuanlong-du-1239b221/"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-github"
+           href="https://github.com/legendu-net/"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-stack-overflow"
+           href="https://stackoverflow.com/users/7808204/benjamin-du?tab=profile"
+           target="_blank">
+          <i class="fa-brands fa-stack-overflow"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-docker"
+           href="https://hub.docker.com/u/dclong"
+           target="_blank">
+          <i class="fa-brands fa-docker"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-twitter"
+           href="https://twitter.com/longendu"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://www.legendu.net">Home</a>
+  <a href="https://outdated.legendu.net">Blog</a>
+  <a href="https://outdated.legendu.net/archives.html">Archives</a>
+  <a href="https://outdated.legendu.net/categories.html">Categories</a>
+  <a href="https://outdated.legendu.net/tags.html">Tags</a>
+  <a href="https://www.legendu.net/pages/about">About</a>
+
+
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="the confusing string in sas">The Confusing String in SAS</h1>
+    <p>
+      Posted on Sep 28, 2014 in <a href="https://outdated.legendu.net/category/computer-science.html">Computer Science</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p><strong>Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.</strong></p>
+<p>**
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+**</p>
+<ol>
+<li>
+<p>the <code>min</code> function also works on string variables.</p>
+</li>
+<li>
+<p>A missing character in SAS is represented by any number of white spaces. 
+To see more detailed discussion on missing values, 
+please refer to the post 
+<a href="http://www.legendu.net/en/blog/missing-values-in-sas/">Missing Values in SAS</a>.</p>
+</li>
+<li>
+<p>In the data step characters and number are implicitly converted to each other when necessary.
+However, 
+this is not the case in <code>proc iml</code>.
+You have to use the <code>char</code> function to convert number to string in the <code>iml</code> procedure.</p>
+</li>
+</ol>
+<p>the convert of dot and blank values? ...
+if I remember correctly,
+A missing character value (any number of white spaces) becomes a missing numeric value (<code>.</code>) 
+when converted to numeric. 
+However,
+a missing numeric value (<code>.</code>) becomes <code>"."</code> when converted to character.
+The inconsistent behavior here is annoying.</p>
+<ol>
+<li>When you define a variable in SAS, 
+it has a fixed length (no matter it is numeric or character). 
+Things can be really tricky for (fixed length) character variables.
+Suppose we have a string variable <code>s</code>. 
+If you concatenate <code>s</code> (using <code>||</code> or <code>cat</code>) with another string 
+and assign it back to <code>s</code> as illustrated below</li>
+</ol>
+<div class="highlight"><pre><span></span><code>s = cat(s, <span class="s">&quot;another string&quot;</span>);
+</code></pre></div>
+
+<p>you will find that the value of <code>s</code> is not changed. 
+This is caused by the fact that a string in SAS has a fixed length. 
+The value of a string variable is always truncated/padded to meet the length requirement.
+When you assign 
+<code>cat(s, "another string")</code> 
+to <code>s</code> the concatenated part is truncated, 
+so the value <code>s</code> stays the same.
+To avoid this problem, 
+you should always remove leading and trailing white spaces (using <code>strip</code>)in string variables 
+before concatenating them unless you know what you are doing.
+There is a function <code>catx</code> in SAS, 
+which automatically strips string variables before concatenating them.
+Another tricky issue caused by this is when you convert between numeric and character values. 
+Always strip a value/variable before you convert it to the other type. </p>
+<ol>
+<li>
+<p>The use of string in SAS is a little bit confusing. 
+Some rules of them are summarized below.</p>
+<ul>
+<li>You should not use single/double quotation marks in macro 
+(i.e., outside the data step and procedures) 
+except for numbers represented using string (e.g., '01aug11'd) 
+or literal quotations marks. 
+This is because that macros are essentially string.
+For example, 
+you should not quote <code>month</code> in the following code, 
+however, 
+you must quote <code>08aug2013</code>.  </li>
+</ul>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="nb">%let</span> alertdatestr= <span class="nb">%sysfunc</span>(<span class="nb">compress(%sysfunc</span>(<span class="nb">putn(%eval</span>(<span class="nb">%sysfunc</span>(<span class="nb">intnx(</span>month, <span class="s">&#39;08aug2013&#39;</span>d, <span class="m">0</span>))), YYMMDD10.)),<span class="s">&#39;-&#39;</span>));
+<span class="k">%put </span><span class="nv">&amp;alertdatestr</span><span class="err">;</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="o">-</span><span class="w"> </span><span class="n">You</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n">single</span><span class="o">/</span><span class="kt">double</span><span class="w"> </span><span class="n">quotation</span><span class="w"> </span><span class="n">marks</span><span class="w"> </span>
+<span class="k">for</span><span class="w"> </span><span class="n">strings</span><span class="w"> </span><span class="p">(</span><span class="n">including</span><span class="w"> </span><span class="n">informat</span><span class="o">/</span><span class="n">outformat</span><span class="p">)</span><span class="w"> </span><span class="n">inside</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="n">steps</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">procedures</span><span class="p">.</span>
+<span class="n">However</span><span class="p">,</span><span class="w"> </span><span class="n">informat</span><span class="o">/</span><span class="n">outformat</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">g</span><span class="p">.,</span><span class="w"> </span><span class="n n-Quoted">`date9.`</span><span class="p">,</span><span class="w"> </span><span class="n n-Quoted">`datetime19.`</span><span class="p">,</span><span class="w"> </span><span class="n">etc</span><span class="p">.)</span><span class="w"> </span>
+<span class="k">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n n-Quoted">`put`</span><span class="p">,</span><span class="w"> </span><span class="n n-Quoted">`%put`</span><span class="w"> </span><span class="n">statement</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">quoted</span><span class="p">.</span>
+<span class="k">For</span><span class="w"> </span><span class="n">example</span><span class="p">,</span><span class="w"> </span>
+<span class="n">you</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">quote</span><span class="w"> </span><span class="n n-Quoted">`week`</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">following</span><span class="w"> </span><span class="k">code</span><span class="p">.</span><span class="w"> </span>
+<span class="n">However</span><span class="p">,</span><span class="w"> </span><span class="n">pay</span><span class="w"> </span><span class="n">attention</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n n-Quoted">`date9.`</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">quoted</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="k">not</span><span class="p">.</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="kr">data </span><span class="kc">_null_</span>;
+    <span class="k">x</span> = <span class="nb">intnx(</span><span class="s">&#39;week&#39;</span>, <span class="s">&#39;17oct03&#39;</span>d, <span class="m">6</span>);
+    y = <span class="nb">putn(</span><span class="s">&#39;17Oct2013&#39;</span>d, <span class="s">&quot;date9.&quot;</span>);
+<span class="k">    put x</span><span class="err"> date9.;</span>
+<span class="kr">run;</span>
+</code></pre></div>
+
+<ol>
+<li>
+<p>The function <code>compress</code> removes specified characters from a string.
+If the character list is not specified, 
+then spaces are removed.
+It is functionally equivalent to replace the specified characters with blank strings.
+It is similar to <code>std::remove_if</code> on <code>std::string</code> in C++. </p>
+</li>
+<li>
+<p>The function <code>tranwrd</code> replaces a substring with another one.
+It is similar to <code>sub/gsub</code> in R and <code>str.replace</code> in Python.
+It takes 3 arguments; 
+first is source string; 
+second is string to be replaced and last one is string to be replaced by. 
+<code>tranwrd</code> will find out every occurrence of the second argument 
+in the first argument and will replace it with the third argument.</p>
+</li>
+<li>
+<p>Do not pass numerical arguments to functions taking string arguments,
+and vice versa.</p>
+</li>
+<li>
+<p>Generally speaking, 
+you do not have to quote macros.
+However, 
+when you use a macro variable in a string,
+you must quote it in double quotes 
+(A macro variable in single quotes does not expand.)
+For example, 
+you have to quote <code>&amp;dir.</code> in the following SAS statement.</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="k">libname</span> N3D <span class="s">&quot;</span><span class="nv">&amp;dir.</span><span class="s">&quot;</span>;
+</code></pre></div>
+
+<ol>
+<li>
+<p>The function <code>lowcase</code> converts all letters in a string to lower case. 
+It is similar to the function tolower in R and str.lower in Python.</p>
+</li>
+<li>
+<p>The function <code>upcase</code> converts all letters in a string to upper case.
+It is similar to the functions <code>toupper</code> in R and <code>str.upper</code> in Python.</p>
+</li>
+<li>
+<p>The function <code>substr</code> extracts a sub string from a string.
+The length of the sub string cannot exceedes the maximum possible length.</p>
+</li>
+<li>
+<p>The function <code>scan</code> is somewhat similar to 
+the function <code>split</code> in R and <code>str.split</code> in Python.
+However ,
+it is different in the sense 
+that it returns the nth word (from a string) instead of return a vector/list of words. 
+You can use multiple delimiters for scan.</p>
+</li>
+<li>
+<p><code>left</code>/<code>%left</code> is equivalent to the function <code>ltrim</code> in VBA.</p>
+</li>
+<li>
+<p>In most programming languages,
+you have to escape the backslash (<code>\</code>) in Windows paths.
+In SAS, 
+it does not matter whether you escape it or not. </p>
+</li>
+<li>
+<p>To escape the double/single quotation mark, 
+you can double it. 
+For example,</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="kr">data </span><span class="kc">_null_</span>;
+    <span class="k">x</span> = <span class="s">&#39;How&#39;&#39;s everything going?&#39;</span>;
+<span class="k">    put x</span><span class="err">;</span>
+    y = <span class="s">&quot;What do you mean by &quot;&quot;BTW&quot;&quot;?&quot;</span>;
+<span class="k">    put </span><span class="err">y;</span>
+<span class="kr">run;</span>
+</code></pre></div>
+
+<h2 id="tricks-and-traps">Tricks and Traps</h2>
+<ol>
+<li>
+<p>The function <code>trim</code> is a different from <code>trim</code> functions in other programming languages.
+While in most programming languages 
+<code>trim</code> removes both leading and trailing blanks,
+the <code>trim</code> function in SAS removes only trailing blanks.
+To remove both leading and trailing blanks in SAS,
+you have to use the function <code>strip</code>.</p>
+</li>
+<li>
+<p>You cannot set the delimiter to be blank in catx.
+If you specify <code>""</code> as the delimiter, 
+then <code>" "</code> will be used.
+This is really really stupid.</p>
+</li>
+</ol>
+<h2 id="striptrimcompress">strip/trim/compress</h2>
+<p>strip removes both trailing and leading white spaces
+TRIM Function
+Removes trailing blanks from a character string, 
+and returns one blank if the string is missing.
+this is ugly as most languages, trim is strip</p>
+<p>however, compress is much more diffrent!!!
+Returns a character string with specified characters removed from the original string.</p>
+<p>you will use strip to remove .. most of the time.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://outdated.legendu.net/tag/programming.html">programming</a>
+      <a href="https://outdated.legendu.net/tag/sas.html">SAS</a>
+      <a href="https://outdated.legendu.net/tag/string.html">String</a>
+      <a href="https://outdated.legendu.net/tag/data-type.html">data type</a>
+    </p>
+  </div>
+
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'dclong';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+<footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+  <span class="footer-separator">|</span>
+  Switch to the <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> theme
+  <script id="dark-theme-script"
+          src="https://outdated.legendu.net/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="False"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Ben Chuanlong Du's Blog ",
+  "url" : "https://outdated.legendu.net",
+  "image": "",
+  "description": ""
+}
+</script><a href="https://github.com/dclong/outdated" target="_blank" class="github-corner" aria-label="View source on Github">
+    <svg width="80"
+         height="80"
+         viewBox="0 0 250 250"
+         style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;"
+         aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor"
+              style="transform-origin: 130px 106px;"
+              class="octo-arm">
+        </path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor"
+              class="octo-body">
+        </path>
+    </svg>
+</a>
+  <script src="https://outdated.legendu.net/theme/stork/stork.js"></script>
+  <script>
+    stork.register("sitesearch", "https://outdated.legendu.net/search-index.st", {showProgress: false});
+  </script>
+
+</body>
+</html>
