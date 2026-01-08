@@ -1,0 +1,819 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+        disabled="disabled"
+    href="https://outdated.legendu.net/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+            disabled="disabled"
+          href="https://outdated.legendu.net/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="https://outdated.legendu.net/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet"
+        type="text/css"
+        href="https://outdated.legendu.net/theme/stork/stork.css" />
+
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/solid.css">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="Ben Chuanlong Du" />
+<meta name="description" content="Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. ** Things on this page are fragmentary and immature notes/thoughts of the author. It is not meant to readers but rather for convenient reference of the author …" />
+<meta name="keywords" content="tips, Mathematica, programming">
+
+
+  <meta property="og:site_name" content="Ben Chuanlong Du's Blog"/>
+  <meta property="og:title" content="General Tips on Mathematica"/>
+  <meta property="og:description" content="Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. ** Things on this page are fragmentary and immature notes/thoughts of the author. It is not meant to readers but rather for convenient reference of the author …"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="https://outdated.legendu.net/blog/general-tips-for-mathematica/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2013-04-25 21:27:34-07:00"/>
+  <meta property="article:modified_time" content="2020-05-25 21:27:34-07:00"/>
+  <meta property="article:author" content="https://outdated.legendu.net/author/ben-chuanlong-du.html">
+  <meta property="article:section" content="Computer Science"/>
+  <meta property="article:tag" content="tips"/>
+  <meta property="article:tag" content="Mathematica"/>
+  <meta property="article:tag" content="programming"/>
+  <meta property="og:image" content="">
+
+  <title>Ben Chuanlong Du's Blog &ndash; General Tips on Mathematica</title>
+
+
+</head>
+<body class="light-theme">
+
+<aside>
+  <div>
+    <a href="https://outdated.legendu.net/">
+      <img src="https://outdated.legendu.net/theme/img/profile.png" alt="" title="">
+    </a>
+
+    <h1>
+      <a href="https://outdated.legendu.net/"></a>
+    </h1>
+
+    <p>Change is eternal.</p>
+
+    <div class="stork">
+      <input class="stork-input" type="text" autocomplete="off" name="q" data-stork="sitesearch" placeholder="Search..."/>
+      <div class="stork-output" data-stork="sitesearch-output"></div>
+    </div>
+
+
+    <ul class="social">
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/ben-chuanlong-du-1239b221/"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-github"
+           href="https://github.com/legendu-net/"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-stack-overflow"
+           href="https://stackoverflow.com/users/7808204/benjamin-du?tab=profile"
+           target="_blank">
+          <i class="fa-brands fa-stack-overflow"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-docker"
+           href="https://hub.docker.com/u/dclong"
+           target="_blank">
+          <i class="fa-brands fa-docker"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-twitter"
+           href="https://twitter.com/longendu"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://www.legendu.net">Home</a>
+  <a href="https://outdated.legendu.net">Blog</a>
+  <a href="https://outdated.legendu.net/archives.html">Archives</a>
+  <a href="https://outdated.legendu.net/categories.html">Categories</a>
+  <a href="https://outdated.legendu.net/tags.html">Tags</a>
+  <a href="https://www.legendu.net/pages/about">About</a>
+
+
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="general-tips-for-mathematica">General Tips on Mathematica</h1>
+    <p>
+      Posted on Apr 25, 2013 in <a href="https://outdated.legendu.net/category/computer-science.html">Computer Science</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p><strong>Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.</strong></p>
+<p>**
+Things on this page are 
+fragmentary and immature notes/thoughts of the author. 
+It is not meant to readers 
+but rather for convenient reference of the author and future improvement.
+**</p>
+<ol>
+<li>
+<p>Mathematica is very a powerful symbolic computing system. 
+    It is the best among all these symbol computing software that I've used 
+    (including Mathematica, Maxima and MATLAB). 
+    You can even do algebraic computing on pictures imported or graphs generated by Mathematica. 
+    Mathematica will just treat them as symbols.</p>
+</li>
+<li>
+<p>Mathematica use full names for the names of functions, 
+    which make it easy for us to find the functions you need. 
+    Many times you can guess out the name of a function you want to use.</p>
+</li>
+<li>
+<p>Mathematica has a complete set of built-in functions. 
+    Whenever you want function, 
+    you'd better check the help document of Mathematica first, 
+    because usually what you want is already there. 
+    You do not want to waste time in redoing what has already been done. 
+    By the way, 
+    never fail afraid to using the help document of Mathematica.
+    It is very easy to find what you want in the help document. 
+    As I said before, 
+    usually you can dope out the name of the built-in functions you want. 
+    I have to say that the help document of Mathematica is the best among all programming software that I've ever used, 
+    but unfortunately the help document of R 
+    (which is another programming language I like very much) 
+    is the worst among all these programming software that I have ever used.</p>
+</li>
+</ol>
+<h2 id="work-easy">Work Easy</h2>
+<ol>
+<li>
+<p>One thing I like very much about Mathematica is that there are some
+    alternative ways (given next to the function in the help document if
+    exists) to pass arguments to functions. For example, instead of
+    writing <code>f[expr]</code>, you can use <code>expr//f</code>; instead of writing
+    <code>Map[f,expr]</code>, you can use <code>f/@expr</code>; instead of writing
+    <code>f[expr1,expr2]</code>, you can use <code>expr1$\sim$f$\sim$expr2</code>. These
+    alternative ways can make things convenient in many situations.
+    Because whenever you use a compound function, people usually think
+    from the function most inside while you have to write from the
+    function most outside in tradition way. With the help of <code>//</code> and
+    <code>$\sim$</code>, you can write down a compound function easily without
+    switching the cursor back to the beginning of our code.</p>
+</li>
+<li>
+<p>These alternative symbols for functions have a higher computing
+    priority than <code>//</code>, e.g. <code>f/@expr//Length</code> is equivalent to</p>
+<div class="highlight"><pre><span></span><code><span class="n">Length</span><span class="p">[</span><span class="n">Map</span><span class="p">[</span><span class="n">f</span><span class="p">,</span><span class="n">expr</span><span class="p">]]</span>
+</code></pre></div>
+
+</li>
+</ol>
+<h2 id="configuration">Configuration</h2>
+<ol>
+<li>You can use function <code>Directory</code> to get the current working directory
+    of Mathematica. To change the working directory, you can use
+    function <code>SetDirectory</code>. To add a new path to the search path of
+    Mathematica, you can modify variable <code>Path</code>.</li>
+</ol>
+<h2 id="rules">Rules</h2>
+<ol>
+<li>
+<p>Since all variables you defined in a Mathematica session (not
+    variables that you defined in function <code>Module</code> or <code>Block</code> and so
+    on) are global variables, you can use them any where including
+    user-defined functions. It can easily screw up your program if
+    there are too many global variables in Mathematica workspace, so
+    you're not encouraged to use global variables. You can always use
+    function <code>Clear</code> to clear values and definitions for symbols. If you
+    also want to properties associated (e.g. attributes and defaults)
+    with the symbols, you can use function <code>ClearAll</code>. However, function
+    <code>Clear</code> and <code>ClearAll</code> won't remove these symbols defined from the
+    Mathematica workspace, i.e. Mathematica still recognized them even
+    if there are no value or definitions (or just nothing if function
+    <code>ClearAll</code> was used) associated with them. If you want to completely
+    remove a symbol from the Mathematica workspace so that Mathematica
+    can no longer recognize the symbol, you can use function <code>Remove</code>.
+    Notice that all these 3 functions accept wild cards in their
+    arguments. Keep defining and removing symbols is not handy. You can
+    avoid define symbols using rules. To be clearer, you can use rules
+    to replace symbols with values or other expressions. For example, to
+    calculate <span class="math">\(sin 5 + cos 5\)</span>, you can use command</p>
+<div class="highlight"><pre><span></span><code><span class="n">Sin</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Cos</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">5</span>
+</code></pre></div>
+
+<p>instead of using</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="n">Sin</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Cos</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>The results of many functions in Mathematica are rules, but many
+    times you want numerical values instead. To change a rule to
+    number(s), you can simply apply the rule to symbols associated with
+    it. For example, if you have a rule <code>x-&gt;2, y-&gt;3</code> named <code>r</code>,
+    you can simply use command <code>{x,y}/.r</code> to extract numbers in
+    these rules. If the symbols in a rule are the same, for example if
+    you have a rule <code>x-&gt;2, x-&gt;3</code> named <code>r</code>, then you can use
+    command <code>x/.#&amp;/@r</code> to extract numbers in the rule.</p>
+</li>
+</ol>
+<h2 id="input-and-output">Input and Output</h2>
+<ol>
+<li>
+<p>By default, the output in Mathematica is in standard form. If the
+    results are strings, then it's hard for us tell whether the result
+    is as expected or not if you read the output in standard form. A way
+    to check whether the output is as expected is to change the output
+    to input form suing function <code>InputForm</code>.</p>
+</li>
+<li>
+<p><code>InputForm[expr]</code> prints as a version of <code>expr</code> suitable for input to Mathematica.</p>
+</li>
+<li>
+<p><code>OutputForm[expr]</code> prints as a two-dimensional representation of
+    <code>expr</code> using only keyboard characters.</p>
+</li>
+<li>
+<p><code>TeXForm[expr]</code> prints as a Tex version of <code>expr</code>. Also you can type
+    in expressions in Mathematica using Tex format using <code>ToExpression</code>.
+    For example, to type in <span class="math">\(\alpha\)</span> in Mathematica using Tex format,
+    you can use command <code>ToExpression["$\alpha$",TeXForm]</code>.</p>
+</li>
+<li>
+<p><code>TraditionalForm[expr]</code> prints as an approximation to the
+    traditional mathematical notation for <code>expr</code>.</p>
+</li>
+<li>
+<p><code>StandardForm[expr]</code> prints as the standard Mathematica
+    two-dimensional representation of <code>expr</code>.</p>
+</li>
+<li>
+<p><code>Format[expr,form]</code> gives a format for the specified form of output.</p>
+</li>
+<li>
+<p>Function <code>ReadList</code> can read data from a file into a list of specified patterns.</p>
+</li>
+<li>
+<p>Function <code>Import</code> and <code>Export</code> are very powerful. They support all
+    kinds of data format. File extensions are important when you use
+    these two functions. Different file extensions might get different
+    result when you use these two functions.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">data_Om_2030</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Import<span class="o">[</span><span class="s2">&quot;/path/to/rms_20_30_1.bin&quot;</span>,<span class="w"> </span><span class="s2">&quot;real64&quot;</span><span class="o">]</span><span class="p">;</span>
+</code></pre></div>
+
+</li>
+<li>
+<p><code>Splice["file"]</code> splices Mathematica output into an external file.
+    It takes text enclosed between <code>&lt;*</code> and <code>*&gt;</code> in the file, evaluates
+    the text as Mathematica input, and replaces the text with the
+    resulting Mathematica output. It's similar to <code>Sweave</code> in R.</p>
+</li>
+<li>
+<p><code>$$Alpha]</code> gives the Greek symbol <span class="math">\(\alpha\)</span>, and others are similar.</p>
+</li>
+<li>
+<p><code>FileNameJoin[{"name1","name2",...}]</code> joins the strings together into
+    a file name suitable for your current operating system.</p>
+</li>
+</ol>
+<h2 id="characters">Characters</h2>
+<ol>
+<li>
+<p>While character <code>_</code> can be used in function names in many
+    programming languages, it's reserved in Mathematica. Special
+    characters that can be used in function names in Mathematica include
+    <code>_</code>, <code>$</code>, etc.</p>
+</li>
+<li>
+<p>You can use function <code>Symbol</code> to get the value of an object from
+    it's string expression. Conversely, you can use function <code>Hold</code> to
+    to change an object into an expression and then use function
+    <code>ToString</code> to change it into a string.</p>
+</li>
+<li>
+<p>Unlike R, numbers in Mathematica cannot be use as strings directly,
+    instead, you must use <code>ToString</code> to convert numbers to string.</p>
+</li>
+</ol>
+<h2 id="vector-matrix-array-and-list">Vector, Matrix, Array and List</h2>
+<ol>
+<li>
+<p>There's only one data structure in Mathematica, which is list. A
+    vector in Mathematica is just a list of depth 1; a matrix in
+    mathematica is a nested list of depth 2; a multi-dimensional array
+    in Mathematica is a nested list with a depth greater than 2.</p>
+</li>
+<li>
+<p>A vector (a list nested once, which is also an 1-dim array) in
+    Mathematica can be treated either as a column vector or a row
+    vector, which to use depends on conventions. For example, if <code>w</code> and
+    <code>v</code> are two vectors then <code>w.v</code> calculates the inner product of <code>w</code>
+    and <code>v</code>. Sometimes, instead of calculating the inner product of the
+    two vectors, you might you want to calculate the matrix production
+    of the column vectors times the row vector. To achieve this, you can
+    use <code>Outer[Times, w, v]</code>.</p>
+</li>
+<li>
+<p>Similar to R, a vector (a list with depth 1) is different from a
+    matrix in Mathematica. But unlike R, you can not perform transpose
+    operation on a vector to get a matrix of one row. However, by
+    putting the vector into <code>{}</code> you turn it into a matrix of one row.
+    And by transposing the resulting matrix, you get a matrix of one
+    column.</p>
+</li>
+<li>
+<p>To take out an element (or some elements) from a list 
+    (vector, matrix, multi-dimensional array or any list) in Mathematica,
+    you use <code>[[]]</code> (or function <code>Part[]</code>), which is different from
+    almost all other languages. For example, to take out an element (or
+    some elements) of a vector, a matrix or a data frame in R, you use
+    <code>[]</code>; to take out an element from an 1-D array in C/C++ and Java you
+    use <code>[]</code> and <code>[][]</code> for taking out an element from a 2-D array.</p>
+</li>
+<li>
+<p>Function <code>Flatten[list]</code> flattens out a nested list, i.e. it
+    decreases the depth of a list. By contrary, function <code>Partition</code> can
+    split a list into sub lists, which increase the depth of a list. So
+    function <code>Partition</code> is useful to reshape a vector to a matrix or a
+    multi-dimensional array. To change a vector <code>x</code> into a matrix (2-D
+    array) of <code>n</code> columns, you can simply use <code>Partition[x,n]</code>; to
+    change vector <code>x</code> into a 3-D array, you can use
+    <code>result=Partition[Partition[x,m],n]</code>. The resulting 3-D array
+    <code>result</code> is a list with <span class="math">\(n\times m\)</span> matrices as its elements[^1].
+    Sometimes you might want to transpose each element of the resulting
+    3-D array <code>result</code>, e.g. if the data was exported from some 3-D
+    array in R using default setting[^2]. To achieve this, you can use
+    <code>Map[Transpose,result]</code> or use the alternative way
+    <code>Transpose/@result</code>.</p>
+</li>
+<li>
+<p>You should use vector operations as much as possible because it's
+    not only faster but also more convenient to write the code. Many
+    functions in Mathematica support vector/list operations, however,
+    some functions in Mathematica might not behave in the way you expect
+    if you pass a list/vector to it. A more general and powerful way to
+    carry out vector/list operation is to use function <code>Map</code>[^3]. An
+    alternative way for command <code>Map[f,expr]</code> is <code>f/@expr</code>.</p>
+</li>
+<li>
+<p><code>Tuples[list,n]</code> generates a list of all possible n-tuples of elements from list.</p>
+</li>
+<li>
+<p><code>Position[expr,pattern]</code> (similar to function <code>which</code> in R)gives a
+    list of the positions at which objects matching pattern appear in <code>expr</code>.</p>
+</li>
+<li>
+<p><code>DeleteDuplicates[list]</code> deletes all duplicates from list.</p>
+</li>
+<li>
+<p><code>Riffle</code> in Mathematica is similar to function <code>paste</code> in R.</p>
+</li>
+<li>
+<p>Function <code>Join</code> can join vectors, matrices, arrays or lists together in a specified way.</p>
+</li>
+</ol>
+<h2 id="graphics-and-animation">Graphics and Animation</h2>
+<ol>
+<li>Mathematica is very powerful at plotting graphics and presenting animations. 
+    It can do almost everything that you can think about.
+    Just give it a try if you come across a hard situation in other software.</li>
+</ol>
+<h2 id="integral">Integral</h2>
+<ol>
+<li>Mathematica的求导功能是无与伦比的，但是Mathematica的积分功能却不尽令人如意。
+    当然这其中也包括其他一些功能，比如说化简功能。 有时候人一眼就能看出的答案用Mathematica却不能得到很好的结果。
+    这是为什么呢？并不是Mathematica比较傻，而是Mathematica考虑的比常人多，尤其是非数学学着。
+    通常Mathematica会把变量的范围放大到复数范围内，而不是局限在实数范围内。
+    这就是Mathematica有时候会很慢而且给出的结果不尽令人如意的原因。
+    通常解决的方法有两种，一种是给参数限定条件，另外一种是人工化简分解问题，
+    给出Mathematica比较容易就能解决的问题。然后再把这些部分合起来从而得到结果。</li>
+</ol>
+<h2 id="optimization">Optimization</h2>
+<ol>
+<li>Function <code>Maximize</code> and <code>Minimize</code> carries out exact global
+    optimizations. And function <code>NMaximize</code> and <code>NMinimize</code> carries out
+    global optimization numerically. There're also many other functions
+    in Mathematica which do global or local optimizations.</li>
+</ol>
+<h2 id="useful-functions">Useful Functions</h2>
+<ol>
+<li>
+<p>函数Series可以进行Taylor或者是洛朗级数展开，非常有用。而级数对于求数列的通项是非常Powerful的。</p>
+</li>
+<li>
+<p>函数Apart可以将有理多项式分解开成方便积分的几个部分，这在进行一些复杂的有理多项式的积分中是相当有用的。</p>
+</li>
+<li>
+<p>FunctionInverse</p>
+</li>
+</ol>
+<h2 id="programming">Programming</h2>
+<ol>
+<li>
+<p>In Mathematica you use comma to separate different parts of a <code>For</code> loop, 
+    which is different from most other programming languages.</p>
+</li>
+<li>
+<p>You have to be aware that all open notebooks in Mathematica share
+    the same workspace, which means that the running result in a
+    notebooks affects the running results in other notebooks. This can
+    be handy in many situations, because you don't want to put
+    everything in a single notebook oftentimes. However, you have to be
+    careful about this. Because if you forget to define some local
+    variable in a Module while there exists a global variable with the
+    same name, the module define won't gives us warning messages. This
+    will probably lead us to wrong results that are hardly noticeable.
+    To avoid this problem, you can either use function <code>Clear[]</code> to
+    clear all global variables before you running modules you wrote, or
+    you can quit the kernel first and then running these modules. A
+    better way to solve this problem is to always make these variables
+    used in a Module local.</p>
+</li>
+<li>
+<p>You should always be careful about the <code>If</code> function in mathematica.
+    There're 3 branches in this function corresponding to <code>True</code>,
+    <code>False</code> and <code>Null</code> respectively. In most programming languages, you
+    only have two branches. If you only specify branches corresponding
+    to <code>True</code> and <code>False</code> for <code>If</code> function, it doesn't do anything if
+    it cannot decide whether given condition is <code>True</code> or <code>False</code>. This
+    might result tricky bugs sometimes. So if the program does not
+    behave like what you expect, you might want to check whether some
+    <code>If</code> function in your code has a condition that doesn't yield a
+    boolean value.</p>
+</li>
+<li>
+<p>A shoddy thing about programming with Mathematica is that the
+    arguments of a Module are kind of like constants, which means that
+    you cannot change them in your code. In many cases, you want to give
+    some arguments of a function some default values, and you might want
+    to change their values later. Unfortunately, this is not supported
+    in Mathematica. To achieve this, you have to create new local
+    variables in the Module, assign the values of the arguments to these
+    variables, and then treat these variables as the arguments of the
+    Module.</p>
+</li>
+</ol>
+<h2 id="parallel-computing">Parallel Computing</h2>
+<ol>
+<li>
+<p>Parallel computing in Mathematica is even more convenient than parallel computing in MATLAB, 
+    because Mathematica automate many things for you. 
+    However, as a side effect, parallel computing in MATLAB is not as efficient as parallel computing in MATLAB.</p>
+</li>
+<li>
+<p>For an expression which contains only built-in functions and
+    contains loops essentially (e.g. code contains <code>Table</code> or <code>Map</code>),
+    you can parallelize them simply by putting them into <code>Parallelize</code>.
+    There's no need for you to launch kernels or to distribute
+    definitions in Mathematica 8 or later. 
+    They will be taken care of
+    automatically by Mathematica (8 or later).</p>
+</li>
+<li>
+<p>Many functions in mathematica have parallel versions, e.g. <code>Map</code> has
+    a parallel version <code>ParallelMap</code>, <code>Table</code> has a parallel version
+    <code>ParallelTable</code>, and <code>Do</code> has a parallel version <code>ParallelDo</code>. You
+    can use these parallel versions functions directly with no extra
+    work in Mathematica 8 or later.</p>
+</li>
+<li>
+<p>For user-defined functions, 
+    even if it contains loops (essentially) which are parallelizable, 
+    you cannot parallelize it by just putting it into <code>Parallelize</code>, 
+    instead, 
+    you must parallelize code which contains loops (essentially) in the function by yourself, 
+    e.g., you can parallel versions for functions that are parallelizable.</p>
+</li>
+<li>
+<p>If you have to run jobs each of which is not parallelizable, you can
+    still benefit from parallel computing by submitting them parallel
+    using <code>ParallelSubmit</code> and <code>WaitAll</code>. 
+    However, 
+    you have to distribute definitions of user-defined functions manually first (at least before Mathematica 8).</p>
+</li>
+</ol>
+<h2 id="compile">Compile</h2>
+<ol>
+<li>Compile, tensor, array, must be explicit</li>
+</ol>
+<h2 id="send-email">Send Email</h2>
+<ol>
+<li>
+<p>You can use the built-in <code>SendMail</code> to send email in Mathematica.
+    The following command gives a simple example[^4]. </p>
+<div class="highlight"><pre><span></span><code><span class="n">SendMail</span><span class="p">[</span>
+<span class="w">    </span><span class="s">&quot;From&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;firedragon.du@gmail.com&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;To&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;dclong@iastate.edu&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;Subject&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Sending Email from Mathematica&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;Body&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Just have a try&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;Server&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;mailhub.iastate.edu&quot;</span>
+<span class="p">]</span>
+</code></pre></div>
+
+</li>
+<li>
+<p>The options that <code>SendMail</code> can use include: "To", "Cc", "Bcc",
+    "Subject", "Body", "Attachments", "From",
+    "Server","EncryptionProtocol", "Fullname", "PortNumber", "ReplyTo",
+    "ServerAuthentication", "UserName".</p>
+</li>
+<li>
+<p>You can insert object(s) in mathematica workspace into the email body directly 
+    when you use <code>SendMail</code> to send emails, 
+    which is very convenient if you want to send the running results of mathmatica via email.</p>
+</li>
+</ol>
+<h2 id="_1">不太清楚地方：</h2>
+<ol>
+<li>前面提到过Mathematica在进行操作时总是从复数范围出发， 从而在进行一些积分或者是化简操作时，
+    给出限定条件就显得特别重要，而这个方面我不是很清楚。</li>
+</ol>
+<p>The first partition combine m elements into a sublist which act as
+a new element for the resulting list, and then the second partition
+go further to combine n sublists together to form a matrix of
+<span class="math">\(m\times n\)</span> which acts the a new element of the final resulting
+list.</p>
+<p>By default, a matrix in R is filled by columns and is stretched to
+a vector by columns, while when you use function <code>Partition</code>, the
+matrices which are elements of the final resulting list/3-D array
+are filled by row</p>
+<p>Similar to function <code>apply</code> in R, but you cannot pass extra
+parameters to the function which is to be applied over the list.</p>
+<p>I'm not very sure how to send Gmail in Mathematica. I've tried
+many different ways, but none of them worked.</p>
+<ol>
+<li>
+<p><code>&lt;&gt;</code> joins two strings together, StringJoin, + in python, Java, etc. 
+    A missing &lt;&gt; not necesarry cause error but of course give you wrong answer, so be careful!!!</p>
+</li>
+<li>
+<p>You can write program in plain text (and save it as .m file). 
+    You can import the functions in the file using Import[file_path]. 
+    This is the suggested way for you to manager your own Mathematica code.</p>
+</li>
+<li>
+<p>You can specify scope of notebook "Evaluation -&gt; Notebook's Default Context" and then select one of the options.</p>
+</li>
+<li>
+<p>Be careful when you save your notebook as .m file. 
+    The stupid software comments out every line!!! 
+    You can just save it as plain text or copy and paste it into a .m file. </p>
+</li>
+<li>
+<p>The stupid Mathematica 9 screws up scopes. 
+    Even if you have run the definition of a function in a notebook that is set as global, it's not seen in other notebooks!!!</p>
+</li>
+<li>
+<p>check whether a plain text file can also be imported!!!!</p>
+<p>a. mathematics  Mathematics     MATHEMATICS</p>
+</li>
+<li>
+<p>just use ?FunName to get help of a function. 
+    If you are not sure whether a function is defined or not, this also helps.</p>
+</li>
+<li>
+<p>the result of ParallelTable is the same as Table except for side effect of computation.</p>
+</li>
+<li>
+<p><code>parallize[table[]]</code></p>
+</li>
+<li>
+<p>use "" for string instead of ‘’</p>
+</li>
+<li>
+<p>missing semicolon is a common mistake</p>
+</li>
+<li>
+<p>cannot use _ in variable names, cause error message: Set::write: Tag Times in 1 x_ is Protected. &gt;&gt;</p>
+</li>
+<li>
+<p><code>f[x_Real] := x^2</code>; pass integer to it won't work!!!</p>
+</li>
+<li>
+<p><code>f[x_Real:3.] = x^2</code> default parameter</p>
+</li>
+<li>
+<p>nohup math -run "&lt;&lt;../mle_2_10.m" &amp; do not quote<br>
+in Mathematica you use &lt;&lt;"../mle_2_10.m", 
+but here quote &lt;&lt;../mle_2_10.m instead of the file name.</p>
+</li>
+<li>
+<p><code>Get[file_path] &lt;&lt; file_path</code>
+     <code>Import[file_path]</code></p>
+</li>
+<li>
+<p>nohup matlab -nodesktop -nosplash file.m (don't put &amp; as it cause matlab not to start)</p>
+</li>
+<li>
+<p><code>SetDirectory["/home/dclong/simulation"]</code> 
+    <code>Directory[]</code>
+    <code>FileNames[]</code></p>
+</li>
+<li>
+<p>it is suggested that you use java camelCase style to name variables in  Mathematica which can distinguish them from functions</p>
+</li>
+<li>
+<p>integer cannot be use in string concatenation directly, must use ToString to convert it to a String first.</p>
+</li>
+<li>
+<p><code>mle /. Rule -&gt; (#2 &amp;)</code> </p>
+</li>
+<li>
+<p><code>Export[output, result, "Table"];</code></p>
+</li>
+</ol>
+<h2 id="common-mistakes">common mistakes</h2>
+<ol>
+<li>forget <code>{}</code>, in Module</li>
+</ol>
+<h2 id="io">IO</h2>
+<ol>
+<li>
+<p>put and PutAppends </p>
+</li>
+<li>
+<p><code>&gt;&gt;</code> and <code>&gt;&gt;&gt;</code> similar to Linux bash &gt; and &gt;&gt;</p>
+</li>
+</ol>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js','color.js','mhchem.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://outdated.legendu.net/tag/tips.html">tips</a>
+      <a href="https://outdated.legendu.net/tag/mathematica.html">Mathematica</a>
+      <a href="https://outdated.legendu.net/tag/programming.html">programming</a>
+    </p>
+  </div>
+
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'dclong';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+<footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+  <span class="footer-separator">|</span>
+  Switch to the <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> theme
+  <script id="dark-theme-script"
+          src="https://outdated.legendu.net/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="False"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Ben Chuanlong Du's Blog ",
+  "url" : "https://outdated.legendu.net",
+  "image": "",
+  "description": ""
+}
+</script><a href="https://github.com/dclong/outdated" target="_blank" class="github-corner" aria-label="View source on Github">
+    <svg width="80"
+         height="80"
+         viewBox="0 0 250 250"
+         style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;"
+         aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor"
+              style="transform-origin: 130px 106px;"
+              class="octo-arm">
+        </path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor"
+              class="octo-body">
+        </path>
+    </svg>
+</a>
+  <script src="https://outdated.legendu.net/theme/stork/stork.js"></script>
+  <script>
+    stork.register("sitesearch", "https://outdated.legendu.net/search-index.st", {showProgress: false});
+  </script>
+
+</body>
+</html>

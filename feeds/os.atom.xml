@@ -1,0 +1,925 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ben Chuanlong Du's Blog - OS</title><link href="https://outdated.legendu.net/" rel="alternate"></link><link href="https://outdated.legendu.net/feeds/os.atom.xml" rel="self"></link><id>https://outdated.legendu.net/</id><updated>2025-12-27T19:36:27-08:00</updated><subtitle>Change is eternal.</subtitle><entry><title>Tips on Wajig</title><link href="https://outdated.legendu.net/blog/wajig-tips/" rel="alternate"></link><published>2014-03-07T22:54:45-08:00</published><updated>2025-12-27T19:36:27-08:00</updated><author><name>Ben Chuanlong Du</name></author><id>tag:outdated.legendu.net,2014-03-07:/blog/wajig-tips/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;apt&lt;/code&gt; and &lt;code&gt;aptitude&lt;/code&gt; are preferred to wajig.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://wiki.debian.org/Wajig"&gt;Wajig on Debian Wiki&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;You can type enter the CLI of &lt;code&gt;wajig&lt;/code&gt; by typing &lt;code&gt;wajig&lt;/code&gt; in terminal,
+    so that you …&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;apt&lt;/code&gt; and &lt;code&gt;aptitude&lt;/code&gt; are preferred to wajig.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://wiki.debian.org/Wajig"&gt;Wajig on Debian Wiki&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;You can type enter the CLI of &lt;code&gt;wajig&lt;/code&gt; by typing &lt;code&gt;wajig&lt;/code&gt; in terminal,
+    so that you can use commands of &lt;code&gt;wajig&lt;/code&gt; directly
+    instead of typing &lt;code&gt;wajig&lt;/code&gt; every time.&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;wajig
+wajig&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="wajig-install"&gt;wajig install&lt;/h2&gt;
+&lt;p&gt;From the documentation,
+&lt;code&gt;wajig install&lt;/code&gt; is equivalent to &lt;code&gt;apt-get install --no-install-recommends&lt;/code&gt;.
+&lt;code&gt;wajig install-r&lt;/code&gt; is equivalent to &lt;code&gt;apt-get install&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id="wajig-search"&gt;wajig search&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;wajig search&lt;/code&gt; use regular expression by default.
+    For example, 
+    &lt;code&gt;wajig search g++&lt;/code&gt; does not search for literal &lt;code&gt;g++&lt;/code&gt; but any package that contains &lt;code&gt;g&lt;/code&gt;. 
+    To search for &lt;code&gt;g++&lt;/code&gt; related packages, 
+    you can use &lt;code&gt;wajig search g\\+\\+&lt;/code&gt; instead.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Let wajig also search description&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;wajig&lt;span class="w"&gt; &lt;/span&gt;search&lt;span class="w"&gt; &lt;/span&gt;-v&lt;span class="w"&gt; &lt;/span&gt;youtube
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="wajig-download"&gt;wajig download&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Download a package for install later.
+    This is very helpful if the package is big.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;wajig&lt;span class="w"&gt; &lt;/span&gt;download&lt;span class="w"&gt; &lt;/span&gt;pkg_name
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Remove all GNOME desktop related packages&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;wajig&lt;span class="w"&gt; &lt;/span&gt;list&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;awk&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;{print $2}&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;grep&lt;span class="w"&gt; &lt;/span&gt;-i&lt;span class="w"&gt; &lt;/span&gt;^gnome&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;xargs&lt;span class="w"&gt; &lt;/span&gt;wajig&lt;span class="w"&gt; &lt;/span&gt;purge
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;install a package of specific version using wajig&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;wajig&lt;span class="w"&gt; &lt;/span&gt;search&lt;span class="w"&gt; &lt;/span&gt;libssl/testing
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;check which repository a package comes from&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;wajig&lt;span class="w"&gt; &lt;/span&gt;policy&lt;span class="w"&gt; &lt;/span&gt;geary
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To install backport packages, use&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;wajig&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;libreoffice/wheezy-backports
+apt-get&lt;span class="w"&gt; &lt;/span&gt;-t&lt;span class="w"&gt; &lt;/span&gt;wheezy-backports&lt;span class="w"&gt; &lt;/span&gt;libreoffice
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;It does not work if you use&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;wajig&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;libreoffice/stable-backports
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="download-packages-for-installation-later"&gt;Download Packages (for Installation Later)&lt;/h2&gt;
+&lt;p&gt;If your network speed is a concern,
+you can download a package for installation later using the command below. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;wajig&lt;span class="w"&gt; &lt;/span&gt;download&lt;span class="w"&gt; &lt;/span&gt;pkg_name
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="issues"&gt;Issues&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;it seems to me that &lt;code&gt;wajig purge package_name&lt;/code&gt; fails to remove packages sometimes
+    even though it seems to succeed.&lt;/li&gt;
+&lt;/ol&gt;</content><category term="OS"></category><category term="Wajig"></category><category term="Linux"></category><category term="package management"></category><category term="tips"></category></entry><entry><title>Cool Shell/Terminal Commands</title><link href="https://outdated.legendu.net/blog/cool-shell-commands/" rel="alternate"></link><published>2012-09-18T21:38:38-07:00</published><updated>2025-12-07T21:07:53-08:00</updated><author><name>Ben Chuanlong Du</name></author><id>tag:outdated.legendu.net,2012-09-18:/blog/cool-shell-commands/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/tips-on-the-fish-shell"&gt;Fish Shell&lt;/a&gt; 
+is preferred to Bash/Zsh.
+The following content is for Bash/Zsh only.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.gnu.org/software/bash/manual/bashref.html"&gt;Bash Reference Manual&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.explainshell.com/"&gt;ExplainShell&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="seeking-help"&gt;Seeking Help&lt;/h2&gt;
+&lt;p&gt;The best way to seek for …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/tips-on-the-fish-shell"&gt;Fish Shell&lt;/a&gt; 
+is preferred to Bash/Zsh.
+The following content is for Bash/Zsh only.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.gnu.org/software/bash/manual/bashref.html"&gt;Bash Reference Manual&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.explainshell.com/"&gt;ExplainShell&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="seeking-help"&gt;Seeking Help&lt;/h2&gt;
+&lt;p&gt;The best way to seek for help is surely to use a search engine.
+However, there are serveral terminal command that can help you quickly.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;whatis&lt;/code&gt; briefly describes what a command does.
+    For example,&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;whatis&lt;span class="w"&gt; &lt;/span&gt;man
+man&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;7&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;              &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;macros&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;format&lt;span class="w"&gt; &lt;/span&gt;man&lt;span class="w"&gt; &lt;/span&gt;pages
+man&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;              &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;an&lt;span class="w"&gt; &lt;/span&gt;interface&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;the&lt;span class="w"&gt; &lt;/span&gt;on-line&lt;span class="w"&gt; &lt;/span&gt;reference&lt;span class="w"&gt; &lt;/span&gt;manuals
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;whereis&lt;/code&gt; locate the binary, source, and manual page files for a command.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;apropos&lt;/code&gt; searches description of commands
+    and find these associated with the job you specify.
+    For example,&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;apropos&lt;span class="w"&gt; &lt;/span&gt;gzip
+gzip&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;compress&lt;span class="w"&gt; &lt;/span&gt;or&lt;span class="w"&gt; &lt;/span&gt;expand&lt;span class="w"&gt; &lt;/span&gt;files
+zforce&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-&lt;span class="w"&gt; &lt;/span&gt;force&lt;span class="w"&gt; &lt;/span&gt;a&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;.gz&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;extension&lt;span class="w"&gt; &lt;/span&gt;on&lt;span class="w"&gt; &lt;/span&gt;all&lt;span class="w"&gt; &lt;/span&gt;gzip&lt;span class="w"&gt; &lt;/span&gt;files
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;man&lt;/code&gt; display help documentation of commands.
+    Note that you display the description of &lt;code&gt;man&lt;/code&gt; itself by&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;man man
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;When display contents of a file in terminal,
+you can use &lt;code&gt;/&lt;/code&gt; to search for strings that match the one you specify.
+When searching,
+you can use &lt;code&gt;n/N&lt;/code&gt; to jump to the next/previous match.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="retrieving-history-commands"&gt;Retrieving History Commands&lt;/h3&gt;
+&lt;p&gt;It is suggested that you search shell command history using &lt;code&gt;fzf&lt;/code&gt;.
+For more discussions,
+please refer to
+&lt;a href="https://www.legendu.net/misc/blog/editing-shell-commands-using-vim"&gt;Editing Shell Commands Using Vim&lt;/a&gt;
+.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;!!&lt;/code&gt; or &lt;code&gt;!:-1&lt;/code&gt; stands for the last command.
+    &lt;code&gt;!!&lt;/code&gt; runs last command and &lt;code&gt;sudo !!&lt;/code&gt; runs the last command with &lt;code&gt;sudo&lt;/code&gt; permission.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;!n&lt;/code&gt; (where &lt;span class="math"&gt;\(n\)&lt;/span&gt; is a natural number) stands for the &lt;span class="math"&gt;\(n^{th}\)&lt;/span&gt; command in the command history.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;!-n&lt;/code&gt; stands for the last but &lt;span class="math"&gt;\(n-1\)&lt;/span&gt; command in the command history,&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;!foo&lt;/code&gt; stands for the most recent command starting with &lt;code&gt;foo&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;history&lt;/code&gt; prints out all historical commands (with numbers).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;history -s command&lt;/code&gt; saves the specified command to the in-memory history.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You can also retrieving history shell commands using the built-in command &lt;code&gt;fc&lt;/code&gt;.
+    Please refer to 
+    &lt;a href="https://www.legendu.net/misc/blog/fix-shell-command-using-fc"&gt;Fix Shell Command Using Fc&lt;/a&gt;
+    for more discussion.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="manipulating-commands"&gt;Manipulating Commands&lt;/h3&gt;
+&lt;p&gt;It is suggested that you use &lt;code&gt;ctrl+x&lt;/code&gt; &lt;code&gt;ctrl+e&lt;/code&gt; or &lt;code&gt;fzf.history&lt;/code&gt; 
+to edit shell commands.
+For more discussions,
+please refer to
+&lt;a href="https://www.legendu.net/misc/blog/editing-shell-commands-using-vim"&gt;Editing Shell Commands Using Vim&lt;/a&gt;
+.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;You can use the suffix &lt;code&gt;:-&lt;/code&gt; to get rid of
+    the last parameter of the retrieved command.
+    For example,
+    &lt;code&gt;!!:-&lt;/code&gt; stands for the last command without the last parameter.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;^foo^bar^&lt;/code&gt; stands for the last command
+    with the first occurence of &lt;code&gt;foo&lt;/code&gt; replaced by &lt;code&gt;bar&lt;/code&gt;.
+    The last &lt;code&gt;^&lt;/code&gt; can be omitted if no more manipulation on the command is neede.
+    (Note that this trick only works for the last command.)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You can use the suffix &lt;code&gt;:s/foo/bar/&lt;/code&gt; to replace the first occurrence of &lt;code&gt;foo&lt;/code&gt; with &lt;code&gt;bar&lt;/code&gt;
+    in a retrieved command.
+    For example,
+    &lt;code&gt;!!:s/foo/bar/&lt;/code&gt; stands for the last command
+    with the first occurrence of &lt;code&gt;foo&lt;/code&gt; replaced by &lt;code&gt;bar&lt;/code&gt;.
+    The last &lt;code&gt;/&lt;/code&gt; can be omitted if no more manipulation on the command is needed.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You can use the suffix &lt;code&gt;:gs/foo/bar/&lt;/code&gt; to replace all occurrences of &lt;code&gt;foo&lt;/code&gt; with &lt;code&gt;bar&lt;/code&gt;
+    in a retrieved command.
+    For example,
+    &lt;code&gt;!!:gs/foo/bar/&lt;/code&gt; stands for the last command
+    with all occurences of &lt;code&gt;foo&lt;/code&gt; replaced by &lt;code&gt;bar&lt;/code&gt;.
+    The last &lt;code&gt;/&lt;/code&gt; can be omitted if no more manipulation on the command is needed.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You can add vanilla strings before and/or after a retrieved command.
+    For example,&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;sudo !foo&lt;/code&gt; runs the most recent command starting with &lt;code&gt;foo&lt;/code&gt; with
+    &lt;code&gt;sudo&lt;/code&gt; permissions.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;!n:gs/foo/bar/ | less&lt;/code&gt; runs the &lt;span class="math"&gt;\(n^{th}\)&lt;/span&gt; command in the history
+    with all occurrences of &lt;code&gt;foo&lt;/code&gt; replaced by &lt;code&gt;bar&lt;/code&gt;
+    and displays the result in &lt;code&gt;less&lt;/code&gt; mode.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;sudo ^foo^bar^ | less&lt;/code&gt; or &lt;code&gt;sudo !!:s/foo/bar/ | less&lt;/code&gt; runs last command
+    with &lt;code&gt;sudo&lt;/code&gt; permissions and displays the results in &lt;code&gt;less&lt;/code&gt; mode.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="previeawing-commands"&gt;Previeawing Commands&lt;/h3&gt;
+&lt;p&gt;You can preview (rather than run) a retrived and manipulated (using string substitution) command
+by adding the suffix &lt;code&gt;:p&lt;/code&gt; to the command.  &lt;/p&gt;
+&lt;p&gt;In the above commands,
+if you add suffix &lt;code&gt;:p&lt;/code&gt; (e.g, &lt;code&gt;!!:p&lt;/code&gt;),
+then the corresponding command is printed to the console without being executed.
+Notice that the previewed command will be added to the command history,
+so you can press "Arrow Up" key to retrieve it.
+&lt;code&gt;^foo^bar^:p&lt;/code&gt; &lt;code&gt;!n:gs/foo/bar/:p&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id="retrieve-parameter-of-commands"&gt;Retrieve Parameter of Commands&lt;/h2&gt;
+&lt;p&gt;It is suggested that you use &lt;code&gt;ctrl+x&lt;/code&gt; &lt;code&gt;ctrl+e&lt;/code&gt; or &lt;code&gt;fzf.history&lt;/code&gt; 
+to edit shell commands.
+For more discussions,
+please refer to
+&lt;a href="https://www.legendu.net/misc/blog/editing-shell-commands-using-vim"&gt;Editing Shell Commands Using Vim&lt;/a&gt;
+.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;!$&lt;/code&gt; stands for the last parameter of last command.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;$_&lt;/code&gt; stands for the last parameter of last command.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;!:0&lt;/code&gt; stands for the Linux command in the last command.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;!:3-5&lt;/code&gt; stands for the third to fifth parameters of the last command.
+    If the first argument index is 0, then it can be omitted.
+    For example, &lt;code&gt;!:0-2&lt;/code&gt; can be simplified as &lt;code&gt;!:-2&lt;/code&gt;.
+    If the "TO" argument index is omited,
+    then the last argument is not included.
+    For example, &lt;code&gt;!:3-&lt;/code&gt; means the third argument to the last-but-1 argument.
+    Specially, &lt;code&gt;!:-&lt;/code&gt; stands for last command without the last argument.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;ESC&amp;gt; .&lt;/code&gt; or &lt;code&gt;ALT + .&lt;/code&gt; retrieves the last parameter of any previous command.
+    Pressed once, it retrives the last parameter of the last command;
+    pressed twice, it retrives the last parameter of the 2nd last command,
+    and so on and so forth.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="retrieve-output-of-commands"&gt;Retrieve Output of Commands&lt;/h2&gt;
+&lt;p&gt;There is no direct way to retrieve the output of the last command.
+However,
+there are several indirect ways to do this.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Use substitution.
+    For example,
+    &lt;code&gt;v=`ls`&lt;/code&gt; makes &lt;code&gt;v&lt;/code&gt; a variable containing the result of last command.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Assign result to a variable.
+    For example,
+    &lt;code&gt;v=$(ls)&lt;/code&gt; makes &lt;code&gt;v&lt;/code&gt; a variable contining the result of last command.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use &lt;code&gt;$(!!)&lt;/code&gt; to retrieve the result of last command.
+    Similarly,
+    one can use &lt;code&gt;$(!-2)&lt;/code&gt; to retrieve the result of the 2nd last command.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://wiki.archlinux.org/index.php/Keyboard_Shortcuts"&gt;Arch Wiki&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js','color.js','mhchem.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="OS"></category><category term="shell"></category><category term="terminal"></category><category term="Linux"></category></entry><entry><title>Tips on Shell Commands</title><link href="https://outdated.legendu.net/blog/shell-tips/" rel="alternate"></link><published>2013-10-23T12:19:10-07:00</published><updated>2024-07-28T23:09:04-07:00</updated><author><name>Ben Chuanlong Du</name></author><id>tag:outdated.legendu.net,2013-10-23:/blog/shell-tips/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/tips-on-the-fish-shell"&gt;Fish Shell&lt;/a&gt; 
+is preferred to Bash/Zsh.
+The following content is for Bash/Zsh only.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.explainshell.com/"&gt;explainshell.com&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;command-not-found - Suggest installation of packages in interactive bash sessions&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;nohup …&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/tips-on-the-fish-shell"&gt;Fish Shell&lt;/a&gt; 
+is preferred to Bash/Zsh.
+The following content is for Bash/Zsh only.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.explainshell.com/"&gt;explainshell.com&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;command-not-found - Suggest installation of packages in interactive bash sessions&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;nohup, disown&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;nautilus-open-terminal&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="configuration"&gt;Configuration&lt;/h2&gt;
+&lt;p&gt;https://github.com/thoughtbot/til/blob/master/bash/bash_profile_vs_bashrc.md#:~:text=bashrc%20is%20sourced%20on%20every,with%20the%20%2D%2Dlogin%20option.&amp;amp;text=bash_profile%20is%20great%20for%20commands%20that%20should%20run%20only%20once%20and%20&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Debian does not read in the &lt;code&gt;.profile&lt;/code&gt; file on start-up of X windows.
+    To solve this problem,
+    you can source in &lt;code&gt;.profile&lt;/code&gt; in in the &lt;code&gt;.xsessionrc&lt;/code&gt; file.
+    Ubuntu and Mint does read in the &lt;code&gt;.profile&lt;/code&gt; file on start-up of  X windows.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You'd better use robust configuration files.
+    If an error is encountered in the &lt;code&gt;.xsessionrc&lt;/code&gt; file,
+    the desktop environment might fail to start.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="media"&gt;Media&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Empty CD tray, cannot eject by pressing the bussion,
+    an interesting trick to eject CD: try to amount the CD eject the tray&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="cool-command"&gt;Cool Command&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;~&lt;/code&gt; is recognized as the home directory of the current user in shell only.
+    You'd better not use it in other places.
+    Whenever the home directory of the current user is needed,
+    you can always use &lt;code&gt;$HOME&lt;/code&gt; instead.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Check whether a system is 32 bit or 64 bit&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;getconf&lt;span class="w"&gt; &lt;/span&gt;LONG_BIT
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;all parameters: &lt;code&gt;$@&lt;/code&gt; (what about &lt;code&gt;$*&lt;/code&gt;?)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Be careful about &lt;code&gt;.&lt;/code&gt; when using regular expressions (e.g., sed),
+    this is really a general problem&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;the trick of "--" end of command after which only positional arguments are accepted&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;variable substituation makes things very interesting in shell,
+    for example awk and so on ..., always be careful if you use "$" and so on....&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;process of substitution &amp;lt;() &amp;gt;(), pipe ...&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;variables defined in bash function won't polute the global environment
+    and local make the variables visible only to the scope of the function&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;prefer dot rather than source for sourcing script,
+    because source is only for bash&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;executable files:
+    if in $HOME/bin, prefer symbolic links,
+    if for general uer, prefer to make a global copy,
+    don't use symbolic link in /usr/bin pointing to your own files,
+    you might change your file permissions and mess up the program&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If an environment path contains spaces,
+    you have to quote it with double/single quotations marks
+    in order to make shell commands work correctly.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="top"&gt;top&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;top command
+    Unit of the Time+ column: minutes:seconds.hundredths&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="ls"&gt;ls&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;ls -d */&lt;/code&gt; displays all directories in the current folder&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;ls /home/*&lt;/code&gt; in bash, don't use it, instead use &lt;code&gt;(/home/*)&lt;/code&gt; directly&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ls -d &amp;quot;/home/dclong/btsync/backup/tbp_&amp;quot;*
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;instead of&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ls -d &amp;quot;/home/dclong/btsync/backup/tbp_*&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;it seems to me that if you wildcard,
+then full names are returned, otherwise, short names are returned.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;By default,
+    the year for files older than 6 month are not displayed.
+    You can force &lt;code&gt;ls&lt;/code&gt; to show full time information by &lt;code&gt;ls -lh --full-time&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="rsync"&gt;rsync&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;rsync&lt;/code&gt;, &lt;code&gt;/&lt;/code&gt; at the end is important,
+    this decides whether the folder is copy or its content is copied, unison is similar ...
+    This is the same for some other commands like Amazon S3, etc.
+    Also if you want to exclude an folder from &lt;code&gt;rsync&lt;/code&gt;,
+    you have to include the trailing slash.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="alias"&gt;alias&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;it seems alias has lots of limitations ... only use single quotation mark,
+    causes lots of problem
+    YOU ACTUALLY CAN USE DOUBLE QUTOES&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you define an alias of a path (especially a Windows path in Cygwin, MobaXterm, etc.),
+    you have to quote the path in commands, generally speaking.
+    For example, if the alias of path you define is &lt;code&gt;p&lt;/code&gt; (which contains spaces),
+    you can use &lt;code&gt;cd "$p"&lt;/code&gt; to change working directory to it.
+    Note that you cannot omit the quotes.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="filesystem"&gt;Filesystem&lt;/h2&gt;
+&lt;h3 id="cp"&gt;cp&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;always use &lt;code&gt;cp&lt;/code&gt; with &lt;code&gt;-i&lt;/code&gt; option!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;cp -a&lt;/code&gt; might not be a good idea sometimes,
+    e.g., when in Cygwin/MobaXterm, because you might lose file permissions due to unmatch of users&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Both cp and mv overwrite the destination file
+    if is is already exists.
+    cp does not overwrite existing destination directory
+    but instead acts as merging contents of directories.
+    mv refuses to rename a directory to a destination directory
+    if the destination directory is not empty.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;It is suggested that you use rsync as much as possible
+as an alternative to cp.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# copy sub files/folders excluding hidden files/folders&lt;/span&gt;
+cp&lt;span class="w"&gt; &lt;/span&gt;a/*&lt;span class="w"&gt; &lt;/span&gt;b
+&lt;span class="c1"&gt;# copy sub files/folders including hidden files/folders&lt;/span&gt;
+cp&lt;span class="w"&gt; &lt;/span&gt;a/.&lt;span class="w"&gt; &lt;/span&gt;b
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id="mv"&gt;mv&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;always use interactive version of &lt;code&gt;mv&lt;/code&gt; and &lt;code&gt;cp&lt;/code&gt; ...
+    and always use &lt;code&gt;trash&lt;/code&gt; instead of &lt;code&gt;rm&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="du-dust"&gt;du &amp;amp; dust&lt;/h3&gt;
+&lt;h3 id="grep-ripgrep"&gt;grep &amp;amp; &lt;a href="https://www.legendu.net/misc/blog/ripgrep-is-a-better-alternative-to-find"&gt;ripgrep&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="ps-procs"&gt;ps &amp;amp; procs&lt;/h3&gt;
+&lt;h3 id="cat-bat"&gt;cat &amp;amp; &lt;a href="https://github.com/sharkdp/bat"&gt;bat&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;bat&lt;/code&gt; is a much better alternative to &lt;code&gt;cat&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id="rm-rip"&gt;rm &amp;amp; &lt;a href="https://github.com/nivekuil/rip"&gt;rip&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;rm&lt;/code&gt; is dangerous. 
+It is suggested that you use the &lt;code&gt;rip&lt;/code&gt; command (implemented in Rust)
+as much as possible.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Remove a file whose name starts with &lt;code&gt;--&lt;/code&gt; and has special characters.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;rm ./&amp;#39;--exclude.!sync&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Get file name without extension.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;basename&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;s&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;.&lt;span class="nv"&gt;txt&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;f&lt;/span&gt;.&lt;span class="nv"&gt;txt&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create a temp file.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;mktemp -tu file.XXXXX
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code&gt;mktemp&lt;/code&gt; is preferred over &lt;code&gt;tempfile&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="gpasswd"&gt;gpasswd&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;gpasswd&lt;/code&gt; is great for adding and removing user to/from groups&lt;/p&gt;
+&lt;p&gt;gpasswd -d user group&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="type"&gt;type&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;type fun_name&lt;/code&gt; shows source code of bash functions or use &lt;code&gt;declare -f&lt;/code&gt;
+    &lt;code&gt;type command&lt;/code&gt; path of command&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="mount"&gt;mount&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;check if a path is a mount point&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;stat&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;-fc&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="nx"&gt;t&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="nx"&gt;T&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;mnt/wd&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;!=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;stat&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;-fc&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="nx"&gt;t&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="nx"&gt;T&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;mnt/wd/..&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;then&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;mounted&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;else&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;not mounted&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="nt"&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;mount as normal user instead of root&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;mount -o uid=dclong ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="sudo"&gt;sudo&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;I think it's better to use sudo inside bash script
+    instead of prefix sudo to script names to invoke them.
+    The reason is that you use sudo only when needed.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;sudo alias&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;alias sudo=&amp;#39;sudo &amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;the space is necessary&lt;/p&gt;
+&lt;h3 id="real-absolute-path"&gt;real absolute path&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;realpath: absolute path&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;absolute path&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;readlink&lt;span class="w"&gt; &lt;/span&gt;path
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id="random"&gt;random&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Generate a random number.&lt;/p&gt;
+&lt;p&gt;random 0 - 32767 uniform&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="power-management"&gt;Power Management&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Show battery/power information&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;acpi -bi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="administration"&gt;Administration&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;shutdown, poweroff, halt
+    It seems these commands have different meanings on different Linux distributions.
+    The actually case is really complicated.
+    It depends on different Linux distributions and also the services running on laptops.
+    If a service fails to stop,
+    the shutdown process might freeze at the logo page.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;halt -p
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;It is suggested that you always use the &lt;code&gt;poweroff&lt;/code&gt; command to shutdown (and poweroff) your computer.
+You should close all programs before you logout or shutdown your computer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;to change time zone using command sudo dpkg-reconfigure tzdata&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;ssh -X&lt;/code&gt; X11 forwarding, make it possible for you to use GUI applications on server&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="task"&gt;Task&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;at&lt;/code&gt; command run in backgroud,
+    so do not use it to do things that have to communicate with stdin stdout ...&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="archive"&gt;Archive&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;DO NOT USE the 7-zip format for backup purpose on Linux/Unix
+    because 7-zip does not store the owner/group of the file.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;difference between 7za and 7z?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="ui"&gt;UI&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;use syndaemon -dti 0.5 to disable touchpad while typing.
+    You have to have &lt;code&gt;Option SHMConfig "on"&lt;/code&gt; or &lt;code&gt;Option SHMConfig "true"&lt;/code&gt; in the synaptics configuration file.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Sometimes when you login into a server,
+    it freezes after printing the welcome message.
+    You can press &lt;code&gt;CTRL + C&lt;/code&gt; to kill running process and it might help you bring the terminal back.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Linux release specific information&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;lsb_release -a
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;the lsb-release package&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="process"&gt;Process&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Use &lt;code&gt;Ctrl + Z&lt;/code&gt; to pause a process and use &lt;code&gt;bg&lt;/code&gt; to send it to background to run.
+    Use &lt;code&gt;fg&lt;/code&gt; to bring a background process to foreground.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;ldd --version&lt;/code&gt; check glibc version&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You can use &lt;code&gt;ps aux | grep -i user_id&lt;/code&gt; to list your jobs
+    and &lt;code&gt;kill -9 process_id&lt;/code&gt; to kill a process.
+    On platform Load Sharing Facility (LSF),
+    you probably don't have access to &lt;code&gt;kill&lt;/code&gt; unless are a privileged user.
+    Instead of using &lt;code&gt;ps&lt;/code&gt; and &lt;code&gt;kill&lt;/code&gt;,
+    you can use &lt;code&gt;bjobs&lt;/code&gt; to show your jobs and &lt;code&gt;bkill process_id&lt;/code&gt; to kill your process.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;when defining alias,
+    do not use tailing &lt;code&gt;/&lt;/code&gt; in paths unless you have a good reason for that ...&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;file to check link cannot use trailing &lt;code&gt;/&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;what have caused the blog difference issue?, line terminators&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;comm: make sure you don't screw up by invisible white spaces!!!,
+    intersection/inner join, left join, right join (add keywords to your blog)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;type of disk&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;df -T
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;CPU Stats&lt;/p&gt;
+&lt;h2 id="uuid-in-bash"&gt;UUID in Bash&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;uuidgen
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;need the libuuid library which is part of &lt;code&gt;util-linux&lt;/code&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;id -un&lt;/code&gt; is a better alternative than &lt;code&gt;whoami&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="timezone"&gt;Timezone&lt;/h2&gt;
+&lt;p&gt;Linux&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;cat /etc/timezone
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Mac
+&lt;a href="https://slaptijack.com/system-administration/set-mac-os-x-time-zone-from-the-command-line/"&gt;https://slaptijack.com/system-administration/set-mac-os-x-time-zone-from-the-command-line/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.legendu.net/misc/blog/good-terminal-apps"&gt;Good Terminal Apps&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.legendu.net/misc/blog/terminal-multiplexers"&gt;Terminal Multiplexers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;http://www.legendu.net/misc/blog/programming-in-shell&lt;/li&gt;
+&lt;li&gt;http://www.legendu.net/misc/blog/terminator-tips/&lt;/li&gt;
+&lt;li&gt;http://www.legendu.net/misc/blog/terminology-tips/&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://rolo.sourceforge.net/"&gt;Rolo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://lifehacker.com/5568817/five-really-handy-google-command-line-tricks"&gt;Five Really Handy Google Command Line Tricks&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="OS"></category><category term="tips"></category><category term="Linux"></category><category term="shell"></category><category term="terminal"></category></entry><entry><title>Use Autojump to Help Quick Navigation in Terminal in Linux</title><link href="https://outdated.legendu.net/blog/use-autojump-to-help-quick-navigation-in-terminal-in-linux/" rel="alternate"></link><published>2018-10-29T08:28:14-07:00</published><updated>2021-09-26T11:05:01-07:00</updated><author><name>Ben Chuanlong Du</name></author><id>tag:outdated.legendu.net,2018-10-29:/blog/use-autojump-to-help-quick-navigation-in-terminal-in-linux/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+**&lt;/p&gt;
+&lt;p&gt;I personally is not …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+**&lt;/p&gt;
+&lt;p&gt;I personally is not a big fun of 
+&lt;a href="https://github.com/wting/autojump"&gt;autojump&lt;/a&gt; 
+and similar tools.
+I think it makes things more complicated.&lt;/p&gt;
+&lt;h2 id="installation"&gt;Installation&lt;/h2&gt;
+&lt;p&gt;Use the following command to install autojump on Ubuntu.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;wajig&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;autojump
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Place the following code in your &lt;code&gt;.bashrc&lt;/code&gt; file and you are good to go.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;/usr/share/autojump/autojump.bash&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;.&lt;span class="w"&gt; &lt;/span&gt;/usr/share/autojump/autojump.bash
+&lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/wting/autojump"&gt;autojump&lt;/a&gt; &lt;/li&gt;
+&lt;/ul&gt;</content><category term="OS"></category><category term="Linux"></category><category term="autojump"></category><category term="cd"></category><category term="terminal"></category><category term="shell"></category><category term="navigation"></category></entry><entry><title>Install and Configure Iterm2 on Mac</title><link href="https://outdated.legendu.net/blog/install-and-configure-iterm2-on-mac/" rel="alternate"></link><published>2016-06-05T07:51:37-07:00</published><updated>2021-09-25T13:58:06-07:00</updated><author><name>Ben Chuanlong Du</name></author><id>tag:outdated.legendu.net,2016-06-05:/blog/install-and-configure-iterm2-on-mac/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+**&lt;/p&gt;
+&lt;p&gt;Hyper.js is a …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+**&lt;/p&gt;
+&lt;p&gt;Hyper.js is a much better cross-platform alternative!
+It is suggests that you use Hyper instead.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="http://iterm2.com/downloads.html"&gt;Download&lt;/a&gt; 
+    the latest stable version of &lt;a href="http://iterm2.com"&gt;iTerm2&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install iTerm2.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download &lt;a href="http://iterm2colorschemes.com/"&gt;iTerm2 Color Schemes&lt;/a&gt;.
+    You can also download it from &lt;a href="https://github.com/mbadolato/iTerm2-Color-Schemes"&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Select the schemes you like. &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</content><category term="OS"></category><category term="macOS"></category><category term="Apple"></category><category term="iTerm2"></category><category term="color schemes"></category></entry><entry><title>Alternative to the rm Command in Linux</title><link href="https://outdated.legendu.net/blog/alternative-to-the-rm-command-in-linux/" rel="alternate"></link><published>2019-05-02T02:41:04-07:00</published><updated>2021-08-22T00:12:26-07:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2019-05-02:/blog/alternative-to-the-rm-command-in-linux/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things on this page are fragmentary and immature notes/thoughts of the author.
+Please read with your own judgement!
+**&lt;/p&gt;
+&lt;p&gt;As is know to all,
+it can be …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things on this page are fragmentary and immature notes/thoughts of the author.
+Please read with your own judgement!
+**&lt;/p&gt;
+&lt;p&gt;As is know to all,
+it can be dangerous to use the &lt;code&gt;rm&lt;/code&gt; command directly in Linux/Unix. 
+A simple idea is to define other commands/alias/script to replace it.
+For example, 
+I have a shell script named &lt;code&gt;trash&lt;/code&gt; which moves files (as input arguments) to the system's Trash directory.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;trash files_to_remove
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Another even simplier way is to directly move files to the directory &lt;code&gt;/tmp&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;mv files_to_remove /tmp
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="OS"></category><category term="Linux"></category><category term="Shell"></category><category term="rm"></category><category term="Trash"></category><category term="mv"></category></entry><entry><title>Batch File Renaming Using "rename"</title><link href="https://outdated.legendu.net/blog/rename-tips/" rel="alternate"></link><published>2016-05-12T11:04:38-07:00</published><updated>2020-07-12T11:04:38-07:00</updated><author><name>Ben Chuanlong Du</name></author><id>tag:outdated.legendu.net,2016-05-12:/blog/rename-tips/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+**&lt;/p&gt;
+&lt;p&gt;It is suggested that …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+**&lt;/p&gt;
+&lt;p&gt;It is suggested that you use Python script to rename files in batch.&lt;/p&gt;
+&lt;p&gt;Change names of &lt;code&gt;.txt&lt;/code&gt; files to lowercase.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;rename&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;y/A-Z/a-z/&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;*.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Get rid of &lt;code&gt;(1)&lt;/code&gt; in file names.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;rename&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;s/\(1\)//&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;*&lt;span class="w"&gt; &lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="OS"></category><category term="Linux"></category><category term="rename"></category><category term="shell"></category><category term="tip"></category></entry><entry><title>Lightdm Tips</title><link href="https://outdated.legendu.net/blog/lightdm-tips/" rel="alternate"></link><published>2013-12-22T12:32:08-08:00</published><updated>2020-05-22T12:32:08-07:00</updated><author><name>Ben Chuanlong Du</name></author><id>tag:outdated.legendu.net,2013-12-22:/blog/lightdm-tips/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;it seems that you can choose to enable VNC 
+    while starting lightdm. 
+    Does this solves the problem of auto-login?
+    If you are allowed to login into the …&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;it seems that you can choose to enable VNC 
+    while starting lightdm. 
+    Does this solves the problem of auto-login?
+    If you are allowed to login into the computer via VNC without login physically,
+    everything becomes great!
+    If that's the case, what about NX server?&lt;/li&gt;
+&lt;/ol&gt;</content><category term="OS"></category><category term="OS"></category><category term="Linux"></category><category term="desktop environment"></category><category term="desktop management"></category><category term="lightdm"></category></entry><entry><title>IBM AIX Tips</title><link href="https://outdated.legendu.net/blog/ibm-aix-tips/" rel="alternate"></link><published>2015-05-06T23:55:20-07:00</published><updated>2015-05-06T23:55:20-07:00</updated><author><name>Ben Chuanlong Du</name></author><id>tag:outdated.legendu.net,2015-05-06:/blog/ibm-aix-tips/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+**&lt;/p&gt;
+&lt;p&gt;Display the total disk …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+**&lt;/p&gt;
+&lt;p&gt;Display the total disk usage of the current directory.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;du&lt;span class="w"&gt; &lt;/span&gt;-lsm&lt;span class="w"&gt; &lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Display the disk usage of sas data set files.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;du&lt;span class="w"&gt; &lt;/span&gt;-lsm&lt;span class="w"&gt; &lt;/span&gt;*.sas7bdat
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Calculate the md5sum of a file.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;csum&lt;span class="w"&gt; &lt;/span&gt;-h&lt;span class="w"&gt; &lt;/span&gt;MD5&lt;span class="w"&gt; &lt;/span&gt;fileName
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="OS"></category><category term="Unix"></category><category term="IBM"></category><category term="AIX"></category><category term="tips"></category></entry><entry><title>Download Debian Using Jigdo</title><link href="https://outdated.legendu.net/blog/download-debian-using-jigdo/" rel="alternate"></link><published>2012-09-03T19:59:19-07:00</published><updated>2015-02-03T19:59:19-08:00</updated><author><name>Ben Chuanlong Du</name></author><id>tag:outdated.legendu.net,2012-09-03:/blog/download-debian-using-jigdo/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://dclong.github.io/media/linux/debian.png" height="200" width="240" align="right"/&gt;&lt;/p&gt;
+&lt;p&gt;You can save a lot of time using Jigdo to download Debian image 
+especially when you have an old version of the image. &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Mount the the old …&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://dclong.github.io/media/linux/debian.png" height="200" width="240" align="right"/&gt;&lt;/p&gt;
+&lt;p&gt;You can save a lot of time using Jigdo to download Debian image 
+especially when you have an old version of the image. &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Mount the the old version of the image to a folder that you 
+have access to, e.g.,&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo mount debian-testing.iso /mnt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Go to &lt;a href="http://cdimage.debian.org/cdimage/weekly-builds/amd64/jigdo-dvd/"&gt;Weekly Builds of Debian Testing Image&lt;/a&gt; to copy the link
+address of the jigdo file that you want to use. 
+The first one is usually what you need. &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the following command in terminal. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;jigdo-lite link_to_jigdo_file
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You will be asked about old vesions of images that you want to use
+to accelerate downloading.
+You can type in the path where you mounted the image. 
+This process will be repeated until you don't have any more old version 
+of CD/DVD images to use. Just press enter to continue and files not 
+found in the old versions of images will be fetched throught internet. &lt;/p&gt;</content><category term="OS"></category><category term="jigdo-lite"></category><category term="wget"></category><category term="debian image"></category><category term="jigdo"></category><category term="Linux"></category></entry></feed>
