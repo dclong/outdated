@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+        disabled="disabled"
+    href="https://outdated.legendu.net/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+            disabled="disabled"
+          href="https://outdated.legendu.net/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="https://outdated.legendu.net/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet"
+        type="text/css"
+        href="https://outdated.legendu.net/theme/stork/stork.css" />
+
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/solid.css">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="Ben Chuanlong Du" />
+<meta name="description" content="Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. Function path can be used to either display or modify the search path of MATLAB. Its functionality in MATLAB is similar to the functionality of environment variable …" />
+<meta name="keywords" content="filesystem, programming, MATLAB, file system">
+
+
+  <meta property="og:site_name" content="Ben Chuanlong Du's Blog"/>
+  <meta property="og:title" content="Filesystem in MATLAB"/>
+  <meta property="og:description" content="Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. Function path can be used to either display or modify the search path of MATLAB. Its functionality in MATLAB is similar to the functionality of environment variable …"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="https://outdated.legendu.net/blog/filesystem-in-matlab/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2012-12-14 22:02:00-08:00"/>
+  <meta property="article:modified_time" content="2015-05-14 22:02:00-07:00"/>
+  <meta property="article:author" content="https://outdated.legendu.net/author/ben-chuanlong-du.html">
+  <meta property="article:section" content="Computer Science"/>
+  <meta property="article:tag" content="filesystem"/>
+  <meta property="article:tag" content="programming"/>
+  <meta property="article:tag" content="MATLAB"/>
+  <meta property="article:tag" content="file system"/>
+  <meta property="og:image" content="">
+
+  <title>Ben Chuanlong Du's Blog &ndash; Filesystem in MATLAB</title>
+
+
+</head>
+<body class="light-theme">
+
+<aside>
+  <div>
+    <a href="https://outdated.legendu.net/">
+      <img src="https://outdated.legendu.net/theme/img/profile.png" alt="" title="">
+    </a>
+
+    <h1>
+      <a href="https://outdated.legendu.net/"></a>
+    </h1>
+
+    <p>Change is eternal.</p>
+
+    <div class="stork">
+      <input class="stork-input" type="text" autocomplete="off" name="q" data-stork="sitesearch" placeholder="Search..."/>
+      <div class="stork-output" data-stork="sitesearch-output"></div>
+    </div>
+
+
+    <ul class="social">
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/ben-chuanlong-du-1239b221/"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-github"
+           href="https://github.com/legendu-net/"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-stack-overflow"
+           href="https://stackoverflow.com/users/7808204/benjamin-du?tab=profile"
+           target="_blank">
+          <i class="fa-brands fa-stack-overflow"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-docker"
+           href="https://hub.docker.com/u/dclong"
+           target="_blank">
+          <i class="fa-brands fa-docker"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-twitter"
+           href="https://twitter.com/longendu"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://www.legendu.net">Home</a>
+  <a href="https://outdated.legendu.net">Blog</a>
+  <a href="https://outdated.legendu.net/archives.html">Archives</a>
+  <a href="https://outdated.legendu.net/categories.html">Categories</a>
+  <a href="https://outdated.legendu.net/tags.html">Tags</a>
+  <a href="https://www.legendu.net/pages/about">About</a>
+
+
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="filesystem-in-matlab">Filesystem in MATLAB</h1>
+    <p>
+      Posted on Dec 14, 2012 in <a href="https://outdated.legendu.net/category/computer-science.html">Computer Science</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p><strong>Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.</strong></p>
+<ol>
+<li>
+<p>Function <code>path</code> can be used to either display or modify the search path of MATLAB. 
+Its functionality in MATLAB is similar to the functionality of environment variable <code>PATH</code> 
+for DOS shell in Windows systems, 
+and the use of them is also similar. 
+<code>addpath</code> can be used to add new folders to the search path. 
+It is a more friendly and convenient way to modify the search path than <code>path</code>. 
+To add a folder and all its subfolders to the search path, 
+you can use <code>addpath</code> together with <code>genpath</code> 
+which can generate path strings for a folder and all its subfolders. 
+To remove an existing path from the search path, 
+you can use <code>rmpath</code>.</p>
+</li>
+<li>
+<p>Function <code>what</code> can list the path for the current folder, 
+and also files and folders relevant to MATLAB.</p>
+</li>
+<li>
+<p>Function <code>dlmread</code> is helpful to read delimited files (e.g. Excel files), 
+and <code>dlmwrite</code> is helpful to write delimited files. 
+However,
+be careful with <code>dlmwrite</code> when you want to write high accuracy data into a file, 
+because by default <code>dlmwrite</code> keeps only a few digits.</p>
+</li>
+<li>
+<p>To read data from or write data into a file, 
+you must first use function <code>fopen</code> to open it to get a file pointer, 
+and then you can use all different kinds of ways to read from 
+(e.g. <code>fread</code>, <code>dlmread</code>, <code>fscanf</code> and <code>textread</code>) 
+or write into a file (e.g.  <code>fwrite</code>, <code>dlmwrite</code>, <code>fprintf</code>). 
+If you want to access a file randomly, 
+you can use <code>fseek</code> to move the file point to a specific position. 
+Never forget to close the file pointer using function <code>fclose</code> after you have done reading or writing. 
+Usually it is much faster to read from or write into a binary file 
+than to read from or write into a text file, 
+and typically a binary file is smaller than a text file that contains the same data.</p>
+</li>
+<li>
+<p>There are serveral ways to test the speed of code in MATLAB. 
+The first way is to use the <code>Profile</code> button under <code>Desktop</code> menu. 
+It is also the recommended way if you work in MATLAB IDE
+as it tells you which part of your code is the bottle neck of performance.
+The second way is to surround the code that you want to test with <code>tic</code> and <code>toc</code>.
+For example, <code>tic; f(); toc</code> measures the time of running the code <code>f();</code>. 
+The third way is to record the time manually using the function <code>now</code> 
+and then use the function <code>etime</code> to calculate the elapsed time. 
+The last ways is similar to the third way, 
+but you record the cpu time using function <code>cputime</code> instead of the system time.</p>
+</li>
+<li>
+<p><code>pwd</code> can print out the current work directory of MATLAB, 
+which is similar to the <code>pwd</code> command in Linux shell.
+Though it is mutable, 
+you'd better not change it. 
+Because even if you change it, 
+the current working directory will not change. 
+To change the current working directory to a new one, 
+you can use function <code>cd</code>. 
+Whenever the working directory is changed, 
+<code>pwd</code> be change to the current working directory. 
+Note that the current working directory is always in the search path of MATLAB.</p>
+</li>
+<li>
+<p>You can use <code>save</code> to save MATLAB workspace 
+or selected variables into a file 
+and <code>load</code> to load data from a MAT file to MATLAB workspace. 
+To display variables in the workspace, 
+you can use <code>whos</code>; 
+to remove some variables from the workspace, 
+you can use <code>clear</code>.</p>
+</li>
+<li>
+<p>To display files and sub-folders of a folder, 
+you can use <code>ls</code> or <code>dir</code>, 
+which is same to Linux terminal command.</p>
+</li>
+<li>
+<p>You can use <code>exit</code> or <code>quit</code> to terminate current session of MATLAB,
+but you'd better save the MATLAB workspace first if necessary. 
+If you want MATLAB to do some tasks before quitting, 
+you can put put the corresponding code into file <code>finish.m</code> 
+and place the file into the search path of MATLAB or into the current folder.</p>
+</li>
+<li>
+<p>To remove files or graphics objects, 
+you can use <code>delete</code>.</p>
+</li>
+<li>
+<p><code>fileattrib</code> can get and set attributes of files and folders in MATLAB.</p>
+</li>
+</ol>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://outdated.legendu.net/tag/filesystem.html">filesystem</a>
+      <a href="https://outdated.legendu.net/tag/programming.html">programming</a>
+      <a href="https://outdated.legendu.net/tag/matlab.html">MATLAB</a>
+      <a href="https://outdated.legendu.net/tag/file-system.html">file system</a>
+    </p>
+  </div>
+
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'dclong';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+<footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+  <span class="footer-separator">|</span>
+  Switch to the <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> theme
+  <script id="dark-theme-script"
+          src="https://outdated.legendu.net/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="False"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Ben Chuanlong Du's Blog ",
+  "url" : "https://outdated.legendu.net",
+  "image": "",
+  "description": ""
+}
+</script><a href="https://github.com/dclong/outdated" target="_blank" class="github-corner" aria-label="View source on Github">
+    <svg width="80"
+         height="80"
+         viewBox="0 0 250 250"
+         style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;"
+         aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor"
+              style="transform-origin: 130px 106px;"
+              class="octo-arm">
+        </path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor"
+              class="octo-body">
+        </path>
+    </svg>
+</a>
+  <script src="https://outdated.legendu.net/theme/stork/stork.js"></script>
+  <script>
+    stork.register("sitesearch", "https://outdated.legendu.net/search-index.st", {showProgress: false});
+  </script>
+
+</body>
+</html>

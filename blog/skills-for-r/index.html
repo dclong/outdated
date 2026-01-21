@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+        disabled="disabled"
+    href="https://outdated.legendu.net/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+            disabled="disabled"
+          href="https://outdated.legendu.net/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="https://outdated.legendu.net/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet"
+        type="text/css"
+        href="https://outdated.legendu.net/theme/stork/stork.css" />
+
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://outdated.legendu.net/theme/font-awesome/css/solid.css">
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="Ben Chuanlong Du" />
+<meta name="description" content="Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. Unlike C/C++, Java and SAS, you do not have semicolon to indicate the end of a command, but you can do this if you like. It …" />
+<meta name="keywords" content="R, skills, programming, CRAN">
+
+
+  <meta property="og:site_name" content="Ben Chuanlong Du's Blog"/>
+  <meta property="og:title" content="Skills for R"/>
+  <meta property="og:description" content="Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives. Unlike C/C++, Java and SAS, you do not have semicolon to indicate the end of a command, but you can do this if you like. It …"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="https://outdated.legendu.net/blog/skills-for-r/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2012-11-14 21:59:32-08:00"/>
+  <meta property="article:modified_time" content="2015-05-14 21:59:32-07:00"/>
+  <meta property="article:author" content="https://outdated.legendu.net/author/ben-chuanlong-du.html">
+  <meta property="article:section" content="Programming"/>
+  <meta property="article:tag" content="R"/>
+  <meta property="article:tag" content="skills"/>
+  <meta property="article:tag" content="programming"/>
+  <meta property="article:tag" content="CRAN"/>
+  <meta property="og:image" content="">
+
+  <title>Ben Chuanlong Du's Blog &ndash; Skills for R</title>
+
+
+</head>
+<body class="light-theme">
+
+<aside>
+  <div>
+    <a href="https://outdated.legendu.net/">
+      <img src="https://outdated.legendu.net/theme/img/profile.png" alt="" title="">
+    </a>
+
+    <h1>
+      <a href="https://outdated.legendu.net/"></a>
+    </h1>
+
+    <p>Change is eternal.</p>
+
+    <div class="stork">
+      <input class="stork-input" type="text" autocomplete="off" name="q" data-stork="sitesearch" placeholder="Search..."/>
+      <div class="stork-output" data-stork="sitesearch-output"></div>
+    </div>
+
+
+    <ul class="social">
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/ben-chuanlong-du-1239b221/"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-github"
+           href="https://github.com/legendu-net/"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-stack-overflow"
+           href="https://stackoverflow.com/users/7808204/benjamin-du?tab=profile"
+           target="_blank">
+          <i class="fa-brands fa-stack-overflow"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-docker"
+           href="https://hub.docker.com/u/dclong"
+           target="_blank">
+          <i class="fa-brands fa-docker"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-twitter"
+           href="https://twitter.com/longendu"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="https://www.legendu.net">Home</a>
+  <a href="https://outdated.legendu.net">Blog</a>
+  <a href="https://outdated.legendu.net/archives.html">Archives</a>
+  <a href="https://outdated.legendu.net/categories.html">Categories</a>
+  <a href="https://outdated.legendu.net/tags.html">Tags</a>
+  <a href="https://www.legendu.net/pages/about">About</a>
+
+
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="skills-for-r">Skills for R</h1>
+    <p>
+      Posted on Nov 14, 2012 in <a href="https://outdated.legendu.net/category/programming.html">Programming</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p><strong>Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.</strong></p>
+<ol>
+<li>
+<p>Unlike C/C++, Java and SAS, 
+you do not have semicolon to indicate the end of a command, 
+but you can do this if you like. 
+It is helpful if you have to write multiple commands on a line.</p>
+</li>
+<li>
+<p>R support command/terminal mode, 
+and if you open R in a command/terminal window, 
+the working directory of R will be the working directory of the command/terminal window. 
+For some GUI for R, 
+you can only use a single application, 
+e.g. you cannot open two Rstudio at the same time. 
+But sometimes, 
+you might want to open more than one R applications in different directories. 
+To do this, 
+you can use the command/terminal mode.</p>
+</li>
+<li>
+<p>When you do not know how use a function, 
+you can always type a question mark 
+before the function name to open the help document of the function. 
+For example, 
+if you do not know how to use <code>sum</code>, 
+you can type in <code>?sum</code> in R console to open the help document for <code>sum</code>.
+Sometimes, 
+you might just want see what arguments a function have,
+instead of opening the help document. 
+In this case, 
+you can use <code>args</code> which display the declaration of a function. 
+It is quite often that you want to use a function in R, 
+but you cannot remember the name of the function. 
+If you still know part of the function name, 
+you can type in <code>??partial_name</code> in R console, 
+then R will try to match it with all possible functions using regular expression.</p>
+</li>
+<li>
+<p>Sometimes, 
+you might want to hide an object 
+(i.e. do not display the object when using the command <code>ls()</code>) in the R workspace, 
+for example if you write a package
+which relies on some global variables or some functions that should never by renamed. 
+To do this, 
+you can give a name to the object starting with a dot. 
+For example there are some functions such as <code>.jinit</code>, <code>.jcall</code> and so on in R <code>rJava</code>, 
+but you cannot see them by use <code>ls()</code>. 
+If you do want to display all objects including these that start with a dot in R workspace, 
+you can use <code>ls(all.names=TRUE)</code>.</p>
+</li>
+<li>
+<p>By default, 
+numerical variables in R are double values 
+even you even they do not have decimal digits. 
+To use data type of integer, 
+you can put an <code>L</code> after integers. 
+For example to assign a integer 5 to a variable <code>aInt</code>, 
+you can use <code>aInt = 5L</code>.</p>
+</li>
+<li>
+<p><code>comment</code> can be use to set or query <code>comment</code> of an object in R.</p>
+</li>
+<li>
+<p><code>with</code> allows you evaluate an expression 
+inside a data environment (usually a data frame), 
+so you do not have to attach the data into R workspace 
+(Attaching data into R workspace might mark other variables with the same names, 
+so it is encouraged to do so.). 
+within transform </p>
+</li>
+<li>
+<p><code>class</code> gets/sets the class of a R object.</p>
+</li>
+<li>
+<p><code>attributes</code> and <code>attr</code> can get and set attributes of objects, 
+e.g.  it can list names of objects. 
+The difference between them is that <code>attributes</code> can set the attributes of a null object.</p>
+</li>
+<li>
+<p><code>str</code> shows the structure of an arbitrary R object. 
+For example, 
+if you have a large data frame <code>df</code> you can use <code>str(df)</code> to show its structure, 
+so that you know what columes (type of data and names) it has.</p>
+</li>
+<li>
+<p>The <code>ESC</code> hot key halts current unfinished command, 
+which is helpful when you make typo in a command 
+(especially when you miss a single/double quotation mark).</p>
+</li>
+<li>
+<p><code>Rprof</code> enables profiling an R is execution, 
+which helps you write efficient R code.</p>
+</li>
+<li>
+<p>If you want to run some code 
+without writing any intermediate result into the workspace, 
+you can put the code into <code>local</code> surrounded by curly braces. 
+However, 
+you must use <code>-\&gt;</code> or <code>&lt;-</code> instead of <code>=</code> in the code. 
+Note that you can use semicolon to separate different commands.</p>
+</li>
+<li>
+<p><code>exists</code> checks whether a R object with a given name has been defined. 
+For example,</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nf">exists</span><span class="p">(</span><span class="s">&quot;aNon_Exist_Object&quot;</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="kc">FALSE</span>
+</code></pre></div>
+
+<p><code>missing</code> checks whether an argument of a function has been passed a value or not. 
+It can only be used inside a function to help check availability of arguments.</p>
+<ol>
+<li>
+<p>You can use <code>shell("shutdown/s")</code> (in Windows) 
+to shutdown the computer after R has finished computing.</p>
+</li>
+<li>
+<p>When write a user-defined function, 
+you'd better return a comprehensive result 
+which contains not only the final outcomes 
+but also other information such as parameters used in the computation.
+This gives you the ability to work on a project in the long term,
+especially when the names of variables do not give you much information 
+about parameters used in computation 
+(typical they do not because otherwise they will be long).</p>
+</li>
+</ol>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://outdated.legendu.net/tag/r.html">R</a>
+      <a href="https://outdated.legendu.net/tag/skills.html">skills</a>
+      <a href="https://outdated.legendu.net/tag/programming.html">programming</a>
+      <a href="https://outdated.legendu.net/tag/cran.html">CRAN</a>
+    </p>
+  </div>
+
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'dclong';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+<footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+  <span class="footer-separator">|</span>
+  Switch to the <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> theme
+  <script id="dark-theme-script"
+          src="https://outdated.legendu.net/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="False"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Ben Chuanlong Du's Blog ",
+  "url" : "https://outdated.legendu.net",
+  "image": "",
+  "description": ""
+}
+</script><a href="https://github.com/dclong/outdated" target="_blank" class="github-corner" aria-label="View source on Github">
+    <svg width="80"
+         height="80"
+         viewBox="0 0 250 250"
+         style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;"
+         aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor"
+              style="transform-origin: 130px 106px;"
+              class="octo-arm">
+        </path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor"
+              class="octo-body">
+        </path>
+    </svg>
+</a>
+  <script src="https://outdated.legendu.net/theme/stork/stork.js"></script>
+  <script>
+    stork.register("sitesearch", "https://outdated.legendu.net/search-index.st", {showProgress: false});
+  </script>
+
+</body>
+</html>

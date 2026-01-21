@@ -1,0 +1,1642 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ben Chuanlong Du's Blog - Benjamin Du</title><link href="https://outdated.legendu.net/" rel="alternate"></link><link href="https://outdated.legendu.net/feeds/benjamin-du.atom.xml" rel="self"></link><id>https://outdated.legendu.net/</id><updated>2025-11-27T11:34:36-08:00</updated><subtitle>Change is eternal.</subtitle><entry><title>Tips on Bash Completion</title><link href="https://outdated.legendu.net/blog/tips-on-bash-completion/" rel="alternate"></link><published>2025-05-06T14:27:02-07:00</published><updated>2025-11-27T11:34:36-08:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2025-05-06:/blog/tips-on-bash-completion/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/tips-on-the-fish-shell"&gt;Fish Shell&lt;/a&gt; 
+is preferred to Bash/Zsh.
+The following content is for Bash/Zsh only.&lt;/p&gt;
+&lt;p&gt;It is suggested that you use the fish shell 
+instead of the …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/tips-on-the-fish-shell"&gt;Fish Shell&lt;/a&gt; 
+is preferred to Bash/Zsh.
+The following content is for Bash/Zsh only.&lt;/p&gt;
+&lt;p&gt;It is suggested that you use the fish shell 
+instead of the bash shell
+(for iteractive use cases)
+.&lt;/p&gt;
+&lt;h2 id="installation"&gt;Installation&lt;/h2&gt;
+&lt;h3 id="ubuntu-debian"&gt;Ubuntu / Debian&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;wajig install bash-completion
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id="macos"&gt;macOS&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;brew install bash-completion
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;If you don't like or cannot install bash-completion,
+&lt;a href="https://github.com/Bash-it/bash-it"&gt;bash-it&lt;/a&gt;
+provies completion scripts for many popular tools.&lt;/p&gt;
+&lt;h2 id="develop-bash-completion"&gt;Develop Bash Completion&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://devmanual.gentoo.org/tasks-reference/completion/index.html"&gt;Completion files&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://www.gnu.org/software/bash/manual/html_node/A-Programmable-Completion-Example.html"&gt;A Programmable Completion Example&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="auto-generate-bash-completion-scripts"&gt;Auto Generate Bash Completion Scripts&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;The cobra library in GoLang supports auto genrating shell (bash, fish, zsh and PowerShell) completion scripts.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The Python library
+  &lt;a href="https://github.com/kislyuk/argcomplete"&gt;argcomplete&lt;/a&gt;
+  provides easy, extensible command line tab completion of arguments for your Python application.
+  It makes two assumptions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You're using bash or zsh as your shell.&lt;/li&gt;
+&lt;li&gt;You're using argparse to manage your command line arguments/options.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The Ruby library (and also command-line tool)
+  &lt;a href="https://github.com/DannyBen/completely"&gt;completely&lt;/a&gt;
+  lets you generate bash completion scripts from simple YAML configuration.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</content><category term="Computer Science"></category><category term="Computer Science"></category><category term="programming"></category><category term="shell"></category><category term="bash"></category><category term="completion"></category><category term="complete"></category></entry><entry><title>Powershell on Windows for GitHub Actions</title><link href="https://outdated.legendu.net/blog/powershell-on-windows-for-github-actions/" rel="alternate"></link><published>2025-11-23T11:06:12-08:00</published><updated>2025-11-23T11:06:12-08:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2025-11-23:/blog/powershell-on-windows-for-github-actions/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id="powershell-on-windows"&gt;PowerShell on Windows&lt;/h2&gt;
+&lt;h3 id="set-path"&gt;Set PATH&lt;/h3&gt;
+&lt;p&gt;echo "::add-path::./swigwin-4.0.1"&lt;/p&gt;
+&lt;p&gt;echo %programfiles%
+echo ::set-env name=ProgramFilesPath::%programfiles%&lt;/p&gt;
+&lt;p&gt;https://stackoverflow.com/questions/60169752/how-to-update-the-path-in-a-github-action-workflow-file-for-a-windows-latest-hos&lt;/p&gt;
+&lt;p&gt;https://docs.github.com …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id="powershell-on-windows"&gt;PowerShell on Windows&lt;/h2&gt;
+&lt;h3 id="set-path"&gt;Set PATH&lt;/h3&gt;
+&lt;p&gt;echo "::add-path::./swigwin-4.0.1"&lt;/p&gt;
+&lt;p&gt;echo %programfiles%
+echo ::set-env name=ProgramFilesPath::%programfiles%&lt;/p&gt;
+&lt;p&gt;https://stackoverflow.com/questions/60169752/how-to-update-the-path-in-a-github-action-workflow-file-for-a-windows-latest-hos&lt;/p&gt;
+&lt;p&gt;https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#adding-a-system-path&lt;/p&gt;
+&lt;p&gt;Prepends a directory to the system PATH variable for all subsequent actions in the current job. The currently running action cannot access the new path variable.&lt;/p&gt;</content><category term="Computer Science"></category><category term="Computer Science"></category><category term="programming"></category><category term="GitHub Actions"></category><category term="CICD"></category><category term="development"></category><category term="Windows"></category><category term="PowerShell"></category></entry><entry><title>Fix Shell Commands Using fc</title><link href="https://outdated.legendu.net/blog/fix-shell-command-using-fc/" rel="alternate"></link><published>2025-07-06T11:08:48-07:00</published><updated>2025-07-06T16:17:25-07:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2025-07-06:/blog/fix-shell-command-using-fc/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/tips-on-the-fish-shell"&gt;Fish Shell&lt;/a&gt; 
+is preferred to Bash/Zsh.
+The following content is for Bash/Zsh only.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/legendu-net/icon/blob/dev/utils/data/bash-it/plugins/custom.plugins.bash#L149"&gt;fzf.history&lt;/a&gt;
+is a better alternative to &lt;code&gt;fc&lt;/code&gt;'s core functionality (edit …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/tips-on-the-fish-shell"&gt;Fish Shell&lt;/a&gt; 
+is preferred to Bash/Zsh.
+The following content is for Bash/Zsh only.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/legendu-net/icon/blob/dev/utils/data/bash-it/plugins/custom.plugins.bash#L149"&gt;fzf.history&lt;/a&gt;
+is a better alternative to &lt;code&gt;fc&lt;/code&gt;'s core functionality (edit and re-execute command).&lt;/p&gt;
+&lt;h2 id="tips-traps"&gt;Tips &amp;amp; Traps&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;In Linux shells like Bash and Zsh, 
+    &lt;code&gt;fc&lt;/code&gt; is a built-in command that stands for "Fix Command".
+    Its primary purpose is to let you edit and re-execute commands 
+    from your history using &lt;code&gt;$EDITOR&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;fc -l 1&lt;/code&gt; might throw the error &lt;code&gt;-bash: fc: history specification out of range&lt;/code&gt; in bash
+    (some people say that this won't be an issue in zsh as zsh is smart enough to handle specification out of range but I haven't verified it yet)
+    if the (absolute) first bash history command has been pruned (due to large number of history commands).
+    &lt;code&gt;HISTTIMEFORMAT="" history | sed -E 's/^[ ]*[0-9]+[ ]*//'&lt;/code&gt; is a more robust command for the same purpose.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Command&lt;/th&gt;
+            &lt;th&gt;Action&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;code&gt;fc&lt;/code&gt;&lt;/td&gt;
+            &lt;td&gt;Edit the last shell command using &lt;code&gt;$EDITOR&lt;/code&gt; and send it for execution.
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;code&gt;fc 123&lt;/code&gt;&lt;/td&gt;
+            &lt;td&gt;Edit and execute command number 123 from history.&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;code&gt;fc git&lt;/code&gt;&lt;/td&gt;
+            &lt;td&gt;Edit and execute the last command starting with "git".&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;code&gt;fc -l&lt;/code&gt;&lt;/td&gt;
+            &lt;td&gt;
+                List all history commands.
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;code&gt;fc -ln&lt;/code&gt;&lt;/td&gt;
+            &lt;td&gt;
+                List all history commands without numbers.
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;code&gt;fc -ln 100 110&lt;/code&gt;&lt;/td&gt;
+            &lt;td&gt;
+                List commands from 100 to 110 without numbers.
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;code&gt;fc -ln -5&lt;/code&gt;&lt;/td&gt;
+            &lt;td&gt;
+                List the last 5 historical commands without numbers.
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;code&gt;fc -s&lt;/code&gt;&lt;/td&gt;
+            &lt;td&gt;Re-execute the last command without editing.&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;code&gt;fc -s old=new&lt;/code&gt;&lt;/td&gt;
+            &lt;td&gt;Re-execute the last command, replacing &lt;code&gt;old&lt;/code&gt; with &lt;code&gt;new&lt;/code&gt;.&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;code&gt;fc -s old=new git&lt;/code&gt;&lt;/td&gt;
+            &lt;td&gt;Re-execute the last &lt;code&gt;git&lt;/code&gt; command, replacing &lt;code&gt;old&lt;/code&gt; with &lt;code&gt;new&lt;/code&gt;.&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</content><category term="Computer Science"></category><category term="Computer Science"></category><category term="programming"></category><category term="shell"></category><category term="command"></category><category term="bash"></category><category term="zsh"></category><category term="fc"></category></entry><entry><title>Editing Shell Commands Using Vim</title><link href="https://outdated.legendu.net/blog/editing-shell-commands-using-vim/" rel="alternate"></link><published>2024-07-22T13:39:40-07:00</published><updated>2025-06-09T02:49:30-07:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2024-07-22:/blog/editing-shell-commands-using-vim/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/tips-on-the-fish-shell"&gt;Fish Shell&lt;/a&gt; 
+is preferred to Bash/Zsh.
+The following content is for Bash/Zsh only.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;A bash prompt can be editted in both Vi mode and Emacs …&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/tips-on-the-fish-shell"&gt;Fish Shell&lt;/a&gt; 
+is preferred to Bash/Zsh.
+The following content is for Bash/Zsh only.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;A bash prompt can be editted in both Vi mode and Emacs mode.
+    The default is Emacs mode.
+    You can turn on the Vi mode by &lt;code&gt;set -o vi&lt;/code&gt; in &lt;code&gt;.bashrc&lt;/code&gt;.
+    This will make all bash prompts be edited in a limited single-line Vi mode.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;code&gt;fc&lt;/code&gt; command edits the last shell command (using &lt;code&gt;$EDITOR&lt;/code&gt;) and then send it for execution.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The shortcut &lt;code&gt;ctrl+x&lt;/code&gt; &lt;code&gt;ctrl+e&lt;/code&gt;
+    edits the current shell prompt using &lt;code&gt;$VISUAL&lt;/code&gt; or &lt;code&gt;$EDITOR&lt;/code&gt;.
+    If you want to use neovim as the editor,
+    add the following configuration into your shell configuration.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;export&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;VISUAL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;nvim&lt;/span&gt;
+&lt;span class="k"&gt;export&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;EDITOR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;nvim&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This is the recommended way to edit shell prompts
+as it allows your the full power and flexibility of the Vim editor.
+For example,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You are not limited to single-line editing of a single command.&lt;ul&gt;
+&lt;li&gt;You can span a complicated command to multiple lines using &lt;code&gt;\&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;You can split a complicated command into multiple simpler commands on multiple lines.
+    On quiting Vim,
+    those commands will be run in sequential.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;If you find that you need information from historical commands
+    while editing a prompt,
+    you can bring historical commands in using the following command in Vim.&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;:r ! fc -ln -10
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Notice that the shortcut &lt;code&gt;ctrl+x&lt;/code&gt; &lt;code&gt;ctrl+e&lt;/code&gt;
+doesn't work out-of-the-box in the terminal in Visual Studio Code.
+For more discussions,
+please refer to
+&lt;a href="https://www.legendu.net/misc/blog/configuraing-terminal-in-visual-studio-code"&gt;Configuraing Terminal in Visual Studio Code&lt;/a&gt;&lt;br&gt;
+.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://github.com/legendu-net/icon/blob/dev/utils/data/bash-it/plugins/custom.plugins.bash#L124"&gt;fzf.history&lt;/a&gt;
+    allows you to search through shell command history,
+    select one, editing it in &lt;code&gt;$EDITOR&lt;/code&gt;,
+    and then send the edited command for execution.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://unix.stackexchange.com/questions/4859/visual-vs-editor-what-s-the-difference"&gt;VISUAL vs. EDITOR – what’s the difference?&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://apple.stackexchange.com/questions/88515/how-do-i-edit-current-shell-command-in-vi"&gt;How do I edit current shell command in VI&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://www.baeldung.com/linux/bash-recall-previous-command"&gt;Recall the Previous Command or Its Arguments in Bash&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://www.reddit.com/r/linux/comments/13q4l4s/after_years_of_bash_i_actually_found_a_shortcut_i/"&gt;After years of bash, I actually found a shortcut I never heard about.&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://www.reddit.com/r/vim/comments/9atgsj/edit_any_command_line_in_vim/"&gt;Edit any command line in vim&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Computer Science"></category><category term="Computer Science"></category><category term="programming"></category></entry><entry><title>Birth Certificate in WA</title><link href="https://outdated.legendu.net/blog/birth-certificate-in-wa/" rel="alternate"></link><published>2023-08-30T10:51:14-07:00</published><updated>2025-05-10T12:45:12-07:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2023-08-30:/blog/birth-certificate-in-wa/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id="order-a-birth-certificate"&gt;Order a Birth Certificate&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;It is suggested that you order by mail if it is not urgent.
+    Otherwise, 
+    it is suggested that you order online and use …&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id="order-a-birth-certificate"&gt;Order a Birth Certificate&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;It is suggested that you order by mail if it is not urgent.
+    Otherwise, 
+    it is suggested that you order online and use "UPS Next Day" delivery.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Order as soon as possible as some info on the birth certificate might be incorrect
+    and it takes time to change info on the birth certificate.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="changing-birth-certificate"&gt;Changing Birth Certificate&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;include a copy of DL with the original copy of birth certificate&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The fastest way is to contact the hospital birth registration team
+    to see whether they can help.
+    If the mistake is due to the hospital birth registration team,
+    they will file an amendment request to the Depart of Health of WA.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Expedite service: "Attention: Amendment Supervisor"
+    "Attention: Certificate Exchange Department"&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Send the original copy together with the "Affidavit for Correction" form 
+    to get a corrected copy of birth certificate.
+    You can also send the original copy later to get a corrected copy.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Passport is accepted if all information matches. 
+    Note: if the mother changed her last name after marriage,
+    information might not match.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Where can I get an example to follow to do such a correction?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To correct mother's place of birth:&lt;/p&gt;
+&lt;p&gt;Mother's Place of Birth: OLD_PLACE
+Mother's Place of Birth: new_place&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;no processing fee within 1 year of ordering birth certificate&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="exchange-birth-certificate"&gt;Exchange Birth Certificate&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;If incorrect information is due the hospital registration team's mistake,
+    the hospital will submit the correction on your behalf if you contact the hospital registration team.
+    If the hospital submits the correction, 
+    the turnaround time is 7-10 business days. 
+    You can contact the Department of Health to confirm whether the correction is done 
+    before sending your original birth certificate back for exhange.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Write "EXCHANGE" and your current address on the front of the original copy of birth certificate. 
+    If you have multiple incorrect copies, include all of those in the same envelope and they can all be exchanged. 
+    Address your envelope as follows. &lt;/p&gt;
+&lt;p&gt;Center for Health Statistics
+ATTN: Certificate Exchange
+PO BOX 47814
+Olympia, WA 98504&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A photo copy of your non-real photo id/drivers license will suffice for identification. &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Exchanging birth certificate typically takes 2 to 3 weeks. 
+    There's no way to expedite the process.
+    If you are under a time limit, 
+    you can order an additional copy and pay for expedited shipping at 
+    &lt;a href="https://www.vitalchek.com"&gt;www.vitalchek.com&lt;/a&gt;
+    .&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://doh.wa.gov/licenses-permits-and-certificates/vital-records/ordering-vital-record/birth-record"&gt;Ordering a Birth Record&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://doh.wa.gov/licenses-permits-and-certificates/vital-records/how-correct-record/changing-birth-certificates#:~:text=Contact%20the%20birth%20hospital%20or%20certified%20midwife.,-What%20I%20want&amp;amp;text=or%20facility%20name-,Requirements%20to%20make%20the%20change%20%E2%80%A2%20At%20least%20one%20parent,the%20Affidavit%20for%20Correction%20form.&amp;amp;text=Requestor%20must%20submit%20an%20affidavit,from%20the%20time%20of%20birth."&gt;Changing Birth Certificates&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://doh.wa.gov/licenses-permits-and-certificates/vital-records/how-correct-record#:~:text=How%20to%20correct%20a%20certificate%20with%20the,the%20documents%20to%20the%20Department%20of%20Health."&gt;How to Correct a Record&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Life"></category><category term="Life"></category><category term="WA"></category><category term="birth"></category><category term="certificate"></category><category term="health"></category><category term="statistics"></category><category term="vital"></category></entry><entry><title>Tips on Zoxide</title><link href="https://outdated.legendu.net/blog/tips-on-zoxide/" rel="alternate"></link><published>2025-05-08T23:48:59-07:00</published><updated>2025-05-08T23:48:59-07:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2025-05-08:/blog/tips-on-zoxide/</id><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;fzf + find + cd is a better solution than zoxide. &lt;/p&gt;
+&lt;p&gt;&lt;a href="https://crates.io/crates/zoxide"&gt;zoxide&lt;/a&gt;
+is a smarter cd command for your terminal.&lt;/p&gt;</content><category term="Computer Science"></category><category term="Computer Science"></category><category term="programming"></category><category term="shell"></category><category term="zoxide"></category></entry><entry><title>Manage Your Python Project Using Poetry</title><link href="https://outdated.legendu.net/blog/python-poetry-tips/" rel="alternate"></link><published>2019-03-02T11:17:44-08:00</published><updated>2025-04-30T14:48:52-07:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2019-03-02:/blog/python-poetry-tips/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/manage-python-projects-using-uv"&gt;uv&lt;/a&gt;
+(implemented in Rust)
+is the new cool kid now
+and is prefer to poetry.&lt;/p&gt;
+&lt;h2 id="tips-and-traps"&gt;Tips and Traps&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Python Poetry is current the best project management tool …&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/manage-python-projects-using-uv"&gt;uv&lt;/a&gt;
+(implemented in Rust)
+is the new cool kid now
+and is prefer to poetry.&lt;/p&gt;
+&lt;h2 id="tips-and-traps"&gt;Tips and Traps&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Python Poetry is current the best project management tool for Python!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Python Poetry supports Python package dependencies on GitHub.
+    For example,
+    if a Python package depends on https://github.com/dclong/dsutil,
+    then you can add it using the following.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;poetry&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;git+https://github.com/dclong/dsutil.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Or&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;poetry&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;git+ssh://git@github.com/dclong/dsutil.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;For more details,
+please refer to
+&lt;a href="https://python-poetry.org/docs/cli/#add."&gt;poetry add&lt;/a&gt;
+and
+&lt;a href="https://python-poetry.org/docs/dependency-specification/#git-dependencies"&gt;git dependencies&lt;/a&gt;
+.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;poetry install&lt;/code&gt; removes non needed libraries. 
+    A tricky situation is that if you have dependency A 
+    which depends on dependency B,
+    and you have specified both A and B in &lt;code&gt;pyproject.toml&lt;/code&gt;.
+    Removing dependency B from &lt;code&gt;pyrpoject.toml&lt;/code&gt; and then running &lt;code&gt;poetry install&lt;/code&gt; 
+    won't remove the library B from the virtual environment as B is still needed by A.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Poetry has lots of issues in Windows currently.
+    It is suggested that you avoid using poetry in Windows.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you encounter the following error message
+    when running &lt;code&gt;poetry install&lt;/code&gt;,&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[Errno 2] No such file or directory: '/path/to/readme.md'&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;it means that you have specified &lt;code&gt;tool.poetry.readme&lt;/code&gt; 
+to be &lt;code&gt;readme.md&lt;/code&gt; in &lt;code&gt;pyproject.toml&lt;/code&gt;
+but &lt;code&gt;readme.md&lt;/code&gt; does not exists under root directory of the project.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="install-python-poetry"&gt;Install Python Poetry&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Follow the &lt;a href="https://python-poetry.org/docs/#installation"&gt;official tutorial&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Using xinstall.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# install xinstall if it hasn&amp;#39;t been installed&lt;/span&gt;
+sudo&lt;span class="w"&gt; &lt;/span&gt;pip3&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;-U&lt;span class="w"&gt; &lt;/span&gt;git+https://github.com/dclong/xinstall@master
+&lt;span class="c1"&gt;# install poetry using xinstall&lt;/span&gt;
+xinstall&lt;span class="w"&gt; &lt;/span&gt;pt&lt;span class="w"&gt; &lt;/span&gt;-ic
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="updating-python-poetry"&gt;Updating Python Poetry&lt;/h2&gt;
+&lt;p&gt;Updating poetry to the latest stable version is as simple as calling the self:update command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;poetry&lt;span class="w"&gt; &lt;/span&gt;self:update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;If you want to install prerelease versions, you can use the --preview option.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;poetry&lt;span class="w"&gt; &lt;/span&gt;self:update&lt;span class="w"&gt; &lt;/span&gt;--preview
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="usage"&gt;Usage&lt;/h2&gt;
+&lt;h3 id="createinitialize-a-new-project"&gt;Create/Initialize a New Project&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Create a new Python project using poetry.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;poetry&lt;span class="w"&gt; &lt;/span&gt;new&lt;span class="w"&gt; &lt;/span&gt;proj
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Initialize an existing Python project using poetry.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;poetry&lt;span class="w"&gt; &lt;/span&gt;init
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="install-dependencies"&gt;Install Dependencies&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Installl all dependencies.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;poetry&lt;span class="w"&gt; &lt;/span&gt;install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Installl all but dev dependencies.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;poetry&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt;  &lt;/span&gt;--no-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="export-dependencies"&gt;Export Dependencies&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Export the lock file to &lt;code&gt;requirements.txt&lt;/code&gt; 
+    so that the dependency can be installed using &lt;code&gt;pip&lt;/code&gt;.&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;poetry&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;requirements.txt&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;requirements.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="run-commands-in-the-virtual-environment"&gt;Run Commands in the Virtual Environment&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;poetry run cmd&lt;/code&gt; is a quick to run &lt;code&gt;cmd&lt;/code&gt; using the virtual environment managed by &lt;code&gt;poetry.
+Another way is to manually set&lt;/code&gt;PATH&lt;code&gt;before you invoke&lt;/code&gt;cmd`. 
+For example,&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;.venv/bin:&lt;span class="nv"&gt;$PATH&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;cmd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Run test suits using pytest.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;poetry&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;pytest
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Or if you want to make it specific to collect test suits from the &lt;code&gt;test&lt;/code&gt; directory 
+under the root directory of the project.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;poetry&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;pytest&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;test&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run pytype.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;poetry&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;pytype&lt;span class="w"&gt; &lt;/span&gt;.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="user-tasks"&gt;User Tasks&lt;/h2&gt;
+&lt;p&gt;https://github.com/sdispater/poetry/pull/591&lt;/p&gt;
+&lt;p&gt;https://github.com/sdispater/poetry/issues/241&lt;/p&gt;
+&lt;h2 id="configuration"&gt;Configuration&lt;/h2&gt;
+&lt;p&gt;https://python-poetry.org/docs/cli/#config&lt;/p&gt;
+&lt;p&gt;https://python-poetry.org/docs/configuration/&lt;/p&gt;
+&lt;p&gt;Pleaser refer to
+&lt;a href="https://github.com/dclong/pyproject.toml"&gt;pyproject.toml&lt;/a&gt;
+for examples of configuration for Python Poetry.&lt;/p&gt;
+&lt;h2 id="restrict-operating-systems-in-python-poetry"&gt;Restrict Operating Systems in Python Poetry&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/64094979/how-can-i-specify-dependencies-on-operating-system-in-python-poetry/68968188#68968188"&gt;How can I specify dependencies on operating system in Python Poetry?&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;[tool.poetry]&lt;/span&gt;
+&lt;span class="c1"&gt;# ...&lt;/span&gt;
+&lt;span class="na"&gt;classifiers&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;[&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="na"&gt;&amp;quot;Operating System&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s"&gt;: POSIX :: Linux&amp;quot;,&lt;/span&gt;
+&lt;span class="na"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;https://python-poetry.org/docs/pyproject/#classifiers&lt;/p&gt;
+&lt;p&gt;https://pypi.org/classifiers/&lt;/p&gt;
+&lt;p&gt;https://github.com/python-poetry/poetry/issues/738&lt;/p&gt;
+&lt;p&gt;https://github.com/python-poetry/poetry/issues/3356&lt;/p&gt;
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;p&gt;https://github.com/sdispater/poetry/issues/522&lt;/p&gt;
+&lt;p&gt;https://github.com/sdispater/poetry/issues/655&lt;/p&gt;
+&lt;p&gt;https://github.com/sdispater/poetry/issues/621&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://poetry.eustace.io/docs/"&gt;Poetry Documentation&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;https://codingdose.info/2018/08/02/develop-and-publish-with-poetry/&lt;/p&gt;
+&lt;p&gt;https://hackersandslackers.com/poetic-python-project-packaging/&lt;/p&gt;</content><category term="Computer Science"></category><category term="programming"></category><category term="Python"></category><category term="poetry"></category><category term="build tool"></category><category term="dependency management"></category></entry><entry><title>Managing Virtual Environments in Poetry</title><link href="https://outdated.legendu.net/blog/managing-virtual-environments-in-poetry/" rel="alternate"></link><published>2019-12-25T23:14:43-08:00</published><updated>2025-04-30T14:47:45-07:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2019-12-25:/blog/managing-virtual-environments-in-poetry/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/manage-python-projects-using-uv"&gt;uv&lt;/a&gt;
+(implemented in Rust)
+is the new cool kid now
+and is prefer to poetry.&lt;/p&gt;
+&lt;h2 id="where-to-create-virtual-environments"&gt;Where to Create Virtual Environments&lt;/h2&gt;
+&lt;p&gt;By default,
+Poetry create virtual environment in …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/manage-python-projects-using-uv"&gt;uv&lt;/a&gt;
+(implemented in Rust)
+is the new cool kid now
+and is prefer to poetry.&lt;/p&gt;
+&lt;h2 id="where-to-create-virtual-environments"&gt;Where to Create Virtual Environments&lt;/h2&gt;
+&lt;p&gt;By default,
+Poetry create virtual environment in &lt;code&gt;$HOME/.poetry&lt;/code&gt; for cahcing/sharing purpose.
+However,
+it is inconvenient if you use Docker-based web IDE for a Python project 
+as you will lose the created virtual environment once the Docker container is restarted.
+In that situation, 
+you have to create a new virtual environment, 
+set up the Python interpreter again,
+which is tedious.
+Fortunately, 
+Poetry allows to create virtual environment in th root directory of a Python project,
+and it is recommended to do so for the situation described above.
+Run the following command to configure Poetry to create virtual environment in the root directory of the current project.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;poetry&lt;span class="w"&gt; &lt;/span&gt;config&lt;span class="w"&gt; &lt;/span&gt;--local&lt;span class="w"&gt; &lt;/span&gt;virtualenvs.in-project&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Notice that the above configure works for the current project only.
+Use the following command
+if you want to make Poetry always create virtual environment in the root directory of a project.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;poetry&lt;span class="w"&gt; &lt;/span&gt;config&lt;span class="w"&gt; &lt;/span&gt;virtualenvs.in-project&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="create-a-virtual-environment"&gt;Create a Virtual Environment&lt;/h2&gt;
+&lt;p&gt;Poetry supports the &lt;code&gt;env&lt;/code&gt; subcomamnd starting from version 1.0.0.
+You can use &lt;code&gt;poetry env use python_version&lt;/code&gt; to specify the Python version to use for the project.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;poetry&lt;span class="w"&gt; &lt;/span&gt;env&lt;span class="w"&gt; &lt;/span&gt;use&lt;span class="w"&gt; &lt;/span&gt;python3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="activate-vitual-environment"&gt;Activate Vitual Environment&lt;/h2&gt;
+&lt;p&gt;The virtual environment shell can be activated using the following command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;poetry&lt;span class="w"&gt; &lt;/span&gt;shell
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;If you have the virtual environment created in the directory &lt;code&gt;.venv&lt;/code&gt; 
+under the root directory of the project,
+you can also use the following command to activate the virtual environment.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;.&lt;span class="w"&gt; &lt;/span&gt;.venv/bin/activate
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="show-information-of-the-vitual-environment"&gt;Show Information of the Vitual Environment&lt;/h2&gt;
+&lt;p&gt;You can list information of virtual environments using the following command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;poetry&lt;span class="w"&gt; &lt;/span&gt;env&lt;span class="w"&gt; &lt;/span&gt;info
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;p&gt;https://python-poetry.org/docs/managing-environments/&lt;/p&gt;
+&lt;p&gt;https://github.com/python-poetry/poetry/issues/108&lt;/p&gt;</content><category term="Computer Science"></category><category term="programming"></category><category term="Python"></category><category term="Poetry"></category><category term="virtual environment"></category><category term="shell"></category></entry><entry><title>Disable the Checkers Layer in SpaceVim</title><link href="https://outdated.legendu.net/blog/disable-the-checkers-layer-in-spacevim/" rel="alternate"></link><published>2019-10-20T21:35:44-07:00</published><updated>2025-04-25T03:42:52-07:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2019-10-20:/blog/disable-the-checkers-layer-in-spacevim/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The SpaceVim project has been abandoned.
+Check AstroVim instead.&lt;/p&gt;
+&lt;p&gt;You can use the following command in SpaceVim to disable the &lt;code&gt;checkers&lt;/code&gt; layer temporarily.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;let&lt;/span&gt; &lt;span class="k"&gt;g&lt;/span&gt;:spacevim_lint_on_save &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="m"&gt;0 …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The SpaceVim project has been abandoned.
+Check AstroVim instead.&lt;/p&gt;
+&lt;p&gt;You can use the following command in SpaceVim to disable the &lt;code&gt;checkers&lt;/code&gt; layer temporarily.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;let&lt;/span&gt; &lt;span class="k"&gt;g&lt;/span&gt;:spacevim_lint_on_save &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;If you want to disable the &lt;code&gt;checkers&lt;/code&gt; layer permanently,
+add the following lines into your &lt;code&gt;init.toml&lt;/code&gt; file.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;[[layers]]&lt;/span&gt;
+&lt;span class="na"&gt;name&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;checkers&amp;quot;&lt;/span&gt;
+&lt;span class="na"&gt;enable&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;false&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;It is suggested that you disable the &lt;code&gt;checkers&lt;/code&gt; layer permanently 
+and use language server protocol (LSP) plugins instead
+as LSP plugins are better alternatives to the &lt;code&gt;checkers&lt;/code&gt; layer.&lt;/p&gt;
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;https://spacevim.org/layers/checkers/&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;https://github.com/SpaceVim/SpaceVim/issues/399&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;https://github.com/SpaceVim/SpaceVim/issues/3163&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Software"></category><category term="Software"></category><category term="SpaceVim"></category><category term="Vim"></category><category term="checkers"></category><category term="layer"></category><category term="LSP"></category><category term="language server protocol"></category></entry><entry><title>SpaceVim - A Modern Vim/NeoVim Configuration</title><link href="https://outdated.legendu.net/blog/spacevim-tips/" rel="alternate"></link><published>2019-03-03T20:02:57-08:00</published><updated>2025-04-25T03:42:52-07:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2019-03-03:/blog/spacevim-tips/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The SpaceVim project has been abandoned.
+Check AstroVim instead.&lt;/p&gt;
+&lt;h2 id="installation"&gt;Installation&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;curl -sLf https://spacevim.org/install.sh | bash
+# enable Python3 support
+wajig install python3 python3-pip
+pip3 install …&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The SpaceVim project has been abandoned.
+Check AstroVim instead.&lt;/p&gt;
+&lt;h2 id="installation"&gt;Installation&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;curl -sLf https://spacevim.org/install.sh | bash
+# enable Python3 support
+wajig install python3 python3-pip
+pip3 install -U pynvim
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="uninstallation"&gt;Uninstallation&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;curl -sLf https://spacevim.org/install.sh | bash -s -- --uninstall
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;https://github.com/SpaceVim/SpaceVim/issues/84&lt;/p&gt;
+&lt;p&gt;https://github.com/SpaceVim/SpaceVim/issues/78&lt;/p&gt;
+&lt;h2 id="tricks-traps"&gt;Tricks &amp;amp; Traps&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;SpaceVim might be too slow when editing a large (&amp;gt;50M) text file.
+    One trick helps is to disable plugins when editing large files.
+    For example,
+    if you are using NeoVim,
+    you can use the following command to edit a large file without loading plugins.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;nvim&lt;span class="w"&gt; &lt;/span&gt;--noplugin&lt;span class="w"&gt; &lt;/span&gt;/path/to/large/text/file
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;By default SpaceVim enables GUI colors.
+    This makes SpaceVim extremely slow in terminals that does not support 24 bits true colors.
+    To resolve the performance issue, 
+    simplify disable GUI colors by setting &lt;code&gt;enable_guicolors = false&lt;/code&gt;
+    under &lt;code&gt;[options]&lt;/code&gt; in your SpaceVim configure file &lt;code&gt;$HOME/.SpaceVim.d/init.toml&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;SpaceVim has mapped &lt;code&gt;q&lt;/code&gt; as smart buffer close.
+    The normal functionality (recording macros) of &lt;code&gt;q&lt;/code&gt; can be get by &lt;code&gt;&amp;lt;leader&amp;gt;&lt;/code&gt;qr.
+    By default, 
+    &lt;code&gt;&amp;lt;leader&amp;gt;&lt;/code&gt; is &lt;code&gt;\&lt;/code&gt; so you can use &lt;code&gt;\qr&lt;/code&gt; to record macros in SpaceVim.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Custom configuration files are in the directory &lt;code&gt;$HOME/.SpaceVim.d&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="some-useful-key-bindings"&gt;Some Useful Key Bindings&lt;/h2&gt;
+&lt;table style="width:100%"&gt;
+  &lt;tr&gt;
+    &lt;th&gt; Key Binding &lt;/th&gt;
+    &lt;th&gt; Description &lt;/th&gt; 
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; SPC b f &lt;/td&gt;
+    &lt;td&gt; format the buffer &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; SPC t 8 &lt;/td&gt;
+    &lt;td&gt; highlight characters that execeeds 80th column &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; SPC t f &lt;/td&gt;
+    &lt;td&gt; highlight characters that execeeds the fill column &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; SPC [1-9] &lt;/td&gt;
+    &lt;td&gt; jump to the windows with the specific number &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;h3 id="window"&gt;&lt;a href="https://spacevim.org/documentation/#window-manipulation"&gt;Window&lt;/a&gt;&lt;/h3&gt;
+&lt;table style="width:100%"&gt;
+  &lt;tr&gt;
+    &lt;th&gt; Key Binding &lt;/th&gt;
+    &lt;th&gt; Description &lt;/th&gt; 
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; SPC 1 &lt;/td&gt;
+    &lt;td&gt; got to window number 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; SPC 2 &lt;/td&gt;
+    &lt;td&gt; go to window number 2 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;h3 id="comment"&gt;&lt;a href="https://spacevim.org/documentation/#commenting"&gt;Comment&lt;/a&gt;&lt;/h3&gt;
+&lt;table style="width:100%"&gt;
+  &lt;tr&gt;
+    &lt;th&gt; Key Binding &lt;/th&gt;
+    &lt;th&gt; Description &lt;/th&gt; 
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; SPC c h &lt;/td&gt;
+    &lt;td&gt; hide/show comments &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; SPC c l &lt;/td&gt;
+    &lt;td&gt; toggle comment line &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;h3 id="buffers-and-files"&gt;&lt;a href="https://spacevim.org/documentation/#buffers-and-files"&gt;Buffers and Files&lt;/a&gt;&lt;/h3&gt;
+&lt;table style="width:100%"&gt;
+  &lt;tr&gt;
+    &lt;th&gt; Key Binding &lt;/th&gt;
+    &lt;th&gt; Description &lt;/th&gt; 
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; :bn &lt;/td&gt;
+    &lt;td&gt; go to the next buffer &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; SPC b n &lt;/td&gt;
+    &lt;td&gt; go to the next buffer &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; :bp &lt;/td&gt;
+    &lt;td&gt; go to the previous buffer &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; :e # &lt;/td&gt;
+    &lt;td&gt; go to the previous buffer &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; SPC b p &lt;/td&gt;
+    &lt;td&gt; go to the previous buffer &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; SPC t f &lt;/td&gt;
+    &lt;td&gt; highlight characters that execeeds the fill column &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; SPC [1-9] &lt;/td&gt;
+    &lt;td&gt; jump to the windows with the specific number &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;h2 id="lanugage-server-protocol"&gt;Lanugage Server Protocol&lt;/h2&gt;
+&lt;p&gt;https://spacevim.org/layers/language-server-protocol/&lt;/p&gt;
+&lt;h2 id="language-layers"&gt;Language Layers&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://spacevim.org/layers/lang/python/"&gt;Available Layers &amp;gt;&amp;gt; lang#python&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I'm not sure whether this layer is really helpful 
+given that you always uses the LSP layer.&lt;/p&gt;
+&lt;h2 id="additional-useful-plugins"&gt;Additional Useful Plugins&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;[[custom_plugins]]&lt;/span&gt;
+&lt;span class="na"&gt;name&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;vim-scripts/dbext.vim&amp;quot;&lt;/span&gt;
+&lt;span class="na"&gt;merged&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;false&lt;/span&gt;
+
+&lt;span class="k"&gt;[[custom_plugins]]&lt;/span&gt;
+&lt;span class="na"&gt;repo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;machakann/vim-swap&amp;quot;&lt;/span&gt;
+&lt;span class="na"&gt;merged&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;false&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://spacevim.org/documentation/"&gt;SpaceVim Documentation&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="http://www.legendu.net/misc/blog/disable-the-checkers-layer-in-spacevi"&gt;Disable the Checkers Layer in SpaceVim&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Software"></category><category term="software"></category><category term="SpaceVim"></category><category term="Vim"></category><category term="NeoVim"></category><category term="configuration"></category><category term="tips"></category></entry><entry><title>The Right Way to Export PATH in Shell</title><link href="https://outdated.legendu.net/blog/the-right-way-to-export-PATH-in-shell/" rel="alternate"></link><published>2020-11-09T11:10:06-08:00</published><updated>2023-08-01T09:08:34-07:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2020-11-09:/blog/the-right-way-to-export-PATH-in-shell/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/tips-on-the-fish-shell"&gt;Fish Shell&lt;/a&gt; 
+is preferred to Bash/Zsh.
+The following content is for Bash/Zsh only.&lt;/p&gt;
+&lt;p&gt;Some people suggest exporting &lt;code&gt;PATH&lt;/code&gt; only in &lt;code&gt;.bash_profile&lt;/code&gt; 
+instead of in &lt;code&gt;.bashrc …&lt;/code&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/tips-on-the-fish-shell"&gt;Fish Shell&lt;/a&gt; 
+is preferred to Bash/Zsh.
+The following content is for Bash/Zsh only.&lt;/p&gt;
+&lt;p&gt;Some people suggest exporting &lt;code&gt;PATH&lt;/code&gt; only in &lt;code&gt;.bash_profile&lt;/code&gt; 
+instead of in &lt;code&gt;.bashrc&lt;/code&gt; (for Bash).
+The helps but does not resolve the issue of possible duplicated paths in &lt;code&gt;$PATH&lt;/code&gt;.
+The right way is to check for existence of the path in the &lt;code&gt;$PATH&lt;/code&gt; environment variable first,
+and add it only when it does NOT already exist in &lt;code&gt;$PATH&lt;/code&gt;.
+Below is an example snippet of adding paths into the environment variable &lt;code&gt;$PATH&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# set $PATH&lt;/span&gt;
+&lt;span class="nv"&gt;_PATHS&lt;/span&gt;&lt;span class="o"&gt;=(&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;ls&lt;span class="w"&gt; &lt;/span&gt;-d&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/*/bin&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;/dev/null&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;ls&lt;span class="w"&gt; &lt;/span&gt;-d&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/.*/bin&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;/dev/null&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;ls&lt;span class="w"&gt; &lt;/span&gt;-d&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/Library/Python/3.*/bin&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;/dev/null&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;ls&lt;span class="w"&gt; &lt;/span&gt;-d&lt;span class="w"&gt; &lt;/span&gt;/usr/local/*/bin&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;/dev/null&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;ls&lt;span class="w"&gt; &lt;/span&gt;-d&lt;span class="w"&gt; &lt;/span&gt;/opt/*/bin&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;/dev/null&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;((&lt;/span&gt;&lt;span class="nv"&gt;_i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;_PATHS&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;-1&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;_i&amp;gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;_i--&lt;span class="o"&gt;))&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;do&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;_PATHS&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;$_i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-d&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$_PATH&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;!&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;~&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;^&lt;span class="nv"&gt;$_PATH&lt;/span&gt;:&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;:&lt;span class="nv"&gt;$_PATH&lt;/span&gt;:&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;:&lt;span class="nv"&gt;$_PATH&lt;/span&gt;$&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$_PATH&lt;/span&gt;:&lt;span class="nv"&gt;$PATH&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The snippet has the advatage that it works well in both &lt;code&gt;.bashrc&lt;/code&gt; and &lt;code&gt;.bash_profile&lt;/code&gt;.
+So, 
+you can safely add such snippets into &lt;code&gt;.bashrc&lt;/code&gt;
+and keep your &lt;code&gt;.bash_profile&lt;/code&gt; as simple as the following. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;~/.bashrc&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;.&lt;span class="w"&gt; &lt;/span&gt;~/.bashrc
+&lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/legendu-net/docker-base/blob/dev/scripts/path.sh"&gt;path.sh&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Computer Science"></category><category term="Computer Science"></category><category term="Shell"></category><category term="Bash"></category><category term="PATH"></category><category term="bashrc"></category><category term="bash_profile"></category></entry><entry><title>Tips on yapf</title><link href="https://outdated.legendu.net/blog/tips-on-yapf/" rel="alternate"></link><published>2019-07-08T19:37:50-07:00</published><updated>2023-01-09T16:46:08-08:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2019-07-08:/blog/tips-on-yapf/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Black is preferred to yapf!&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://yapf.now.sh/"&gt;yapf Online Demo&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;There are 4 predefined styles: google, facebook, chromium, and pep8.
+    You can specify a style to use using the …&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Black is preferred to yapf!&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://yapf.now.sh/"&gt;yapf Online Demo&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;There are 4 predefined styles: google, facebook, chromium, and pep8.
+    You can specify a style to use using the &lt;code&gt;--style&lt;/code&gt; option 
+    or you can specify the style to use in the file &lt;code&gt;.style.yapf&lt;/code&gt; under the root directory of your project.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;[style]&lt;/span&gt;
+&lt;span class="na"&gt;based_on_style&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;facebook&lt;/span&gt;
+&lt;span class="na"&gt;column_limit&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;88&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;YAPF searches for the formatting style in the following manner:
+1. Specified on the command line
+2. In the [style] section of a .style.yapf file in either the current directory or one of its parent directories.
+3. In the [yapf] section of a setup.cfg file in either the current directory or one of its parent directories.
+4. In the [style] section of a ~/.config/yapf/style file in your home directory.
+If none of those files are found, the default style is used (PEP8).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You can control the behavior of yapf via settings in the file &lt;code&gt;.style.yapf&lt;/code&gt; under the root directory of your project.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;[style]&lt;/span&gt;
+&lt;span class="na"&gt;EACH_DICT_ENTRY_ON_SEPARATE_LINE&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;True&lt;/span&gt;
+&lt;span class="na"&gt;ALLOW_SPLIT_BEFORE_DICT_VALUE&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;False&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="tricks-and-traps"&gt;Tricks and Traps&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;When &lt;code&gt;--diff/-d&lt;/code&gt; is supplied, YAPF returns zero when no changes were necessary, 
+  non-zero otherwise (including program error).
+  You can use this in a CI workflow to test that code has been YAPF-formatted.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="ignore-files"&gt;Ignore Files&lt;/h2&gt;
+&lt;p&gt;Put patterns of files to ignore into the file &lt;code&gt;.yapfignore&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;*/.ipynb_checkpoints/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;p&gt;https://github.com/google/styleguide&lt;/p&gt;
+&lt;p&gt;https://github.com/google/yapf&lt;/p&gt;
+&lt;p&gt;https://github.com/life4/awesome-python-code-formatters&lt;/p&gt;</content><category term="Computer Science"></category><category term="programming"></category><category term="Python"></category><category term="yapf"></category><category term="code formatting"></category></entry><entry><title>Tips on Kmymoney</title><link href="https://outdated.legendu.net/blog/tips-on-KMyMoney/" rel="alternate"></link><published>2022-10-09T18:46:15-07:00</published><updated>2022-12-17T22:48:56-08:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2022-10-09:/blog/tips-on-KMyMoney/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Mint.com is much better alternative. 
+It is suggest that you use mint.com instead.&lt;/p&gt;
+&lt;h2 id="kmymoney-and-woob"&gt;KMyMoney and Woob&lt;/h2&gt;
+&lt;p&gt;Notice that the development of Weboob is inactive. &lt;/p&gt;
+&lt;p&gt;https …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Mint.com is much better alternative. 
+It is suggest that you use mint.com instead.&lt;/p&gt;
+&lt;h2 id="kmymoney-and-woob"&gt;KMyMoney and Woob&lt;/h2&gt;
+&lt;p&gt;Notice that the development of Weboob is inactive. &lt;/p&gt;
+&lt;p&gt;https://woob.tech/applications/&lt;/p&gt;
+&lt;p&gt;https://docs.kde.org/stable5/en/kmymoney/kmymoney/details.impexp.html&lt;/p&gt;
+&lt;p&gt;It does seem to me that KMyMoney might be able to import transactions from your bank accounts directly!!!&lt;/p&gt;
+&lt;p&gt;https://docs.kde.org/stable5/en/kmymoney/kmymoney/details.impexp.ofx.html#details.impexp.ofxdirectconnect&lt;/p&gt;</content><category term="Computer Science"></category><category term="Computer Science"></category><category term="programming"></category></entry><entry><title>Bash Equivalent of the ifmain Pattern in Python</title><link href="https://outdated.legendu.net/blog/bash-equivalent-of-the-ifmain-pattern-in-python/" rel="alternate"></link><published>2022-07-28T14:39:20-07:00</published><updated>2022-07-31T17:53:03-07:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2022-07-28:/blog/bash-equivalent-of-the-ifmain-pattern-in-python/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/tips-on-the-fish-shell"&gt;Fish Shell&lt;/a&gt; 
+is preferred to Bash/Zsh.
+The following content is for Bash/Zsh only.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/usr/bin/env bash&lt;/span&gt;
+
+&lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;install_icon.usage&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;cat&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;lt;&amp;lt; EOF&lt;/span&gt;
+&lt;span class="s"&gt;NAME&lt;/span&gt;
+&lt;span class="s"&gt;    /scripts/sys …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/tips-on-the-fish-shell"&gt;Fish Shell&lt;/a&gt; 
+is preferred to Bash/Zsh.
+The following content is for Bash/Zsh only.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/usr/bin/env bash&lt;/span&gt;
+
+&lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;install_icon.usage&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;cat&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;lt;&amp;lt; EOF&lt;/span&gt;
+&lt;span class="s"&gt;NAME&lt;/span&gt;
+&lt;span class="s"&gt;    /scripts/sys/install_icon.sh - Download and install icon to /usr/local/bin/.&lt;/span&gt;
+&lt;span class="s"&gt;SYNTAX &lt;/span&gt;
+&lt;span class="s"&gt;    /scripts/sys/install_icon.sh [-h]&lt;/span&gt;
+&lt;span class="s"&gt;EOF&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;install_icon&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-h&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;install_icon.usage
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;!&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-h&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;||&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;install_icon.usage
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;local&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;URL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;https://github.com/legendu-net/icon/releases
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;local&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;VERSION&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;basename&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;curl&lt;span class="w"&gt; &lt;/span&gt;-sL&lt;span class="w"&gt; &lt;/span&gt;-o&lt;span class="w"&gt; &lt;/span&gt;/dev/null&lt;span class="w"&gt; &lt;/span&gt;-w&lt;span class="w"&gt; &lt;/span&gt;%&lt;span class="o"&gt;{&lt;/span&gt;url_effective&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$URL&lt;/span&gt;/latest&lt;span class="k"&gt;))&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;local&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;ARCH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;uname&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;case&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$ARCH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;x86_64&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="nv"&gt;ARCH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;amd64
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="p"&gt;;;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;arm64&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="nv"&gt;ARCH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;arm64
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="p"&gt;;;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;*&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;The architecture &lt;/span&gt;&lt;span class="nv"&gt;$ARCH&lt;/span&gt;&lt;span class="s2"&gt; is not supported!&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="p"&gt;;;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;esac&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;curl&lt;span class="w"&gt; &lt;/span&gt;-sSL&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$URL&lt;/span&gt;/download/&lt;span class="nv"&gt;$VERSION&lt;/span&gt;/icon-&lt;span class="nv"&gt;$VERSION&lt;/span&gt;-&lt;span class="k"&gt;$(&lt;/span&gt;uname&lt;span class="k"&gt;)&lt;/span&gt;-&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;ARCH&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;.tar.gz&lt;span class="w"&gt; &lt;/span&gt;-o&lt;span class="w"&gt; &lt;/span&gt;/tmp/icon.tar.gz
+&lt;span class="w"&gt;    &lt;/span&gt;tar&lt;span class="w"&gt; &lt;/span&gt;zxf&lt;span class="w"&gt; &lt;/span&gt;/tmp/icon.tar.gz&lt;span class="w"&gt; &lt;/span&gt;-C&lt;span class="w"&gt; &lt;/span&gt;/usr/local/bin/
+&lt;span class="w"&gt;    &lt;/span&gt;chmod&lt;span class="w"&gt; &lt;/span&gt;+x&lt;span class="w"&gt; &lt;/span&gt;/usr/local/bin/icon
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;BASH_SOURCE&lt;/span&gt;&lt;span class="p"&gt;[0]&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;||&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;BASH_SOURCE&lt;/span&gt;&lt;span class="p"&gt;[0]&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$0&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;install_icon&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;
+&lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Computer Science"></category><category term="Computer Science"></category><category term="programming"></category><category term="Shell"></category><category term="Bash"></category><category term="ifmain"></category><category term="Python"></category><category term="module"></category><category term="script"></category><category term="function"></category><category term="import"></category><category term="source"></category></entry><entry><title>Tips on Gitpod</title><link href="https://outdated.legendu.net/blog/gitpod-tips/" rel="alternate"></link><published>2019-02-20T09:49:30-08:00</published><updated>2022-06-15T08:25:37-07:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2019-02-20:/blog/gitpod-tips/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;GitPod is a great web IDE for GitHub repositories.
+    It supports both IDE and terminal environment via Docker,
+    so a whole lot can be done if you …&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;GitPod is a great web IDE for GitHub repositories.
+    It supports both IDE and terminal environment via Docker,
+    so a whole lot can be done if you are creative!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;customized layers are supported&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;browser plugins are available for Chrome, Firefox, etc.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;support installling VS Code extensions (*.vsix) by drag and drop.
+    Installing from VS Code Marketplace is not supported at this time.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Cloning multiple repositories into one workspace is supported.
+    Please refer to
+    &lt;a href="https://www.gitpod.io/docs/multi-repo-workspaces"&gt;Multi-repo Workspaces&lt;/a&gt;
+    for detailed discussions. &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="fix-permission-issues"&gt;Fix Permission Issues&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="gitpod-permission" src="https://user-images.githubusercontent.com/824507/167285701-e8f4407b-2e19-41af-8c7d-e948a092191e.png"&gt;&lt;/p&gt;
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://spectrum.chat/gitpod"&gt;GitPod Chat&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://docs.gitpod.io/41_Config_Gitpod_File.html"&gt;Gitpod Config File&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://docs.gitpod.io/42_Config_Docker.html?highlight=customized,layer#configure-a-custom-docker-image"&gt;Configure a Custom Docker Image&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://addons.mozilla.org/en-US/firefox/addon/gitpod/"&gt;Gitpod Addon for Firefox&lt;/a&gt;&lt;/p&gt;</content><category term="Software"></category><category term="Software"></category><category term="programming"></category><category term="GitPod"></category><category term="GitHub"></category><category term="Theia IDE"></category></entry><entry><title>Extended Globbing in Bash</title><link href="https://outdated.legendu.net/blog/extended-globbing-in-bash/" rel="alternate"></link><published>2022-06-04T12:09:03-07:00</published><updated>2022-06-04T12:13:59-07:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2022-06-04:/blog/extended-globbing-in-bash/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/tips-on-the-fish-shell"&gt;Fish Shell&lt;/a&gt; 
+is preferred to Bash/Zsh.
+The following content is for Bash/Zsh only.&lt;/p&gt;
+&lt;h2 id="enable-extended-globbing"&gt;Enable Extended Globbing&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;shopt&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-s&lt;span class="w"&gt; &lt;/span&gt;extglob
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Or you can run bash with …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/tips-on-the-fish-shell"&gt;Fish Shell&lt;/a&gt; 
+is preferred to Bash/Zsh.
+The following content is for Bash/Zsh only.&lt;/p&gt;
+&lt;h2 id="enable-extended-globbing"&gt;Enable Extended Globbing&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;shopt&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-s&lt;span class="w"&gt; &lt;/span&gt;extglob
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Or you can run bash with the option &lt;code&gt;-O extglob&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;/bin/bash&lt;span class="w"&gt; &lt;/span&gt;-O&lt;span class="w"&gt; &lt;/span&gt;extglob&lt;span class="w"&gt; &lt;/span&gt;-c&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;your command to run&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="set-shell-to-be-bash-with-extended-globbing-in-docker"&gt;Set Shell to be Bash with Extended Globbing in Docker&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;SHELL&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/bin/bash&amp;quot;&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-O&amp;quot;&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;extglob&amp;quot;&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-c&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://www.linuxjournal.com/content/bash-extended-globbing"&gt;Bash Extended Globbing&lt;/a&gt;&lt;/p&gt;</content><category term="Computer Science"></category><category term="Computer Science"></category><category term="programming"></category><category term="bash"></category><category term="shell"></category><category term="glob"></category><category term="globbing"></category><category term="extended"></category></entry><entry><title>Regular Expression in Bash</title><link href="https://outdated.legendu.net/blog/regular-expression-in-bash/" rel="alternate"></link><published>2019-04-28T11:53:55-07:00</published><updated>2021-10-27T20:23:31-07:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2019-04-28:/blog/regular-expression-in-bash/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/tips-on-the-fish-shell"&gt;Fish Shell&lt;/a&gt; 
+is preferred to Bash/Zsh.
+The following content is for Bash/Zsh only.&lt;/p&gt;
+&lt;p&gt;It is suggested that you &lt;strong&gt;use Python script instead of Shell script …&lt;/strong&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/tips-on-the-fish-shell"&gt;Fish Shell&lt;/a&gt; 
+is preferred to Bash/Zsh.
+The following content is for Bash/Zsh only.&lt;/p&gt;
+&lt;p&gt;It is suggested that you &lt;strong&gt;use Python script instead of Shell script&lt;/strong&gt; as much as possible.
+If you do have to stick with Shell script,
+you can use &lt;code&gt;=~&lt;/code&gt; for regular expression matching in Bash.
+This make Bash syntax extremely flexible and powerful.
+For example, 
+you can match multiple strings using regular expression.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;[[&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;value&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=~&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;v1&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="nv"&gt;v2&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="nv"&gt;v3&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;$&lt;span class="w"&gt; &lt;/span&gt;]]&lt;span class="c1"&gt;; then&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;...
+&lt;span class="nv"&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Computer Science"></category><category term="programming"></category><category term="Bash"></category><category term="regular expression"></category><category term="regex"></category></entry><entry><title>Configure Terminal for PyCharm on Windows</title><link href="https://outdated.legendu.net/blog/configure-terminal-for-pycharm/" rel="alternate"></link><published>2019-03-05T01:48:55-08:00</published><updated>2021-09-26T16:51:18-07:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2019-03-05:/blog/configure-terminal-for-pycharm/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things on this page are fragmentary and immature notes/thoughts of the author.
+Please read with your own judgement!
+**&lt;/p&gt;
+&lt;p&gt;I personally think it is better to develop …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things on this page are fragmentary and immature notes/thoughts of the author.
+Please read with your own judgement!
+**&lt;/p&gt;
+&lt;p&gt;I personally think it is better to develop in WSL 2 on Windows!&lt;/p&gt;
+&lt;h2 id="ubuntu-shell"&gt;Ubuntu Shell&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Install Ubuntu Shell on Windows 10 if it hasn't been installed.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;File -&amp;gt; Settings -&amp;gt; Tools -&amp;gt; Terminal &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Replace the Shell path with &lt;code&gt;C:\Windows\System32\bash.exe&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Unfortunately the Python virtual environment created in Ubuntu shell cannot be used by PyCharm
+as PyCharm (or more precisely, the Windows File System) does not recognize Linux symbolic links.&lt;/p&gt;</content><category term="Computer Science"></category><category term="programming"></category></entry><entry><title>Shell Equivalent in Different Operating Systems</title><link href="https://outdated.legendu.net/blog/shell-equivalent-in-different-operating-systems/" rel="alternate"></link><published>2020-09-02T09:22:34-07:00</published><updated>2021-09-17T11:35:17-07:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2020-09-02:/blog/shell-equivalent-in-different-operating-systems/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/tips-on-the-fish-shell"&gt;Fish Shell&lt;/a&gt; 
+is preferred to Bash/Zsh.
+The following content is for Bash/Zsh only.&lt;/p&gt;
+&lt;p&gt;It suggested that you use IPython shell instead of Bash/Zsh shells …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.legendu.net/misc/blog/tips-on-the-fish-shell"&gt;Fish Shell&lt;/a&gt; 
+is preferred to Bash/Zsh.
+The following content is for Bash/Zsh only.&lt;/p&gt;
+&lt;p&gt;It suggested that you use IPython shell instead of Bash/Zsh shells.
+Please refer to 
+&lt;a href="http://www.legendu.net/en/blog/ipython-is-the-best-shell/"&gt;IPython Is the Best Shell&lt;/a&gt;
+for detailed discussions.
+If you have to use shell commands,
+it is suggested that you use Linux commands when possible 
+as Linux command are more universal and useful.
+You can achieve this by using WSL 2 on Windows 
+and by using Docker or virtual machine on macOS.&lt;/p&gt;
+&lt;div style="overflow-x:auto;"&gt;
+&lt;style&gt;
+    tr:nth-child(even) {background-color: #A3E4D7}
+&lt;/style&gt;
+&lt;table style="width:100%"&gt;
+  &lt;tr&gt;
+    &lt;th&gt; &lt;/th&gt;
+    &lt;th&gt; OS &lt;/th&gt;
+    &lt;th&gt; Command &lt;/th&gt;
+  &lt;/tr&gt;
+
+  &lt;tr&gt;
+    &lt;td rowspan="2"&gt; Set PATH &lt;/td&gt;
+    &lt;td&gt; Linux/Unix &lt;/td&gt;
+    &lt;td&gt; &lt;code&gt; 
+    export PATH=/new/path:$PATH
+    &lt;/code&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; Windows PowerShell &lt;/td&gt;
+    &lt;td&gt; &lt;code&gt; 
+    $env:Path += ";.\swigwin-4.0.1";
+    &lt;/code&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr&gt;
+    &lt;td rowspan="3"&gt; Get location &lt;br&gt; of a command &lt;/td&gt;
+    &lt;td&gt; Linux/Unix &lt;/td&gt;
+    &lt;td&gt; &lt;code&gt; 
+    which command_name
+    &lt;/code&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; Windows PowerShell &lt;/td&gt;
+    &lt;td&gt; &lt;code&gt; 
+    Get-command command_name
+    &lt;/code&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; Windows CMD[1] &lt;/td&gt;
+    &lt;td&gt; &lt;code&gt; 
+    where command_name
+    &lt;/code&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr&gt;
+    &lt;td rowspan="3"&gt; Add user &lt;br&gt; to a group &lt;/td&gt;
+    &lt;td&gt; Linux &lt;/td&gt;
+    &lt;td&gt; &lt;code&gt; 
+    sudo gpasswd -a user_name group_name
+    &lt;/code&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; macOS &lt;/td&gt;
+    &lt;td&gt; &lt;code&gt; 
+    sudo dseditgroup -o edit -a $username_to_add -t user admin
+    &lt;/code&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; Windows &lt;/td&gt;
+    &lt;td&gt; &lt;code&gt; 
+    NA
+    &lt;/code&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr&gt;
+    &lt;td rowspan="2"&gt; Compress/Decompress Archives &lt;/td&gt;
+    &lt;td&gt; Linux/Unix &lt;/td&gt;
+    &lt;td&gt; &lt;code&gt; 
+    &lt;a href="http://www.legendu.net/en/blog/compress-and-decompress-in-linux/"&gt;
+    Compress and Decompressing Archives in Linux
+    &lt;/a&gt;
+    &lt;/code&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; Windows PowerShell &lt;/td&gt;
+    &lt;td&gt; &lt;code&gt; 
+    Expand-Archive .\swigwin-4.0.1.zip .;
+    &lt;/code&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr&gt;
+    &lt;td rowspan="3"&gt; Download a file &lt;/td&gt;
+    &lt;td rowspan="2"&gt; Linux/Unix &lt;/td&gt;
+    &lt;td&gt; &lt;code&gt; 
+    curl -sSL http://file.example.com -o output
+    &lt;/code&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; &lt;code&gt; 
+    wget http://file.example.com -O output
+    &lt;/code&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; Windows PowerShell &lt;/td&gt;
+    &lt;td&gt; &lt;code&gt; 
+    (New-Object System.Net.WebClient).DownloadFile("http://prdownloads.sourceforge.net/swig/swigwin-4.0.1.zip","swigwin-4.0.1.zip");
+    &lt;/code&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr&gt;
+    &lt;td rowspan="2"&gt; Watch a command &lt;/td&gt;
+    &lt;td rowspan="1"&gt; Linux/Unix &lt;/td&gt;
+    &lt;td&gt; &lt;code&gt; 
+    watch command_to_watch
+    &lt;/code&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; Windows &lt;/td&gt;
+    &lt;td&gt; 
+    &lt;a href="http://wragg.io/watch-for-changes-with-powershell/"&gt; 
+    Watch for changes with PowerShell
+    &lt;/a&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr&gt;
+    &lt;td rowspan="3"&gt; Manage partitions of a disk &lt;/td&gt;
+    &lt;td rowspan="1"&gt; Linux &lt;/td&gt;
+    &lt;td&gt; &lt;code&gt; 
+    fdisk
+    &lt;/code&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; macOS &lt;/td&gt;
+    &lt;td&gt; 
+    fdisk 
+    &lt;a href="#footnote1"&gt;[2]&lt;/a&gt;
+    &lt;/a&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt; Windows &lt;/td&gt;
+    &lt;td&gt; 
+    fdisk (via WSL 2 or virtual machine)
+    &lt;/a&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;[1] Windows CMD command might not work well in Windows PowerShell. 
+    For example,
+    the &lt;code&gt;where&lt;/code&gt; command sometimes works but sometimes doesn't work in a PowerShell.
+    Since PowerShell becomes more popular than Windows CMD,
+    &lt;code&gt;Get-command&lt;/code&gt; is recommended over &lt;code&gt;where&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;[2] The macOS version of fdisk does not function similar to the Linux version of fdisk. 
+It is not as intuitive and easy to use as the Linux version.
+It is suggested that you use the Linux version of fdisk instead.&lt;/p&gt;</content><category term="Computer Science"></category><category term="Computer Science"></category><category term="OS"></category><category term="Linux"></category><category term="macOS"></category><category term="Windows"></category><category term="Shell"></category><category term="PowerShell"></category></entry><entry><title>Alternative to the rm Command in Linux</title><link href="https://outdated.legendu.net/blog/alternative-to-the-rm-command-in-linux/" rel="alternate"></link><published>2019-05-02T02:41:04-07:00</published><updated>2021-08-22T00:12:26-07:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2019-05-02:/blog/alternative-to-the-rm-command-in-linux/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things on this page are fragmentary and immature notes/thoughts of the author.
+Please read with your own judgement!
+**&lt;/p&gt;
+&lt;p&gt;As is know to all,
+it can be …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things on this page are fragmentary and immature notes/thoughts of the author.
+Please read with your own judgement!
+**&lt;/p&gt;
+&lt;p&gt;As is know to all,
+it can be dangerous to use the &lt;code&gt;rm&lt;/code&gt; command directly in Linux/Unix. 
+A simple idea is to define other commands/alias/script to replace it.
+For example, 
+I have a shell script named &lt;code&gt;trash&lt;/code&gt; which moves files (as input arguments) to the system's Trash directory.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;trash files_to_remove
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Another even simplier way is to directly move files to the directory &lt;code&gt;/tmp&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;mv files_to_remove /tmp
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="OS"></category><category term="Linux"></category><category term="Shell"></category><category term="rm"></category><category term="Trash"></category><category term="mv"></category></entry><entry><title>Packaging Python Dependencies for PySpark Using conda-pack</title><link href="https://outdated.legendu.net/blog/packaging-python-dependencies-for-pyspark-using-conda-pack/" rel="alternate"></link><published>2021-04-30T12:13:17-07:00</published><updated>2021-07-18T22:12:43-07:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2021-04-30:/blog/packaging-python-dependencies-for-pyspark-using-conda-pack/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/indygreg/python-build-standalone"&gt;python-build-standalone&lt;/a&gt;
+is a better alternative to conda-pack on managing Python dependencies for PySpark.
+Please refer to 
+&lt;a href="http://www.legendu.net/en/blog/packaging-Python-Dependencies-for-PySpark-Using-python-build-standalone"&gt;Packaging Python Dependencies for PySpark Using python-build-standalone&lt;/a&gt;
+for tutorials on how …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/indygreg/python-build-standalone"&gt;python-build-standalone&lt;/a&gt;
+is a better alternative to conda-pack on managing Python dependencies for PySpark.
+Please refer to 
+&lt;a href="http://www.legendu.net/en/blog/packaging-Python-Dependencies-for-PySpark-Using-python-build-standalone"&gt;Packaging Python Dependencies for PySpark Using python-build-standalone&lt;/a&gt;
+for tutorials on how to use
+&lt;a href="https://github.com/indygreg/python-build-standalone"&gt;python-build-standalone&lt;/a&gt;
+to manage Python dependencies for PySpark.&lt;/p&gt;
+&lt;h2 id="build-portable-python-environments-using-conda-pack"&gt;Build Portable Python Environments Using conda-pack&lt;/h2&gt;
+&lt;p&gt;Please refer to the GitHub repo
+&lt;a href="https://github.com/dclong/conda_environ"&gt;dclong/conda_environ&lt;/a&gt;
+for instructions
+which leverages the Docker image
+&lt;a href="https://github.com/dclong/docker-conda"&gt;dclong/conda&lt;/a&gt;
+to build portable conda environments.&lt;/p&gt;
+&lt;h2 id="submit-a-pyspark-application-using-conda-environment"&gt;Submit a PySpark Application Using conda Environment&lt;/h2&gt;
+&lt;p&gt;Below is an example shell script for sumitting a PySpark job 
+using a pre-built conda-pack Python environment named &lt;code&gt;env.tar.gz&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;/apache/spark2.3/bin/spark-submit&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;--files&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;file:///apache/hive/conf/hive-site.xml,file:///apache/hadoop/etc/hadoop/ssl-client.xml,file:///apache/hadoop/etc/hadoop/hdfs-site.xml,file:///apache/hadoop/etc/hadoop/core-site.xml,file:///apache/hadoop/etc/hadoop/federation-mapping.xml&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;--master&lt;span class="w"&gt; &lt;/span&gt;yarn&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;--deploy-mode&lt;span class="w"&gt; &lt;/span&gt;cluster&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;--queue&lt;span class="w"&gt; &lt;/span&gt;YOUR_QUEUE&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;--num-executors&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;200&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;--executor-memory&lt;span class="w"&gt; &lt;/span&gt;10G&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;--driver-memory&lt;span class="w"&gt; &lt;/span&gt;15G&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;--executor-cores&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;--conf&lt;span class="w"&gt; &lt;/span&gt;spark.yarn.maxAppAttempts&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;--conf&lt;span class="w"&gt; &lt;/span&gt;spark.dynamicAllocation.enabled&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;--conf&lt;span class="w"&gt; &lt;/span&gt;spark.dynamicAllocation.maxExecutors&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1000&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;--conf&lt;span class="w"&gt; &lt;/span&gt;spark.network.timeout&lt;span class="o"&gt;=&lt;/span&gt;300s&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;--conf&lt;span class="w"&gt; &lt;/span&gt;spark.executor.memoryOverhead&lt;span class="o"&gt;=&lt;/span&gt;2G&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;--conf&lt;span class="w"&gt; &lt;/span&gt;spark.pyspark.driver.python&lt;span class="o"&gt;=&lt;/span&gt;./env/bin/python&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;--conf&lt;span class="w"&gt; &lt;/span&gt;spark.pyspark.python&lt;span class="o"&gt;=&lt;/span&gt;./env/bin/python&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;--archives&lt;span class="w"&gt; &lt;/span&gt;env.tar.gz#env&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And below is a simple example of &lt;code&gt;_pyspark.py&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pyspark.sql&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;SparkSession&lt;/span&gt;
+
+&lt;span class="n"&gt;spark&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SparkSession&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;builder&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;appName&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Test PySpark&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;enableHiveSupport&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getOrCreate&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;sql&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="s2"&gt;        SELECT * &lt;/span&gt;
+&lt;span class="s2"&gt;        FROM some_table &lt;/span&gt;
+&lt;span class="s2"&gt;        TableSample (100000 Rows)&lt;/span&gt;
+&lt;span class="s2"&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;spark&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sql&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sql&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;overwrite&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parquet&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;output&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="http://www.legendu.net/en/blog/packaging-Python-Dependencies-for-PySpark-Using-python-build-standalone"&gt;Packaging Python Dependencies for PySpark Using Python-Build-Standalone&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="http://www.legendu.net/misc/blog/packaging-python-dependencies-for-pyspark-using-pex"&gt;Packaging Python Dependencies for PySpark Using Pex&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://conda.github.io/conda-pack/spark.html"&gt;Usage with Apache Spark on YARN&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;https://github.com/jcrist/skein/&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Computer Science"></category><category term="programming"></category><category term="PySpark"></category><category term="Python"></category><category term="conda"></category><category term="conda-pack"></category><category term="dependency"></category><category term="Spark"></category><category term="big data"></category><category term="portable"></category></entry><entry><title>Tips on Dockerswarm</title><link href="https://outdated.legendu.net/blog/tips-on-dockerswarm/" rel="alternate"></link><published>2019-10-10T09:32:40-07:00</published><updated>2021-06-10T09:32:40-07:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2019-10-10:/blog/tips-on-dockerswarm/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;https://ender74.github.io/Sharing-Volumes-With-Docker-Swarm/&lt;/p&gt;
+&lt;h2 id="volume"&gt;Volume&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;docker&lt;span class="w"&gt; &lt;/span&gt;service&lt;span class="w"&gt; &lt;/span&gt;create&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;--name&lt;span class="w"&gt; &lt;/span&gt;nginx&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;--mount&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;bind,source&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="nb"&gt;pwd&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;/static-site,target&lt;span class="o"&gt;=&lt;/span&gt;/usr/share/nginx/html&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;-p&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;80&lt;/span&gt;:80&lt;span class="w"&gt; &lt;/span&gt;nginx
+&lt;span class="w"&gt;    &lt;/span&gt;https …&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;https://ender74.github.io/Sharing-Volumes-With-Docker-Swarm/&lt;/p&gt;
+&lt;h2 id="volume"&gt;Volume&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;docker&lt;span class="w"&gt; &lt;/span&gt;service&lt;span class="w"&gt; &lt;/span&gt;create&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;--name&lt;span class="w"&gt; &lt;/span&gt;nginx&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;--mount&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;bind,source&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="nb"&gt;pwd&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;/static-site,target&lt;span class="o"&gt;=&lt;/span&gt;/usr/share/nginx/html&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;-p&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;80&lt;/span&gt;:80&lt;span class="w"&gt; &lt;/span&gt;nginx
+&lt;span class="w"&gt;    &lt;/span&gt;https://boxboat.com/2016/08/12/mounting-volumes-docker-swarm-1-12/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;https://stackoverflow.com/questions/42672171/volume-is-not-shared-between-nodes-of-docker-swarm&lt;/p&gt;
+&lt;p&gt;Volumes created in docker swarm via default driver are local to the node. So if you put both containers on the same host they will have a shared volume. But when you put your containers on different nodes, there will be a separate volume created on each node.&lt;/p&gt;
+&lt;p&gt;Now in order to achieve bind mounts/volumes across multiple nodes you have these options:&lt;/p&gt;
+&lt;p&gt;Use a cluster filesystem like glusterfs, ceph and ... across swarm nodes, then use bind mounts in your service defenition pointing to shared fs.&lt;/p&gt;
+&lt;p&gt;Switch to Kubernetes and take advantage of automated volume provisioning using multiple backends via Storage classes and claims.
+http://storidge.com/blog/persistence-for-docker-swarm/&lt;/p&gt;
+&lt;p&gt;https://blog.octo.com/en/kubernetes-vs-swarm-volumes/&lt;/p&gt;
+&lt;h2 id="glusterfs"&gt;GlusterFS&lt;/h2&gt;
+&lt;p&gt;http://embaby.com/blog/using-glusterfs-docker-swarm-cluster/&lt;/p&gt;</content><category term="Software"></category><category term="Software"></category><category term="Docker"></category><category term="Docker Swarm"></category></entry><entry><title>Tips on conda-pack</title><link href="https://outdated.legendu.net/blog/tips-on-conda-pack/" rel="alternate"></link><published>2021-04-30T12:13:17-07:00</published><updated>2021-03-30T12:13:17-07:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2021-04-30:/blog/tips-on-conda-pack/</id><summary type="html">&lt;p&gt;It is suggested that you use python-build-standlone instead of conda-pack to build portable Python environments.
+Please refer to
+&lt;a href="http://www.legendu.net/en/blog/packaging-Python-Dependencies-for-PySpark-Using-python-build-standalone/"&gt;Packaging Python Dependencies for PySpark Using Python-Build-Standalone&lt;/a&gt;
+for more details.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better …&lt;/strong&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;It is suggested that you use python-build-standlone instead of conda-pack to build portable Python environments.
+Please refer to
+&lt;a href="http://www.legendu.net/en/blog/packaging-Python-Dependencies-for-PySpark-Using-python-build-standalone/"&gt;Packaging Python Dependencies for PySpark Using Python-Build-Standalone&lt;/a&gt;
+for more details.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;All packages in a virtual environment must be managed by conda (rather than pip)
+    so that it can be packe using conda-pack.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When using a conda-pack virtual environment with PySpark,
+    the Python package &lt;code&gt;pyyspark&lt;/code&gt; comes with Spark is automatically injected into PYTHONPATH
+    so that users do not have to install &lt;code&gt;pyspark&lt;/code&gt; into the virtual environemnt by themselves.
+    As a matter of fact,
+    the &lt;code&gt;pyspark&lt;/code&gt; comes with Spark is always used
+    even if you have a local copy installed 
+    when you submit a PySpark application with a conda-pack virtual environment.
+    For more discussions,
+    please refer to &lt;a href="https://github.com/conda/conda-pack/issues/102"&gt;this isue&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://www.legendu.net/misc/blog/conda-tips/#pack-a-conda-virtual-environment"&gt;Pack a Conda Virtual Environment&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;https://conda.github.io/conda-pack/&lt;/p&gt;
+&lt;p&gt;https://conda.github.io/conda-pack/cli.html&lt;/p&gt;</content><category term="Computer Science"></category><category term="programming"></category><category term="conda-pack"></category><category term="conda"></category><category term="dependency"></category><category term="virtual environment"></category></entry><entry><title>Connect to Teradata from the BeakerX SQL Kernel in JupyterLab</title><link href="https://outdated.legendu.net/blog/connect-to-teradata-from-the-beakerx-sql-kernel-in-jupyterlab/" rel="alternate"></link><published>2021-04-10T23:47:18-07:00</published><updated>2021-02-10T23:47:18-08:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2021-04-10:/blog/connect-to-teradata-from-the-beakerx-sql-kernel-in-jupyterlab/</id><summary type="html">&lt;p&gt;You can run the following magics in a cell to connect to Teradata from a BeakerX SQL kernel.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;%classpath&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;jar&lt;span class="w"&gt; &lt;/span&gt;/workdir/jars/teradata/tdgssconfig.jar
+%classpath …&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;You can run the following magics in a cell to connect to Teradata from a BeakerX SQL kernel.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;%classpath&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;jar&lt;span class="w"&gt; &lt;/span&gt;/workdir/jars/teradata/tdgssconfig.jar
+%classpath&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;jar&lt;span class="w"&gt; &lt;/span&gt;/workdir/jars/teradata/terajdbc4.jar
+%defaultDatasource&lt;span class="w"&gt; &lt;/span&gt;jdbc:teradata://your.teradata.com/USER&lt;span class="o"&gt;=&lt;/span&gt;your_username,PASSWORD&lt;span class="o"&gt;=&lt;/span&gt;your_password
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;After connecting to a Teradata server,
+you can write SQL code in a cell just like in any other SQL IDE.&lt;/p&gt;</content><category term="Computer Science"></category><category term="programming"></category><category term="Jupyter"></category><category term="JupyterLab"></category><category term="SQL"></category><category term="BeakerX"></category></entry><entry><title>Fastload in Teradata</title><link href="https://outdated.legendu.net/blog/Improve%20Performance%20of%20Inserting%20in%20Teradata%20SQL/" rel="alternate"></link><published>2020-05-22T09:06:28-07:00</published><updated>2020-06-22T09:06:28-07:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2020-05-22:/blog/Improve Performance of Inserting in Teradata SQL/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things on this page are fragmentary and immature notes/thoughts of the author.
+Please read with your own judgement!
+**&lt;/p&gt;
+&lt;h2 id="insert-multiple-rows"&gt;Insert Multiple Rows&lt;/h2&gt;
+&lt;p&gt;Teradata SQL does not support …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things on this page are fragmentary and immature notes/thoughts of the author.
+Please read with your own judgement!
+**&lt;/p&gt;
+&lt;h2 id="insert-multiple-rows"&gt;Insert Multiple Rows&lt;/h2&gt;
+&lt;p&gt;Teradata SQL does not support &lt;code&gt;VALUES&lt;/code&gt; with multiple rows in a &lt;code&gt;INSERT&lt;/code&gt; statement.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Multi Statement Request (MSR) + &lt;a href="https://www.tutorialspoint.com/teradata/teradata_bteq.htm"&gt;Teradata BTEQ&lt;/a&gt;
+    You can run a MSR (with multiple insert statements) BTEQ,
+    which submit all insert statements as one block after the final semicolon.
+    Note: when thereis a new command starting on the same line,
+    it is part of the MSR.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;INSERT&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;INTO&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Example&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;Values&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Steve&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="k"&gt;INSERT&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;INTO&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Example&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;Values&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;James&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In Teradata SQL Assistant or Teradata SQL Studio,
+they shortcut is &lt;code&gt;F9&lt;/code&gt; (instead of &lt;code&gt;F5&lt;/code&gt;).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="performance"&gt;Performance&lt;/h2&gt;
+&lt;p&gt;@TODO: convert the Java example to Kotlin code in JupyterLab notebook.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Prepared_statement"&gt;Prepared/Parameterized Statement&lt;/a&gt;
+    is recommended to improve performance of query/update/insert. 
+    Below is an example of using JDBC in Java.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;// These are done once &lt;/span&gt;
+&lt;span class="n"&gt;Connection&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;conn&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;DriverManager&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getConnection&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;username&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sql&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;INSERT INTO transactions (cust_id, transaction_date, amount, desc) values (?, ?, ?, ?)&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="n"&gt;PreparedStatement&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ps&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;conn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;prepareStatement&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sql&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="c1"&gt;// the below can be repeated many times with different values&lt;/span&gt;
+&lt;span class="n"&gt;ps&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setInt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;custID&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;ps&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setDate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;tran_date&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;ps&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setBigDecimal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;amount&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;ps&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setString&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;desc&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;ps&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;executeUpdate&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In a &lt;a href="https://www.python.org/dev/peps/pep-0249/"&gt;DB-API&lt;/a&gt; compatible Python module,
+you call use the method &lt;a href="https://www.python.org/dev/peps/pep-0249/#id15"&gt;execute&lt;/a&gt;
+on a parameterized query with a list/tuple of parameters.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sql&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;INSERT INTO transactions (cust_id, transaction_date, amount, desc) values (?, ?, ?, ?)&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;cursor&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sql&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;cust_id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tran_dt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;amount&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;desc&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Prepared Statement Batches take your performance to the next level. 
+In addition to the benefits of reusing the Prepared Statement, 
+batching your input values also reduces the number of round trips to the database. 
+A batch size of roughly 5,000 to 10,000 works well for most applications. 
+Using batches can be 10 to 40 times faster than the previous approach.
+Below is an example of using JDBC in Java.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;Connection&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;conn&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;DriverManager&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getConnection&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;username&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sql&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;INSERT INTO transactions(cust_id, transaction_date, amount, desc) values (?, ?, ?, ?)&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;PreparedStatement&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ps&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;conn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;prepareStatement&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sql&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="cm"&gt;/* Loop through input values */&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="cm"&gt;/* Loop through a subset of the input values - the desired batch size */&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;ps&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setInt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;custID&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;ps&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setDate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;tran_date&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;ps&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setBigDecimal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;amount&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;ps&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setString&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;desc&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;ps&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;addBatch&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// adds the row of input values to the batch&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;// This is done once per the desired batch size.&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;ps&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;executeBatch&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// sends all the batched rows to the database&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In a &lt;a href="https://www.python.org/dev/peps/pep-0249/"&gt;DB-API&lt;/a&gt; compatible Python module,
+you call use the method &lt;a href="https://www.python.org/dev/peps/pep-0249/#executemany"&gt;executemany&lt;/a&gt;
+on a parameterized query with a list/tuple of list/tuple of parameters.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sql&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;INSERT INTO transactions (cust_id, transaction_date, amount, desc) values (?, ?, ?, ?)&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;cursor&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sql&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;cust_id_1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tran_dt_1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;amount_1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;desc_1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;cust_id_2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tran_dt_2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;amount_2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;desc_2&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;cust_id_3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tran_dt_3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;amount_3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;desc_3&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;For loading truly huge amounts of data, 
+JDBC FastLoad can provide even better performance. 
+There are a couple of caveats, however. 
+&lt;strong&gt;JDBC FastLoad can only insert data into an empty table&lt;/strong&gt;,
+and JDBC FastLoad is only recommended for loading large amounts of data -- at least 100,000 rows total.
+The nice thing is that your Java code doesn't need to change in order to use JDBC FastLoad. 
+Your application uses the exact same Prepared Statement batches as in the previous example. 
+Just add &lt;code&gt;TYPE=FASTLOAD&lt;/code&gt; to your connection parameters, 
+and the Teradata JDBC Driver will use JDBC FastLoad for particular SQL requests, if it can.
+Note that the recommended batch size for JDBC FastLoad is much higher 
+than for a regular SQL Prepared Statement batch, which means you may need to increase your JVM heap size. 
+To get top-notch performance, 
+you need to use a batch size of roughly 50,000 to 100,000. 
+Using JDBC FastLoad can be 3 to 10 times faster than the previous approach.
+Please refer to 
+&lt;a href="https://teradata-docs.s3.amazonaws.com/doc/connectivity/jdbc/reference/current/jdbcug_chapter_2.html#BABFGFAF"&gt;JDBC FastLoad&lt;/a&gt;
+for more discussions on JDBC FastLoad.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="fastload"&gt;FastLoad&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;If you have the Teradata ODBC driver installed,
+    you can access the &lt;code&gt;fastload&lt;/code&gt; commaand by installing Teradata Tools &amp;amp; Utils.
+    If you use JDBC, 
+    it seems that you must write code yourself.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Use temporary tables when you use &lt;code&gt;fastload&lt;/code&gt; to load data&lt;/strong&gt;,
+    as the tables involved might get blocked if issues happen in the middle.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Make sure to set a large enough CHECKPOINT for good performance.
+    Frequent checkpointing option reduces the speed of your FastLoad job.
+    But it substantially enhances FastLoad restart operations.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Each checkpoint temporarily halts the multiple session data transfer feature of FastLoad,
+    thereby decreasing the speed of the FastLoad job.&lt;/li&gt;
+&lt;li&gt;The record size and the size of the Teradata Database influence how often you should
+    specify checkpoints.On a smaller Teradata Database, specify checkpoints:&lt;/li&gt;
+&lt;li&gt;Every 50,000 records if each record is more then 4 KB&lt;/li&gt;
+&lt;li&gt;Every 100,000 records if each record is less than 4 KB
+    On a larger Teradata Database, specify higher (less frequent) checkpoint values.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;http://teradatatrainingbysatish.blogspot.com/2016/01/teradata-sample-scripts-bteq-fastload.html&lt;/p&gt;
+&lt;p&gt;https://www.tutorialspoint.com/teradata/teradata_fastload.htm&lt;/p&gt;
+&lt;p&gt;https://docs.teradata.com/reader/r_6Z4JwVMhANtZFCIKEx7Q/NygMHUT8ewJO_7cXjYx8Ug&lt;/p&gt;
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=eeHaRzoYLL4"&gt;FASTLOAD Utility in Teradata ---Step by Step Explanation&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://teradata-docs.s3.amazonaws.com/doc/connectivity/jdbc/reference/current/jdbcug_chapter_2.html#BABFGFAF"&gt;JDBC FastLoad&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://www.tutorialspoint.com/teradata/teradata_bteq.htm"&gt;Teradata - BTEQ&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/39668309/insert-multiple-rows-sql-teradata"&gt;Insert Multiple Rows SQL Teradata&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="http://www.ebyhr.org/2018/10/bulk-insert-to-teradata-using-python.html"&gt;Bulk Insert to Teradata using Python&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://downloads.teradata.com/connectivity/articles/speed-up-your-jdbcodbc-applications"&gt;Speed up your JDBC/ODBC applications&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://stackoverflow.com/questions/26684648/teradata-jdbc-whats-the-point-of-using-fastload-if-java-has-memory-limitations"&gt;Teradata-jdbc: What's the point of using Fastload if java has memory limitations?&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://teradata-docs.s3.amazonaws.com/doc/connectivity/jdbc/reference/current/samplePrograms.html"&gt;Teradata JDBC Driver Sample Programs&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=sq5x__EkCJc"&gt;Teradata FASTLOAD - Overview , Syntax and Execution&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://docs.teradata.com/reader/r_6Z4JwVMhANtZFCIKEx7Q/cE9QwHgBRSq8CvD61SaycQ"&gt;Teradata FastLoad Example&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Computer Science"></category><category term="Computer Science"></category><category term="SQL"></category><category term="Teradata"></category><category term="fastload"></category><category term="BTEQ"></category><category term="prepared statement"></category></entry><entry><title>Understand and Avoid the No More Spool Space Issue in Teradata</title><link href="https://outdated.legendu.net/blog/understand-and-avoid-the-no-more-spool-space-issue-in-teradata/" rel="alternate"></link><published>2020-06-22T08:53:57-07:00</published><updated>2020-06-22T08:53:57-07:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2020-06-22:/blog/understand-and-avoid-the-no-more-spool-space-issue-in-teradata/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things on this page are fragmentary and immature notes/thoughts of the author.
+Please read with your own judgement!
+**&lt;/p&gt;
+&lt;h2 id="knowledge-about-spool-space-in-teradata"&gt;Knowledge About Spool Space in Teradata&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Volatile Tables …&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things on this page are fragmentary and immature notes/thoughts of the author.
+Please read with your own judgement!
+**&lt;/p&gt;
+&lt;h2 id="knowledge-about-spool-space-in-teradata"&gt;Knowledge About Spool Space in Teradata&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Volatile Tables and subqueries are both built in Spool&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="causes-of-no-more-spool-issue"&gt;Causes of No More Spool Issue&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;The main cause of "no more spool space" errors 
+    is usually data skew. &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="some-potential-solutions"&gt;Some Potential Solutions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Choose a &lt;strong&gt;good primary index&lt;/strong&gt; when creating a data tabel.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Reduce the number of rows and columns you’re working with&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Break down a big query into smaller ones.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use Subqueries to Reduce Joined Rows and Columns&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;reduce spool with COMPRESS&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;p&gt;https://robertlambert.net/2018/02/escaping-teradata-purgatory-select-failed-2646-no-more-spool-space/&lt;/p&gt;</content><category term="Computer Science"></category><category term="Computer Science"></category><category term="Teradata"></category><category term="spool space"></category><category term="no more spool space"></category><category term="database"></category><category term="SQL"></category></entry><entry><title>Use Spark With the BeakerX Scala Kernel</title><link href="https://outdated.legendu.net/blog/use-spark-with-the-beakerx-scala-kernel/" rel="alternate"></link><published>2021-04-23T17:23:46-07:00</published><updated>2020-03-23T17:23:46-07:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2021-04-23:/blog/use-spark-with-the-beakerx-scala-kernel/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Open a JupyterLab notebook with the BeakerX Scala kernel from the launcher.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download Spark (say, 2.3.1) dependencies. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="n"&gt;classpath&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;mvn&lt;/span&gt;
+&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apache&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;spark&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;spark&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;core_2 …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Open a JupyterLab notebook with the BeakerX Scala kernel from the launcher.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download Spark (say, 2.3.1) dependencies. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="n"&gt;classpath&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;mvn&lt;/span&gt;
+&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apache&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;spark&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;spark&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;core_2&lt;/span&gt;&lt;span class="mf"&gt;.11&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;2.3.1&lt;/span&gt;
+&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apache&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;spark&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;spark&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sql_2&lt;/span&gt;&lt;span class="mf"&gt;.11&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;2.3.1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create a SparkSession object.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;org&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nn"&gt;apache&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nn"&gt;spark&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nn"&gt;sql&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;SparkSession&lt;/span&gt;
+&lt;span class="k"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;org&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nn"&gt;apache&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nn"&gt;spark&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nn"&gt;sql&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nn"&gt;functions&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_&lt;/span&gt;
+
+&lt;span class="kd"&gt;val&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;spark&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nc"&gt;SparkSession&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;builder&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;master&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;local[2]&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;appName&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Spark Example&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;spark.some.config.option&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;some-value&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getOrCreate&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="k"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nn"&gt;spark&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nn"&gt;implicits&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use Spark as usual. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kd"&gt;val&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nc"&gt;Range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;toDF&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;/ol&gt;</content><category term="Computer Science"></category><category term="Computer Science"></category><category term="Spark"></category><category term="Scala"></category><category term="BeakerX"></category><category term="JupyterLab"></category></entry><entry><title>Git Shell on Windows</title><link href="https://outdated.legendu.net/blog/git-shell-on-windows/" rel="alternate"></link><published>2019-10-14T01:01:31-07:00</published><updated>2019-10-14T01:01:31-07:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2019-10-14:/blog/git-shell-on-windows/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things on this page are fragmentary and immature notes/thoughts of the author.
+Please read with your own judgement!
+**&lt;/p&gt;
+&lt;p&gt;It is suggested that you use Git in …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things on this page are fragmentary and immature notes/thoughts of the author.
+Please read with your own judgement!
+**&lt;/p&gt;
+&lt;p&gt;It is suggested that you use Git in Windows Subsystem Linux (WSL) 
+instead of Git Shell in Windows.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;git bash shell (on Windows) also uses shitf + insert to paste.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Git bash shell use /c, /d, /e, etc. for root path of drives.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;It seems to me that
+    &lt;code&gt;git config --global core.fileModel&lt;/code&gt;
+    has no effect on Windows.
+    You can use &lt;code&gt;git -c core.fileMode=false command&lt;/code&gt; as an alternative.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Git diff origin/master..HEAD&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Git diff 15dc8^!&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</content><category term="Software"></category><category term="Software"></category><category term="Git"></category><category term="shell"></category><category term="Windows"></category><category term="WSL"></category><category term="Windows Subsystem Linux"></category></entry><entry><title>Install Python Pip in Cygwin</title><link href="https://outdated.legendu.net/blog/install-python-pip-in-cygwin/" rel="alternate"></link><published>2019-03-04T23:56:02-08:00</published><updated>2019-03-04T23:56:02-08:00</updated><author><name>Benjamin Du</name></author><id>tag:outdated.legendu.net,2019-03-04:/blog/install-python-pip-in-cygwin/</id><content type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;python3&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;ensurepip
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;p&gt;https://stackoverflow.com/questions/30863501/installing-new-versions-of-python-on-cygwin-does-not-install-pip&lt;Paste&gt;&lt;/p&gt;</content><category term="Software"></category><category term="software"></category><category term="Python"></category><category term="Cygwin"></category><category term="pip"></category></entry></feed>

@@ -1,0 +1,1133 @@
+[input]
+html_selector = "main"
+base_directory = "output"
+
+[[input.files]]
+path = "blog/write user-defined functions in sas/index.html"
+url = "/blog/write user-defined functions in sas/"
+title = "Write User-defined Functions in SAS"
+
+[[input.files]]
+path = "blog/wajig-tips/index.html"
+url = "/blog/wajig-tips/"
+title = "Tips on Wajig"
+
+[[input.files]]
+path = "blog/cool-shell-commands/index.html"
+url = "/blog/cool-shell-commands/"
+title = "Cool Shell/Terminal Commands"
+
+[[input.files]]
+path = "blog/tips-on-bash-completion/index.html"
+url = "/blog/tips-on-bash-completion/"
+title = "Tips on Bash Completion"
+
+[[input.files]]
+path = "blog/powershell-on-windows-for-github-actions/index.html"
+url = "/blog/powershell-on-windows-for-github-actions/"
+title = "Powershell on Windows for GitHub Actions"
+
+[[input.files]]
+path = "blog/fix-shell-command-using-fc/index.html"
+url = "/blog/fix-shell-command-using-fc/"
+title = "Fix Shell Commands Using fc"
+
+[[input.files]]
+path = "blog/editing-shell-commands-using-vim/index.html"
+url = "/blog/editing-shell-commands-using-vim/"
+title = "Editing Shell Commands Using Vim"
+
+[[input.files]]
+path = "blog/birth-certificate-in-wa/index.html"
+url = "/blog/birth-certificate-in-wa/"
+title = "Birth Certificate in WA"
+
+[[input.files]]
+path = "blog/tips-on-zoxide/index.html"
+url = "/blog/tips-on-zoxide/"
+title = "Tips on Zoxide"
+
+[[input.files]]
+path = "blog/python-poetry-tips/index.html"
+url = "/blog/python-poetry-tips/"
+title = "Manage Your Python Project Using Poetry"
+
+[[input.files]]
+path = "blog/managing-virtual-environments-in-poetry/index.html"
+url = "/blog/managing-virtual-environments-in-poetry/"
+title = "Managing Virtual Environments in Poetry"
+
+[[input.files]]
+path = "blog/disable-the-checkers-layer-in-spacevim/index.html"
+url = "/blog/disable-the-checkers-layer-in-spacevim/"
+title = "Disable the Checkers Layer in SpaceVim"
+
+[[input.files]]
+path = "blog/spacevim-tips/index.html"
+url = "/blog/spacevim-tips/"
+title = "SpaceVim - A Modern Vim/NeoVim Configuration"
+
+[[input.files]]
+path = "blog/shell-tips/index.html"
+url = "/blog/shell-tips/"
+title = "Tips on Shell Commands"
+
+[[input.files]]
+path = "blog/the-right-way-to-export-PATH-in-shell/index.html"
+url = "/blog/the-right-way-to-export-PATH-in-shell/"
+title = "The Right Way to Export PATH in Shell"
+
+[[input.files]]
+path = "blog/tips-on-yapf/index.html"
+url = "/blog/tips-on-yapf/"
+title = "Tips on yapf"
+
+[[input.files]]
+path = "blog/tips-on-KMyMoney/index.html"
+url = "/blog/tips-on-KMyMoney/"
+title = "Tips on Kmymoney"
+
+[[input.files]]
+path = "blog/alike-objects-in-r/index.html"
+url = "/blog/alike-objects-in-r/"
+title = "Alike Objects/Functions in R"
+
+[[input.files]]
+path = "blog/functions-and-calls-in-r/index.html"
+url = "/blog/functions-and-calls-in-r/"
+title = "Functions and Calls in R"
+
+[[input.files]]
+path = "blog/bash-equivalent-of-the-ifmain-pattern-in-python/index.html"
+url = "/blog/bash-equivalent-of-the-ifmain-pattern-in-python/"
+title = "Bash Equivalent of the ifmain Pattern in Python"
+
+[[input.files]]
+path = "blog/conda-tips/index.html"
+url = "/blog/conda-tips/"
+title = "Tips on Conda"
+
+[[input.files]]
+path = "blog/gitpod-tips/index.html"
+url = "/blog/gitpod-tips/"
+title = "Tips on Gitpod"
+
+[[input.files]]
+path = "blog/extended-globbing-in-bash/index.html"
+url = "/blog/extended-globbing-in-bash/"
+title = "Extended Globbing in Bash"
+
+[[input.files]]
+path = "blog/tmux-tips/index.html"
+url = "/blog/tmux-tips/"
+title = "Tips on tmux"
+
+[[input.files]]
+path = "blog/regular-expression-in-bash/index.html"
+url = "/blog/regular-expression-in-bash/"
+title = "Regular Expression in Bash"
+
+[[input.files]]
+path = "blog/r-for-numerical-analysis/index.html"
+url = "/blog/r-for-numerical-analysis/"
+title = "R for Numerical Analysis"
+
+[[input.files]]
+path = "blog/configure-terminal-for-pycharm/index.html"
+url = "/blog/configure-terminal-for-pycharm/"
+title = "Configure Terminal for PyCharm on Windows"
+
+[[input.files]]
+path = "blog/set-operations-on-lines-of-files/index.html"
+url = "/blog/set-operations-on-lines-of-files/"
+title = "Set Operations on Lines of Files"
+
+[[input.files]]
+path = "blog/use-autojump-to-help-quick-navigation-in-terminal-in-linux/index.html"
+url = "/blog/use-autojump-to-help-quick-navigation-in-terminal-in-linux/"
+title = "Use Autojump to Help Quick Navigation in Terminal in Linux"
+
+[[input.files]]
+path = "blog/install-and-configure-iterm2-on-mac/index.html"
+url = "/blog/install-and-configure-iterm2-on-mac/"
+title = "Install and Configure Iterm2 on Mac"
+
+[[input.files]]
+path = "blog/bokeh-tips/index.html"
+url = "/blog/bokeh-tips/"
+title = "Visualization Using Bokeh in Python"
+
+[[input.files]]
+path = "blog/terminator-tips/index.html"
+url = "/blog/terminator-tips/"
+title = "Terminator is an Awesome Terminal Emulator"
+
+[[input.files]]
+path = "blog/shell-equivalent-in-different-operating-systems/index.html"
+url = "/blog/shell-equivalent-in-different-operating-systems/"
+title = "Shell Equivalent in Different Operating Systems"
+
+[[input.files]]
+path = "blog/docker-on-windows/index.html"
+url = "/blog/docker-on-windows/"
+title = "Docker on Windows"
+
+[[input.files]]
+path = "blog/alternative-to-the-rm-command-in-linux/index.html"
+url = "/blog/alternative-to-the-rm-command-in-linux/"
+title = "Alternative to the rm Command in Linux"
+
+[[input.files]]
+path = "blog/packaging-python-dependencies-for-pyspark-using-conda-pack/index.html"
+url = "/blog/packaging-python-dependencies-for-pyspark-using-conda-pack/"
+title = "Packaging Python Dependencies for PySpark Using conda-pack"
+
+[[input.files]]
+path = "blog/tips-on-dockerswarm/index.html"
+url = "/blog/tips-on-dockerswarm/"
+title = "Tips on Dockerswarm"
+
+[[input.files]]
+path = "blog/tips-on-conda-pack/index.html"
+url = "/blog/tips-on-conda-pack/"
+title = "Tips on conda-pack"
+
+[[input.files]]
+path = "blog/syntax-of-teradata-sql/index.html"
+url = "/blog/syntax-of-teradata-sql/"
+title = "Syntax of Teradata SQL"
+
+[[input.files]]
+path = "blog/teradata-sql-tips/index.html"
+url = "/blog/teradata-sql-tips/"
+title = "Tips on Teradata SQL"
+
+[[input.files]]
+path = "blog/connect-to-teradata-from-the-beakerx-sql-kernel-in-jupyterlab/index.html"
+url = "/blog/connect-to-teradata-from-the-beakerx-sql-kernel-in-jupyterlab/"
+title = "Connect to Teradata from the BeakerX SQL Kernel in JupyterLab"
+
+[[input.files]]
+path = "blog/rename-tips/index.html"
+url = "/blog/rename-tips/"
+title = "Batch File Renaming Using \\\"rename\\\""
+
+[[input.files]]
+path = "blog/Improve Performance of Inserting in Teradata SQL/index.html"
+url = "/blog/Improve Performance of Inserting in Teradata SQL/"
+title = "Fastload in Teradata"
+
+[[input.files]]
+path = "blog/understand-and-avoid-the-no-more-spool-space-issue-in-teradata/index.html"
+url = "/blog/understand-and-avoid-the-no-more-spool-space-issue-in-teradata/"
+title = "Understand and Avoid the No More Spool Space Issue in Teradata"
+
+[[input.files]]
+path = "blog/general-tips-for-mathematica/index.html"
+url = "/blog/general-tips-for-mathematica/"
+title = "General Tips on Mathematica"
+
+[[input.files]]
+path = "blog/conda-build-issue/index.html"
+url = "/blog/conda-build-issue/"
+title = "Conda Build Issue"
+
+[[input.files]]
+path = "blog/MobaXterm-tips/index.html"
+url = "/blog/MobaXterm-tips/"
+title = "Tips on MobaXterm"
+
+[[input.files]]
+path = "blog/cygwin-tips/index.html"
+url = "/blog/cygwin-tips/"
+title = "Some Tips on Cygwin"
+
+[[input.files]]
+path = "blog/h2o-tips/index.html"
+url = "/blog/h2o-tips/"
+title = "The H2O Machine Learning Framework"
+
+[[input.files]]
+path = "blog/scalajs-tips/index.html"
+url = "/blog/scalajs-tips/"
+title = "Tips on ScalaJS"
+
+[[input.files]]
+path = "blog/vimperator-tips/index.html"
+url = "/blog/vimperator-tips/"
+title = "Tips on Vimperator"
+
+[[input.files]]
+path = "blog/jitsi-tips/index.html"
+url = "/blog/jitsi-tips/"
+title = "Tips on Jitsi"
+
+[[input.files]]
+path = "blog/spyder-tips/index.html"
+url = "/blog/spyder-tips/"
+title = "Tips on Spyder"
+
+[[input.files]]
+path = "blog/wicd-tips/index.html"
+url = "/blog/wicd-tips/"
+title = "Managing Wireeless Network Using Wicd"
+
+[[input.files]]
+path = "blog/unison-tips/index.html"
+url = "/blog/unison-tips/"
+title = "Synchronize Files Using Unison"
+
+[[input.files]]
+path = "blog/terminology-tips/index.html"
+url = "/blog/terminology-tips/"
+title = "Terminology is a Fancy Terminal Emulator"
+
+[[input.files]]
+path = "blog/YouCompleteMe-tips/index.html"
+url = "/blog/YouCompleteMe-tips/"
+title = "Auto Completion Using YouCompleteMe in Vim"
+
+[[input.files]]
+path = "blog/use-eclipse-as-your-ide/index.html"
+url = "/blog/use-eclipse-as-your-ide/"
+title = "Use Eclipse as Your IDE"
+
+[[input.files]]
+path = "blog/simple-data-manipulating-example/index.html"
+url = "/blog/simple-data-manipulating-example/"
+title = "Simple Data Manipulating Example in SAS"
+
+[[input.files]]
+path = "blog/install-firefox-and-thunderbird-automatically/index.html"
+url = "/blog/install-firefox-and-thunderbird-automatically/"
+title = "Install Firefox and Thunderbird Automatically on Debian"
+
+[[input.files]]
+path = "blog/goldendict-tips/index.html"
+url = "/blog/goldendict-tips/"
+title = "Tips on Goldendict"
+
+[[input.files]]
+path = "blog/zim-tips/index.html"
+url = "/blog/zim-tips/"
+title = "Taking Notes Using Zim"
+
+[[input.files]]
+path = "blog/vba-tips/index.html"
+url = "/blog/vba-tips/"
+title = "Tips on VBA"
+
+[[input.files]]
+path = "blog/environments-in-r/index.html"
+url = "/blog/environments-in-r/"
+title = "Environments in R"
+
+[[input.files]]
+path = "blog/aerofs-tips/index.html"
+url = "/blog/aerofs-tips/"
+title = "Synchronize Files Using AeroFS"
+
+[[input.files]]
+path = "blog/lightdm-tips/index.html"
+url = "/blog/lightdm-tips/"
+title = "Lightdm Tips"
+
+[[input.files]]
+path = "blog/work-with-teradata-sql-in-python/index.html"
+url = "/blog/work-with-teradata-sql-in-python/"
+title = "Work With Teradata SQL in Python"
+
+[[input.files]]
+path = "blog/use-teradata-via-jdbc-in-zeppelin/index.html"
+url = "/blog/use-teradata-via-jdbc-in-zeppelin/"
+title = "Use Teradata via JDBC in Zeppelin"
+
+[[input.files]]
+path = "blog/atom-tips/index.html"
+url = "/blog/atom-tips/"
+title = "Tips on Atom"
+
+[[input.files]]
+path = "blog/beakerx-tips/index.html"
+url = "/blog/beakerx-tips/"
+title = "The BeakerX JupyterLab Kernel"
+
+[[input.files]]
+path = "blog/tips-for-teradata-sql-assistant/index.html"
+url = "/blog/tips-for-teradata-sql-assistant/"
+title = "Tips on Teradata SQL Assistant"
+
+[[input.files]]
+path = "blog/pybuilder-tips/index.html"
+url = "/blog/pybuilder-tips/"
+title = "Tips on PyBuilder"
+
+[[input.files]]
+path = "blog/input-bug-ruby/index.html"
+url = "/blog/input-bug-ruby/"
+title = "An Input Bug in Ruby"
+
+[[input.files]]
+path = "blog/send-email-ruby/index.html"
+url = "/blog/send-email-ruby/"
+title = "Send Email in Ruby"
+
+[[input.files]]
+path = "blog/tips-ruby/index.html"
+url = "/blog/tips-ruby/"
+title = "Tips on the Ruby Programming Language"
+
+[[input.files]]
+path = "blog/scala-tips/index.html"
+url = "/blog/scala-tips/"
+title = "Tips on Scala"
+
+[[input.files]]
+path = "blog/use-spark-with-the-beakerx-scala-kernel/index.html"
+url = "/blog/use-spark-with-the-beakerx-scala-kernel/"
+title = "Use Spark With the BeakerX Scala Kernel"
+
+[[input.files]]
+path = "blog/eclim-tips/index.html"
+url = "/blog/eclim-tips/"
+title = "Tips on Eclim"
+
+[[input.files]]
+path = "blog/uget-tips/index.html"
+url = "/blog/uget-tips/"
+title = "Tips on uGet"
+
+[[input.files]]
+path = "blog/q-query-text-file-sql/index.html"
+url = "/blog/q-query-text-file-sql/"
+title = "Use q to Query Text File Using SQL Syntax"
+
+[[input.files]]
+path = "blog/r-tips/index.html"
+url = "/blog/r-tips/"
+title = "Tips on R"
+
+[[input.files]]
+path = "blog/matlab-tips/index.html"
+url = "/blog/matlab-tips/"
+title = "MATLAB Tips"
+
+[[input.files]]
+path = "blog/regular-expression-in-r/index.html"
+url = "/blog/regular-expression-in-r/"
+title = "Regular Expression in R"
+
+[[input.files]]
+path = "blog/apache-toree-tips/index.html"
+url = "/blog/apache-toree-tips/"
+title = "Apache Toree Tips"
+
+[[input.files]]
+path = "blog/git-shell-on-windows/index.html"
+url = "/blog/git-shell-on-windows/"
+title = "Git Shell on Windows"
+
+[[input.files]]
+path = "blog/sas-tips/index.html"
+url = "/blog/sas-tips/"
+title = "Tips on SAS"
+
+[[input.files]]
+path = "blog/pig-tips/index.html"
+url = "/blog/pig-tips/"
+title = "Tips on Pig"
+
+[[input.files]]
+path = "blog/install-r-kernel-for-jupyterlab/index.html"
+url = "/blog/install-r-kernel-for-jupyterlab/"
+title = "Install R Kernel for JupyterLab"
+
+[[input.files]]
+path = "blog/ruby-read-pdf/index.html"
+url = "/blog/ruby-read-pdf/"
+title = "Read PDF in Ruby"
+
+[[input.files]]
+path = "blog/mathematica-tips/index.html"
+url = "/blog/mathematica-tips/"
+title = "Tips for Mathematica"
+
+[[input.files]]
+path = "blog/install-python-pip-in-cygwin/index.html"
+url = "/blog/install-python-pip-in-cygwin/"
+title = "Install Python Pip in Cygwin"
+
+[[input.files]]
+path = "blog/cygwin-ports/index.html"
+url = "/blog/cygwin-ports/"
+title = "Cygwin Ports"
+
+[[input.files]]
+path = "blog/general-tips-for-groovy/index.html"
+url = "/blog/general-tips-for-groovy/"
+title = "General Tips for Groovy"
+
+[[input.files]]
+path = "blog/r-package-dt/index.html"
+url = "/blog/r-package-dt/"
+title = "R Package DT"
+
+[[input.files]]
+path = "blog/stringi-tips/index.html"
+url = "/blog/stringi-tips/"
+title = "stringi Tips"
+
+[[input.files]]
+path = "blog/rjava-failed-to-load-rjava.so/index.html"
+url = "/blog/rjava-failed-to-load-rjava.so/"
+title = "rJava Failed to Load rJava.So"
+
+[[input.files]]
+path = "blog/develop-r-packages-using-roxygen2/index.html"
+url = "/blog/develop-r-packages-using-roxygen2/"
+title = "Develop R Packages Using \\\"roxygen2\\\""
+
+[[input.files]]
+path = "blog/zero-length-vector-issue-in-R/index.html"
+url = "/blog/zero-length-vector-issue-in-R/"
+title = "Zero-length Vector Issue in R"
+
+[[input.files]]
+path = "blog/traps-in-r/index.html"
+url = "/blog/traps-in-r/"
+title = "Traps in R"
+
+[[input.files]]
+path = "blog/rmarkdown-tips/index.html"
+url = "/blog/rmarkdown-tips/"
+title = "R Markdown Tips"
+
+[[input.files]]
+path = "blog/missing-values-in-R/index.html"
+url = "/blog/missing-values-in-R/"
+title = "Missing Values in R"
+
+[[input.files]]
+path = "blog/using-sql-in-r/index.html"
+url = "/blog/using-sql-in-r/"
+title = "Using SQL in R"
+
+[[input.files]]
+path = "blog/cygwin-rescue-linux-fan/index.html"
+url = "/blog/cygwin-rescue-linux-fan/"
+title = "Cygwin Come to Rescue Linux Fans on Windows"
+
+[[input.files]]
+path = "blog/thunderbird-tips/index.html"
+url = "/blog/thunderbird-tips/"
+title = "Random Tips About Thunderbird"
+
+[[input.files]]
+path = "blog/install-the-latest-version-of-R-in-ubuntu/index.html"
+url = "/blog/install-the-latest-version-of-R-in-ubuntu/"
+title = "Install the Latest Version of R in Ubuntu"
+
+[[input.files]]
+path = "blog/install-r-packages-on-windows-behind-proxy/index.html"
+url = "/blog/install-r-packages-on-windows-behind-proxy/"
+title = "Install R Packages Behind Proxy on Windows"
+
+[[input.files]]
+path = "blog/install-jupyter-scala-for-jupyterlab/index.html"
+url = "/blog/install-jupyter-scala-for-jupyterlab/"
+title = "Install Jupyter-Scala for JupyterLab"
+
+[[input.files]]
+path = "blog/install-the-rjava-package-in-r/index.html"
+url = "/blog/install-the-rjava-package-in-r/"
+title = "Install the rJava Package in R"
+
+[[input.files]]
+path = "blog/rstudio-tips/index.html"
+url = "/blog/rstudio-tips/"
+title = "RStudio Tips"
+
+[[input.files]]
+path = "blog/string-in-r/index.html"
+url = "/blog/string-in-r/"
+title = "String in R"
+
+[[input.files]]
+path = "blog/call-java-in-r/index.html"
+url = "/blog/call-java-in-r/"
+title = "Call Java in R Using Package rJava"
+
+[[input.files]]
+path = "blog/tips-for-r-packages/index.html"
+url = "/blog/tips-for-r-packages/"
+title = "Tips for R Packages"
+
+[[input.files]]
+path = "blog/install-essential-and-useful-r-packages/index.html"
+url = "/blog/install-essential-and-useful-r-packages/"
+title = "Install Essential and Useful R Packages"
+
+[[input.files]]
+path = "blog/writing-r-extensions/index.html"
+url = "/blog/writing-r-extensions/"
+title = "Writing R Extensions"
+
+[[input.files]]
+path = "blog/r-coding-style/index.html"
+url = "/blog/r-coding-style/"
+title = "R Coding Style"
+
+[[input.files]]
+path = "blog/data-types-in-teradata-sql/index.html"
+url = "/blog/data-types-in-teradata-sql/"
+title = "Data Types in Teradata SQL"
+
+[[input.files]]
+path = "blog/teradata-table-type/index.html"
+url = "/blog/teradata-table-type/"
+title = "Teradata Table Type"
+
+[[input.files]]
+path = "blog/octopress-tips/index.html"
+url = "/blog/octopress-tips/"
+title = "Tips About Octopress"
+
+[[input.files]]
+path = "blog/existing-bugs-in-r/index.html"
+url = "/blog/existing-bugs-in-r/"
+title = "Existing Bugs in R"
+
+[[input.files]]
+path = "blog/json-for-r/index.html"
+url = "/blog/json-for-r/"
+title = "JSON for R"
+
+[[input.files]]
+path = "blog/creating-index-on-data-in-sas/index.html"
+url = "/blog/creating-index-on-data-in-sas/"
+title = "Creating Index on Data in SAS"
+
+[[input.files]]
+path = "blog/useful-add-ons-for-thunderbird/index.html"
+url = "/blog/useful-add-ons-for-thunderbird/"
+title = "Useful Add-ons for Thunderbird"
+
+[[input.files]]
+path = "blog/sas-stored-process-and-sas-visual-analytics/index.html"
+url = "/blog/sas-stored-process-and-sas-visual-analytics/"
+title = "SAS Stored Process and SAS Visual Analytics"
+
+[[input.files]]
+path = "blog/pros-and-cons-of-r/index.html"
+url = "/blog/pros-and-cons-of-r/"
+title = "Advantages and Disadvantages of R"
+
+[[input.files]]
+path = "blog/vbscript-tips/index.html"
+url = "/blog/vbscript-tips/"
+title = "Tips About VBScript"
+
+[[input.files]]
+path = "blog/MATLAB-different/index.html"
+url = "/blog/MATLAB-different/"
+title = "How MATLAB Is Different from Other Programming Languages"
+
+[[input.files]]
+path = "blog/sweave/index.html"
+url = "/blog/sweave/"
+title = "Sweave"
+
+[[input.files]]
+path = "blog/comparing-values-involving-NA-in-R/index.html"
+url = "/blog/comparing-values-involving-NA-in-R/"
+title = "Comparison of Values Involving NA in R"
+
+[[input.files]]
+path = "blog/install-terminator-on-cygwin/index.html"
+url = "/blog/install-terminator-on-cygwin/"
+title = "Install Terminator on Cygwin"
+
+[[input.files]]
+path = "blog/data-structure-in-r/index.html"
+url = "/blog/data-structure-in-r/"
+title = "Data Structure in R"
+
+[[input.files]]
+path = "blog/rcpp-tips/index.html"
+url = "/blog/rcpp-tips/"
+title = "Tips About Rcpp"
+
+[[input.files]]
+path = "blog/io-in-r/index.html"
+url = "/blog/io-in-r/"
+title = "Input and Output in R"
+
+[[input.files]]
+path = "blog/filesystem-in-r/index.html"
+url = "/blog/filesystem-in-r/"
+title = "Filesystem in R"
+
+[[input.files]]
+path = "blog/string-functions-in-vba/index.html"
+url = "/blog/string-functions-in-vba/"
+title = "String Functions in VBA"
+
+[[input.files]]
+path = "blog/advanced-data-structures-in-vba/index.html"
+url = "/blog/advanced-data-structures-in-vba/"
+title = "Advanced Data Structures in VBA"
+
+[[input.files]]
+path = "blog/arrayQualityMetrics/index.html"
+url = "/blog/arrayQualityMetrics/"
+title = "Install the R Package \\\"arrayQualityMetrics\\\""
+
+[[input.files]]
+path = "blog/graphics-in-r/index.html"
+url = "/blog/graphics-in-r/"
+title = "Graphics in R"
+
+[[input.files]]
+path = "blog/data-table-in-R/index.html"
+url = "/blog/data-table-in-R/"
+title = "Data Table in R"
+
+[[input.files]]
+path = "blog/R-configuration/index.html"
+url = "/blog/R-configuration/"
+title = "R Configuration"
+
+[[input.files]]
+path = "blog/data-manipulation-tools-in-r/index.html"
+url = "/blog/data-manipulation-tools-in-r/"
+title = "Data Manipulation Tools in R"
+
+[[input.files]]
+path = "blog/format-numbers-in-R/index.html"
+url = "/blog/format-numbers-in-R/"
+title = "Format Numbers in R"
+
+[[input.files]]
+path = "blog/find-elements-that-appear-multiple-times-in-R/index.html"
+url = "/blog/find-elements-that-appear-multiple-times-in-R/"
+title = "Find Elements That Appear Multiple Times in R"
+
+[[input.files]]
+path = "blog/the put and input functions in sas/index.html"
+url = "/blog/the put and input functions in sas/"
+title = "The PUT/INPUT Functions in SAS"
+
+[[input.files]]
+path = "blog/missing-values-in-sas/index.html"
+url = "/blog/missing-values-in-sas/"
+title = "Missing Values in SAS"
+
+[[input.files]]
+path = "blog/the confusing string in sas/index.html"
+url = "/blog/the confusing string in sas/"
+title = "The Confusing String in SAS"
+
+[[input.files]]
+path = "blog/macro-in-sas/index.html"
+url = "/blog/macro-in-sas/"
+title = "Macro in SAS"
+
+[[input.files]]
+path = "blog/trap-duplicated-columns-sql-procedure-sas/index.html"
+url = "/blog/trap-duplicated-columns-sql-procedure-sas/"
+title = "The Trap of Duplicated Columns in the SQL Procedure of SAS"
+
+[[input.files]]
+path = "blog/sas-sql-tips/index.html"
+url = "/blog/sas-sql-tips/"
+title = "SAS SQL Tips"
+
+[[input.files]]
+path = "blog/limiting-filtering-results-in-sas/index.html"
+url = "/blog/limiting-filtering-results-in-sas/"
+title = "Limiting/Filtering Results in SAS"
+
+[[input.files]]
+path = "blog/copy-data-in-sas/index.html"
+url = "/blog/copy-data-in-sas/"
+title = "Copy Data in SAS"
+
+[[input.files]]
+path = "blog/transpose-data-in-sas/index.html"
+url = "/blog/transpose-data-in-sas/"
+title = "Transpose Data in SAS"
+
+[[input.files]]
+path = "blog/fast-computing-r/index.html"
+url = "/blog/fast-computing-r/"
+title = "Write R Code that Runs Faster"
+
+[[input.files]]
+path = "blog/sas-data-manipulation/index.html"
+url = "/blog/sas-data-manipulation/"
+title = "Manipulate Data in SAS"
+
+[[input.files]]
+path = "blog/general-tips-for-sas/index.html"
+url = "/blog/general-tips-for-sas/"
+title = "General Tips for SAS"
+
+[[input.files]]
+path = "blog/add-sequential-id-for-observations-in-sas/index.html"
+url = "/blog/add-sequential-id-for-observations-in-sas/"
+title = "Add Sequential ID for Observations in SAS"
+
+[[input.files]]
+path = "blog/sas enterprise guide tips/index.html"
+url = "/blog/sas enterprise guide tips/"
+title = "SAS Enterprise Guide Tips"
+
+[[input.files]]
+path = "blog/control-sas-outputs/index.html"
+url = "/blog/control-sas-outputs/"
+title = "Control SAS Outputs"
+
+[[input.files]]
+path = "blog/compile-matlab-code/index.html"
+url = "/blog/compile-matlab-code/"
+title = "Compile MATLAB Code"
+
+[[input.files]]
+path = "blog/import-export-data-sas/index.html"
+url = "/blog/import-export-data-sas/"
+title = "Import/Export Data to/from SAS"
+
+[[input.files]]
+path = "blog/tuple-in-sas/index.html"
+url = "/blog/tuple-in-sas/"
+title = "Tuple in SAS"
+
+[[input.files]]
+path = "blog/number-of-observations-in-a-sas-dataset/index.html"
+url = "/blog/number-of-observations-in-a-sas-dataset/"
+title = "Number of Observations in a SAS Dataset"
+
+[[input.files]]
+path = "blog/create-a-directory-using-sas/index.html"
+url = "/blog/create-a-directory-using-sas/"
+title = "Create a Directory Using SAS"
+
+[[input.files]]
+path = "blog/format-data-in-sas/index.html"
+url = "/blog/format-data-in-sas/"
+title = "Formatting Data in SAS"
+
+[[input.files]]
+path = "blog/date utilities in sas/index.html"
+url = "/blog/date utilities in sas/"
+title = "Date Utilities in SAS"
+
+[[input.files]]
+path = "blog/sas-loop/index.html"
+url = "/blog/sas-loop/"
+title = "SAS Loop"
+
+[[input.files]]
+path = "blog/combine-data-vertically-in-sas/index.html"
+url = "/blog/combine-data-vertically-in-sas/"
+title = "Combine Data Vertically in SAS"
+
+[[input.files]]
+path = "blog/rounding-related-functions-in-sas/index.html"
+url = "/blog/rounding-related-functions-in-sas/"
+title = "Rounding Related Functions in SAS"
+
+[[input.files]]
+path = "blog/sas-IML-tips/index.html"
+url = "/blog/sas-IML-tips/"
+title = "SAS IML Tips"
+
+[[input.files]]
+path = "blog/sas-error-messages/index.html"
+url = "/blog/sas-error-messages/"
+title = "SAS Error Messages"
+
+[[input.files]]
+path = "blog/lasso-in-sas/index.html"
+url = "/blog/lasso-in-sas/"
+title = "Lasso in SAS"
+
+[[input.files]]
+path = "blog/sharing-data-in-sas/index.html"
+url = "/blog/sharing-data-in-sas/"
+title = "Sharing Data in SAS"
+
+[[input.files]]
+path = "blog/run-unix-linux-commands-in-sas/index.html"
+url = "/blog/run-unix-linux-commands-in-sas/"
+title = "Run Unix/Linux Commands in SAS"
+
+[[input.files]]
+path = "blog/sas-coding-style/index.html"
+url = "/blog/sas-coding-style/"
+title = "SAS Coding Style"
+
+[[input.files]]
+path = "blog/r-for-internet-web-applications/index.html"
+url = "/blog/r-for-internet-web-applications/"
+title = "R for Internet/Web Applications"
+
+[[input.files]]
+path = "blog/keep-matrix-structure-r/index.html"
+url = "/blog/keep-matrix-structure-r/"
+title = "Keep Matrix Structure when Extract a Row/Column from a Matrix"
+
+[[input.files]]
+path = "blog/mistakes-r/index.html"
+url = "/blog/mistakes-r/"
+title = "Easy Made Mistakes when Writing R code"
+
+[[input.files]]
+path = "blog/filesystem-in-matlab/index.html"
+url = "/blog/filesystem-in-matlab/"
+title = "Filesystem in MATLAB"
+
+[[input.files]]
+path = "blog/skills-for-r/index.html"
+url = "/blog/skills-for-r/"
+title = "Skills for R"
+
+[[input.files]]
+path = "blog/generating-random-numbers-in-sas/index.html"
+url = "/blog/generating-random-numbers-in-sas/"
+title = "Generating Random Numbers in SAS"
+
+[[input.files]]
+path = "blog/choose-a-procedure-for-modeling-in-sas/index.html"
+url = "/blog/choose-a-procedure-for-modeling-in-sas/"
+title = "Choose a Procedure for Modeling in SAS"
+
+[[input.files]]
+path = "blog/ibm-aix-tips/index.html"
+url = "/blog/ibm-aix-tips/"
+title = "IBM AIX Tips"
+
+[[input.files]]
+path = "blog/calculating-quantiles-in-sas/index.html"
+url = "/blog/calculating-quantiles-in-sas/"
+title = "Calculating Quantiles in SAS"
+
+[[input.files]]
+path = "blog/user-defined-modules-in-iml/index.html"
+url = "/blog/user-defined-modules-in-iml/"
+title = "User-defined Modules in IML"
+
+[[input.files]]
+path = "blog/work-with-sas-in-command-line/index.html"
+url = "/blog/work-with-sas-in-command-line/"
+title = "Work With SAS in Command Line"
+
+[[input.files]]
+path = "blog/set missing rows as missing data in sas/index.html"
+url = "/blog/set missing rows as missing data in sas/"
+title = "Insert Rows Missing as Missing Records in SAS"
+
+[[input.files]]
+path = "blog/conversation-mode-in-thunderbird/index.html"
+url = "/blog/conversation-mode-in-thunderbird/"
+title = "Conversation Mode in Thunderbird"
+
+[[input.files]]
+path = "blog/good-thunderbird-settings/index.html"
+url = "/blog/good-thunderbird-settings/"
+title = "Good Thunderbird Settings"
+
+[[input.files]]
+path = "blog/useful-shortcuts-for-thunderbird/index.html"
+url = "/blog/useful-shortcuts-for-thunderbird/"
+title = "Useful Shortcuts for Thunderbird"
+
+[[input.files]]
+path = "blog/submit-r-package-cran/index.html"
+url = "/blog/submit-r-package-cran/"
+title = "How to Submit R Packages to CRAN"
+
+[[input.files]]
+path = "blog/graphics-in-MATLAB/index.html"
+url = "/blog/graphics-in-MATLAB/"
+title = "MATLAB for Visualization"
+
+[[input.files]]
+path = "blog/popular-functions-in-iml/index.html"
+url = "/blog/popular-functions-in-iml/"
+title = "Popular Functions in IML"
+
+[[input.files]]
+path = "blog/r-interface-other-languages/index.html"
+url = "/blog/r-interface-other-languages/"
+title = "Passing Arrays Between R and Other Programming Languages"
+
+[[input.files]]
+path = "blog/rstudio-not-start/index.html"
+url = "/blog/rstudio-not-start/"
+title = "RStudio Does Not Start"
+
+[[input.files]]
+path = "blog/tricky-problems-in-MATLAB/index.html"
+url = "/blog/tricky-problems-in-MATLAB/"
+title = "Tricky Problems in MATLAB"
+
+[[input.files]]
+path = "blog/string-in-MATLAB/index.html"
+url = "/blog/string-in-MATLAB/"
+title = "String in MATLAB"
+
+[[input.files]]
+path = "blog/sas-iml-procedure/index.html"
+url = "/blog/sas-iml-procedure/"
+title = "Tips for the IML Procedure in SAS"
+
+[[input.files]]
+path = "blog/download-debian-using-jigdo/index.html"
+url = "/blog/download-debian-using-jigdo/"
+title = "Download Debian Using Jigdo"
+
+[[input.files]]
+path = "blog/time-and-date-in-r/index.html"
+url = "/blog/time-and-date-in-r/"
+title = "Time and Date in R"
+
+[[input.files]]
+path = "blog/pass-array-r-other-language/index.html"
+url = "/blog/pass-array-r-other-language/"
+title = "Compare R with Other Languages on Data Manipulation"
+
+[[input.files]]
+path = "blog/program-termination-in-sas/index.html"
+url = "/blog/program-termination-in-sas/"
+title = "Program Termination in SAS"
+
+[[input.files]]
+path = "blog/cartesian product in sas/index.html"
+url = "/blog/cartesian product in sas/"
+title = "Cartesian Product in SAS"
+
+[[input.files]]
+path = "blog/check-the-type-of-a-sas-variable/index.html"
+url = "/blog/check-the-type-of-a-sas-variable/"
+title = "Check the Type of a SAS Variable"
+
+[[input.files]]
+path = "blog/general-tips-for-MATLAB/index.html"
+url = "/blog/general-tips-for-MATLAB/"
+title = "General Tips for MATLAB"
+
+[[input.files]]
+path = "blog/rcpp-rocks/index.html"
+url = "/blog/rcpp-rocks/"
+title = "Rcpp Rocks"
+
+[[input.files]]
+path = "blog/parallel-computing-in-MATLAB/index.html"
+url = "/blog/parallel-computing-in-MATLAB/"
+title = "Parallel Computing in MATLAB"
+
+[[input.files]]
+path = "blog/feedly-tips/index.html"
+url = "/blog/feedly-tips/"
+title = "Feedly Tips"
+
+[[input.files]]
+path = "blog/cheatsheet-for-muttator/index.html"
+url = "/blog/cheatsheet-for-muttator/"
+title = "Cheatsheet for Muttator"
+
+[[input.files]]
+path = "blog/config-cymail-in-thunderbird/index.html"
+url = "/blog/config-cymail-in-thunderbird/"
+title = "Config Cymail in Thunderbird"
+
+[[input.files]]
+path = "blog/general-tips-for-r/index.html"
+url = "/blog/general-tips-for-r/"
+title = "General Tips for R"
+
+[[input.files]]
+path = "blog/distributions-in-r/index.html"
+url = "/blog/distributions-in-r/"
+title = "Distributions in R"
+
+[[input.files]]
+path = "blog/rng-in-r/index.html"
+url = "/blog/rng-in-r/"
+title = "Random Number Generating in R"
+
+[[input.files]]
+path = "blog/php-tips/index.html"
+url = "/blog/php-tips/"
+title = "Some Tips for PHP"
+
+[[input.files]]
+path = "blog/abook-links/index.html"
+url = "/blog/abook-links/"
+title = "Some Links for ABook"
+
+[[input.files]]
+path = "blog/r-links/index.html"
+url = "/blog/r-links/"
+title = "Some Links for R"
+
+[[input.files]]
+path = "blog/hide-3d-graph-in-mathematica/index.html"
+url = "/blog/hide-3d-graph-in-mathematica/"
+title = "Hide 3D Graph in Mathematica"
+
+[[input.files]]
+path = "blog/MATLAB-ide/index.html"
+url = "/blog/MATLAB-ide/"
+title = "MATLAB IDE"
+
+[[input.files]]
+path = "blog/linear-algebra-in-MATLAB/index.html"
+url = "/blog/linear-algebra-in-MATLAB/"
+title = "Linear Algebra in MATLAB"
+
+[[input.files]]
+path = "blog/numerical-analysis-in-MATLAB/index.html"
+url = "/blog/numerical-analysis-in-MATLAB/"
+title = "Numerical Analysis in MATLAB"
+
+[[input.files]]
+path = "blog/problem-when-launching-MATLAB/index.html"
+url = "/blog/problem-when-launching-MATLAB/"
+title = "Error when Launching MATLAB in Linux"
+
+[[input.files]]
+path = "blog/send-email-in-MATLAB/index.html"
+url = "/blog/send-email-in-MATLAB/"
+title = "Sending Email in MATLAB"
+
+[[input.files]]
+path = "blog/special-functions-in-MATLAB/index.html"
+url = "/blog/special-functions-in-MATLAB/"
+title = "Special Functions in MATLAB"
+
+[[input.files]]
+path = "blog/statistics-in-MATLAB/index.html"
+url = "/blog/statistics-in-MATLAB/"
+title = "MATLAB for Statisticians"
+
+[[input.files]]
+path = "blog/r-system-and-configurations/index.html"
+url = "/blog/r-system-and-configurations/"
+title = "R System and Configurations"
+
+[[input.files]]
+path = "blog/load-script-ruby/index.html"
+url = "/blog/load-script-ruby/"
+title = "Load User-written Script into Ruby"
+
+[[input.files]]
+path = "blog/sas-plot/index.html"
+url = "/blog/sas-plot/"
+title = "Make Plots in SAS"
+
+[[input.files]]
+path = "blog/combination-and-permutation-in-r/index.html"
+url = "/blog/combination-and-permutation-in-r/"
+title = "Combination and Permutation Related Functions in R"

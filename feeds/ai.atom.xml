@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ben Chuanlong Du's Blog - AI</title><link href="https://outdated.legendu.net/" rel="alternate"></link><link href="https://outdated.legendu.net/feeds/ai.atom.xml" rel="self"></link><id>https://outdated.legendu.net/</id><updated>2020-05-22T15:18:11-07:00</updated><subtitle>Change is eternal.</subtitle><entry><title>The H2O Machine Learning Framework</title><link href="https://outdated.legendu.net/blog/h2o-tips/" rel="alternate"></link><published>2018-06-22T15:18:11-07:00</published><updated>2020-05-22T15:18:11-07:00</updated><author><name>Ben Chuanlong Du</name></author><id>tag:outdated.legendu.net,2018-06-22:/blog/h2o-tips/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+**&lt;/p&gt;
+&lt;h2 id="install-h2o-using-conda"&gt;Install H2O Using conda …&lt;/h2&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Things under legendu.net/outdated are outdated technologies that the author does not plan to update any more. Please look for better alternatives.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**
+Things under legendu.net/outdated are outdated technologies 
+that the author does not plan to update any more. 
+Please look for better alternatives.
+**&lt;/p&gt;
+&lt;h2 id="install-h2o-using-conda"&gt;Install H2O Using conda&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;conda install -c h2oai h2o
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;p&gt;http://docs.h2o.ai/h2o/latest-stable/h2o-docs/downloading.html&lt;/p&gt;</content><category term="AI"></category><category term="machine learning"></category><category term="H2O"></category><category term="software"></category><category term="framework"></category><category term="data science"></category><category term="AI"></category></entry></feed>
